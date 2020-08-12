@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "yYeH/hlphI23SOM8cRDdCDYB7f+0Hk2GQ/3TRirlrINnLY3lYIoG4CKDK0TbK3rosEgqswFZfWGlNpme8MkduA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Nico\\Documents\\UAI\\TFI\\CareMonitor\\CareMonitor\\Seguridad\\Seguridad.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Nico\\.nuget\\packages\\bootstrap\\4.5.2\\bootstrap.4.5.2.nupkg.sha512",
+    "C:\\Users\\Nico\\.nuget\\packages\\jquery\\3.0.0\\jquery.3.0.0.nupkg.sha512",
+    "C:\\Users\\Nico\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\Nico\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",
+    "C:\\Users\\Nico\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
+    "C:\\Users\\Nico\\.nuget\\packages\\popper.js\\1.16.1\\popper.js.1.16.1.nupkg.sha512"
+  ],
+  "logs": []
+}

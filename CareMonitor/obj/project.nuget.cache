@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "ihYLQseLK710/OSa3TNbR/PG4nUYzavLjoSZlYyX+H55PQ7FF7lBmdymVsZ4cjd9uNfRcty3S/zH15WW3AKR6A==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Nico\\Documents\\UAI\\TFI\\CareMonitor\\CareMonitor\\CareMonitor\\CareMonitor.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Nico\\.nuget\\packages\\bootstrap\\4.5.2\\bootstrap.4.5.2.nupkg.sha512",
+    "C:\\Users\\Nico\\.nuget\\packages\\jquery\\3.0.0\\jquery.3.0.0.nupkg.sha512",
+    "C:\\Users\\Nico\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
+    "C:\\Users\\Nico\\.nuget\\packages\\popper.js\\1.16.1\\popper.js.1.16.1.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -1,0 +1,5 @@
+C:\Users\Nico\Documents\UAI\TFI\CareMonitor\CareMonitor\BLL\bin\Debug\netstandard2.0\BLL.deps.json
+C:\Users\Nico\Documents\UAI\TFI\CareMonitor\CareMonitor\BLL\bin\Debug\netstandard2.0\BLL.dll
+C:\Users\Nico\Documents\UAI\TFI\CareMonitor\CareMonitor\BLL\obj\Debug\netstandard2.0\BLL.csprojAssemblyReference.cache
+C:\Users\Nico\Documents\UAI\TFI\CareMonitor\CareMonitor\BLL\obj\Debug\netstandard2.0\BLL.AssemblyInfoInputs.cache
+C:\Users\Nico\Documents\UAI\TFI\CareMonitor\CareMonitor\BLL\obj\Debug\netstandard2.0\BLL.AssemblyInfo.cs
