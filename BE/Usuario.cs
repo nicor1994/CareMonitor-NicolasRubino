@@ -4,7 +4,7 @@ using System.Text;
 
 namespace BE
 {
-    class Usuario
+    public class Usuario
     {
 
         private string _Nombre;

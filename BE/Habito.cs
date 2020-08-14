@@ -1,0 +1,28 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace BE
+{
+    class Habito
+    {
+
+        private int _ValorXSemana;
+
+        public int ValorxSemana
+        {
+            get { return _ValorXSemana; }
+            set { _ValorXSemana = value; }
+        }
+
+        private TipoHabito _habito;
+
+        public TipoHabito TipoHabito
+        {
+            get { return _habito; }
+            set { _habito = value; }
+        }
+
+
+    }
+}
