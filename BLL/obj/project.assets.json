@@ -149,6 +149,50 @@
       },
       "popper.js/1.16.1": {
         "type": "package"
+      },
+      "BE/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.0",
+        "dependencies": {
+          "Newtonsoft.Json": "12.0.3",
+          "bootstrap": "4.5.2"
+        },
+        "compile": {
+          "bin/placeholder/BE.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BE.dll": {}
+        }
+      },
+      "DAL/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.0",
+        "dependencies": {
+          "BE": "1.0.0",
+          "Newtonsoft.Json": "12.0.3",
+          "Seguridad": "1.0.0",
+          "bootstrap": "4.5.2"
+        },
+        "compile": {
+          "bin/placeholder/DAL.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DAL.dll": {}
+        }
+      },
+      "Seguridad/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.0",
+        "dependencies": {
+          "Newtonsoft.Json": "12.0.3",
+          "bootstrap": "4.5.2"
+        },
+        "compile": {
+          "bin/placeholder/Seguridad.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Seguridad.dll": {}
+        }
       }
     }
   },
@@ -505,12 +549,30 @@
         "popper.js.1.16.1.nupkg.sha512",
         "popper.js.nuspec"
       ]
+    },
+    "BE/1.0.0": {
+      "type": "project",
+      "path": "../BE/BE.csproj",
+      "msbuildProject": "../BE/BE.csproj"
+    },
+    "DAL/1.0.0": {
+      "type": "project",
+      "path": "../DAL/DAL.csproj",
+      "msbuildProject": "../DAL/DAL.csproj"
+    },
+    "Seguridad/1.0.0": {
+      "type": "project",
+      "path": "../Seguridad/Seguridad.csproj",
+      "msbuildProject": "../Seguridad/Seguridad.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETStandard,Version=v2.0": [
+      "BE >= 1.0.0",
+      "DAL >= 1.0.0",
       "NETStandard.Library >= 2.0.3",
       "Newtonsoft.Json >= 12.0.3",
+      "Seguridad >= 1.0.0",
       "bootstrap >= 4.5.2"
     ]
   },
@@ -539,7 +601,17 @@
       },
       "frameworks": {
         "netstandard2.0": {
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\Nico\\Documents\\UAI\\TFI\\CareMonitor\\CareMonitor\\BE\\BE.csproj": {
+              "projectPath": "C:\\Users\\Nico\\Documents\\UAI\\TFI\\CareMonitor\\CareMonitor\\BE\\BE.csproj"
+            },
+            "C:\\Users\\Nico\\Documents\\UAI\\TFI\\CareMonitor\\CareMonitor\\DAL\\DAL.csproj": {
+              "projectPath": "C:\\Users\\Nico\\Documents\\UAI\\TFI\\CareMonitor\\CareMonitor\\DAL\\DAL.csproj"
+            },
+            "C:\\Users\\Nico\\Documents\\UAI\\TFI\\CareMonitor\\CareMonitor\\Seguridad\\Seguridad.csproj": {
+              "projectPath": "C:\\Users\\Nico\\Documents\\UAI\\TFI\\CareMonitor\\CareMonitor\\Seguridad\\Seguridad.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

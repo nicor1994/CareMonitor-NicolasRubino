@@ -125,6 +125,67 @@
       },
       "popper.js/1.16.1": {
         "type": "package"
+      },
+      "BE/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.0",
+        "dependencies": {
+          "Newtonsoft.Json": "12.0.3",
+          "bootstrap": "4.5.2"
+        },
+        "compile": {
+          "bin/placeholder/BE.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BE.dll": {}
+        }
+      },
+      "BLL/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.0",
+        "dependencies": {
+          "BE": "1.0.0",
+          "DAL": "1.0.0",
+          "Newtonsoft.Json": "12.0.3",
+          "Seguridad": "1.0.0",
+          "bootstrap": "4.5.2"
+        },
+        "compile": {
+          "bin/placeholder/BLL.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BLL.dll": {}
+        }
+      },
+      "DAL/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.0",
+        "dependencies": {
+          "BE": "1.0.0",
+          "Newtonsoft.Json": "12.0.3",
+          "Seguridad": "1.0.0",
+          "bootstrap": "4.5.2"
+        },
+        "compile": {
+          "bin/placeholder/DAL.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DAL.dll": {}
+        }
+      },
+      "Seguridad/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.0",
+        "dependencies": {
+          "Newtonsoft.Json": "12.0.3",
+          "bootstrap": "4.5.2"
+        },
+        "compile": {
+          "bin/placeholder/Seguridad.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Seguridad.dll": {}
+        }
       }
     }
   },
@@ -337,11 +398,34 @@
         "popper.js.1.16.1.nupkg.sha512",
         "popper.js.nuspec"
       ]
+    },
+    "BE/1.0.0": {
+      "type": "project",
+      "path": "../BE/BE.csproj",
+      "msbuildProject": "../BE/BE.csproj"
+    },
+    "BLL/1.0.0": {
+      "type": "project",
+      "path": "../BLL/BLL.csproj",
+      "msbuildProject": "../BLL/BLL.csproj"
+    },
+    "DAL/1.0.0": {
+      "type": "project",
+      "path": "../DAL/DAL.csproj",
+      "msbuildProject": "../DAL/DAL.csproj"
+    },
+    "Seguridad/1.0.0": {
+      "type": "project",
+      "path": "../Seguridad/Seguridad.csproj",
+      "msbuildProject": "../Seguridad/Seguridad.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
+      "BE >= 1.0.0",
+      "BLL >= 1.0.0",
       "Newtonsoft.Json >= 12.0.3",
+      "Seguridad >= 1.0.0",
       "bootstrap >= 4.5.2"
     ]
   },
@@ -370,7 +454,17 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\Nico\\Documents\\UAI\\TFI\\CareMonitor\\CareMonitor\\BE\\BE.csproj": {
+              "projectPath": "C:\\Users\\Nico\\Documents\\UAI\\TFI\\CareMonitor\\CareMonitor\\BE\\BE.csproj"
+            },
+            "C:\\Users\\Nico\\Documents\\UAI\\TFI\\CareMonitor\\CareMonitor\\BLL\\BLL.csproj": {
+              "projectPath": "C:\\Users\\Nico\\Documents\\UAI\\TFI\\CareMonitor\\CareMonitor\\BLL\\BLL.csproj"
+            },
+            "C:\\Users\\Nico\\Documents\\UAI\\TFI\\CareMonitor\\CareMonitor\\Seguridad\\Seguridad.csproj": {
+              "projectPath": "C:\\Users\\Nico\\Documents\\UAI\\TFI\\CareMonitor\\CareMonitor\\Seguridad\\Seguridad.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
