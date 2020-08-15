@@ -128,11 +128,6 @@
       },
       "BE/1.0.0": {
         "type": "project",
-        "framework": ".NETStandard,Version=v2.0",
-        "dependencies": {
-          "Newtonsoft.Json": "12.0.3",
-          "bootstrap": "4.5.2"
-        },
         "compile": {
           "bin/placeholder/BE.dll": {}
         },
@@ -142,13 +137,10 @@
       },
       "BLL/1.0.0": {
         "type": "project",
-        "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
           "BE": "1.0.0",
           "DAL": "1.0.0",
-          "Newtonsoft.Json": "12.0.3",
-          "Seguridad": "1.0.0",
-          "bootstrap": "4.5.2"
+          "Seguridad": "1.0.0"
         },
         "compile": {
           "bin/placeholder/BLL.dll": {}
@@ -159,13 +151,6 @@
       },
       "DAL/1.0.0": {
         "type": "project",
-        "framework": ".NETStandard,Version=v2.0",
-        "dependencies": {
-          "BE": "1.0.0",
-          "Newtonsoft.Json": "12.0.3",
-          "Seguridad": "1.0.0",
-          "bootstrap": "4.5.2"
-        },
         "compile": {
           "bin/placeholder/DAL.dll": {}
         },
@@ -175,11 +160,6 @@
       },
       "Seguridad/1.0.0": {
         "type": "project",
-        "framework": ".NETStandard,Version=v2.0",
-        "dependencies": {
-          "Newtonsoft.Json": "12.0.3",
-          "bootstrap": "4.5.2"
-        },
         "compile": {
           "bin/placeholder/Seguridad.dll": {}
         },
@@ -425,7 +405,6 @@
       "BE >= 1.0.0",
       "BLL >= 1.0.0",
       "Newtonsoft.Json >= 12.0.3",
-      "Seguridad >= 1.0.0",
       "bootstrap >= 4.5.2"
     ]
   },
@@ -460,9 +439,6 @@
             },
             "C:\\Users\\Nico\\Documents\\UAI\\TFI\\CareMonitor\\CareMonitor\\BLL\\BLL.csproj": {
               "projectPath": "C:\\Users\\Nico\\Documents\\UAI\\TFI\\CareMonitor\\CareMonitor\\BLL\\BLL.csproj"
-            },
-            "C:\\Users\\Nico\\Documents\\UAI\\TFI\\CareMonitor\\CareMonitor\\Seguridad\\Seguridad.csproj": {
-              "projectPath": "C:\\Users\\Nico\\Documents\\UAI\\TFI\\CareMonitor\\CareMonitor\\Seguridad\\Seguridad.csproj"
             }
           }
         }

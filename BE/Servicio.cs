@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
+
 
 namespace BE
 {
@@ -20,7 +23,7 @@ namespace BE
         public BE.TipoServicio TipoServicio
         {
             get { return _TipoServ; }
-            set { _TipoServ = value; }  
+            set { _TipoServ = value; }
         }
 
         private DateTime _FechaPedido;
