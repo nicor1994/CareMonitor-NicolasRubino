@@ -8,8 +8,8 @@ namespace BLL
 {
     public class Bitacora
     {
-        DAL.Bitacora GestorBitacora = new DAL.Bitacora();
-
+        DAL.MP_Bitacora GestorBitacora = new DAL.MP_Bitacora();
+        
         public void RegistrarEnBitacora(BE.Bitacora bitacora)
         {
 
