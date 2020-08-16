@@ -13,9 +13,17 @@ namespace DAL
 
         
 
-        SqlConnection Conexion = new SqlConnection(@"Data Source=.\MSSQLSERVER ;Initial Catalog=CareMonitor ;Integrated Security=True");
+        SqlConnection Conexion = new SqlConnection();
+        private SqlTransaction tx;
 
         public void AbrirConexion() {
+            Conexion.ConnectionString = @"Data Source=.\MSSQLSERVER ; Initial Catalog= CareMonitor ; Integrated Security= True";
+            Conexion.Open();
+        }
+
+        public void AbrirConexionBitacora()
+        {
+            Conexion.ConnectionString = @"Data Source=DESKTOP-UGU0FER;Initial Catalog=CareMonitorBitacora;Integrated Security= True";
             Conexion.Open();
         }
         public void CerrarConexion()
@@ -23,13 +31,32 @@ namespace DAL
             Conexion.Close();
         }
 
-        public static SqlCommand ArmarComando(string sp)
+        public void IniciarTx()
         {
-            var cmd = new SqlCommand();
+            tx = Conexion.BeginTransaction();
+        }
+
+        public void Confirmar()
+        {
+            tx.Commit();
+            tx = null;
+        }
+
+        private SqlCommand CrearComando(string sp, SqlParameter[] parametros)
+        {
+            SqlCommand cmd = new SqlCommand(sp, Conexion);
             cmd.CommandType = CommandType.StoredProcedure;
-            cmd.CommandText = sp;
+            if (tx != null)
+            {
+                cmd.Transaction = tx;
+            }
+            if (parametros != null)
+            {
+                cmd.Parameters.AddRange(parametros);
+            }
             return cmd;
         }
+
 
         public static SqlParameter ArmarParametro(string nombre, object valor, SqlDbType tipo)
         {
@@ -41,7 +68,29 @@ namespace DAL
             return prm;
         }
 
+        public DataTable Leer(string sp, SqlParameter[] parametros)
+        {
+            DataTable Tabla = new DataTable();
+            SqlDataAdapter adaptador = new SqlDataAdapter();
+            adaptador.SelectCommand = CrearComando(sp, parametros);
+            adaptador.Fill(Tabla);
+            adaptador.Dispose();
+            return Tabla;
+        }
 
+        public int Escribir(string sp, SqlParameter[] parametros)
+        {
+            SqlCommand cmd = CrearComando(sp, parametros);
+            int fa = 0;
+            try
+            {
+                fa = cmd.ExecuteNonQuery();
+            }
+            catch (SqlException ex)
+            { fa = -1; }
+
+            return fa;
+        }
 
 
     }

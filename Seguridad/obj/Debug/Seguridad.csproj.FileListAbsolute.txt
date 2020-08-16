@@ -1,0 +1,5 @@
+C:\Users\Nico\Documents\UAI\TFI\CareMonitor\CareMonitor\Seguridad\bin\Debug\Seguridad.dll
+C:\Users\Nico\Documents\UAI\TFI\CareMonitor\CareMonitor\Seguridad\bin\Debug\Seguridad.pdb
+C:\Users\Nico\Documents\UAI\TFI\CareMonitor\CareMonitor\Seguridad\obj\Debug\Seguridad.csproj.CoreCompileInputs.cache
+C:\Users\Nico\Documents\UAI\TFI\CareMonitor\CareMonitor\Seguridad\obj\Debug\Seguridad.dll
+C:\Users\Nico\Documents\UAI\TFI\CareMonitor\CareMonitor\Seguridad\obj\Debug\Seguridad.pdb
