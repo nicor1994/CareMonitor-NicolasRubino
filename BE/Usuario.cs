@@ -75,5 +75,10 @@ namespace BE
         }
 
 
+        public override string ToString()
+        {
+            return Nombre + " " + Apellido;
+        }
+
     }
 }

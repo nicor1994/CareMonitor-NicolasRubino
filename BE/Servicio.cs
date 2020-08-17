@@ -49,6 +49,13 @@ namespace BE
             get { return _Emp; }
             set { _Emp = value; }
         }
+        private int _ID;
+
+        public int ID
+        {
+            get { return _ID; }
+            set { _ID = value; }
+        }
 
     }
 }

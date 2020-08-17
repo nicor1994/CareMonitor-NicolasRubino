@@ -17,6 +17,13 @@ namespace BE
             set { _Matricula = value; }
         }
 
+        private int _ID;
+
+        public int ID
+        {
+            get { return _ID; }
+            set { _ID = value; }
+        }
 
     }
 }

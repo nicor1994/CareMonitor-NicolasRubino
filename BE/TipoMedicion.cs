@@ -75,5 +75,13 @@ namespace BE
             set { _Descripcion = value; }
         }
 
+        private int _ID;
+
+        public int ID
+        {
+            get { return _ID; }
+            set { _ID = value; }
+        }
+
     }
 }

@@ -41,6 +41,13 @@ namespace BE
             set { _EfeAfirmativo = value; }
         }
 
+        private int _ID;
+
+        public int ID
+        {
+            get { return _ID; }
+            set { _ID = value; }
+        }
 
 
     }

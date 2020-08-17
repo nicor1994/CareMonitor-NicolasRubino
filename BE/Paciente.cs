@@ -25,6 +25,13 @@ namespace BE
             set { _Habitos = value; }
         }
 
+        private int _ID;
+
+        public int ID
+        {
+            get { return _ID; }
+            set { _ID = value; }
+        }
 
     }
 }

@@ -17,6 +17,13 @@ namespace BE
             get { return _familiar; }
             set { _familiar = value; }
         }
+        private int _ID;
+
+        public int ID
+        {
+            get { return _ID; }
+            set { _ID = value; }
+        }
 
 
     }

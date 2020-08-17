@@ -16,6 +16,13 @@ namespace BE
             get { return _ListaPermisos; }
             set { _ListaPermisos = value; }
         }
+        private int _ID;
+
+        public int ID
+        {
+            get { return _ID; }
+            set { _ID = value; }
+        }
 
     }
 }

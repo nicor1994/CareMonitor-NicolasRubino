@@ -13,6 +13,7 @@ namespace DAL
     {
 
         DAL.Acceso Acceso = new DAL.Acceso();
+        DAL.MP_Usuario MapperUsuario = new MP_Usuario();
 
         public int GuardarBitacora(BE.Bitacora bita)
         {
@@ -32,5 +33,26 @@ namespace DAL
             return fa;
         }
 
-    }
+        public List<BE.Bitacora> ListarBitacora()
+        {
+            List<BE.Bitacora> ListaBitacora = new List<BE.Bitacora>();
+            Acceso.AbrirConexionBitacora();
+            DataTable Tabla = Acceso.Leer("Bitacora_Listar", null);
+            Acceso.CerrarConexion();
+            GC.Collect();
+            foreach (DataRow bitacorarow in Tabla.Rows)
+            {
+                BE.Bitacora nuevabitacora = new BE.Bitacora();
+
+                nuevabitacora.ID = (int)bitacorarow["ID_Bitacora"];
+                nuevabitacora.Fecha = (DateTime)bitacorarow["Fecha"];
+                nuevabitacora.Accion = (string)bitacorarow["Accion"];
+                nuevabitacora.Usuario = MapperUsuario.ObtenerUsuarioID((int)bitacorarow["ID_Usuario"]);
+
+                ListaBitacora.Add(nuevabitacora);
+
+            }
+            return ListaBitacora;
+        }
+}
 }

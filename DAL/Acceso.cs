@@ -17,7 +17,7 @@ namespace DAL
         private SqlTransaction tx;
 
         public void AbrirConexion() {
-            Conexion.ConnectionString = @"Data Source=.\MSSQLSERVER ; Initial Catalog= CareMonitor ; Integrated Security= True";
+            Conexion.ConnectionString = @"Data Source=DESKTOP-UGU0FER;Initial Catalog=CareMonitor;Integrated Security= True";
             Conexion.Open();
         }
 
@@ -58,7 +58,7 @@ namespace DAL
         }
 
 
-        public static SqlParameter ArmarParametro(string nombre, object valor, SqlDbType tipo)
+        public SqlParameter ArmarParametro(string nombre, object valor, SqlDbType tipo)
         {
             var prm = new SqlParameter();
             prm.Direction = ParameterDirection.Input;

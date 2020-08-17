@@ -12,11 +12,16 @@ namespace BLL
         
         public void RegistrarEnBitacora(BE.Bitacora bitacora)
         {
-
             GestorBitacora.GuardarBitacora(bitacora);
-
         }
 
+        public List<BE.Bitacora> ListarBitacora()
+        {
+
+            return GestorBitacora.ListarBitacora();
+
+
+        }
 
 
     }
