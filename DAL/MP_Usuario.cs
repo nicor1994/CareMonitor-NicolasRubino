@@ -36,5 +36,30 @@ namespace DAL
             return usu;
         }
 
+        public BE.Usuario Login(string user, string pass)
+        {
+
+            acc.AbrirConexion();
+
+            SqlParameter[] parametro = new SqlParameter[2];
+            parametro[0] = acc.ArmarParametro("usu", user, System.Data.SqlDbType.VarChar);
+            parametro[1] = acc.ArmarParametro("pass", pass, System.Data.SqlDbType.VarChar);
+
+
+            DataTable tabla = acc.Leer("Usuario_Obtener", parametro);
+            acc.CerrarConexion();
+            GC.Collect();
+            BE.Usuario usu = new BE.Usuario();
+            foreach (DataRow linea in tabla.Rows)
+            {
+
+                usu.ID = (int)linea["ID"];
+                usu.Nombre = (string)linea["Nombre"];
+                usu.Apellido = (string)linea["Apellido"];
+
+            }
+            return usu;
+        }
+
     }
 }
