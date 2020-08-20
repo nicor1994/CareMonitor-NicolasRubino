@@ -42,7 +42,7 @@ namespace DAL
             acc.AbrirConexion();
 
             SqlParameter[] parametro = new SqlParameter[2];
-            parametro[0] = acc.ArmarParametro("usu", user, System.Data.SqlDbType.VarChar);
+            parametro[0] = acc.ArmarParametro("dni", user, System.Data.SqlDbType.Int);
             parametro[1] = acc.ArmarParametro("pass", pass, System.Data.SqlDbType.VarChar);
 
 

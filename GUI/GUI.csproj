@@ -126,6 +126,7 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Pruebas\Encriptador.aspx" />
     <Content Include="Pruebas\LoginPrueba.aspx" />
     <Content Include="Pruebas\Prueba.aspx" />
     <Content Include="Scripts\bootstrap.js" />
@@ -197,6 +198,13 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Pruebas\Encriptador.aspx.cs">
+      <DependentUpon>Encriptador.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pruebas\Encriptador.aspx.designer.cs">
+      <DependentUpon>Encriptador.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pruebas\LoginPrueba.aspx.cs">
       <DependentUpon>LoginPrueba.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

@@ -12,10 +12,17 @@ namespace GUI
     {
 
         BLL.Bitacora GestorBitacora = new BLL.Bitacora();
+        BLL.Usuario GestorUsuario = new BLL.Usuario();
 
         protected void Page_Load(object sender, EventArgs e)
         {
+             
+            HttpCookie cookieusu = Request.Cookies["Usuario"];
 
+
+            int idusu = int.Parse(cookieusu["IdUsu"].ToString());
+            BE.Usuario UsuEnSesion = GestorUsuario.ObtenerUsuarioID(idusu);
+            Label1.Text = UsuEnSesion.Nombre + " " + UsuEnSesion.Apellido;
         }
 
         protected void Button1_Click(object sender, EventArgs e)

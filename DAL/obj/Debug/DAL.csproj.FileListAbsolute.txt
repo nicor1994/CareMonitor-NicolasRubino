@@ -9,3 +9,13 @@ C:\Users\Nico\Documents\UAI\TFI\CareMonitor\CareMonitor\DAL\obj\Debug\DAL.csproj
 C:\Users\Nico\Documents\UAI\TFI\CareMonitor\CareMonitor\DAL\obj\Debug\DAL.csproj.CopyComplete
 C:\Users\Nico\Documents\UAI\TFI\CareMonitor\CareMonitor\DAL\obj\Debug\DAL.dll
 C:\Users\Nico\Documents\UAI\TFI\CareMonitor\CareMonitor\DAL\obj\Debug\DAL.pdb
+C:\Users\Nico\Documents\GitHub\CareMonitor-NicolasRubino\DAL\bin\Debug\DAL.dll
+C:\Users\Nico\Documents\GitHub\CareMonitor-NicolasRubino\DAL\bin\Debug\DAL.pdb
+C:\Users\Nico\Documents\GitHub\CareMonitor-NicolasRubino\DAL\bin\Debug\BE.dll
+C:\Users\Nico\Documents\GitHub\CareMonitor-NicolasRubino\DAL\bin\Debug\Seguridad.dll
+C:\Users\Nico\Documents\GitHub\CareMonitor-NicolasRubino\DAL\bin\Debug\BE.pdb
+C:\Users\Nico\Documents\GitHub\CareMonitor-NicolasRubino\DAL\bin\Debug\Seguridad.pdb
+C:\Users\Nico\Documents\GitHub\CareMonitor-NicolasRubino\DAL\obj\Debug\DAL.csprojAssemblyReference.cache
+C:\Users\Nico\Documents\GitHub\CareMonitor-NicolasRubino\DAL\obj\Debug\DAL.csproj.CopyComplete
+C:\Users\Nico\Documents\GitHub\CareMonitor-NicolasRubino\DAL\obj\Debug\DAL.dll
+C:\Users\Nico\Documents\GitHub\CareMonitor-NicolasRubino\DAL\obj\Debug\DAL.pdb

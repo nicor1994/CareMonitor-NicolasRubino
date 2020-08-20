@@ -4,3 +4,8 @@ C:\Users\Nico\Documents\UAI\TFI\CareMonitor\CareMonitor\BE\obj\Debug\BE.csproj.C
 C:\Users\Nico\Documents\UAI\TFI\CareMonitor\CareMonitor\BE\obj\Debug\BE.dll
 C:\Users\Nico\Documents\UAI\TFI\CareMonitor\CareMonitor\BE\obj\Debug\BE.pdb
 C:\Users\Nico\Documents\UAI\TFI\CareMonitor\CareMonitor\BE\obj\Debug\BE.csprojAssemblyReference.cache
+C:\Users\Nico\Documents\GitHub\CareMonitor-NicolasRubino\BE\bin\Debug\BE.dll
+C:\Users\Nico\Documents\GitHub\CareMonitor-NicolasRubino\BE\bin\Debug\BE.pdb
+C:\Users\Nico\Documents\GitHub\CareMonitor-NicolasRubino\BE\obj\Debug\BE.csprojAssemblyReference.cache
+C:\Users\Nico\Documents\GitHub\CareMonitor-NicolasRubino\BE\obj\Debug\BE.dll
+C:\Users\Nico\Documents\GitHub\CareMonitor-NicolasRubino\BE\obj\Debug\BE.pdb
