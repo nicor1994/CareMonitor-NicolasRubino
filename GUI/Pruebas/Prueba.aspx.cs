@@ -33,12 +33,7 @@ namespace GUI
             BE.Usuario usu = new BE.Usuario();
             usu.ID = 1;
 
-            bita.Usuario = usu;
-
-            bita.Usuario.ID = 1;
-            bita.Fecha = DateTime.Now;
-            bita.Accion = "Prueba";
-
+           
             GestorBitacora.RegistrarEnBitacora(bita);
 
         }

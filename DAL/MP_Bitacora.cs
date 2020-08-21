@@ -19,12 +19,12 @@ namespace DAL
         {
             int fa = 0;
             Acceso.AbrirConexionBitacora();
-            SqlParameter[] parametros = new SqlParameter[3];
+            SqlParameter[] parametros = new SqlParameter[4];
             
-            parametros[0] = Acceso.ArmarParametro("idusu", bita.Usuario.ID, SqlDbType.Int);
+            parametros[0] = Acceso.ArmarParametro("usu", bita.Usuario, SqlDbType.VarChar);
             parametros[1] = Acceso.ArmarParametro("fecha", DateTime.Now, SqlDbType.DateTime);
             parametros[2] = Acceso.ArmarParametro("acc", bita.Accion, SqlDbType.VarChar);
-
+            parametros[3] = Acceso.ArmarParametro("tipo", bita.Tipo, SqlDbType.VarChar);
             fa = Acceso.Escribir("Bitacora_Insertar", parametros);
 
 
@@ -47,7 +47,8 @@ namespace DAL
                 nuevabitacora.ID = (int)bitacorarow["ID_Bitacora"];
                 nuevabitacora.Fecha = (DateTime)bitacorarow["Fecha"];
                 nuevabitacora.Accion = (string)bitacorarow["Accion"];
-                nuevabitacora.Usuario = MapperUsuario.ObtenerUsuarioID((int)bitacorarow["ID_Usuario"]);
+                nuevabitacora.Usuario = (string)bitacorarow["Usuario"];
+                nuevabitacora.Tipo = (string)bitacorarow["Tipo"];
 
                 ListaBitacora.Add(nuevabitacora);
 

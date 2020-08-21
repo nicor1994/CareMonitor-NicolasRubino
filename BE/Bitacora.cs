@@ -11,9 +11,9 @@ namespace BE
     public class Bitacora
     {
 
-        private Usuario _usu;
+        private string _usu;
 
-        public Usuario Usuario
+        public string Usuario
         {
             get { return _usu; }
             set { _usu = value; }
@@ -43,6 +43,13 @@ namespace BE
             set { _ID = value; }
         }
 
+        private string _tipo;
+
+        public string Tipo
+        {
+            get { return _tipo; }
+            set { _tipo = value; }
+        }
 
     }
 }

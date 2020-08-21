@@ -25,12 +25,12 @@ namespace GUI
             ListBox1.DataSource = null;
             ListBox1.DataSource = ListaBitacora;
             ListBox1.DataBind();
-            TextBox1.Text = ListaBitacora[0].Usuario.Nombre + " " + ListaBitacora[0].Usuario.Apellido;
+            
         }
 
         protected void ListBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Label1.Text = ListaBitacora[ListBox1.SelectedIndex].Usuario.Nombre + " " + ListaBitacora[ListBox1.SelectedIndex].Usuario.Apellido;
+          
         }
 
         protected void ListBox1_Init(object sender, EventArgs e)

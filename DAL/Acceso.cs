@@ -17,13 +17,13 @@ namespace DAL
         private SqlTransaction tx;
 
         public void AbrirConexion() {
-            Conexion.ConnectionString = @"Data Source=DESKTOP-IM30A9D;Initial Catalog=CareMonitor;Integrated Security= True";
+            Conexion.ConnectionString = @"Data Source=DESKTOP-UGU0FER;Initial Catalog=CareMonitor;Integrated Security= True";
             Conexion.Open();
         }
 
         public void AbrirConexionBitacora()
         {
-            Conexion.ConnectionString = @"Data Source=DESKTOP-IM30A9D;Initial Catalog=CareMonitorBitacora;Integrated Security= True";
+            Conexion.ConnectionString = @"Data Source=DESKTOP-UGU0FER;Initial Catalog=CareMonitorBitacora;Integrated Security= True";
             Conexion.Open();
         }
         public void CerrarConexion()
