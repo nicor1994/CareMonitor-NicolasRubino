@@ -12,6 +12,7 @@
         <div>
             <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Button" />
             <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
+            <asp:ListBox ID="ListBox1" runat="server" OnSelectedIndexChanged="ListBox1_SelectedIndexChanged"></asp:ListBox>
         </div>
     </form>
 </body>
