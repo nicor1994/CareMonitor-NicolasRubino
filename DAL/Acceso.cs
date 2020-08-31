@@ -26,6 +26,12 @@ namespace DAL
             Conexion.ConnectionString = @"Data Source=DESKTOP-UGU0FER;Initial Catalog=CareMonitorBitacora;Integrated Security= True";
             Conexion.Open();
         }
+
+        public void AbrirConexionMaster()
+        {
+            Conexion.ConnectionString = @"Data Source=DESKTOP-UGU0FER;Initial Catalog=master;Integrated Security= True";
+            Conexion.Open();
+        }
         public void CerrarConexion()
         {
             Conexion.Close();
@@ -56,7 +62,16 @@ namespace DAL
             }
             return cmd;
         }
-
+        private SqlCommand CrearComando(string query)
+        {
+            SqlCommand cmd = new SqlCommand(query, Conexion);
+            cmd.CommandType = CommandType.Text;
+            if (tx != null)
+            {
+                cmd.Transaction = tx;
+            }
+            return cmd;
+        }
 
         public SqlParameter ArmarParametro(string nombre, object valor, SqlDbType tipo)
         {
@@ -68,7 +83,7 @@ namespace DAL
             return prm;
         }
 
-        public DataTable Leer(string sp, SqlParameter[] parametros)
+        public DataTable Leer(string sp, SqlParameter[] parametros = null)
         {
             DataTable Tabla = new DataTable();
             SqlDataAdapter adaptador = new SqlDataAdapter();
@@ -92,6 +107,19 @@ namespace DAL
             return fa;
         }
 
+        public int Escribir(string query)
+        {
+            SqlCommand cmd = CrearComando(query);
+            int fa = 0;
+            try
+            {
+                cmd.ExecuteNonQuery();
+            }
+            catch (SqlException ex)
+            { fa = -1; }
+
+            return fa;
+        }
 
     }
 }

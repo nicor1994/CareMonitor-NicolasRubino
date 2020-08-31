@@ -41,6 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BackupRestore.cs" />
+    <Compile Include="Permiso.cs" />
     <Compile Include="Tecnologia\Bitacora.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tecnologia\Permiso.cs" />
