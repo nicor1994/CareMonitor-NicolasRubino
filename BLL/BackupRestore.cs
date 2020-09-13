@@ -55,6 +55,15 @@ namespace BLL
                 bita.Usuario = usu.Nombre + " " + usu.Apellido;
                 GestorBitacora.RegistrarEnBitacora(bita);
             }
+            else
+            {
+                BE.Bitacora bita = new BE.Bitacora();
+                bita.Accion = "Se restauró la base de datos";
+                bita.Fecha = DateTime.Now;
+                bita.Tipo = "Restore";
+                bita.Usuario = usu.Nombre + " " + usu.Apellido;
+                GestorBitacora.RegistrarEnBitacora(bita);
+            }
 
             return fa;
         }

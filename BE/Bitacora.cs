@@ -11,6 +11,14 @@ namespace BE
     public class Bitacora
     {
 
+        private int _ID;
+
+        public int ID
+        {
+            get { return _ID; }
+            set { _ID = value; }
+        }
+
         private string _usu;
 
         public string Usuario
@@ -33,14 +41,6 @@ namespace BE
         {
             get { return _accion; }
             set { _accion = value; }
-        }
-
-        private int _ID;
-
-        public int ID
-        {
-            get { return _ID; }
-            set { _ID = value; }
         }
 
         private string _tipo;

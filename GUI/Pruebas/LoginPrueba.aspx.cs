@@ -11,15 +11,21 @@ namespace GUI.Pruebas
     {
         BLL.Usuario GestorUsuario = new BLL.Usuario();
         BLL.Bitacora GestorBitacora = new BLL.Bitacora();
-        int intentos = new int();
-
+        Seguridad.DigitoVerificador GestorDigito = new Seguridad.DigitoVerificador();
+      
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!IsPostBack)
+            {
+                Session["Intentos"] = "0";
+                
+            }
         }
 
         protected void Button1_Click(object sender, EventArgs e)
         {
+            int intentos = int.Parse(Session["Intentos"].ToString());
+
             if (intentos < 3)
             {
                 BE.Usuario ususesion = GestorUsuario.Login(TextBox1.Text, Seguridad.Encriptador.Encrypt(TextBox2.Text));
@@ -27,6 +33,7 @@ namespace GUI.Pruebas
                 if (ususesion.ID == 0)
                 {
                     intentos++;
+                    Session["Intentos"] = intentos;
                     BE.Bitacora bita = new BE.Bitacora();
                     bita.Usuario = "Usuario no logeado";
                     bita.Fecha = DateTime.Now;
@@ -56,6 +63,26 @@ namespace GUI.Pruebas
             else
             {
                 Label1.Text = "Usted agoto los 3 intentos.";
+            }
+        }
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+
+            Label2.Text = GestorDigito.GenerarDVH(TextBox3.Text.ToString()).ToString();
+
+        }
+
+        protected void Button3_Click(object sender, EventArgs e)
+        {
+           int Registros = GestorUsuario.ComprobarIntegridad();
+            if (Registros != 0)
+            {
+                Label3.Text="Hay un problema de integridad";
+            }
+            else
+            {
+                Label3.Text = "La base de datos esta integra";
             }
         }
     }

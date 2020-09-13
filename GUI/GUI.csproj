@@ -114,7 +114,16 @@
     <Content Include="Content\bootstrap-reboot.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\global.css" />
+    <Content Include="Forms\BackupRestore.aspx" />
+    <Content Include="Forms\Bitacora.aspx" />
+    <Content Include="Forms\Login.aspx" />
+    <Content Include="Forms\VistaTecnologia.aspx" />
+    <Content Include="Imagenes\Care Monitor.jpg" />
+    <Content Include="Imagenes\FondoLogin.jpg" />
+    <Content Include="Imagenes\LoginWallpaper.jpg" />
     <Content Include="js\Local\Validacion.js" />
+    <Content Include="Pruebas\AltaUsuario.aspx" />
     <Content Include="Pruebas\BackupRestore.aspx" />
     <Content Include="Pruebas\Bitacora.aspx" />
     <Content Include="Contact.aspx" />
@@ -251,7 +260,7 @@
     <Content Include="js\WebForms\WebForms.js" />
     <Content Include="js\WebForms\WebParts.js" />
     <Content Include="js\WebForms\WebUIValidation.js" />
-    <Content Include="Site.Master" />
+    <Content Include="Tecnologia.Master" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
@@ -267,6 +276,41 @@
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Forms\BackupRestore.aspx.cs">
+      <DependentUpon>BackupRestore.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\BackupRestore.aspx.designer.cs">
+      <DependentUpon>BackupRestore.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Bitacora.aspx.cs">
+      <DependentUpon>Bitacora.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Bitacora.aspx.designer.cs">
+      <DependentUpon>Bitacora.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\VistaTecnologia.aspx.cs">
+      <DependentUpon>VistaTecnologia.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\VistaTecnologia.aspx.designer.cs">
+      <DependentUpon>VistaTecnologia.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pruebas\AltaUsuario.aspx.cs">
+      <DependentUpon>AltaUsuario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pruebas\AltaUsuario.aspx.designer.cs">
+      <DependentUpon>AltaUsuario.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pruebas\BackupRestore.aspx.cs">
       <DependentUpon>BackupRestore.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -355,12 +399,12 @@
     <Compile Include="Pruebas\Tecnologia.aspx.designer.cs">
       <DependentUpon>Tecnologia.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Site.Master.cs">
-      <DependentUpon>Site.Master</DependentUpon>
+    <Compile Include="Tecnologia.Master.cs">
+      <DependentUpon>Tecnologia.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Site.Master.designer.cs">
-      <DependentUpon>Site.Master</DependentUpon>
+    <Compile Include="Tecnologia.Master.designer.cs">
+      <DependentUpon>Tecnologia.Master</DependentUpon>
     </Compile>
     <Compile Include="Site.Mobile.Master.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>

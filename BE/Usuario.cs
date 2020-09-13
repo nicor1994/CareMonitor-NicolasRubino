@@ -74,6 +74,30 @@ namespace BE
             set { _id = value; }
         }
 
+        private int _dvh;
+
+        public int DVH
+        {
+            get { return _dvh; }
+            set { _dvh = value; }
+        }
+
+        private string _Contraseña;
+
+        public string Contraseña
+        {
+            get { return _Contraseña; }
+            set { _Contraseña = value; }
+        }
+
+        private int _Borrado;
+
+        public int Borrado
+        {
+            get { return _Borrado; }
+            set { _Borrado = value; }
+        }
+
 
         public override string ToString()
         {

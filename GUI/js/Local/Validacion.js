@@ -9,10 +9,20 @@
 
 }
 
-function ValidarStringSinNumeros{
+function ValidarStringSinNumeros(elementId){
 
     var Valor = document.getElementById(elementId).value
     if (isNaN(Valor)) {
-        return 
+        return true; //NO es un numero
+    } else {
+        return false; //Es un Numero
+    }
+}
+
+function ValidarEmail(valor) {
+    if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3,4})+$/.test(valor)) {
+       return true; //La direccion de email es correcta
+    } else {
+        return false; //La direccion de email NO es correcta
     }
 }
