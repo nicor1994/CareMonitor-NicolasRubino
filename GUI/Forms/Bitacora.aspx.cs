@@ -16,6 +16,7 @@ namespace GUI.Forms
 
             List<BE.Bitacora> ListaBitacora = new List<BE.Bitacora>();
             List<string> ListaNombres = new List<string>();
+            List<string> ListaTipos = new List<string>();
             if (!IsPostBack)
             {
                 ListaBitacora = GestorBitacora.ListarBitacora();
@@ -25,12 +26,19 @@ namespace GUI.Forms
                 dropdownUsuarios.DataSource = null;
                 dropdownUsuarios.DataSource = ListaNombres;
                 dropdownUsuarios.DataBind();
+
+                ListaTipos = GestorBitacora.ListarTipos(ListaBitacora);
+                Session["ListaTipos"] = ListaTipos;
+                dropdownTipos.DataSource = null;
+                dropdownTipos.DataSource = ListaTipos;
+                dropdownTipos.DataBind();
             }
             else
             {
                 ListaBitacora = (List<BE.Bitacora>)Session["ListaBitacora"];
                 ListaNombres = (List<string>)Session["ListaNombres"];
-                if(ListaBitacora.Count == 0)
+                ListaTipos = (List<string>)Session["ListaTipos"];
+                if (ListaBitacora.Count == 0)
                 {
                     ListaBitacora = GestorBitacora.ListarBitacora();
                     Session["ListaBitacora"] = ListaBitacora;
@@ -43,6 +51,14 @@ namespace GUI.Forms
                     dropdownUsuarios.DataSource = ListaNombres;
                     dropdownUsuarios.DataBind();
                 }
+                if (ListaTipos.Count == 0){
+                    ListaTipos = GestorBitacora.ListarTipos(ListaBitacora);
+                    Session["ListaTipos"] = ListaTipos;
+                    dropdownTipos.DataSource = null;
+                    dropdownTipos.DataSource = ListaTipos;
+                    dropdownTipos.DataBind();
+                }
+                
             }
            
             GridView1.DataSource = null;
@@ -114,7 +130,7 @@ namespace GUI.Forms
             dropdownUsuarios.Visible = false;
             btnFiltraUsuarios.Visible = false;
             btnFiltrarTipo.Visible = true;
-            btnTipo.Enabled = false;
+           
         }
 
         protected void dropdownUsuarios_SelectedIndexChanged(object sender, EventArgs e)
@@ -156,7 +172,27 @@ namespace GUI.Forms
 
         protected void btnFiltrarTipo_Click(object sender, EventArgs e)
         {
+            List<BE.Bitacora> listabitacora = (List<BE.Bitacora>)Session["ListaBitacora"];
+            List<BE.Bitacora> listafiltrada = new List<BE.Bitacora>();
+            List<string> ListaFiltros = (List<string>)Session["ListaFiltros"];
 
+            foreach (BE.Bitacora bit in listabitacora)
+            {
+                if (bit.Tipo == dropdownTipos.SelectedValue.ToString())
+                {
+                    listafiltrada.Add(bit);
+                }
+            }
+            Session["ListaBitacora"] = listafiltrada;
+            GridView1.DataSource = null;
+            GridView1.DataSource = (List<BE.Bitacora>)Session["ListaBitacora"];
+            if ((listafiltrada.Count == 0))
+            {
+                lblerror.Visible = true;
+            }
+            GridView1.DataBind();
+            btnTipo.Enabled = false;
+            btnFiltrarTipo.Visible = false;
         }
     }
 }

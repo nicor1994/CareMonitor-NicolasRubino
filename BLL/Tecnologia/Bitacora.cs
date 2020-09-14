@@ -24,6 +24,20 @@ namespace BLL
 
         }
 
+        public List<string> ListarTipos(List<BE.Bitacora> listabit)
+        {
+            List<string> ListaTipos = new List<string>();
+
+            foreach (BE.Bitacora bit in listabit)
+            {
+                if (ListaTipos.Contains(bit.Tipo) == false)
+                {
+                    ListaTipos.Add(bit.Tipo);
+                }
+            }
+            
+            return ListaTipos;
+        }
 
     }
 }
