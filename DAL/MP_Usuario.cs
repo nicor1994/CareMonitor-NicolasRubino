@@ -59,7 +59,7 @@ namespace DAL
                 usu.Nombre = (string)linea["Nombre"];
                 usu.Apellido = (string)linea["Apellido"];
                 usu.Contraseña = (string)linea["Contraseña"];
-                usu.DVH = (int)linea["DVH"];
+                usu.DVH = (int)linea[7];
             }
             return usu;
         }
