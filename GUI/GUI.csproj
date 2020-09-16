@@ -118,6 +118,7 @@
     <Content Include="Forms\BackupRestore.aspx" />
     <Content Include="Forms\Bitacora.aspx" />
     <Content Include="Forms\Login.aspx" />
+    <Content Include="Forms\PrimerInicio.aspx" />
     <Content Include="Forms\Usuarios.aspx" />
     <Content Include="Forms\VistaTecnologia.aspx" />
     <Content Include="Imagenes\Care Monitor.jpg" />
@@ -297,6 +298,13 @@
     </Compile>
     <Compile Include="Forms\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\PrimerInicio.aspx.cs">
+      <DependentUpon>PrimerInicio.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\PrimerInicio.aspx.designer.cs">
+      <DependentUpon>PrimerInicio.aspx</DependentUpon>
     </Compile>
     <Compile Include="Forms\Usuarios.aspx.cs">
       <DependentUpon>Usuarios.aspx</DependentUpon>
