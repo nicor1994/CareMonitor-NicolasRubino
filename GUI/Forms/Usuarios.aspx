@@ -9,7 +9,12 @@
          <div class="row">
              <div class="col-md-12 border shadow">
              <h4 class="font-weight-bold mb-0">Alta de Usuario</h4>
+<<<<<<< HEAD
             
+=======
+             <br />
+
+>>>>>>> parent of 10115e1... Merge branch 'master' of https://github.com/nicor1994/CareMonitor-NicolasRubino
 
 
              </div>
