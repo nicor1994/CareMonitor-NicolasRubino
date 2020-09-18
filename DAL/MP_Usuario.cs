@@ -60,13 +60,6 @@ namespace DAL
                 usu.Apellido = (string)linea["Apellido"];
                 usu.Contraseña = (string)linea["Contraseña"];
                 usu.DVH = (int)linea[7];
-                usu.Direccion = (string)linea["Direccion"];
-
-                if ((int)linea["PrimerInicio"] == 1)
-                {
-                    usu.PrimerInicio = true;
-                }
-                else { usu.PrimerInicio = false; }
             }
             return usu;
         }
@@ -75,15 +68,13 @@ namespace DAL
         {
             int fa = 0;
             acc.AbrirConexion();
-            SqlParameter[] parametros = new SqlParameter[7];
+            SqlParameter[] parametros = new SqlParameter[6];
             parametros[0] = acc.ArmarParametro("nombre", usu.Nombre, System.Data.SqlDbType.VarChar);
             parametros[1] = acc.ArmarParametro("apellido", usu.Apellido, System.Data.SqlDbType.VarChar);
             parametros[2] = acc.ArmarParametro("dni", usu.DNI, System.Data.SqlDbType.Int);
             parametros[3] = acc.ArmarParametro("pass", usu.Contraseña, System.Data.SqlDbType.VarChar);
             parametros[4] = acc.ArmarParametro("borrado", usu.Borrado, System.Data.SqlDbType.Int);
             parametros[5] = acc.ArmarParametro("dvh", usu.DVH, System.Data.SqlDbType.VarChar);
-            parametros[6] = acc.ArmarParametro("dir", usu.Direccion, System.Data.SqlDbType.VarChar);
-           
 
             fa = acc.Escribir("Usuario_Agregar", parametros);
             acc.CerrarConexion();
@@ -113,14 +104,6 @@ namespace DAL
                 usu.Contraseña = (string)linea["Contraseña"];
                 usu.Borrado = (int)linea["Borrado"];
                 usu.DVH = (int)linea["DVH"];
-                usu.Direccion = (string)linea["Direccion"];
-                
-                if ((int)linea["PrimerInicio"] == 1)
-                {
-                    usu.PrimerInicio = true;
-                }
-                else { usu.PrimerInicio = false; }
-
 
                 ListaUsuario.Add(usu);
 

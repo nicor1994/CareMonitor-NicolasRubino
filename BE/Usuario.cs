@@ -98,14 +98,6 @@ namespace BE
             set { _Borrado = value; }
         }
 
-        private bool _PrimerInicio;
-
-        public bool PrimerInicio
-        {
-            get { return _PrimerInicio; }
-            set { _PrimerInicio = value; }
-        }
-
 
         public override string ToString()
         {
