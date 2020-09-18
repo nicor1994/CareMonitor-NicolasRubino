@@ -24,15 +24,7 @@ namespace GUI.Pruebas
             usu.DNI = int.Parse(TextBox3.Text);
             usu.Contraseña = usu.Nombre.ToLower() + usu.Apellido.ToLower();
 
-            if (GestorUsuario.RegistrarUsuario(usu) == true)
-            {
-                Label1.Text = "Se guardo correctamente el usuario";
-                
-            }
-            else
-            {
-                Label1.Text = "Hubo un problema al guardar el usuario";
-            }
+           
 
         }
     }

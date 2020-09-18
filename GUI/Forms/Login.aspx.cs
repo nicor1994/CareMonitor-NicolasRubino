@@ -48,34 +48,40 @@ namespace GUI.Forms
                 {
                     List<int> UsuariosEnSesion = new List<int>();
                     UsuariosEnSesion = (List<int>)Application["UsuariosEnSesion"];
-
-                    if (GestorUsuario.ComprobarUsuarioEnSesion(UsuariosEnSesion, ususesion) == false)
+                    if (ususesion.PrimerInicio != true)
                     {
-                        //Guardo en Bitacora
+                        if (GestorUsuario.ComprobarUsuarioEnSesion(UsuariosEnSesion, ususesion) == false)
+                        {
+                            //Guardo en Bitacora
 
-                        UsuariosEnSesion.Add(ususesion.ID);
-                        Application["UsuariosEnSesion"] = UsuariosEnSesion;
+                            UsuariosEnSesion.Add(ususesion.ID);
+                            Application["UsuariosEnSesion"] = UsuariosEnSesion;
 
-                        BE.Bitacora bita = new BE.Bitacora();
-                        bita.Usuario = ususesion.Nombre + " " + ususesion.Apellido;
-                        bita.Fecha = DateTime.Now;
-                        bita.Tipo = "Inicio de Sesion";
-                        bita.Accion = "El usuario inicio la Sesion";
-                        GestorBitacora.RegistrarEnBitacora(bita);
-                        //Redirecciono donde corresponda
-                        //HttpCookie Usuario = new HttpCookie("Usuario");
-                        //Usuario["IdUsu"] = ususesion.ID.ToString();
+                            BE.Bitacora bita = new BE.Bitacora();
+                            bita.Usuario = ususesion.Nombre + " " + ususesion.Apellido;
+                            bita.Fecha = DateTime.Now;
+                            bita.Tipo = "Inicio de Sesion";
+                            bita.Accion = "El usuario inicio la Sesion";
+                            GestorBitacora.RegistrarEnBitacora(bita);
+                            //Redirecciono donde corresponda
+                            //HttpCookie Usuario = new HttpCookie("Usuario");
+                            //Usuario["IdUsu"] = ususesion.ID.ToString();
+                            Session["UsuarioEnSesion"] = ususesion;
+                            //Response.Cookies.Add(Usuario);
+                            //Redirecciono a la prueba
+                            Response.Redirect("VistaTecnologia.aspx");
+                        }
+                        else
+                        {
+                            Label1.Text = "El usuario ya tiene una sesion iniciada!";
+                            Label1.Visible = true;
+                        }
+                    }
+                    
+                    else {
                         Session["UsuarioEnSesion"] = ususesion;
-                        //Response.Cookies.Add(Usuario);
-                        //Redirecciono a la prueba
-                        Response.Redirect("VistaTecnologia.aspx");
+                        Response.Redirect("PrimerInicio.aspx"); }
                     }
-                    else
-                    {
-                        Label1.Text = "El usuario ya tiene una sesion iniciada!";
-                        Label1.Visible = true;
-                    }
-                }
             }
             else
             {
