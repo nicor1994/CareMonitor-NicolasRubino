@@ -10,17 +10,22 @@ namespace GUI
     public partial class SiteMaster : MasterPage
     {
         BLL.Bitacora GestorBitacora = new BLL.Bitacora();
+        BLL.Permiso GestorPermiso = new BLL.Permiso();
         protected void Page_Load(object sender, EventArgs e)
         {
             BE.Usuario usu = (BE.Usuario)Session["UsuarioEnSesion"];
 
             if (usu == null)
             {
-                Response.Redirect("Login.aspx");
+                Response.Redirect("SinPermisos.aspx");
             }
             else
             {
-                Label1.Text = "Bienvenido " + usu.Nombre + " " + usu.Apellido;
+                if (GestorPermiso.VerificarPermiso(usu, 104))
+                {
+                    Label1.Text = "Bienvenido " + usu.Nombre + " " + usu.Apellido;
+                }
+                else { Response.Redirect("SinPermisos.aspx"); }
             }
         }
 

@@ -24,6 +24,7 @@
             <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
             <asp:Button ID="Button3" runat="server" OnClick="Button3_Click" Text="ComprobarI Integridad" />
             <asp:Label ID="Label3" runat="server" Text="Label"></asp:Label>
+            <asp:TextBox TextMode="Date" ID="txtfecha" runat="server"></asp:TextBox>
             <br />
         </div>
     </form>

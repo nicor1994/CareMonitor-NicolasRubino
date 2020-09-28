@@ -23,20 +23,11 @@ namespace DAL
             foreach (DataRow linea in tabla.Rows)
             {
                 BE.Permiso per = new BE.Permiso();
-                if ((int)linea["ID_Permiso"] < 100)
-                {
-                    per.ID = (int)linea["ID_Permiso"];
-                    ListaPermisos.Add(per);
-                }
-                else
-                {
-                    List<BE.Permiso> lista2 = this.ListarRol((int)linea["ID_Permiso"]);
-                    foreach (BE.Permiso permi in lista2)
-                    {
-                        per.ID = permi.ID;
-                        ListaPermisos.Add(per);
-                    }
-                }
+
+                per = ListarRolUsu((int)linea["ID_Rol"]);
+
+                ListaPermisos.Add(per);
+
             }
 
             return ListaPermisos;
@@ -58,6 +49,26 @@ namespace DAL
                 ListaPermisos.Add(per);
             }
             return ListaPermisos;
+        }
+
+        public BE.Permiso ListarRolUsu(int id)
+        {
+            BE.Permiso per = new BE.Permiso();
+            SqlParameter[] parametros = new SqlParameter[2];
+            parametros[0] = Acc.ArmarParametro("id", id, SqlDbType.Int);
+            parametros[1] = Acc.ArmarParametro("tabla", "Permiso", SqlDbType.VarChar);
+            Acc.AbrirConexion();
+            DataTable tabla = Acc.Leer("ObtenerEntidadID", parametros);
+            Acc.CerrarConexion();
+            GC.Collect();
+            foreach (DataRow linea in tabla.Rows)
+            {
+              
+                per.ID = (int)linea["ID"];
+                per.Nombre = (string)linea["Nombre"];
+                
+            }
+            return per;
         }
 
         public List<BE.Permiso> ListarTodosLosPermisos()
@@ -115,6 +126,23 @@ namespace DAL
             return fa;
 
         }
+
+        public int GuardarRolUsuario(BE.Usuario usu, BE.Permiso rol)
+        {
+
+            int fa = 0;
+
+            SqlParameter[] parametros = new SqlParameter[2];
+            parametros[0] = Acc.ArmarParametro("idusu", usu.ID, SqlDbType.Int);
+            parametros[1] = Acc.ArmarParametro("idrol", rol.ID, SqlDbType.Int);
+            Acc.AbrirConexion();
+            fa = Acc.Escribir("Usuario_GuardarRol", parametros);
+            Acc.CerrarConexion();
+            GC.Collect();
+            return fa;
+
+        }
+
         public int GuardarPermisoRol(BE.Permiso per)
         {
 
@@ -168,5 +196,48 @@ namespace DAL
 
             return ListaRoles;
         }
+
+        public BE.Permiso BuscarPermiso(int ID)
+        {
+           
+            BE.Permiso per = new BE.Permiso();
+            SqlParameter[] parametros = new SqlParameter[2];
+            parametros[0] = Acc.ArmarParametro("tabla","Permiso", SqlDbType.VarChar);
+            parametros[1] = Acc.ArmarParametro("id", ID, SqlDbType.Int);
+            Acc.AbrirConexion();
+            DataTable tabla = Acc.Leer("ObtenerEntidadID", parametros);
+            Acc.CerrarConexion();
+            GC.Collect();
+            foreach (DataRow linea in tabla.Rows)
+            {                
+                per.ID = (int)linea["ID"];
+                per.Nombre = (string)linea["Nombre"];
+            }
+
+            return per;
+        }
+
+        public List<BE.Permiso> ListarPermisosRoles(BE.Permiso Rol)
+        {
+            List<BE.Permiso> ListaPermisos = new List<BE.Permiso>();
+
+            SqlParameter[] parametros = new SqlParameter[1];
+            parametros[0] = Acc.ArmarParametro("id", Rol.ID, SqlDbType.Int);
+
+            Acc.AbrirConexion();
+            DataTable tabla = Acc.Leer("Rol_ObtenerPermisos", parametros);
+            Acc.CerrarConexion();
+            GC.Collect();
+            foreach (DataRow linea in tabla.Rows)
+            {
+                BE.Permiso per = new BE.Permiso();
+                
+                per =  BuscarPermiso((int)linea["ID_Permiso"]);
+                ListaPermisos.Add(per);
+            }
+
+            return ListaPermisos;
+        }
+
     }
 }

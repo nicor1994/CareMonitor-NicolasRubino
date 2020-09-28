@@ -75,6 +75,8 @@ namespace GUI.Pruebas
 
         protected void Button3_Click(object sender, EventArgs e)
         {
+            //DateTime fecha = DateTime.Parse(txtfecha.Text);
+
            int Registros = GestorUsuario.ComprobarIntegridad();
             if (Registros != 0)
             {

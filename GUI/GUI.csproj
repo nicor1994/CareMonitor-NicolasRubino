@@ -118,8 +118,14 @@
     <Content Include="Forms\BackupRestore.aspx" />
     <Content Include="Forms\Bitacora.aspx" />
     <Content Include="Forms\Login.aspx" />
+    <Content Include="Forms\Permisos.aspx" />
     <Content Include="Forms\PrimerInicio.aspx" />
+    <Content Include="Forms\SinPermisos.aspx" />
     <Content Include="Forms\Usuarios.aspx" />
+    <Content Include="Forms\VistaFamiliar.aspx" />
+    <Content Include="Forms\VistaMedico.aspx" />
+    <Content Include="Forms\VistaPaciente.aspx" />
+    <Content Include="Forms\VistaServicio.aspx" />
     <Content Include="Forms\VistaTecnologia.aspx" />
     <Content Include="Imagenes\Care Monitor.jpg" />
     <Content Include="Imagenes\FondoLogin.jpg" />
@@ -299,12 +305,26 @@
     <Compile Include="Forms\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Permisos.aspx.cs">
+      <DependentUpon>Permisos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Permisos.aspx.designer.cs">
+      <DependentUpon>Permisos.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Forms\PrimerInicio.aspx.cs">
       <DependentUpon>PrimerInicio.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Forms\PrimerInicio.aspx.designer.cs">
       <DependentUpon>PrimerInicio.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SinPermisos.aspx.cs">
+      <DependentUpon>SinPermisos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\SinPermisos.aspx.designer.cs">
+      <DependentUpon>SinPermisos.aspx</DependentUpon>
     </Compile>
     <Compile Include="Forms\Usuarios.aspx.cs">
       <DependentUpon>Usuarios.aspx</DependentUpon>
@@ -313,12 +333,47 @@
     <Compile Include="Forms\Usuarios.aspx.designer.cs">
       <DependentUpon>Usuarios.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Forms\VistaFamiliar.aspx.cs">
+      <DependentUpon>VistaFamiliar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\VistaFamiliar.aspx.designer.cs">
+      <DependentUpon>VistaFamiliar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\VistaMedico.aspx.cs">
+      <DependentUpon>VistaMedico.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\VistaMedico.aspx.designer.cs">
+      <DependentUpon>VistaMedico.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\VistaPaciente.aspx.cs">
+      <DependentUpon>VistaPaciente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\VistaPaciente.aspx.designer.cs">
+      <DependentUpon>VistaPaciente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\VistaServicio.aspx.cs">
+      <DependentUpon>VistaServicio.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\VistaServicio.aspx.designer.cs">
+      <DependentUpon>VistaServicio.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Forms\VistaTecnologia.aspx.cs">
       <DependentUpon>VistaTecnologia.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Forms\VistaTecnologia.aspx.designer.cs">
       <DependentUpon>VistaTecnologia.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Paciente.Master.cs">
+      <DependentUpon>Paciente.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Paciente.Master.designer.cs">
+      <DependentUpon>Paciente.Master</DependentUpon>
     </Compile>
     <Compile Include="Pruebas\AltaUsuario.aspx.cs">
       <DependentUpon>AltaUsuario.aspx</DependentUpon>
@@ -441,6 +496,7 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Paciente.Master" />
     <None Include="packages.config" />
     <Content Include="js\jquery-3.4.1.slim.min.map" />
     <Content Include="js\jquery-3.4.1.min.map" />

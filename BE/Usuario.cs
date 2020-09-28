@@ -25,9 +25,18 @@ namespace BE
             set { _Apellido = value; }
         }
 
+        private DateTime dateTime;
+
+        public DateTime FechaNacimiento
+        {
+            get { return dateTime; }
+            set { dateTime = value; }
+        }
+
 
         private string _Sexo;
 
+        
         public string Sexo
         {
             get { return _Sexo; }

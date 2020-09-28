@@ -23,7 +23,7 @@
                     <div class="form-group">
                         <label for="pass">Contraseña</label>
                     
-                         <asp:TextBox runat="server" ID="TextBox2"  CssClass="form-control" ></asp:TextBox>
+                         <asp:TextBox TextMode="Password" runat="server" ID="TextBox2"  CssClass="form-control" ></asp:TextBox>
                     </div>
                     <div class="form-group form-check">
                         <asp:Label class="alert alert-danger" ID="Label1" runat="server" Text="Label" Visible="False"></asp:Label>

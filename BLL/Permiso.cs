@@ -18,22 +18,32 @@ namespace BLL
             return listapermisos;
         }
 
-        public string CrearPermiso(BE.Permiso per)
+        public bool CrearPermiso(BE.Permiso per, BE.Usuario usu)
         {
 
             int fa = GestorPermisos.CrearPermiso(per);
 
             if (fa == -1)
             {
-                return "Ocurrio un error al intentar guardar";
+                return false;
             }
             else
             {
-                return "Salio todo bien";
+
+                BLL.Bitacora GestorBitacora = new BLL.Bitacora();
+
+                BE.Bitacora bita = new BE.Bitacora();
+                bita.Usuario = usu.Nombre + " " + usu.Apellido;
+                bita.Tipo = "Gestion Permisos";
+                bita.Accion = "Se dio de alta el permiso " + per.Nombre;
+                bita.Fecha = DateTime.Now;
+                GestorBitacora.RegistrarEnBitacora(bita);
+
+                return true;
             }
         }
 
-        public string GuardarRol(List<BE.Permiso> ListaPermisos, string Nombre)
+        public string GuardarRol(List<BE.Permiso> ListaPermisos, string Nombre, BE.Usuario usu)
         {
 
             GestorPermisos.GuardarRol(Nombre);
@@ -41,6 +51,17 @@ namespace BLL
             {
                 GestorPermisos.GuardarPermisoRol(per);
             }
+
+            BLL.Bitacora GestorBitacora = new BLL.Bitacora();
+
+            BE.Bitacora bita = new BE.Bitacora();
+            bita.Usuario = usu.Nombre + " " + usu.Apellido;
+            bita.Tipo = "Gestion Permisos";
+            bita.Accion = "Se dio de alta el rol " + Nombre;
+            bita.Fecha = DateTime.Now;
+            GestorBitacora.RegistrarEnBitacora(bita);
+
+            
 
             return "algo";
         }
@@ -60,6 +81,80 @@ namespace BLL
 
            
             return ListaRol;
+        }
+
+        public List<BE.Permiso> ListarPermisosdeUsuarios(BE.Usuario usu)
+        {
+            List<BE.Permiso> listapermisos = new List<BE.Permiso>();
+            listapermisos = GestorPermisos.ListarPermisos(usu.ID);
+
+            return listapermisos;
+        }
+
+        public List<BE.Permiso> ListarPermisosRol(BE.Permiso rol)
+        {
+
+            List<BE.Permiso> ListaPermisos = GestorPermisos.ListarPermisosRoles(rol);
+            
+
+            return ListaPermisos;
+        }
+
+        public int GuardarRolUsuario(BE.Usuario usu, List<BE.Permiso> roles)
+        {
+            int fa = new int();
+            foreach (BE.Permiso per in roles)
+            {
+              fa  = GestorPermisos.GuardarRolUsuario(usu, per);
+            }
+            
+            return fa;
+        }
+
+        public bool VerificarPermiso(BE.Usuario usu, int id)
+        {
+            List<BE.Permiso> roles = this.ListarPermisosdeUsuarios(usu);
+            foreach (BE.Permiso per in roles)
+            {
+                if(per.ID == id)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+        public string RedireccionarLogin(BE.Usuario usu)
+        {
+            if (usu != null){
+                List<BE.Permiso> roles = this.ListarPermisosdeUsuarios(usu);
+
+                foreach (BE.Permiso per in roles)
+                {
+
+                    if (per.ID == 104)
+                    {
+                        return "VistaTecnologia.aspx";
+                    }
+                    else if (per.ID == 100)
+                    {
+                        return "VistaPaciente.aspx";
+                    }
+                    else if (per.ID == 101)
+                    {
+                        return "VistaServicio.aspx";
+                    }
+                    else if (per.ID == 102)
+                    {
+                        return "VistaMedico.aspx";
+                    }
+                    else if (per.ID == 103)
+                    {
+                        return "VistaFamiliar.aspx";
+                    }
+                }
+                return "SinPermisos.aspx";
+            }
+            return "Login.aspx";
         }
 
     }

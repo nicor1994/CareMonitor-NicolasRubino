@@ -9,6 +9,8 @@ namespace GUI.Forms
 {
     public partial class PrimerInicio : System.Web.UI.Page
     {
+
+        BLL.Usuario GestorUsuario = new BLL.Usuario();
         protected void Page_Load(object sender, EventArgs e)
         {
             BE.Usuario usuensesion = (BE.Usuario)Session["UsuarioEnSesion"];
@@ -20,6 +22,18 @@ namespace GUI.Forms
         {
             if (TextBox1.Text == TextBox2.Text)
             {
+
+                BE.Usuario usuensesion = (BE.Usuario)Session["UsuarioEnSesion"];
+
+                usuensesion.Contraseña = Seguridad.Encriptador.Encrypt(TextBox1.Text);
+
+                if (GestorUsuario.CambiarContraseña(usuensesion, usuensesion) == true)
+                {
+                    Session["UsuarioEnSesion"] = null;
+                    Response.Redirect("Login.aspx");
+                }
+
+                
 
 
             } else { Label1.Visible = true; }

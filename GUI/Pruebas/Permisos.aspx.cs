@@ -40,7 +40,7 @@ namespace GUI.Pruebas
         {
             BE.Permiso per = new BE.Permiso();
             per.Nombre = TextBox1.Text;
-            GestorPermiso.CrearPermiso(per);
+          
             List<BE.Permiso> ListaPermisos = new List<BE.Permiso>();
             ListaPermisos = GestorPermiso.ObtenerListaPermisos();
             Application["ListaPermisos"] = ListaPermisos;
@@ -50,7 +50,7 @@ namespace GUI.Pruebas
         protected void Button3_Click(object sender, EventArgs e)
         {
 
-            GestorPermiso.GuardarRol((List<BE.Permiso>)Session["ListaTemporal"], TextBox2.Text);
+            //GestorPermiso.GuardarRol((List<BE.Permiso>)Session["ListaTemporal"], TextBox2.Text);
             List<BE.Permiso> ListaTodos = new List<BE.Permiso>();
             List<BE.Permiso> ListaPermisos = new List<BE.Permiso>();
             List<BE.Permiso> ListaRoles = new List<BE.Permiso>();

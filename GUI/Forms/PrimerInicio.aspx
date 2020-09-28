@@ -30,10 +30,8 @@
                     <div class="form-group form-check">
                         <asp:Label class="alert alert-danger" ID="Label1" runat="server" Text="Las contraseñas ingresadas no coinciden" Visible="False"></asp:Label>
                     </div>
-                    <div class="alert alert-danger" role="alert" hidden="hidden">
-                         Las contraseñas ingresadas no coinciden!
-                    </div>
-                <asp:Button ID="btnCambiarContraseña" Text="Login" runat="server" OnClick="btnCambiarContraseña_Click" Class="btn btn-primary btn-block" />
+                   
+                <asp:Button ID="btnCambiarContraseña" Text="Cambiar Contraseña" runat="server" OnClick="btnCambiarContraseña_Click" Class="btn btn-primary btn-block" />
                 </form>
             </section>
         </section>

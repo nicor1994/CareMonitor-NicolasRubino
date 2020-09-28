@@ -9,6 +9,7 @@ namespace Seguridad
     public class DigitoVerificador
     {
 
+        
         public int GenerarDVH(String texto)
         {
             byte[] asciiBytes = Encoding.ASCII.GetBytes(texto);
@@ -36,6 +37,9 @@ namespace Seguridad
             }
 
         }
+
+        
+
 
     }
 }

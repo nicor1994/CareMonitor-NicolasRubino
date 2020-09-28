@@ -13,7 +13,7 @@ namespace GUI
 
         BLL.Bitacora GestorBitacora = new BLL.Bitacora();
         BLL.Usuario GestorUsuario = new BLL.Usuario();
-        BLL.Tecnologia.Permiso GestorPermiso = new BLL.Tecnologia.Permiso();
+        BLL.Permiso GestorPermiso = new BLL.Permiso();
 
         protected void Page_Load(object sender, EventArgs e)
         {

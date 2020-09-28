@@ -30,7 +30,7 @@
                     <a href="Bitacora.aspx" class="list-group-item list-group-item-action bg-gris p-3 border-0"><i class="icon ion-md-time lead mr-3"></i>Bitacora</a>
                     <a href="BackupRestore.aspx" class="list-group-item list-group-item-action bg-gris p-3 border-0"><i class="icon ion-md-save lead mr-3"></i>Backup/Restore</a>
                     <a href="Usuarios.aspx" class="list-group-item list-group-item-action bg-gris p-3 border-0"><i class="icon ion-md-people lead mr-3"></i>Usuarios</a>
-                    <a href="" class="list-group-item list-group-item-action bg-gris p-3 border-0"><i class="icon ion-ios-finger-print lead mr-3"></i>Permisos</a>
+                    <a href="Permisos.aspx" class="list-group-item list-group-item-action bg-gris p-3 border-0"><i class="icon ion-ios-finger-print lead mr-3"></i>Permisos</a>
                 
                 </div>
             </div>
