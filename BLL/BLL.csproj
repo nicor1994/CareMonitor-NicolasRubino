@@ -43,9 +43,11 @@
   <ItemGroup>
     <Compile Include="BackupRestore.cs" />
     <Compile Include="Permiso.cs" />
+    <Compile Include="Servicio.cs" />
     <Compile Include="Tecnologia\Bitacora.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tecnologia\Usuario.cs" />
+    <Compile Include="TipoMedicion.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BE\BE.csproj">

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BE
 {
-    class Servicio
+    public class Servicio
     {
 
         private BE.Usuario _usu;

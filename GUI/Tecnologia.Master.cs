@@ -14,7 +14,7 @@ namespace GUI
         protected void Page_Load(object sender, EventArgs e)
         {
             BE.Usuario usu = (BE.Usuario)Session["UsuarioEnSesion"];
-
+          
             if (usu == null)
             {
                 Response.Redirect("SinPermisos.aspx");
@@ -48,5 +48,9 @@ namespace GUI
             Session["UsuarioEnSesion"] = null;
             Response.Redirect("Login.aspx");
         }
+
+      
+
+
     }
 }

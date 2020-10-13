@@ -22,7 +22,7 @@ namespace DAL
             SqlParameter[] parametros = new SqlParameter[4];
             
             parametros[0] = Acceso.ArmarParametro("usu", bita.Usuario, SqlDbType.VarChar);
-            parametros[1] = Acceso.ArmarParametro("fecha", DateTime.Now, SqlDbType.DateTime);
+            parametros[1] = Acceso.ArmarParametro("fecha", DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss"), SqlDbType.DateTime);
             parametros[2] = Acceso.ArmarParametro("acc", bita.Accion, SqlDbType.VarChar);
             parametros[3] = Acceso.ArmarParametro("tipo", bita.Tipo, SqlDbType.VarChar);
             fa = Acceso.Escribir("Bitacora_Insertar", parametros);

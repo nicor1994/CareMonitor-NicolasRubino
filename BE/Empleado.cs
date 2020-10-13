@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BE
 {
-    class Empleado : Usuario
+    public class Empleado : Usuario
     {
 
         private int _Legajo;

@@ -89,16 +89,14 @@ namespace BLL
 
             }
 
-            //str = (GestorDigito.GenerarDVH(str)).ToString(); ;
+            str = (GestorDigito.GenerarDVH(str)).ToString(); ;
 
-            //string str2 = MapperUsu.ListarDVV();
+            string str2 = MapperUsu.ListarDVV();
 
-            ////if (str != str2)
-            //{
-            //    RegistrosCorruptos++;
-            //}
-
-            
+            if (str != str2)
+            {
+               RegistrosCorruptos++;
+            }
             return RegistrosCorruptos;
         }
 
@@ -215,6 +213,50 @@ namespace BLL
                 GestorBitacora.RegistrarEnBitacora(bita);
                 return true;
             }
+        }
+
+        public void RecalcularDVV(BE.Usuario usuario)
+        {
+            List<BE.Usuario> listausu = this.ListarTodos();
+            string str = "";
+            int dvv = new int();
+            foreach (BE.Usuario usu in listausu)
+            {               
+                str = str + usu.DVH.ToString();       
+            }
+            dvv = GestorDigito.GenerarDVH(str);
+          int fa =  MapperUsu.ActualizarDVV(dvv);
+            if (fa!= -1)
+            {
+                BLL.Bitacora GestorBitacora = new BLL.Bitacora();
+                BE.Bitacora bita = new BE.Bitacora();
+                bita.Usuario = usuario.Nombre + " " + usuario.Apellido;
+                bita.Tipo = "Dígito Verificador";
+                bita.Accion = "Se recalculó el Dígito Verificador Vertical";
+                bita.Fecha = DateTime.Now;
+                GestorBitacora.RegistrarEnBitacora(bita);
+            }
+        }
+        public void RecalcularDVH(BE.Usuario usuario)
+        {
+            List<BE.Usuario> listausu = this.ListarTodos();
+            string str = "";
+            foreach (BE.Usuario usu in listausu)
+            {
+                usu.DVH = GestorDigito.GenerarDVH(usu.Nombre + usu.Apellido + usu.DNI + usu.Contraseña + usu.Borrado + usu.Direccion + usu.FechaNacimiento.ToShortDateString());
+                str = str + usu.DVH.ToString();
+                this.ModificarUsuario(usu, usuario);
+            }
+            BLL.Bitacora GestorBitacora = new BLL.Bitacora();
+            BE.Bitacora bita = new BE.Bitacora();
+            bita.Usuario = usuario.Nombre + " " + usuario.Apellido;
+            bita.Tipo = "Dígito Verificador";
+            bita.Accion = "Se recalculó el Dígito Verificador Horizontal";
+            bita.Fecha = DateTime.Now;
+            GestorBitacora.RegistrarEnBitacora(bita);
+
+
+
         }
 
     }

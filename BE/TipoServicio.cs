@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BE
 {
-    class TipoServicio
+    public class TipoServicio
     {
 
         private string _Descripcion;
@@ -28,9 +28,9 @@ namespace BE
         }
 
 
-        private DateTime _TiempoMedio;
+        private int _TiempoMedio;
 
-        public DateTime TiempoMedio
+        public int TiempoMedio
         {
             get { return _TiempoMedio; }
             set { _TiempoMedio = value; }
@@ -44,6 +44,10 @@ namespace BE
             set { _ID = value; }
         }
 
+        public override string ToString()
+        {
+            return Nombre;
+        }
 
     }
 }

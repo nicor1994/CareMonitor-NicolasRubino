@@ -258,5 +258,18 @@ namespace DAL
             return fa;
         }
 
+        public int ActualizarDVV(int dvv)
+        {
+            int fa = 0;
+            acc.AbrirConexion();
+            SqlParameter[] parametros = new SqlParameter[2];
+            parametros[0] = acc.ArmarParametro("tabla", "Usuario", System.Data.SqlDbType.VarChar);
+            parametros[1] = acc.ArmarParametro("dvv", dvv, System.Data.SqlDbType.Int);          
+            fa = acc.Escribir("ActualizarDVV", parametros);
+            acc.CerrarConexion();
+            GC.Collect();
+            return fa;
+        }
+
     }
 }

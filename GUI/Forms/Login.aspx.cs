@@ -21,19 +21,8 @@ namespace GUI.Forms
             {
                 Session["Intentos"] = "0";
                 Session["UsuarioEnSesion"] = null;
-            }
-
-
-            int Registros = GestorUsuario.ComprobarIntegridad();
-            if (Registros != 0)
-            {
-                Button1.Visible = false;
-                Label1.Text = "La base de datos esta corrupta!";
-                Label1.Visible = true;
-                Label1.CssClass = "alert alert-danger";
-            }
-          
-
+            }       
+         
         }
 
         protected void LoginButtonClick(object sender, EventArgs e)

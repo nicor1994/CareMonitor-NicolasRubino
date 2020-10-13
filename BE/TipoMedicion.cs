@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BE
 {
-    class TipoMedicion
+    public class TipoMedicion
     {
 
         private string _Nombre;
@@ -83,5 +83,9 @@ namespace BE
             set { _ID = value; }
         }
 
+        public override string ToString()
+        {
+            return Nombre;
+        }
     }
 }
