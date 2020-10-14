@@ -119,6 +119,7 @@
     <Content Include="Forms\Bitacora.aspx" />
     <Content Include="Forms\DigitoVerificador.aspx" />
     <Content Include="Forms\Empleados.aspx" />
+    <Content Include="Forms\GestionHabitos.aspx" />
     <Content Include="Forms\GestionParametros.aspx" />
     <Content Include="Forms\GestionServicios.aspx" />
     <Content Include="Forms\Login.aspx" />
@@ -315,6 +316,13 @@
     </Compile>
     <Compile Include="Forms\Empleados.aspx.designer.cs">
       <DependentUpon>Empleados.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\GestionHabitos.aspx.cs">
+      <DependentUpon>GestionHabitos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\GestionHabitos.aspx.designer.cs">
+      <DependentUpon>GestionHabitos.aspx</DependentUpon>
     </Compile>
     <Compile Include="Forms\GestionParametros.aspx.cs">
       <DependentUpon>GestionParametros.aspx</DependentUpon>
