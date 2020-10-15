@@ -17,9 +17,9 @@ namespace BE
             set { _valor = value; }
         }
 
-        private TipoMedicion _Tipo;
+        private TipoHabito _Tipo;
 
-        public TipoMedicion Tipo
+        public TipoHabito Tipo
         {
             get { return _Tipo; }
             set { _Tipo = value; }

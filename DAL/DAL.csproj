@@ -46,6 +46,7 @@
     <Compile Include="MP_Bitacora.cs" />
     <Compile Include="MP_Permiso.cs" />
     <Compile Include="MP_Servicio.cs" />
+    <Compile Include="MP_TipoHabito.cs" />
     <Compile Include="MP_TipoMedicion.cs" />
     <Compile Include="MP_Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

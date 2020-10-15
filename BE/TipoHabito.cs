@@ -6,14 +6,22 @@ using System.Threading.Tasks;
 
 namespace BE
 {
-    class TipoHabito
+    public class TipoHabito
     {
         private int _ValorRef;
 
-        public int ValorReferencia
+        public int ValorPositivo
         {
             get { return _ValorRef; }
             set { _ValorRef = value; }
+        }
+
+        private int _ValorNegativo;
+
+        public int ValorNegativo
+        {
+            get { return _ValorNegativo; }
+            set { _ValorNegativo = value; }
         }
 
 
@@ -35,7 +43,7 @@ namespace BE
 
         private string _EfeAfirmativo;
 
-        public string EfectoAfirmativo
+        public string EfectoPositivo
         {
             get { return _EfeAfirmativo; }
             set { _EfeAfirmativo = value; }
@@ -49,6 +57,10 @@ namespace BE
             set { _ID = value; }
         }
 
+        public override string ToString()
+        {
+            return Nombre;
+        }
 
     }
 }

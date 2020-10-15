@@ -23,24 +23,36 @@
                  <br />
             <div class="input-group flex-nowrap">
                   <div class="input-group-prepend">
-                    <span class="input-group-text" id="addon-wrapping2">Descripcion</span>
+                    <span class="input-group-text" id="addon-wrapping2">Efecto Positivo</span>
                   </div>
-                  <asp:TextBox ID="txtDesc" CssClass="form-control" runat="server"></asp:TextBox>
+                  <asp:TextBox ID="txtEfePos" CssClass="form-control" runat="server"></asp:TextBox>
                 </div>
-                
+                <br />
+                 <div class="input-group flex-nowrap">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="addon-wrappinga">Veces por semana Positivo</span>
+                  </div>
+                    <asp:TextBox ID="txtVecesPos" CssClass="form-control" runat="server"></asp:TextBox>
+                </div>
                    <br />
             <div class="input-group flex-nowrap">
                   <div class="input-group-prepend">
-                    <span class="input-group-text" id="addon-wrappinga">Descripcion de valores máximos</span>
+                    <span class="input-group-text" id="addon-wrappinga">Efecto Negativo</span>
                   </div>
-                    <asp:TextBox ID="txtDescMax" CssClass="form-control" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="txtEfeNeg" CssClass="form-control" runat="server"></asp:TextBox>
                 </div>
 
                    <br />
-       
+        <div class="input-group flex-nowrap">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="addon-wrappinga">Veces por semana Negativo</span>
+                  </div>
+                    <asp:TextBox ID="txtVecesNeg" CssClass="form-control" runat="server"></asp:TextBox>
+                </div>
+
                  <br />
                  <asp:Label ID="lblSuccess" runat="server" CssClass="alert alert-success" Text="Parametro agregado!" Visible="false"></asp:Label>
-                 <asp:Button ID="btnGuardar" runat="server" Text="Aceptar" CssClass="btn btn-info" />
+                 <asp:Button ID="btnGuardar" runat="server" Text="Aceptar" CssClass="btn btn-info" OnClick="btnGuardar_Click" />
                  <br />
                  <br />
                   <div class="col-md-12 border shadow rounded">

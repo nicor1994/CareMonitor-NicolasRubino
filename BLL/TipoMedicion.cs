@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace BLL
-{    
+{
     public class TipoMedicion
     {
         DAL.MP_TipoMedicion MapperMedicion = new DAL.MP_TipoMedicion();
