@@ -45,6 +45,7 @@
     <Compile Include="Bitacora.cs" />
     <Compile Include="Calendario.cs" />
     <Compile Include="Empleado.cs" />
+    <Compile Include="Enfermedad.cs" />
     <Compile Include="Etiqueta.cs" />
     <Compile Include="Evento.cs" />
     <Compile Include="Familiar.cs" />

@@ -39,6 +39,7 @@
                     <a href="GestionHabitos.aspx" class="list-group-item list-group-item-action bg-gris p-3 border-0"><i class="icon ion-md-pizza lead mr-3"></i>Gestion de Habitos</a>
                     <a href="GestionParametros.aspx" class="list-group-item list-group-item-action bg-gris p-3 border-0"><i class="icon ion-md-medkit lead mr-3"></i>Gestion de Parametros</a>
                     <a href="GestionServicios.aspx" class="list-group-item list-group-item-action bg-gris p-3 border-0"><i class="icon ion-md-medical lead mr-3"></i>Gestion de Servicios</a>
+                    <a href="GestionEnfermedades.aspx" class="list-group-item list-group-item-action bg-gris p-3 border-0"><i class="icon ion-md-sad lead mr-3"></i>Gestion de Enfermedades</a>
                     <a href="" class="list-group-item list-group-item-action bg-gris p-3 border-0"><i class="icon ion-md-warning lead mr-3"></i>Alarmas</a>
                 </div>
             </div>
