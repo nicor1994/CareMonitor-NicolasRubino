@@ -33,6 +33,24 @@ namespace GUI.Forms
         protected global::System.Web.UI.WebControls.ListBox listParametros;
 
         /// <summary>
+        /// Control radiomax.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton radiomax;
+
+        /// <summary>
+        /// Control radiomin.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton radiomin;
+
+        /// <summary>
         /// Control btnSelecc.
         /// </summary>
         /// <remarks>

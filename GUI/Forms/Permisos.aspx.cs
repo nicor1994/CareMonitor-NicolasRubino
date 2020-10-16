@@ -39,33 +39,33 @@ namespace GUI.Forms
         protected void btnAgregarPermiso_Click(object sender, EventArgs e)
         {
 
-            if (string.IsNullOrWhiteSpace(txtNombre.Text) == false)
-            {
-                BE.Permiso per = new BE.Permiso();
-                per.Nombre = txtNombre.Text;
-                if (GestorPermiso.CrearPermiso(per, (BE.Usuario)Session["UsuarioEnSesion"]) == true)
-                {
-                    lblSuccess.Text = "Permiso creado!";
-                    lblSuccess.Visible = true;
-                    lblSuccess.CssClass = "alert alert-success";
-                }
-                else
-                {
-                    lblSuccess.Text = "No se pudo crear el permiso!";
-                    lblSuccess.Visible = true;
-                    lblSuccess.CssClass = "alert alert-danger";
-                }
-                List<BE.Permiso> ListaPermisos = new List<BE.Permiso>();
-                ListaPermisos = GestorPermiso.ObtenerListaPermisos();
-                Application["ListaPermisos"] = ListaPermisos;
-                Enlazar();
-            }
-            else
-            {
-                lblSuccess.Text = "Complete los campos!";
-                lblSuccess.Visible = true;
-                lblSuccess.CssClass = "alert alert-warning";
-            }
+        //    if (string.IsNullOrWhiteSpace(txtNombre.Text) == false)
+        //    {
+        //        BE.Permiso per = new BE.Permiso();
+        //        per.Nombre = txtNombre.Text;
+        //        if (GestorPermiso.CrearPermiso(per, (BE.Usuario)Session["UsuarioEnSesion"]) == true)
+        //        {
+        //            lblSuccess.Text = "Permiso creado!";
+        //            lblSuccess.Visible = true;
+        //            lblSuccess.CssClass = "alert alert-success";
+        //        }
+        //        else
+        //        {
+        //            lblSuccess.Text = "No se pudo crear el permiso!";
+        //            lblSuccess.Visible = true;
+        //            lblSuccess.CssClass = "alert alert-danger";
+        //        }
+        //        List<BE.Permiso> ListaPermisos = new List<BE.Permiso>();
+        //        ListaPermisos = GestorPermiso.ObtenerListaPermisos();
+        //        Application["ListaPermisos"] = ListaPermisos;
+        //        Enlazar();
+        //    }
+        //    else
+        //    {
+        //        lblSuccess.Text = "Complete los campos!";
+        //        lblSuccess.Visible = true;
+        //        lblSuccess.CssClass = "alert alert-warning";
+        //    }
         }
 
         protected void btnSelecc_Click(object sender, EventArgs e)

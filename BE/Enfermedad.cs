@@ -24,9 +24,9 @@ namespace BE
             set { _Nombre = value; }
         }
 
-        private List<BE.TipoMedicion> _Sintomas;
+        private List<BE.Sintoma> _Sintomas;
 
-        public List<BE.TipoMedicion> Sintomas
+        public List<BE.Sintoma> Sintomas
         {
             get { return _Sintomas; }
             set { _Sintomas = value; }

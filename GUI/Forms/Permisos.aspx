@@ -20,19 +20,13 @@
                            <ion-icon name="arrow-forward-outline" size ="medium"></ion-icon>
                             </div>
                         <br />
-                      <div class="input-group flex-nowrap">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text" id="addon-wrapping">Nombre</span>
-                  </div>
-                   <asp:TextBox ID="txtNombre" CssClass="form-control" runat="server"></asp:TextBox>
-                </div>
-                        <br />
+                    
+               
                                         
                          <asp:Label ID="lblSuccess" runat="server" Text="Label" Visible="false"></asp:Label>
                         <br />
                      <br />
-                        <asp:Button ID="btnAgregarPermiso" runat="server" CssClass="btn btn-outline-info" Text="Crear Permiso" OnClick="btnAgregarPermiso_Click"  style="margin-left:10px" />      
-                       
+                  
                    <br />
                         <br />
                        

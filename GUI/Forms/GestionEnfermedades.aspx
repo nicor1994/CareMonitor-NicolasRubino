@@ -24,8 +24,11 @@
                         <br />
                        <asp:ListBox ID="listParametros" CssClass="list-group-item list-group-item-action align-content-stretch" runat="server" Height="200px">                      </asp:ListBox>
                       <br />
+                         <asp:RadioButton ID="radiomax" runat="server" Text="Maximo" GroupName="MaxoMin" Checked="true" />
+                        <asp:RadioButton ID="radiomin" runat="server" Text="Minimo" GroupName="MaxoMin" />
+                        <br />
                         <div class="text-right">
-                        <asp:Button ID="btnSelecc" runat="server" CssClass="btn btn-success" Text="Seleccionar Parametro"  />
+                        <asp:Button ID="btnSelecc" runat="server" CssClass="btn btn-success" Text="Seleccionar Parametro" OnClick="btnSelecc_Click" />
                            <ion-icon name="arrow-forward-outline" size ="medium"></ion-icon>
                             </div>
                         <br />
@@ -40,6 +43,7 @@
                            <ion-icon name="arrow-forward-outline" size ="medium"></ion-icon>
                             </div>
                         <br />
+                       
                          <asp:Button ID="btnGuardar" runat="server" Text="Guardar Enfermedad" CssClass="btn btn-info"/>
                         <br />
                     </div>
