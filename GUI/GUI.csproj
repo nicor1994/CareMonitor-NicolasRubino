@@ -126,6 +126,7 @@
     <Content Include="Forms\Login.aspx" />
     <Content Include="Forms\Permisos.aspx" />
     <Content Include="Forms\PrimerInicio.aspx" />
+    <Content Include="Forms\Roles.aspx" />
     <Content Include="Forms\SinPermisos.aspx" />
     <Content Include="Forms\Usuarios.aspx" />
     <Content Include="Forms\VistaFamiliar.aspx" />
@@ -366,6 +367,13 @@
     </Compile>
     <Compile Include="Forms\PrimerInicio.aspx.designer.cs">
       <DependentUpon>PrimerInicio.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Roles.aspx.cs">
+      <DependentUpon>Roles.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Roles.aspx.designer.cs">
+      <DependentUpon>Roles.aspx</DependentUpon>
     </Compile>
     <Compile Include="Forms\SinPermisos.aspx.cs">
       <DependentUpon>SinPermisos.aspx</DependentUpon>

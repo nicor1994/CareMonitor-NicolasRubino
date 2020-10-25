@@ -29,6 +29,24 @@ namespace DAL
             return fa;
         }
 
+        public int ModificarHabito(BE.TipoHabito hab)
+        {
+            int fa = 0;
+            acc.AbrirConexion();
+            SqlParameter[] parametros = new SqlParameter[6];
+            parametros[0] = acc.ArmarParametro("nom", hab.Nombre, System.Data.SqlDbType.VarChar);
+            parametros[1] = acc.ArmarParametro("valorneg", hab.ValorNegativo, System.Data.SqlDbType.Int);
+            parametros[2] = acc.ArmarParametro("valorpos", hab.ValorPositivo, System.Data.SqlDbType.Int);
+            parametros[3] = acc.ArmarParametro("efeneg", hab.EfectoNegativo, System.Data.SqlDbType.VarChar);
+            parametros[4] = acc.ArmarParametro("efepos", hab.EfectoPositivo, System.Data.SqlDbType.VarChar);
+            parametros[5] = acc.ArmarParametro("id", hab.ID, System.Data.SqlDbType.Int);
+            fa = acc.Escribir("Habito_Modificar", parametros);
+            acc.CerrarConexion();
+            GC.Collect();
+            return fa;
+        }
+
+
         public List<BE.TipoHabito> Listar()
         {
 
@@ -64,7 +82,18 @@ namespace DAL
 
         }
 
-
+        public int EliminarHabito(BE.TipoHabito hab)
+        {
+            int fa = 0;
+            acc.AbrirConexion();
+            SqlParameter[] parametros = new SqlParameter[1];
+            parametros[0] = acc.ArmarParametro("id", hab.ID, System.Data.SqlDbType.Int);
+          
+            fa = acc.Escribir("Habito_Baja", parametros);
+            acc.CerrarConexion();
+            GC.Collect();
+            return fa;
+        }
 
     }
 }

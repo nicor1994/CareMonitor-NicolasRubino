@@ -39,12 +39,14 @@
                        <asp:ListBox ID="listHabitos" CssClass="list-group-item list-group-item-action align-content-stretch" runat="server" Height="200px">                      </asp:ListBox>
                       <br />
                         <div class="text-right">
-                        <asp:Button ID="Button1" runat="server" CssClass="btn btn-success" Text="Seleccionar Habito"  />
+                        <asp:Button ID="btnSeleccHabito" runat="server" CssClass="btn btn-success" Text="Seleccionar Habito" OnClick="btnSeleccHabito_Click" />
                            <ion-icon name="arrow-forward-outline" size ="medium"></ion-icon>
                             </div>
                         <br />
                        
-                         <asp:Button ID="btnGuardar" runat="server" Text="Guardar Enfermedad" CssClass="btn btn-info"/>
+                         <asp:Button ID="btnGuardar" runat="server" Text="Guardar Enfermedad" CssClass="btn btn-info" OnClick="btnGuardar_Click"/>
+                        <br />
+                         <asp:Label ID="lblSuccess" runat="server" Text="Label" Visible="false"></asp:Label>
                         <br />
                     </div>
                     <div class="col-sm">

@@ -44,6 +44,7 @@
     <Compile Include="Acceso.cs" />
     <Compile Include="MP_BackupRestore.cs" />
     <Compile Include="MP_Bitacora.cs" />
+    <Compile Include="MP_Enfermedad.cs" />
     <Compile Include="MP_Permiso.cs" />
     <Compile Include="MP_Servicio.cs" />
     <Compile Include="MP_TipoHabito.cs" />

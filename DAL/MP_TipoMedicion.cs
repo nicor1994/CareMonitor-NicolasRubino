@@ -69,6 +69,38 @@ namespace DAL
             return ListaParametros;
 
         }
+        public int ModificarParametro(BE.TipoMedicion param)
+        {
+            int fa = 0;
+            acc.AbrirConexion();
+            SqlParameter[] parametros = new SqlParameter[9];
+            parametros[0] = acc.ArmarParametro("nombre", param.Nombre, System.Data.SqlDbType.VarChar);
+            parametros[1] = acc.ArmarParametro("desc", param.Descripcion, System.Data.SqlDbType.VarChar);
+            parametros[2] = acc.ArmarParametro("descmax", param.DescripcionMaxima, System.Data.SqlDbType.VarChar);
+            parametros[3] = acc.ArmarParametro("descmin", param.DescripcionMinima, System.Data.SqlDbType.VarChar);
+            parametros[4] = acc.ArmarParametro("maxmasc", param.MaximoMasculino, System.Data.SqlDbType.Int);
+            parametros[5] = acc.ArmarParametro("maxfem", param.MaximoFemenino, System.Data.SqlDbType.Int);
+            parametros[6] = acc.ArmarParametro("minmasc", param.MinimoMasculino, System.Data.SqlDbType.Int);
+            parametros[7] = acc.ArmarParametro("minfem", param.MinimoFemenino, System.Data.SqlDbType.Int);
+            parametros[8] = acc.ArmarParametro("id", param.ID, System.Data.SqlDbType.Int);
+            fa = acc.Escribir("Parametro_Modificar", parametros);
+            acc.CerrarConexion();
+            GC.Collect();
+            return fa;
+        }
+
+        public int Baja(BE.TipoMedicion param)
+        {
+            int fa = 0;
+            acc.AbrirConexion();
+            SqlParameter[] parametros = new SqlParameter[1];
+            parametros[0] = acc.ArmarParametro("id", param.ID, System.Data.SqlDbType.VarChar);
+
+            fa = acc.Escribir("Parametro_Baja", parametros);
+            acc.CerrarConexion();
+            GC.Collect();
+            return fa;
+        }
 
 
     }

@@ -100,14 +100,26 @@ namespace BLL
             return ListaPermisos;
         }
 
-        public int GuardarRolUsuario(BE.Usuario usu, List<BE.Permiso> roles)
+        public int GuardarRolUsuario(BE.Usuario usu, List<BE.Permiso> roles, BE.Usuario usubit)
         {
             int fa = new int();
+            GestorPermisos.BorrarPermisosUsuarios(usu.ID);
             foreach (BE.Permiso per in roles)
             {
               fa  = GestorPermisos.GuardarRolUsuario(usu, per);
+                if (fa != -1)
+                {
+                    BLL.Bitacora GestorBitacora = new BLL.Bitacora();
+
+                    BE.Bitacora bita = new BE.Bitacora();
+                    bita.Usuario = usubit.Nombre + " " + usubit.Apellido;
+                    bita.Tipo = "Gestion Permisos";
+                    bita.Accion = "Se le asignó el permiso " + per.Nombre + " al usuario " + usu.Nombre + " " + usu.Apellido;
+                    bita.Fecha = DateTime.Now;
+                    GestorBitacora.RegistrarEnBitacora(bita);
+                }
             }
-            
+           
             return fa;
         }
 

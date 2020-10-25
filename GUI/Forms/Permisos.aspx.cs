@@ -24,16 +24,16 @@ namespace GUI.Forms
 
             listPermisos.DataSource = (List<BE.Permiso>)Application["ListaPermisos"];
             listRoles.DataSource = (List<BE.Permiso>)Application["ListaRoles"];
-            listUsu.DataSource = GestorUsuario.ListarTodosBorrados();
+            //listUsu.DataSource = GestorUsuario.ListarTodosBorrados();
             listPermisos.DataTextField = "Nombre";
             listPermisos.DataBind();
             listRoles.DataTextField = "Nombre";
             listRoles.DataBind();
-            listUsu.DataBind();
+            //listUsu.DataBind();
 
-            listRoles2.DataSource = (List<BE.Permiso>)Application["ListaRoles"];
-            listRoles2.DataTextField = "Nombre";
-            listRoles2.DataBind();
+            //listRoles2.DataSource = (List<BE.Permiso>)Application["ListaRoles"];
+            //listRoles2.DataTextField = "Nombre";
+            //listRoles2.DataBind();
         }
 
         protected void btnAgregarPermiso_Click(object sender, EventArgs e)
@@ -146,9 +146,9 @@ namespace GUI.Forms
                     listaTemp.DataSource = null;
                     listaTemp.DataSource = lista;
                     listaTemp.DataBind();
-                    listRoles2.DataSource = (List<BE.Permiso>)Application["ListaRoles"];
-                    listRoles2.DataTextField = "Nombre";
-                    listRoles2.DataBind();
+                    //listRoles2.DataSource = (List<BE.Permiso>)Application["ListaRoles"];
+                    //listRoles2.DataTextField = "Nombre";
+                    //listRoles2.DataBind();
                     Label2.Text = "Se guardo el Rol!";
                     Label2.Visible = true;
                     Label2.CssClass = "alert alert-success";
@@ -193,27 +193,27 @@ namespace GUI.Forms
         protected void btnUsuario_Click(object sender, EventArgs e)
         {
             List<BE.Usuario> ListaUsu = GestorUsuario.ListarTodosBorrados();
-            BE.Usuario usu = ListaUsu[listUsu.SelectedIndex];
-            List<BE.Permiso> ListaRolesUsu = GestorPermiso.ListarPermisosdeUsuarios(usu);
-            Session["ListaTemp2"] = ListaRolesUsu;
-            listRolUsu.DataSource = ListaRolesUsu;
-            listRolUsu.DataTextField = "Nombre";
-            listRolUsu.DataBind();
-            btnGuardarRol.Visible = true;
-            btnAgregarRolUsu.Visible = true;
+            //BE.Usuario usu = ListaUsu[listUsu.SelectedIndex];
+            //List<BE.Permiso> ListaRolesUsu = GestorPermiso.ListarPermisosdeUsuarios(usu);
+            //Session["ListaTemp2"] = ListaRolesUsu;
+            //listRolUsu.DataSource = ListaRolesUsu;
+            //listRolUsu.DataTextField = "Nombre";
+            //listRolUsu.DataBind();
+            //btnGuardarRol.Visible = true;
+            //btnAgregarRolUsu.Visible = true;
         }
 
         protected void btnGuardarRol_Click(object sender, EventArgs e)
         {
             List<BE.Usuario> ListaUsu = GestorUsuario.ListarTodosBorrados();
-            BE.Usuario usu = ListaUsu[listUsu.SelectedIndex];
-            GestorPermiso.GuardarRolUsuario(usu, (List<BE.Permiso>)Session["ListaTemp2"]);
+            //BE.Usuario usu = ListaUsu[listUsu.SelectedIndex];
+            //GestorPermiso.GuardarRolUsuario(usu, (List<BE.Permiso>)Session["ListaTemp2"]);
             List<BE.Usuario> lista = new List<BE.Usuario>();
             Session["ListaTemp2"] = lista;
-            listRolUsu.DataSource = lista;
-            listRolUsu.DataBind();
-            btnGuardarRol.Visible = false;
-            btnAgregarRolUsu.Visible = false;
+            //listRolUsu.DataSource = lista;
+            //listRolUsu.DataBind();
+            //btnGuardarRol.Visible = false;
+            //btnAgregarRolUsu.Visible = false;
         }
 
         protected void btnAgregarRolUsu_Click(object sender, EventArgs e)
@@ -221,17 +221,17 @@ namespace GUI.Forms
 
             List<BE.Permiso> ListaRoles = (List<BE.Permiso>)Application["ListaRoles"];
             List<BE.Permiso> ListaTemp = (List<BE.Permiso>)Session["ListaTemp2"];
-            BE.Permiso per = ListaRoles[listRoles2.SelectedIndex];
-            if (ListaTemp.Find(x => x.ID == per.ID) == null)
-            {
+            //BE.Permiso per = ListaRoles[listRoles2.SelectedIndex];
+            //if (ListaTemp.Find(x => x.ID == per.ID) == null)
+            //{
 
-                ListaTemp.Add(per);
-                Session["ListaTemp"] = ListaTemp;
+            //    ListaTemp.Add(per);
+            //    Session["ListaTemp"] = ListaTemp;
 
-            }
-            listRolUsu.DataSource = (List<BE.Permiso>)Session["ListaTemp2"];
-            listRolUsu.DataTextField = "Nombre";
-            listRolUsu.DataBind();
+            //}
+            //listRolUsu.DataSource = (List<BE.Permiso>)Session["ListaTemp2"];
+            //listRolUsu.DataTextField = "Nombre";
+            //listRolUsu.DataBind();
 
         }
     }

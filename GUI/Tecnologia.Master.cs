@@ -21,11 +21,15 @@ namespace GUI
             }
             else
             {
-                if (GestorPermiso.VerificarPermiso(usu, 104))
-                {
+                //if (GestorPermiso.VerificarPermiso(usu, 104))
+                //{
                     Label1.Text = "Bienvenido " + usu.Nombre + " " + usu.Apellido;
-                }
-                else { Response.Redirect("SinPermisos.aspx"); }
+                //}
+                //else { Response.Redirect("SinPermisos.aspx"); }
+
+                HabilitarPermisos(usu);
+
+
             }
         }
 
@@ -49,6 +53,81 @@ namespace GUI
             Response.Redirect("Login.aspx");
         }
 
+        public void HabilitarPermisos(BE.Usuario usuario)
+        {
+            
+
+            foreach (BE.Permiso per in usuario.ListaPermisos)
+            {
+                if (per.ID == 1)
+                {
+                    Mediciones.Visible = true;
+                }
+                if (per.ID == 2)
+                {
+                    Habitos.Visible = true;
+                }
+                if (per.ID == 3)
+                {
+                    Eventos.Visible = true;
+                }
+                if (per.ID == 4)
+                {
+                    Servicios.Visible = true;
+                }
+                if (per.ID == 5)
+                {
+                    GestionParametros.Visible = true;
+                }
+                if (per.ID == 6)
+                {
+                    GestionHabitos.Visible = true;
+                }
+                if (per.ID == 7)
+                {
+                    GestionServicios.Visible = true;
+                }
+                if (per.ID == 8)
+                {
+                    Alarmas.Visible = true;
+                }
+                if (per.ID == 9)
+                {
+                    Usuarios.Visible = true;
+                }
+                if (per.ID == 10)
+                {
+                    Bitacora.Visible = true;
+                }
+                if (per.ID == 11)
+                {
+                    Permisos.Visible = true;
+                }
+                if (per.ID == 12)
+                {
+                    Digito.Visible = true;
+                }
+                if (per.ID == 13)
+                {
+                    Backup.Visible = true;
+                }
+                if (per.ID == 14)
+                {
+                    
+                }
+                if (per.ID == 15)
+                {
+
+                }
+                if (per.ID == 16)
+                {
+
+                }
+
+            }
+
+
+        }
       
 
 

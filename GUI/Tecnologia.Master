@@ -27,20 +27,21 @@
                     <h4 class="font-weight-bold mb-0">CareMonitor</h4>
                 </div>
                 <div class="menu list-group-flush">
-                    <a href="Forms/Bitacora.aspx" class="list-group-item list-group-item-action bg-gris p-3 border-0" id="prueba" runat="server" OnClick="RedireccionarBitacora"><i class="icon ion-md-time lead mr-3"></i>Bitacora</a>
-                    <a href="BackupRestore.aspx" class="list-group-item list-group-item-action bg-gris p-3 border-0"><i class="icon ion-md-save lead mr-3"></i>Backup/Restore</a>
-                    <a href="Usuarios.aspx" class="list-group-item list-group-item-action bg-gris p-3 border-0"><i class="icon ion-md-people lead mr-3"></i>Usuarios</a>                  
-                    <a href="Permisos.aspx" class="list-group-item list-group-item-action bg-gris p-3 border-0"><i class="icon ion-ios-finger-print lead mr-3"></i>Permisos</a>
-                    <a href="DigitoVerificador.aspx" class="list-group-item list-group-item-action bg-gris p-3 border-0"><i class="icon ion-ios-calculator lead mr-3"></i>Digito Verificador</a>
-                    <a href="" class="list-group-item list-group-item-action bg-gris p-3 border-0"><i class="icon ion-md-pulse lead mr-3"></i>Mediciones</a>
-                    <a href="" class="list-group-item list-group-item-action bg-gris p-3 border-0"><i class="icon ion-md-nutrition lead mr-3"></i>Habitos</a>
-                    <a href="" class="list-group-item list-group-item-action bg-gris p-3 border-0"><i class="icon ion-md-medical lead mr-3"></i>Servicios</a>
-                    <a href="" class="list-group-item list-group-item-action bg-gris p-3 border-0"><i class="icon ion-md-calendar lead mr-3"></i>Eventos</a>
-                    <a href="GestionHabitos.aspx" class="list-group-item list-group-item-action bg-gris p-3 border-0"><i class="icon ion-md-pizza lead mr-3"></i>Gestion de Habitos</a>
-                    <a href="GestionParametros.aspx" class="list-group-item list-group-item-action bg-gris p-3 border-0"><i class="icon ion-md-medkit lead mr-3"></i>Gestion de Parametros</a>
-                    <a href="GestionServicios.aspx" class="list-group-item list-group-item-action bg-gris p-3 border-0"><i class="icon ion-md-medical lead mr-3"></i>Gestion de Servicios</a>
-                    <a href="GestionEnfermedades.aspx" class="list-group-item list-group-item-action bg-gris p-3 border-0"><i class="icon ion-md-sad lead mr-3"></i>Gestion de Enfermedades</a>
-                    <a href="" class="list-group-item list-group-item-action bg-gris p-3 border-0"><i class="icon ion-md-warning lead mr-3"></i>Alarmas</a>
+                    <a href="Forms/Bitacora.aspx" class="list-group-item list-group-item-action bg-gris p-3 border-0" id="Bitacora" runat="server" visible="false"><i class="icon ion-md-time lead mr-3"></i>Bitacora</a>
+                    <a href="Forms/BackupRestore.aspx" class="list-group-item list-group-item-action bg-gris p-3 border-0" id="Backup" runat="server" visible="false"><i class="icon ion-md-save lead mr-3"></i>Backup/Restore</a>
+                    <a href="Forms/Usuarios.aspx" class="list-group-item list-group-item-action bg-gris p-3 border-0" id="Usuarios" runat="server" visible="false"><i class="icon ion-md-people lead mr-3"></i>Usuarios</a>                  
+                    <a href="Forms/Permisos.aspx" class="list-group-item list-group-item-action bg-gris p-3 border-0" id="Roles" runat="server" visible="false"><i class="icon ion-ios-finger-print lead mr-3"></i>Roles</a>
+                    <a href="Forms/Roles.aspx" class="list-group-item list-group-item-action bg-gris p-3 border-0" id="Permisos" runat="server" visible="false"><i class="icon ion-ios-finger-print lead mr-3"></i>Permisos</a>                    
+                    <a href="Forms/DigitoVerificador.aspx" class="list-group-item list-group-item-action bg-gris p-3 border-0" id="Digito" runat="server" visible="false"><i class="icon ion-ios-calculator lead mr-3"></i>Digito Verificador</a>
+                    <a href="" class="list-group-item list-group-item-action bg-gris p-3 border-0" id="Mediciones" runat="server" visible="false"><i class="icon ion-md-pulse lead mr-3"></i>Mediciones</a>
+                    <a href="" class="list-group-item list-group-item-action bg-gris p-3 border-0" id="Habitos" runat="server" visible="false"><i class="icon ion-md-nutrition lead mr-3"></i>Habitos</a>
+                    <a href="" class="list-group-item list-group-item-action bg-gris p-3 border-0" id="Servicios" runat="server" visible="false"><i class="icon ion-md-medical lead mr-3"></i>Servicios</a>
+                    <a href="" class="list-group-item list-group-item-action bg-gris p-3 border-0" id="Eventos" runat="server" visible="false"><i class="icon ion-md-calendar lead mr-3"></i>Eventos</a>
+                    <a href="Forms/GestionHabitos.aspx" class="list-group-item list-group-item-action bg-gris p-3 border-0" id="GestionHabitos" runat="server" visible="false"><i class="icon ion-md-pizza lead mr-3"></i>Gestion de Habitos</a>
+                    <a href="Forms/GestionParametros.aspx" class="list-group-item list-group-item-action bg-gris p-3 border-0" id="GestionParametros" runat="server" visible="false"><i class="icon ion-md-medkit lead mr-3"></i>Gestion de Parametros</a>
+                    <a href="Forms/GestionServicios.aspx" class="list-group-item list-group-item-action bg-gris p-3 border-0" id="GestionServicios" runat="server" visible="false"><i class="icon ion-md-medical lead mr-3"></i>Gestion de Servicios</a>
+                    <a href="Forms/GestionEnfermedades.aspx" class="list-group-item list-group-item-action bg-gris p-3 border-0" id="GestionEnfermedades" runat="server" visible="false"><i class="icon ion-md-sad lead mr-3"></i>Gestion de Enfermedades</a>
+                    <a href="" class="list-group-item list-group-item-action bg-gris p-3 border-0" id="Alarmas" runat="server" visible="false"><i class="icon ion-md-warning lead mr-3"></i>Alarmas</a>
                 </div>
             </div>
             <div id="pageContainer" class="w-100 bg-light-blue border">

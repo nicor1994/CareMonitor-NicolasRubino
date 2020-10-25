@@ -71,7 +71,8 @@ namespace GUI.Forms
 
                                 Session["UsuarioEnSesion"] = ususesion;
 
-                                Response.Redirect(GestorPermiso.RedireccionarLogin(ususesion));
+                                //Response.Redirect(GestorPermiso.RedireccionarLogin(ususesion));
+                                Response.Redirect("VistaTecnologia.aspx");
                             }
                             else
                             {

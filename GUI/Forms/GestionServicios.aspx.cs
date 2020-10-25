@@ -59,7 +59,7 @@ namespace GUI.Forms
             btnGuardar.Visible = false;
             btnMod.Visible = true;
             listServicio.Enabled = false;
-            
+            btnModificar.Visible = false;
         }
 
         protected void btnBaja_Click(object sender, EventArgs e)
@@ -99,7 +99,7 @@ namespace GUI.Forms
                 btnGuardar.Visible = true;
                 btnMod.Visible = false;
                 listServicio.Enabled = true;
-
+                btnModificar.Visible = true;
             }
             Session["ListaServicios"] = ListaServicios;
             listServicio.DataSource = ListaServicios;

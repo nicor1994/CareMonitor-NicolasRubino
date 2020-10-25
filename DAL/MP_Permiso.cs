@@ -24,7 +24,7 @@ namespace DAL
             {
                 BE.Permiso per = new BE.Permiso();
 
-                per = ListarRolUsu((int)linea["ID_Rol"]);
+                per = ListarRolUsu((int)linea["ID_Permiso"]);
 
                 ListaPermisos.Add(per);
 
@@ -111,6 +111,25 @@ namespace DAL
 
         }
 
+        public int BorrarPermisosUsuarios(int id)
+        {
+
+            int fa = 0;
+
+            SqlParameter[] parametros = new SqlParameter[1];
+
+            parametros[0] = Acc.ArmarParametro("id", id, SqlDbType.Int);
+            Acc.AbrirConexion();
+            fa = Acc.Escribir("Usuario_BorrarPermisos", parametros);
+            Acc.CerrarConexion();
+
+
+            GC.Collect();
+            return fa;
+
+        }
+
+
         public int GuardarRol(string nombre)
         {
 
@@ -134,9 +153,9 @@ namespace DAL
 
             SqlParameter[] parametros = new SqlParameter[2];
             parametros[0] = Acc.ArmarParametro("idusu", usu.ID, SqlDbType.Int);
-            parametros[1] = Acc.ArmarParametro("idrol", rol.ID, SqlDbType.Int);
+            parametros[1] = Acc.ArmarParametro("idper", rol.ID, SqlDbType.Int);
             Acc.AbrirConexion();
-            fa = Acc.Escribir("Usuario_GuardarRol", parametros);
+            fa = Acc.Escribir("Usuario_GuardarPermisos", parametros);
             Acc.CerrarConexion();
             GC.Collect();
             return fa;
