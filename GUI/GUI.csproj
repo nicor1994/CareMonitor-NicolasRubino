@@ -124,6 +124,7 @@
     <Content Include="Forms\GestionParametros.aspx" />
     <Content Include="Forms\GestionServicios.aspx" />
     <Content Include="Forms\Login.aspx" />
+    <Content Include="Forms\Mediciones.aspx" />
     <Content Include="Forms\Permisos.aspx" />
     <Content Include="Forms\PrimerInicio.aspx" />
     <Content Include="Forms\Roles.aspx" />
@@ -353,6 +354,13 @@
     </Compile>
     <Compile Include="Forms\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Mediciones.aspx.cs">
+      <DependentUpon>Mediciones.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Mediciones.aspx.designer.cs">
+      <DependentUpon>Mediciones.aspx</DependentUpon>
     </Compile>
     <Compile Include="Forms\Permisos.aspx.cs">
       <DependentUpon>Permisos.aspx</DependentUpon>

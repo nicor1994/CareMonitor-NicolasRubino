@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BE
 {
-    class Medicion
+   public class Medicion
     {
 
         private float _valor;
@@ -17,9 +17,9 @@ namespace BE
             set { _valor = value; }
         }
 
-        private TipoHabito _Tipo;
+        private TipoMedicion _Tipo;
 
-        public TipoHabito Tipo
+        public TipoMedicion Tipo
         {
             get { return _Tipo; }
             set { _Tipo = value; }
@@ -39,6 +39,11 @@ namespace BE
         {
             get { return _ID; }
             set { _ID = value; }
+        }
+
+        public override string ToString()
+        {
+            return Tipo.Nombre + " - " + Valor;
         }
 
     }

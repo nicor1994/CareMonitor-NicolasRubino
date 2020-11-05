@@ -33,7 +33,7 @@
                     <a href="Forms/Permisos.aspx" class="list-group-item list-group-item-action bg-gris p-3 border-0" id="Roles" runat="server" visible="false"><i class="icon ion-ios-finger-print lead mr-3"></i>Roles</a>
                     <a href="Forms/Roles.aspx" class="list-group-item list-group-item-action bg-gris p-3 border-0" id="Permisos" runat="server" visible="false"><i class="icon ion-ios-finger-print lead mr-3"></i>Permisos</a>                    
                     <a href="Forms/DigitoVerificador.aspx" class="list-group-item list-group-item-action bg-gris p-3 border-0" id="Digito" runat="server" visible="false"><i class="icon ion-ios-calculator lead mr-3"></i>Digito Verificador</a>
-                    <a href="" class="list-group-item list-group-item-action bg-gris p-3 border-0" id="Mediciones" runat="server" visible="false"><i class="icon ion-md-pulse lead mr-3"></i>Mediciones</a>
+                    <a href="Forms/Mediciones.aspx" class="list-group-item list-group-item-action bg-gris p-3 border-0" id="Mediciones" runat="server" visible="false"><i class="icon ion-md-pulse lead mr-3"></i>Mediciones</a>
                     <a href="" class="list-group-item list-group-item-action bg-gris p-3 border-0" id="Habitos" runat="server" visible="false"><i class="icon ion-md-nutrition lead mr-3"></i>Habitos</a>
                     <a href="" class="list-group-item list-group-item-action bg-gris p-3 border-0" id="Servicios" runat="server" visible="false"><i class="icon ion-md-medical lead mr-3"></i>Servicios</a>
                     <a href="" class="list-group-item list-group-item-action bg-gris p-3 border-0" id="Eventos" runat="server" visible="false"><i class="icon ion-md-calendar lead mr-3"></i>Eventos</a>
