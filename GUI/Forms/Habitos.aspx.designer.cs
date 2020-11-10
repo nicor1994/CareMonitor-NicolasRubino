@@ -11,17 +11,17 @@ namespace GUI.Forms
 {
 
 
-    public partial class Mediciones
+    public partial class Habitos
     {
 
         /// <summary>
-        /// Control dropdownParametros.
+        /// Control dropdownHabitos.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList dropdownParametros;
+        protected global::System.Web.UI.WebControls.DropDownList dropdownHabitos;
 
         /// <summary>
         /// Control lblDesc.
@@ -51,15 +51,6 @@ namespace GUI.Forms
         protected global::System.Web.UI.WebControls.Button btnAgregar;
 
         /// <summary>
-        /// Control cosogris.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl cosogris;
-
-        /// <summary>
         /// Control listParametro.
         /// </summary>
         /// <remarks>
@@ -69,13 +60,13 @@ namespace GUI.Forms
         protected global::System.Web.UI.WebControls.ListBox listParametro;
 
         /// <summary>
-        /// Control btnGuardar.
+        /// Control btnModificar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnGuardar;
+        protected global::System.Web.UI.WebControls.Button btnModificar;
 
         /// <summary>
         /// Control lblmod.
@@ -85,32 +76,5 @@ namespace GUI.Forms
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblmod;
-
-        /// <summary>
-        /// Control alerta.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl alerta;
-
-        /// <summary>
-        /// Control lblEnf.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblEnf;
-
-        /// <summary>
-        /// Control btnAlarma.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAlarma;
     }
 }

@@ -86,5 +86,11 @@ namespace BLL
             return ListaMedicion;
         }
 
+        public List<BE.Habito> ListarHabitoUsuario(BE.Usuario usu)
+        {
+            List<BE.Habito> ListaMedicion = MapperHabitos.ListarHabitoUsuario(usu);
+            return ListaMedicion;
+        }
+
     }
 }

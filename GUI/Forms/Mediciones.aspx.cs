@@ -11,8 +11,8 @@ namespace GUI.Forms
     {
         BLL.TipoMedicion GestorParametros = new BLL.TipoMedicion();
         List<BE.TipoMedicion> ListaParametros = new List<BE.TipoMedicion>();
-        
-        
+        BLL.Medicion GestorMediciones = new BLL.Medicion();
+     
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -54,6 +54,60 @@ namespace GUI.Forms
                 listParametro.DataSource = ListaParametrosUsu;
                 listParametro.DataBind();
             }
+        }
+
+        protected void btnGuardar_Click(object sender, EventArgs e)
+        {
+            List<BE.Medicion> ListaParametrosUsu = new List<BE.Medicion>();
+            ListaParametrosUsu = (List<BE.Medicion>)Session["ListaParametrosUsu"];
+            bool fa = new bool();
+            foreach(BE.Medicion med in ListaParametrosUsu)
+            {
+              fa=GestorMediciones.AltaMedicion(med, (BE.Usuario)Session["UsuarioEnSesion"]);
+            }
+            if (fa == true)
+            {
+                //Aca deberia desencadenar el metodo
+               List<BE.Enfermedad> ListaEnf = GestorMediciones.VerificarEnfermedades(ListaParametrosUsu, (BE.Usuario)Session["UsuarioEnSesion"]);
+
+                if (ListaEnf != null)
+                {
+
+                    //Aca deberia generar la alarma
+
+                    alerta.Visible = true;
+                    listParametro.Visible = false;
+                    btnGuardar.Visible = false;
+                    btnAlarma.Visible = true;
+                    cosogris.Visible = false;
+                    foreach (BE.Enfermedad enf in ListaEnf)
+                    {
+                        string str = lblEnf.Text;
+                        lblEnf.Text = str + "<br />-" + enf.Nombre;
+                    }
+                    lblEnf.Text = lblEnf.Text + "<br />";
+                }
+
+
+                lblmod.Text = "Medicion Agregada!";
+                lblmod.Visible = true;
+                lblmod.CssClass = "alert alert-success";
+            }
+            else
+            {
+                lblmod.Text = "Ocurrio un error!";
+                lblmod.Visible = true;
+                lblmod.CssClass = "alert alert-danger";
+            }
+        }
+
+        protected void btnAlarma_Click(object sender, EventArgs e)
+        {
+            alerta.Visible = false;
+            listParametro.Visible = true;
+            btnGuardar.Visible = true;
+            btnAlarma.Visible = false;
+            cosogris.Visible = true;
         }
     }
 }

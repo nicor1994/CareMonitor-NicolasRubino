@@ -34,14 +34,14 @@
                     <a href="Forms/Roles.aspx" class="list-group-item list-group-item-action bg-gris p-3 border-0" id="Permisos" runat="server" visible="false"><i class="icon ion-ios-finger-print lead mr-3"></i>Permisos</a>                    
                     <a href="Forms/DigitoVerificador.aspx" class="list-group-item list-group-item-action bg-gris p-3 border-0" id="Digito" runat="server" visible="false"><i class="icon ion-ios-calculator lead mr-3"></i>Digito Verificador</a>
                     <a href="Forms/Mediciones.aspx" class="list-group-item list-group-item-action bg-gris p-3 border-0" id="Mediciones" runat="server" visible="false"><i class="icon ion-md-pulse lead mr-3"></i>Mediciones</a>
-                    <a href="" class="list-group-item list-group-item-action bg-gris p-3 border-0" id="Habitos" runat="server" visible="false"><i class="icon ion-md-nutrition lead mr-3"></i>Habitos</a>
+                    <a href="Forms/Habitos.aspx" class="list-group-item list-group-item-action bg-gris p-3 border-0" id="Habitos" runat="server" visible="false"><i class="icon ion-md-nutrition lead mr-3"></i>Habitos</a>
                     <a href="" class="list-group-item list-group-item-action bg-gris p-3 border-0" id="Servicios" runat="server" visible="false"><i class="icon ion-md-medical lead mr-3"></i>Servicios</a>
                     <a href="" class="list-group-item list-group-item-action bg-gris p-3 border-0" id="Eventos" runat="server" visible="false"><i class="icon ion-md-calendar lead mr-3"></i>Eventos</a>
                     <a href="Forms/GestionHabitos.aspx" class="list-group-item list-group-item-action bg-gris p-3 border-0" id="GestionHabitos" runat="server" visible="false"><i class="icon ion-md-pizza lead mr-3"></i>Gestion de Habitos</a>
                     <a href="Forms/GestionParametros.aspx" class="list-group-item list-group-item-action bg-gris p-3 border-0" id="GestionParametros" runat="server" visible="false"><i class="icon ion-md-medkit lead mr-3"></i>Gestion de Parametros</a>
                     <a href="Forms/GestionServicios.aspx" class="list-group-item list-group-item-action bg-gris p-3 border-0" id="GestionServicios" runat="server" visible="false"><i class="icon ion-md-medical lead mr-3"></i>Gestion de Servicios</a>
                     <a href="Forms/GestionEnfermedades.aspx" class="list-group-item list-group-item-action bg-gris p-3 border-0" id="GestionEnfermedades" runat="server" visible="false"><i class="icon ion-md-sad lead mr-3"></i>Gestion de Enfermedades</a>
-                    <a href="" class="list-group-item list-group-item-action bg-gris p-3 border-0" id="Alarmas" runat="server" visible="false"><i class="icon ion-md-warning lead mr-3"></i>Alarmas</a>
+                    <a href="Forms/Alarmas.aspx" class="list-group-item list-group-item-action bg-gris p-3 border-0" id="Alarmas" runat="server" visible="false"><i class="icon ion-md-warning lead mr-3"></i>Alarmas</a>
                 </div>
             </div>
             <div id="pageContainer" class="w-100 bg-light-blue border">

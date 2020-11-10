@@ -95,5 +95,72 @@ namespace DAL
             return fa;
         }
 
+
+        public List<BE.Habito> ListarHabitoUsuario(BE.Usuario usu)
+        {
+
+            List<BE.Habito> ListaHabitos = new List<BE.Habito>();
+            acc.AbrirConexion();
+            SqlParameter[] parametros = new SqlParameter[1];
+            parametros[0] = acc.ArmarParametro("id", usu.ID, System.Data.SqlDbType.Int);
+
+            DataTable Tabla = acc.Leer("Habitos_ListarUsuario", parametros);
+            acc.CerrarConexion();
+            GC.Collect();
+            foreach (DataRow linea in Tabla.Rows)
+            {
+                if ((int)linea["Borrado"] == 0)
+                {
+                    BE.Habito hab = new BE.Habito();
+
+                    hab.ValorxSemana = int.Parse(linea["VecesxSemana"].ToString());
+                    hab.TipoHabito = ListarHabito(int.Parse(linea["ID_TipoHabito"].ToString()));
+                
+                    ListaHabitos.Add(hab);
+                }
+
+
+
+            }
+            return ListaHabitos;
+
+        }
+
+        public BE.TipoHabito ListarHabito(int id)
+        {
+
+            BE.TipoHabito hab = new BE.TipoHabito();
+            acc.AbrirConexion();
+            SqlParameter[] parametros = new SqlParameter[1];
+            parametros[0] = acc.ArmarParametro("id", id, System.Data.SqlDbType.Int);
+
+            DataTable Tabla = acc.Leer("Habito_ListarID", parametros);
+            acc.CerrarConexion();
+            GC.Collect();
+            foreach (DataRow linea in Tabla.Rows)
+            {
+                if ((int)linea["Borrado"] == 0)
+                {
+                    
+
+                    hab.ID = (int)linea["ID"];
+                    hab.Nombre = (string)linea["Nombre"];
+                    hab.EfectoNegativo = (string)linea["EfectoNegativo"];
+                    hab.EfectoPositivo = (string)linea["EfectoPositivo"];
+                    hab.ValorPositivo = (int)linea["ValorPositivo"];
+                    hab.ValorNegativo = (int)linea["ValorNegativo"];
+
+
+                   
+                }
+
+
+
+            }
+            return hab;
+
+        }
+
+
     }
 }

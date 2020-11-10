@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BE
 {
-    class Habito
+    public class Habito
     {
 
         private int _ValorXSemana;

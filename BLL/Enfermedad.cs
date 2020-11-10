@@ -26,9 +26,12 @@ namespace BLL
                 {
                     MapperEnfermedad.AltaSintoma(sin);
                 }
-                foreach (BE.TipoHabito habenf in enf.MalosHabitos)
+                if (enf.MalosHabitos != null)
                 {
-                    MapperEnfermedad.AltaEnfermedadHabito(habenf);
+                    foreach (BE.TipoHabito habenf in enf.MalosHabitos)
+                    {
+                        MapperEnfermedad.AltaEnfermedadHabito(habenf);
+                    }
                 }
 
                 BLL.Bitacora GestorBitacora = new BLL.Bitacora();
@@ -94,6 +97,26 @@ namespace BLL
     //        List<BE.Enfermedad> ListaEnfermedad = MapperEnfermedad.Listar();
     //        return ListaEnfermedad;
     //    }
+
+        public List<BE.Enfermedad> ListarEnfermedades(List<BE.Medicion> mediciones)
+        {
+            List<BE.Enfermedad> ListaEnfermedad = new List<BE.Enfermedad>();
+            foreach (BE.Medicion med in mediciones)
+            {
+                List<BE.Enfermedad> Lista = MapperEnfermedad.ListarEnfermedad(med);
+                foreach(BE.Enfermedad enf in Lista)
+                {
+                    ListaEnfermedad.Add(enf);
+                }
+            }
+            return ListaEnfermedad;
+        }
+
+        public int EnumerarSintomas(BE.Enfermedad enf)
+        {
+            int cant = MapperEnfermedad.EnumerarSintomas(enf);
+            return cant;
+        }
 
     }
 

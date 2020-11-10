@@ -94,40 +94,65 @@ namespace DAL
             }
 
 
-            public List<BE.TipoServicio> Listar()
+            public List<BE.Enfermedad> ListarEnfermedad(BE.Medicion Med)
             {
 
-                List<BE.TipoServicio> ListaServicios = new List<BE.TipoServicio>();
+                List<BE.Enfermedad> ListaEnfermedad = new List<BE.Enfermedad>();
                 acc.AbrirConexion();
                 SqlParameter[] parametros = new SqlParameter[1];
-                parametros[0] = acc.ArmarParametro("tabla", "TipoServicio", System.Data.SqlDbType.VarChar);
+                parametros[0] = acc.ArmarParametro("id", Med.Tipo.ID, System.Data.SqlDbType.VarChar);
 
-                DataTable Tabla = acc.Leer("ListarEntidad", parametros);
+                DataTable Tabla = acc.Leer("Enfermedad_ListarPorMed", parametros);
                 acc.CerrarConexion();
                 GC.Collect();
                 foreach (DataRow linea in Tabla.Rows)
                 {
-                    if ((int)linea["Borrado"] == 0)
+
+                BE.Enfermedad enf = new BE.Enfermedad();
+
+                enf.ID = (int)linea["ID"];
+                enf.Nombre = (string)linea["Nombre"];
+                if((int)linea["Maximo"]== 0)
+                {
+                    if (Med.Valor < Med.Tipo.MinimoMasculino)
                     {
-                        BE.TipoServicio serv = new BE.TipoServicio();
-
-                        serv.ID = (int)linea["ID"];
-                        serv.Nombre = (string)linea["NombreServicio"];
-                        serv.Descripcion = (string)linea["Descripcion"];
-                        serv.TiempoMedio = (int)linea["TiempoMedio"];
-
-                        ListaServicios.Add(serv);
+                        ListaEnfermedad.Add(enf);
                     }
-
-
-
                 }
-                return ListaServicios;
+                if ((int)linea["Maximo"] == 1)
+                {
+                    if (Med.Valor > Med.Tipo.MaximoMasculino)
+                    {
+                        ListaEnfermedad.Add(enf);
+                    }
+                }
+
+            }
+                return ListaEnfermedad;
 
             }
 
+        public int EnumerarSintomas(BE.Enfermedad enf)
+        {
 
-        
+            int cant = new int();
+            acc.AbrirConexion();
+            SqlParameter[] parametros = new SqlParameter[1];
+            parametros[0] = acc.ArmarParametro("idenf", enf.ID, System.Data.SqlDbType.VarChar);
+
+            DataTable Tabla = acc.Leer("Enfermedad_EnumerarSintomas", parametros);
+            acc.CerrarConexion();
+            GC.Collect();
+            foreach (DataRow linea in Tabla.Rows)
+            {
+
+                cant = int.Parse(linea[0].ToString());
+
+            }
+            return cant;
+
+        }
+
 
     }
 }

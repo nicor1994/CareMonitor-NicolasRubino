@@ -56,6 +56,8 @@ namespace GUI.Forms
                 lblSuccess.Visible = true;
                 lblSuccess.Text = "Enfermedad Agregada!";
                 lblSuccess.CssClass = "alert alert-success";
+                Session["ListaTemporalSintomas"] = null;
+                Session["ListaTemporalHabitos"] = null;
             }
 
         }

@@ -115,6 +115,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\global.css" />
+    <Content Include="Forms\Alarmas.aspx" />
     <Content Include="Forms\BackupRestore.aspx" />
     <Content Include="Forms\Bitacora.aspx" />
     <Content Include="Forms\DigitoVerificador.aspx" />
@@ -123,6 +124,7 @@
     <Content Include="Forms\GestionHabitos.aspx" />
     <Content Include="Forms\GestionParametros.aspx" />
     <Content Include="Forms\GestionServicios.aspx" />
+    <Content Include="Forms\Habitos.aspx" />
     <Content Include="Forms\Login.aspx" />
     <Content Include="Forms\Mediciones.aspx" />
     <Content Include="Forms\Permisos.aspx" />
@@ -292,6 +294,13 @@
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Forms\Alarmas.aspx.cs">
+      <DependentUpon>Alarmas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Alarmas.aspx.designer.cs">
+      <DependentUpon>Alarmas.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Forms\BackupRestore.aspx.cs">
       <DependentUpon>BackupRestore.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -347,6 +356,13 @@
     </Compile>
     <Compile Include="Forms\GestionServicios.aspx.designer.cs">
       <DependentUpon>GestionServicios.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Habitos.aspx.cs">
+      <DependentUpon>Habitos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Habitos.aspx.designer.cs">
+      <DependentUpon>Habitos.aspx</DependentUpon>
     </Compile>
     <Compile Include="Forms\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>

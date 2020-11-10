@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="BackupRestore.cs" />
     <Compile Include="Enfermedad.cs" />
+    <Compile Include="Medicion.cs" />
     <Compile Include="Permiso.cs" />
     <Compile Include="Servicio.cs" />
     <Compile Include="Tecnologia\Bitacora.cs" />

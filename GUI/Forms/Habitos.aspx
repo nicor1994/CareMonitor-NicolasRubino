@@ -1,23 +1,25 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Mediciones.aspx.cs" MasterPageFile="~/Tecnologia.master" Inherits="GUI.Forms.Mediciones" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Habitos.aspx.cs" MasterPageFile="~/Tecnologia.master" Inherits="GUI.Forms.Habitos" %>
+
+
 
 <asp:Content ID="Content2" CssClass="border" ContentPlaceHolderID="MainContent" runat="server">
    <section>
      <div class="container"> 
          
-         <h1 class="font-weight-bold mb-0">Parametros</h1>
+         <h1 class="font-weight-bold mb-0">Habitos</h1>
          <br />
 
         
              <div class="col-md-12 border shadow rounded">
                  <br />
-             <h4 class="font-weight-bold mb-0">Parametros</h4>
+             <h4 class="font-weight-bold mb-0">Habitos</h4>
                  <br />
                  <br />
             <div class="input-group flex-nowrap">
                   <div class="input-group-prepend">
-                    <span class="input-group-text" id="addon-wrapping">Seleccione el parametro</span>
+                    <span class="input-group-text" id="addon-wrapping">Seleccione el habito</span>
                   </div>                   
-                 <asp:DropDownList ID="dropdownParametros" runat="server" CssClass="btn btn-light dropdown-toggle rounded" AutoPostBack="true" OnSelectedIndexChanged="dropdownParametros_SelectedIndexChanged"></asp:DropDownList>
+                 <asp:DropDownList ID="dropdownHabitos" runat="server" CssClass="btn btn-light dropdown-toggle rounded" AutoPostBack="true"></asp:DropDownList>
                 </div>                
                  <br />
                  <asp:Label ID="lblDesc" runat="server" Text=""></asp:Label>
@@ -25,7 +27,7 @@
                  <br />
             <div class="input-group flex-nowrap">
                   <div class="input-group-prepend">
-                    <span class="input-group-text" id="addon-wrapping2">Valor</span>
+                    <span class="input-group-text" id="addon-wrapping2">Veces por semana</span>
                   </div>
                   <asp:TextBox ID="txtValor" CssClass="form-control" runat="server"></asp:TextBox>
                 </div>                
@@ -37,31 +39,20 @@
                   <div class="col-md-12 border shadow rounded">
                  <br />
                  <br />
-             <h4 class="font-weight-bold mb-0">Parametros Agregados</h4>
+             <h4 class="font-weight-bold mb-0">Habitos del Usuario</h4>
                  <br />
                  <br />
                  <div class="input-group flex-nowrap">
                   <div class="input-group-prepend">
-                    <span class="input-group-text" id="cosogris" runat="server">Parametros</span>
+                    <span class="input-group-text" id="addon-wrapping4">Habitos</span>
                   </div>                 
                      <asp:ListBox ID="listParametro" runat="server" ></asp:ListBox>
                      <br />
-                       <asp:Button ID="btnGuardar" runat="server" Text="Guardar" CssClass="btn btn-success" style="margin-left:10px" OnClick="btnGuardar_Click" />
+                       <asp:Button ID="btnModificar" runat="server" Text="Guardar" CssClass="btn btn-success" style="margin-left:10px" />
                  
                      
                       <asp:Label ID="lblmod" runat="server" CssClass="alert alert-success" Text="Usuario agregado!" Visible="false"></asp:Label>
-                     <br />
-                     <br />
-                 
             </div>
-                          <div class="alert alert-danger" role="alert" id="alerta" runat="server" visible="false">
-                         <h4 class="alert-heading">Cuidado!!</h4>
-                         <p>Los parametros ingresados condicen con la/s siguiente/s enfermedades, se ha emitido una alarma al Departamento Medico</p>
-                         <hr>
-                         <asp:Label ID="lblEnf" runat="server" Text=""></asp:Label>
-                         <br />
-                         <asp:Button ID="btnAlarma" CssClass="btn btn-warning" runat="server" Text="Aceptar" OnClick="btnAlarma_Click" />
-                     </div>
                  <br />
                    <br />
             
