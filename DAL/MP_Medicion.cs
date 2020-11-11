@@ -20,7 +20,7 @@ namespace DAL
             parametros[0] = acc.ArmarParametro("idusu", Usu.ID, System.Data.SqlDbType.Int);
             parametros[1] = acc.ArmarParametro("idmed", med.Tipo.ID, System.Data.SqlDbType.VarChar);
             parametros[2] = acc.ArmarParametro("valor", med.Valor, System.Data.SqlDbType.Int);
-            parametros[3] = acc.ArmarParametro("fecha", DateTime.Now, System.Data.SqlDbType.DateTime);
+            parametros[3] = acc.ArmarParametro("fecha", med.Fecha, System.Data.SqlDbType.DateTime);
 
             fa = acc.Escribir("Medicion_Agregar", parametros);
             acc.CerrarConexion();

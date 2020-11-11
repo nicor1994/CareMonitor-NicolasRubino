@@ -12,6 +12,7 @@ namespace GUI.Forms
         BLL.TipoMedicion GestorParametros = new BLL.TipoMedicion();
         List<BE.TipoMedicion> ListaParametros = new List<BE.TipoMedicion>();
         BLL.Medicion GestorMediciones = new BLL.Medicion();
+        BLL.Alarma GestorAlarma = new BLL.Alarma();
      
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -38,6 +39,7 @@ namespace GUI.Forms
             BE.Medicion MedicionUsuario = new BE.Medicion();
             MedicionUsuario.Tipo = ListaParametros[dropdownParametros.SelectedIndex];
             MedicionUsuario.Valor = int.Parse(txtValor.Text);
+            MedicionUsuario.Fecha = DateTime.Now;
             List<BE.Medicion> ListaParametrosUsu = new List<BE.Medicion>();
             if (Session["ListaParametrosUsu"] != null)
             {
@@ -70,10 +72,12 @@ namespace GUI.Forms
                 //Aca deberia desencadenar el metodo
                List<BE.Enfermedad> ListaEnf = GestorMediciones.VerificarEnfermedades(ListaParametrosUsu, (BE.Usuario)Session["UsuarioEnSesion"]);
 
-                if (ListaEnf != null)
+                if (ListaEnf.Count() != 0)
                 {
 
                     //Aca deberia generar la alarma
+
+                    GestorAlarma.DispararAlarma(ListaParametrosUsu, (BE.Usuario)Session["UsuarioEnSesion"]);
 
                     alerta.Visible = true;
                     listParametro.Visible = false;
@@ -83,7 +87,7 @@ namespace GUI.Forms
                     foreach (BE.Enfermedad enf in ListaEnf)
                     {
                         string str = lblEnf.Text;
-                        lblEnf.Text = str + "<br />-" + enf.Nombre;
+                        lblEnf.Text = str + "-" + enf.Nombre + "<br />";
                     }
                     lblEnf.Text = lblEnf.Text + "<br />";
                 }
