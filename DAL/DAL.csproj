@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Acceso.cs" />
+    <Compile Include="MP_Alarma.cs" />
     <Compile Include="MP_BackupRestore.cs" />
     <Compile Include="MP_Bitacora.cs" />
     <Compile Include="MP_Enfermedad.cs" />

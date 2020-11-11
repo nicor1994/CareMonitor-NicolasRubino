@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BE
 {
-    class Alarma
+    public class Alarma
     {
 
         private Usuario _usu;
