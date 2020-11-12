@@ -42,27 +42,30 @@ namespace DAL
             return fa;
         }
 
-        public List<BE.Bitacora> ListarBitacora()
+        public List<BE.Alarma> ListarAlarmas()
         {
-            List<BE.Bitacora> ListaBitacora = new List<BE.Bitacora>();
-            acc.AbrirConexionBitacora();
-            DataTable Tabla = acc.Leer("Alarmas_Listar", null);
+            List<BE.Alarma> ListaAlarma = new List<BE.Alarma>();
+            acc.AbrirConexion();
+            SqlParameter[] parametros = new SqlParameter[1];
+
+            parametros[0] = acc.ArmarParametro("tabla", "Alarma", System.Data.SqlDbType.DateTime);
+            DataTable Tabla = acc.Leer("ListarEntidad", null);
             acc.CerrarConexion();
             GC.Collect();
-            foreach (DataRow bitacorarow in Tabla.Rows)
+            foreach (DataRow linea in Tabla.Rows)
             {
-                BE.Bitacora nuevabitacora = new BE.Bitacora();
+                BE.Alarma al = new BE.Alarma();
 
-                nuevabitacora.ID = (int)bitacorarow["ID_Bitacora"];
-                nuevabitacora.Fecha = (DateTime)bitacorarow["Fecha"];
-                nuevabitacora.Accion = (string)bitacorarow["Accion"];
-                nuevabitacora.Usuario = (string)bitacorarow["Usuario"];
-                nuevabitacora.Tipo = (string)bitacorarow["Tipo"];
+                al.Fecha = DateTime.Parse(linea["Fecha"].ToString());
+                al.ID = int.Parse(linea["ID"].ToString());
 
-                ListaBitacora.Add(nuevabitacora);
+                DAL.MP_Usuario Gestor = new MP_Usuario();
+                al.Usuario = Gestor.ObtenerUsuarioID(int.Parse(linea["ID_Usuario"].ToString()));
+                
+
 
             }
-            return ListaBitacora;
+            return ListaAlarma;
         }
 
     }

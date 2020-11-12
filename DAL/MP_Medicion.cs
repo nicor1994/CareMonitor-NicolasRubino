@@ -28,6 +28,42 @@ namespace DAL
             return fa;
         }
 
+        public List<BE.Medicion> ListarMedicionAlarma(int id)
+        {
+
+            List<BE.Medicion> ListaMedicion = new List<BE.Medicion>();
+            acc.AbrirConexion();
+            SqlParameter[] parametros = new SqlParameter[1];
+            parametros[0] = acc.ArmarParametro("id", id, System.Data.SqlDbType.Int);
+
+            DataTable Tabla = acc.Leer("Medicion_ListarID", parametros);
+            acc.CerrarConexion();
+            GC.Collect();
+            foreach (DataRow linea in Tabla.Rows)
+            {
+                if ((int)linea["Borrado"] == 0)
+                {
+
+
+                    hab.ID = (int)linea["ID"];
+                    hab.Nombre = (string)linea["Nombre"];
+                    hab.EfectoNegativo = (string)linea["EfectoNegativo"];
+                    hab.EfectoPositivo = (string)linea["EfectoPositivo"];
+                    hab.ValorPositivo = (int)linea["ValorPositivo"];
+                    hab.ValorNegativo = (int)linea["ValorNegativo"];
+
+
+
+                }
+
+
+
+            }
+            return hab;
+
+        }
+
+
 
     }
 }
