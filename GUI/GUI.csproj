@@ -122,6 +122,7 @@
     <Content Include="Forms\Empleados.aspx" />
     <Content Include="Forms\GestionEnfermedades.aspx" />
     <Content Include="Forms\GestionHabitos.aspx" />
+    <Content Include="Forms\GestionIdioma.aspx" />
     <Content Include="Forms\GestionParametros.aspx" />
     <Content Include="Forms\GestionServicios.aspx" />
     <Content Include="Forms\Habitos.aspx" />
@@ -131,6 +132,7 @@
     <Content Include="Forms\PrimerInicio.aspx" />
     <Content Include="Forms\Roles.aspx" />
     <Content Include="Forms\SinPermisos.aspx" />
+    <Content Include="Forms\SolicitarServicio.aspx" />
     <Content Include="Forms\Usuarios.aspx" />
     <Content Include="Forms\VistaFamiliar.aspx" />
     <Content Include="Forms\VistaMedico.aspx" />
@@ -343,6 +345,13 @@
     <Compile Include="Forms\GestionHabitos.aspx.designer.cs">
       <DependentUpon>GestionHabitos.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Forms\GestionIdioma.aspx.cs">
+      <DependentUpon>GestionIdioma.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\GestionIdioma.aspx.designer.cs">
+      <DependentUpon>GestionIdioma.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Forms\GestionParametros.aspx.cs">
       <DependentUpon>GestionParametros.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -406,6 +415,13 @@
     <Compile Include="Forms\SinPermisos.aspx.designer.cs">
       <DependentUpon>SinPermisos.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Forms\SolicitarServicio.aspx.cs">
+      <DependentUpon>SolicitarServicio.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\SolicitarServicio.aspx.designer.cs">
+      <DependentUpon>SolicitarServicio.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Usuarios.aspx.cs">
       <DependentUpon>Usuarios.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -447,13 +463,6 @@
     </Compile>
     <Compile Include="Forms\VistaTecnologia.aspx.designer.cs">
       <DependentUpon>VistaTecnologia.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Paciente.Master.cs">
-      <DependentUpon>Paciente.Master</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Paciente.Master.designer.cs">
-      <DependentUpon>Paciente.Master</DependentUpon>
     </Compile>
     <Compile Include="Pruebas\AltaUsuario.aspx.cs">
       <DependentUpon>AltaUsuario.aspx</DependentUpon>
@@ -564,6 +573,7 @@
     <Compile Include="Site.Mobile.Master.designer.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
     </Compile>
+    <Compile Include="Traductor.cs" />
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -576,7 +586,6 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Paciente.Master" />
     <None Include="packages.config" />
     <Content Include="js\jquery-3.4.1.slim.min.map" />
     <Content Include="js\jquery-3.4.1.min.map" />

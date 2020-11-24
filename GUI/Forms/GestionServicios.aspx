@@ -4,13 +4,15 @@
    <section>
      <div class="container"> 
          
-         <h1 class="font-weight-bold mb-0">Gestion de Servicios</h1>
+         <h1 class="font-weight-bold mb-0">
+             <asp:Label ID="lblGestionServicios" runat="server" Text="Gestion de Servicios"></asp:Label></h1>
          <br />
 
         
              <div class="col-md-12 border shadow rounded">
                  <br />
-             <h4 class="font-weight-bold mb-0">Alta de Servicio</h4>
+             <h4 class="font-weight-bold mb-0">
+                 <asp:Label ID="lblAltaServicio" runat="server" Text="Alta de Servicio"></asp:Label></h4>
 
              <br />
 
@@ -18,25 +20,32 @@
                  <br />
             <div class="input-group flex-nowrap">
                   <div class="input-group-prepend">
-                    <span class="input-group-text" id="addon-wrapping">Nombre</span>
+                    <span class="input-group-text" id="addon-wrapping">
+                        <asp:Label ID="lblNombre" runat="server" Text="Nombre"></asp:Label></span>
                   </div>
                    <asp:TextBox ID="txtNombre" CssClass="form-control" runat="server"></asp:TextBox>
+                 <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Debe completar este campo!" ControlToValidate="txtNombre" CssClass="alert-danger"></asp:RequiredFieldValidator>
                 </div>
                 
                  <br />
             <div class="input-group flex-nowrap">
                   <div class="input-group-prepend">
-                    <span class="input-group-text" id="addon-wrapping2">Descripcion</span>
+                    <span class="input-group-text" id="addon-wrapping2">
+                        <asp:Label ID="lblDescripcion" runat="server" Text="Descripcion"></asp:Label></span>
                   </div>
                   <asp:TextBox ID="txtDesc" CssClass="form-control" runat="server"></asp:TextBox>
+                 <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Debe completar este campo!" ControlToValidate="txtDesc" CssClass="alert-danger"></asp:RequiredFieldValidator>
                 </div>
                 
                    <br />
             <div class="input-group flex-nowrap">
                   <div class="input-group-prepend">
-                    <span class="input-group-text" id="addon-wrappinga">Tiempo Medio</span>
+                    <span class="input-group-text" id="addon-wrappinga">
+                        <asp:Label ID="lblTiempoMedio" runat="server" Text="Tiempo Medio"></asp:Label></span>
                   </div>
-                    <asp:TextBox ID="txtTiempo" CssClass="form-control" runat="server"></asp:TextBox>
+                    <asp:TextBox TextMode="Number" ID="txtTiempo" CssClass="form-control" runat="server"></asp:TextBox>
+                 <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="Debe completar este campo!" ControlToValidate="txtTiempo" CssClass="alert-danger"></asp:RequiredFieldValidator>
+               
                 </div>
 
                    <br />
@@ -45,17 +54,19 @@
                    <br />
                  <asp:Label ID="lblSuccess" runat="server" CssClass="alert alert-success" Text="Servicio agregado!" Visible="false"></asp:Label>
                  <asp:Button ID="btnGuardar" runat="server" Text="Aceptar" CssClass="btn btn-info" OnClick="btnGuardar_Click"/>
+                 <asp:Button ID="btnMod" runat="server" Text="Modificar" CssClass="btn btn-info"  Visible="false" OnClick="btnMod_Click"/>
                  <br />
                  <br />
                   <div class="col-md-12 border shadow rounded">
                  <br />
                  <br />
-             <h4 class="font-weight-bold mb-0">Gestion de Servicios</h4>
+            
                  <br />
                  <br />
                  <div class="input-group flex-nowrap">
                   <div class="input-group-prepend">
-                    <span class="input-group-text" id="addon-wrapping4">Servicio</span>
+                    <span class="input-group-text" id="addon-wrapping4">
+                        <asp:Label ID="lblServicios" runat="server" Text="Servicio"></asp:Label></span>
                   </div>                 
                      <asp:ListBox ID="listServicio" runat="server" ></asp:ListBox>
 
@@ -66,48 +77,7 @@
             </div>
                  <br />
                    <br />
-            <div class="col-md-12 border shadow rounded ">
-                 <br />
-             <h4 class="font-weight-bold mb-0">Modificar Servicio</h4>
-
-             <br />
-
-                 <br />
-                 <br />
-            <div class="input-group flex-nowrap">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text" id="addon-wrapping">Nombre</span>
-                  </div>
-                   <asp:TextBox ID="txtnombremod" CssClass="form-control" runat="server" Visible="false"></asp:TextBox>
-                </div>
-                
-                 <br />
-            <div class="input-group flex-nowrap">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text" id="addon-wrapping2">Descripcion</span>
-                  </div>
-                  <asp:TextBox ID="txtdescmod" CssClass="form-control" runat="server" Visible="false"></asp:TextBox>
-                </div>
-                
-                   <br />
-            <div class="input-group flex-nowrap">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text" id="addon-wrapping3">Tiempo Medio</span>
-                  </div>
-                    <asp:TextBox ID="txttiempomod" CssClass="form-control" runat="server" Visible="false"></asp:TextBox>
-                </div>
-
-                   <br />
-         
-                   <br />
-              
-                   <br />
-                   <br />
-                 <asp:Button ID="btnMod" runat="server" Text="Modificar" CssClass="btn btn-info"  Visible="false" OnClick="btnMod_Click"/>
-                  <asp:Label ID="lblsuccess2" runat="server" CssClass="alert alert-success" Text="Usuario agregado!" Visible="false"></asp:Label>
-                 <br />
-                 <br />
-             </div>
+        
                  <br />
           </div>
         </div>

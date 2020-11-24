@@ -1,7 +1,8 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Roles.aspx.cs" MasterPageFile="~/Tecnologia.master" Inherits="GUI.Forms.Roles" %>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-    <h1 class="font-weight-bold mb-0">Gestion de Permisos</h1>
+    <h1 class="font-weight-bold mb-0">
+        <asp:Label ID="lblGestionPermisos" runat="server" Text="Gestion de Permisos"></asp:Label></h1>
     <br />
     <section>
    <div class="container">
@@ -9,16 +10,18 @@
             <div class="row">
                 <div class="col-sm">
                     <br />
-                    <h4 class="font-weight-bold mb-0">Usuario</h4>
+                    <h4 class="font-weight-bold mb-0">
+                        <asp:Label ID="lblUsuario" runat="server" Text="Usuario"></asp:Label></h4>
                     <br />
                    <asp:ListBox ID="listUsu" CssClass="list-group-item list-group-item-action align-content-stretch" runat="server" Height="500px"></asp:ListBox>
                     <br />
-                       <asp:Button ID="btnUsuario" runat="server" CssClass="btn btn-success" Text="Seleccionar Usuario" OnClick="btnUsuario_Click" />
+                       <asp:Button ID="btnSeleccionarUsuario" runat="server" CssClass="btn btn-success" Text="Seleccionar Usuario" OnClick="btnUsuario_Click" />
                     <br />
                 </div>
                 <div class="col-sm">
                      <br />
-                    <h4 class="font-weight-bold mb-0">Permisos Asignados</h4>
+                    <h4 class="font-weight-bold mb-0">
+                        <asp:Label ID="lblPermisosAsignados" runat="server" Text="Permisos Asignados"></asp:Label></h4>
                       <br />
                    <asp:ListBox ID="listRolUsu" CssClass="list-group-item list-group-item-action align-content-stretch" runat="server" Height="500px"></asp:ListBox>
                     <br />
@@ -27,7 +30,8 @@
                 </div>
                 <div class="col-sm">
                      <br />
-                    <h4 class="font-weight-bold mb-0">Roles</h4>
+                    <h4 class="font-weight-bold mb-0">
+                        <asp:Label ID="lblRoles" runat="server" Text="Roles"></asp:Label></h4>
                     <br />
                     <asp:ListBox ID="listRoles2" CssClass="list-group-item list-group-item-action align-content-stretch" runat="server" Height="200px"></asp:ListBox>
                       <br />

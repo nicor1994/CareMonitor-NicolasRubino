@@ -1,7 +1,8 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="GestionEnfermedades.aspx.cs" MasterPageFile="~/Tecnologia.master" Inherits="GUI.Forms.GestionEnfermedades" %>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-    <h1 class="font-weight-bold mb-0">Gestion de Enfermedades</h1>
+    <h1 class="font-weight-bold mb-0">
+        <asp:Label ID="lblGestionEnfermedades" runat="server" Text="Gestion de Enfermedades"></asp:Label></h1>
     <br />
     <section>
         <div class="container">
@@ -15,12 +16,16 @@
                         <br />
                             <div class="input-group flex-nowrap">
                   <div class="input-group-prepend">
-                    <span class="input-group-text" id="addon-wrapping3">Nombre de la Enfermedad</span>
+                    <span class="input-group-text" id="addon-wrapping3">
+                        <asp:Label ID="lblNombre" runat="server" Text="Nombre"></asp:Label></span>
                   </div>
                     <asp:TextBox ID="txtNom" CssClass="form-control" runat="server"></asp:TextBox>
+                
                 </div>
+                         
                         <br />
-                        <h4 class="font-weight-bold mb-0">Parametros</h4>
+                        <h4 class="font-weight-bold mb-0">
+                            <asp:Label ID="lblParametros" runat="server" Text="Parametros"></asp:Label></h4>
                         <br />
                        <asp:ListBox ID="listParametros" CssClass="list-group-item list-group-item-action align-content-stretch" runat="server" Height="200px">                      </asp:ListBox>
                       <br />
@@ -34,7 +39,8 @@
                         <br />
                                       
                         <br />
-                        <h4 class="font-weight-bold mb-0">Habitos</h4>
+                        <h4 class="font-weight-bold mb-0">
+                            <asp:Label ID="lblHabitos" runat="server" Text="Habitos"></asp:Label></h4>
                         <br />
                        <asp:ListBox ID="listHabitos" CssClass="list-group-item list-group-item-action align-content-stretch" runat="server" Height="200px">                      </asp:ListBox>
                       <br />
@@ -44,21 +50,25 @@
                             </div>
                         <br />
                        
-                         <asp:Button ID="btnGuardar" runat="server" Text="Guardar Enfermedad" CssClass="btn btn-info" OnClick="btnGuardar_Click"/>
+                         <asp:Button ID="btnGuardarEnfermedad" runat="server" Text="Guardar Enfermedad" CssClass="btn btn-info" OnClick="btnGuardar_Click"/>
+                        <br />
                         <br />
                          <asp:Label ID="lblSuccess" runat="server" Text="Label" Visible="false"></asp:Label>
                         <br />
                     </div>
                     <div class="col-sm">
                          <br />
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Debe completar este campo!" ControlToValidate="txtNom" CssClass="alert alert-danger"></asp:RequiredFieldValidator>
                         <br />
                         <br />
-                         <h4 class="font-weight-bold mb-0">Parametros Seleccionados</h4>
+                         <h4 class="font-weight-bold mb-0">
+                             <asp:Label ID="lblParametrosSeleccionados" runat="server" Text="Parametros Seleccionados"></asp:Label></h4>
                         <br />
                       <asp:ListBox ID="listaParamSelect" CssClass="list-group-item list-group-item-action align-content-stretch" runat="server" Height="300px"></asp:ListBox>
                         <br />
                    
-                        <h4 class="font-weight-bold mb-0">Habitos Seleccionados</h4>
+                        <h4 class="font-weight-bold mb-0">
+                            <asp:Label ID="lblHabitosSeleccionados" runat="server" Text="Habitos Seleccionados"></asp:Label></h4>
                         <br />
                        <asp:ListBox ID="listHabitosSelec" CssClass="list-group-item list-group-item-action align-content-stretch" runat="server" Height="300px">                      </asp:ListBox>
                       <br />

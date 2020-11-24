@@ -10,52 +10,65 @@
         
              <div class="col-md-12 border shadow rounded">
                  <br />
-             <h4 class="font-weight-bold mb-0">Alta de Usuario</h4>
+             <h4 class="font-weight-bold mb-0"><asp:Label ID="lblAltaUsuario" runat="server" Text="Alta de Usuario"></asp:Label></h4>
 
              <br />
 
                  <br />
                  <br />
+                 <div class ="row">
+                 <div class="col-6">
             <div class="input-group flex-nowrap">
                   <div class="input-group-prepend">
-                    <span class="input-group-text" id="addon-wrapping">Nombre/s</span>
+                    <span class="input-group-text" id="addon-wrapping">
+                        <asp:Label ID="lblNombre" runat="server" Text="Nombre"></asp:Label></span>
                   </div>
                    <asp:TextBox ID="txtNombre" CssClass="form-control" runat="server"></asp:TextBox>
                 </div>
-                
+                 <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Debe completar este campo!" ControlToValidate="txtNombre" CssClass="alert-danger"></asp:RequiredFieldValidator>
                  <br />
             <div class="input-group flex-nowrap">
                   <div class="input-group-prepend">
-                    <span class="input-group-text" id="addon-wrapping2">Apellido/s</span>
+                    <span class="input-group-text" id="addon-wrapping2">
+                        <asp:Label ID="lblApellido" runat="server" Text="Apellido"></asp:Label></span>
                   </div>
                   <asp:TextBox ID="txtApellido" CssClass="form-control" runat="server"></asp:TextBox>
                 </div>
-                
+                 <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Debe completar este campo!" ControlToValidate="txtApellido" CssClass="alert-danger"></asp:RequiredFieldValidator>
                    <br />
             <div class="input-group flex-nowrap">
                   <div class="input-group-prepend">
-                    <span class="input-group-text" id="addon-wrappinga">DNI</span>
+                    <span class="input-group-text" id="addon-wrappinga">
+                        <asp:Label ID="lblDNI" runat="server" Text="DNI"></asp:Label></span>
                   </div>
-                    <asp:TextBox ID="txtDni" CssClass="form-control" runat="server"></asp:TextBox>
+                    <asp:TextBox TextMode="Number" ID="txtDni" CssClass="form-control" runat="server"></asp:TextBox>
                 </div>
-
-                   <br />
+                  <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="Debe completar este campo!" ControlToValidate="txtDni" CssClass="alert-danger"></asp:RequiredFieldValidator>
+               </div>
+                 <div class="col-6">
             <div class="input-group flex-nowrap">
                   <div class="input-group-prepend">
-                    <span class="input-group-text" id="addon-wrapping4">Direccion</span>
+                    <span class="input-group-text" id="addon-wrapping4">
+                        <asp:Label ID="lblDireccion" runat="server" Text="Direccion"></asp:Label></span>
                   </div>                 
                 <asp:TextBox ID="txtDireccion" CssClass="form-control" runat="server"></asp:TextBox>
             </div>
+                  <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="Debe completar este campo!" ControlToValidate="txtDireccion" CssClass="alert-danger"></asp:RequiredFieldValidator>
                    <br />
                  <div class="input-group flex-nowrap">
                   <div class="input-group-prepend">
-                    <span class="input-group-text" id="addon-wrapping4">Fecha de Nacimiento</span>
+                    <span class="input-group-text" id="addon-wrapping4"><asp:Label ID="lblFechaNacimiento" runat="server" Text="Fecha de Nacimiento"></asp:Label></span>
                   </div>                 
                 <asp:TextBox textmode="Date" ID="txtFechaNac" CssClass="form-control" runat="server"></asp:TextBox>
             </div>
+                  <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="Debe completar este campo!" ControlToValidate="txtFechaNac" CssClass="alert-danger"></asp:RequiredFieldValidator>
                    <br />
+                     </div>
+                     </div>
                  <asp:Label ID="lblSuccess" runat="server" CssClass="alert alert-success" Text="Usuario agregado!" Visible="false"></asp:Label>
                  <asp:Button ID="btnAceptar" runat="server" Text="Aceptar" CssClass="btn btn-info" OnClick="btnAceptar_Click"/>
+                 <asp:Button ID="btnMod" runat="server" Text="Modificar" CssClass="btn btn-info"  Visible="false" OnClick="btnMod_Click"/>
+                 <asp:Label ID="lblsuccess2" runat="server" CssClass="alert alert-success" Text="Usuario agregado!" Visible="false"></asp:Label>
                  <br />
                  <br />
              </div>
@@ -82,58 +95,7 @@
             </div>
                  <br />
                    <br />
-            <div class="col-md-12 border shadow rounded ">
-                 <br />
-             <h4 class="font-weight-bold mb-0">Modificar Usuario</h4>
-
-             <br />
-
-                 <br />
-                 <br />
-            <div class="input-group flex-nowrap">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text" id="addon-wrapping">Nombre/s</span>
-                  </div>
-                   <asp:TextBox ID="txtnombremod" CssClass="form-control" runat="server" Visible="false"></asp:TextBox>
-                </div>
-                
-                 <br />
-            <div class="input-group flex-nowrap">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text" id="addon-wrapping2">Apellido/s</span>
-                  </div>
-                  <asp:TextBox ID="txtapemod" CssClass="form-control" runat="server" Visible="false"></asp:TextBox>
-                </div>
-                
-                   <br />
-            <div class="input-group flex-nowrap">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text" id="addon-wrapping3">DNI</span>
-                  </div>
-                    <asp:TextBox ID="txtdnimod" CssClass="form-control" runat="server" Visible="false"></asp:TextBox>
-                </div>
-
-                   <br />
-            <div class="input-group flex-nowrap">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text" id="addon-wrapping4">Direccion</span>
-                  </div>                 
-                <asp:TextBox ID="txtdireccionmod" CssClass="form-control" runat="server" Visible="false"></asp:TextBox>
-            </div>
-                   <br />
-                     <div class="input-group flex-nowrap">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text" id="addon-wrapping4">Fecha de Nacimiento</span>
-                  </div>                 
-                <asp:TextBox textmode="Date" ID="txtfechamod" CssClass="form-control" runat="server" Visible="false"></asp:TextBox>
-            </div>
-                   <br />
-                   <br />
-                 <asp:Button ID="btnMod" runat="server" Text="Modificar" CssClass="btn btn-info"  Visible="false" OnClick="btnMod_Click"/>
-                  <asp:Label ID="lblsuccess2" runat="server" CssClass="alert alert-success" Text="Usuario agregado!" Visible="false"></asp:Label>
-                 <br />
-                 <br />
-             </div>
+         
                  <br />
           </div>
         </div>

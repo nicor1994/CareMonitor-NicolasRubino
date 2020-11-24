@@ -1,7 +1,8 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Permisos.aspx.cs" MasterPageFile="~/Tecnologia.master" Inherits="GUI.Forms.Permisos" %>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-    <h1 class="font-weight-bold mb-0">Gestion de Permisos</h1>
+    <h1 class="font-weight-bold mb-0">
+        <asp:Label ID="lblGestionRoles" runat="server" Text="Gestion de Roles"></asp:Label></h1>
     <br />
     <section>
         <div class="container">
@@ -11,12 +12,13 @@
                     <br />
                     <div class="col-sm">
                         <br />
-                        <h4 class="font-weight-bold mb-0">Permisos</h4>
+                        <h4 class="font-weight-bold mb-0">
+                            <asp:Label ID="lblPermisos" runat="server" Text="Permisos"></asp:Label></h4>
                         <br />
                        <asp:ListBox ID="listPermisos" CssClass="list-group-item list-group-item-action align-content-stretch" runat="server" Height="200px">                      </asp:ListBox>
                       <br />
                         <div class="text-right">
-                        <asp:Button ID="btnSelecc" runat="server" CssClass="btn btn-success" Text="Seleccionar Permiso" OnClick="btnSelecc_Click" />
+                        <asp:Button ID="btnSeleccionarPermiso" runat="server" CssClass="btn btn-success" Text="Seleccionar Permiso" OnClick="btnSelecc_Click" />
                            <ion-icon name="arrow-forward-outline" size ="medium"></ion-icon>
                             </div>
                         <br />
@@ -33,7 +35,8 @@
                     </div>
                     <div class="col-sm">
                          <br />
-                         <h4 class="font-weight-bold mb-0">Crear Rol</h4>
+                         <h4 class="font-weight-bold mb-0">
+                             <asp:Label ID="lblCrearRol" runat="server" Text="Crear Rol"></asp:Label></h4>
                         <br />
                       <asp:ListBox ID="listaTemp" CssClass="list-group-item list-group-item-action align-content-stretch" runat="server" Height="300px"></asp:ListBox>
                         <br />
@@ -41,12 +44,14 @@
                         
                            <div class="input-group flex-nowrap">
                   <div class="input-group-prepend">
-                    <span class="input-group-text" id="addon-wrapping">Nombre Rol</span>
+                    <span class="input-group-text" id="addon-wrapping">
+                        <asp:Label ID="lblNombreRol" runat="server" Text="Nombre Rol"></asp:Label></span>
                   </div>
                              
                    <asp:TextBox ID="txtRol" CssClass="form-control" runat="server"></asp:TextBox>
                 </div>
-                        <asp:Label ID="Label2" runat="server" Text="Label" Visible="false"></asp:Label>
+                         
+                        <asp:Label ID="lblCompleteNombre" runat="server" Text="Label" Visible="false"></asp:Label>
                         <br />
                         <br />
                         <asp:Button ID="btnAgregarRol" runat="server" CssClass="btn btn-outline-info" Text="Crear Rol" OnClick="btnAgregarRol_Click"  style="margin-left:10px" />      
@@ -56,7 +61,8 @@
                     </div>
                     <div class="col-sm">
                          <br />
-                        <h4 class="font-weight-bold mb-0">Roles</h4>
+                        <h4 class="font-weight-bold mb-0">
+                            <asp:Label ID="lblRoles" runat="server" Text="Roles"></asp:Label></h4>
                         <br />
                         <asp:ListBox ID="listRoles" CssClass="list-group-item list-group-item-action align-content-stretch" runat="server" Height="200px"></asp:ListBox>
                         <br />

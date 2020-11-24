@@ -11,6 +11,7 @@ namespace GUI
     {
         BLL.Bitacora GestorBitacora = new BLL.Bitacora();
         BLL.Permiso GestorPermiso = new BLL.Permiso();
+        Traductor Traductor = new Traductor();
         protected void Page_Load(object sender, EventArgs e)
         {
             BE.Usuario usu = (BE.Usuario)Session["UsuarioEnSesion"];
@@ -23,13 +24,31 @@ namespace GUI
             {
                 //if (GestorPermiso.VerificarPermiso(usu, 104))
                 //{
-                    Label1.Text = "Bienvenido " + usu.Nombre + " " + usu.Apellido;
+                CambiarIdioma(this.Controls, (BE.Lenguaje)Session["Idioma"]);
+                lblBienvenido.Text = lblBienvenido.Text +" "+ usu.Nombre + " " + usu.Apellido;
+               
                 //}
                 //else { Response.Redirect("SinPermisos.aspx"); }
 
                 HabilitarPermisos(usu);
 
 
+            }
+        }
+
+        public void CambiarIdioma(ControlCollection ListaControles, BE.Lenguaje leng )
+        {
+            foreach(Control ctr in ListaControles)
+            {
+                if (ctr.HasControls())
+                {
+                    CambiarIdioma(ctr.Controls, leng);
+                }
+                else
+                {
+                    Traductor.Traducir(ctr, leng);
+                }
+              
             }
         }
 
@@ -123,7 +142,14 @@ namespace GUI
                 {
 
                 }
-
+                if (per.ID == 17)
+                {
+                    Roles.Visible = true;
+                }
+                if (per.ID == 1)
+                {
+                    GestionEnfermedades.Visible = true;
+                }
             }
 
 

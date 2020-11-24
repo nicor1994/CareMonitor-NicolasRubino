@@ -14,34 +14,48 @@ namespace GUI.Forms
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            if (!IsPostBack)
+            BE.Usuario usu = (BE.Usuario)Session["UsuarioEnSesion"];
+            if (usu.ListaPermisos.Find(x => x.ID == 7) != null)
             {
+                if (!IsPostBack)
+                {
 
-                ListaServicios = GestorServicio.Listar();
-                Session["ListaServicios"] = ListaServicios;
-                listServicio.DataSource = null;
-                listServicio.DataSource = ListaServicios;
-                listServicio.DataBind();
+                    ListaServicios = GestorServicio.Listar();
+                    Session["ListaServicios"] = ListaServicios;
+                    listServicio.DataSource = null;
+                    listServicio.DataSource = ListaServicios;
+                    listServicio.DataBind();
+                }
+
+                ListaServicios = (List<BE.TipoServicio>)Session["ListaServicios"];
+            }
+            else
+            {
+                Response.Redirect("SinPermisos.aspx");
             }
 
-            ListaServicios = (List<BE.TipoServicio>)Session["ListaServicios"];
+            //////
+
+            
 
 
         }
 
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
-            BE.TipoServicio tipserv = new BE.TipoServicio();
-
-            tipserv.Nombre = txtNombre.Text;
-            tipserv.Descripcion = txtDesc.Text;
-            tipserv.TiempoMedio = int.Parse(txtTiempo.Text);
-
-           if( GestorServicio.AltaServicio(tipserv, (BE.Usuario)Session["UsuarioEnSesion"])== true)
+            if (Page.IsValid)
             {
-                lblSuccess.Visible = true;
+                BE.TipoServicio tipserv = new BE.TipoServicio();
+
+                tipserv.Nombre = txtNombre.Text;
+                tipserv.Descripcion = txtDesc.Text;
+                tipserv.TiempoMedio = int.Parse(txtTiempo.Text);
+
+                if (GestorServicio.AltaServicio(tipserv, (BE.Usuario)Session["UsuarioEnSesion"]) == true)
+                {
+                    lblSuccess.Visible = true;
+                }
             }
-             
 
         }
 
@@ -49,12 +63,15 @@ namespace GUI.Forms
         {
             BE.TipoServicio serv = ListaServicios[listServicio.SelectedIndex];
             lblSuccess.Visible = false;
-            txtdescmod.Text = serv.Descripcion;
-            txtdescmod.Visible = true;
-            txtnombremod.Text = serv.Nombre;
-            txtnombremod.Visible = true;
-            txttiempomod.Text = serv.TiempoMedio.ToString();
-            txttiempomod.Visible = true;
+           
+            txtDesc.Text = serv.Descripcion;
+           
+            
+            txtNombre.Text = serv.Nombre;
+          
+           
+            txtTiempo.Text = serv.TiempoMedio.ToString();
+          
             btnBaja.Visible = false;
             btnGuardar.Visible = false;
             btnMod.Visible = true;
@@ -76,34 +93,35 @@ namespace GUI.Forms
 
         protected void btnMod_Click(object sender, EventArgs e)
         {
-            BE.TipoServicio tipserv = ListaServicios[listServicio.SelectedIndex];
-
-            tipserv.Nombre = txtnombremod.Text;
-            tipserv.Descripcion = txtdescmod.Text;
-            tipserv.TiempoMedio = int.Parse(txttiempomod.Text);
-
-            if (GestorServicio.ModificacionServicio(tipserv, (BE.Usuario)Session["UsuarioEnSesion"]) == true)
+            if (Page.IsValid)
             {
-                lblsuccess2.Visible = true;
-                lblsuccess2.Text = "Servicio modificado con exito!";
+                BE.TipoServicio tipserv = ListaServicios[listServicio.SelectedIndex];
 
-               
-             
-                
-                txtdescmod.Visible = false;
-               
-                txtnombremod.Visible = false;
-                
-                txttiempomod.Visible = false;
-                btnBaja.Visible = true;
-                btnGuardar.Visible = true;
-                btnMod.Visible = false;
-                listServicio.Enabled = true;
-                btnModificar.Visible = true;
+                tipserv.Nombre = txtNombre.Text;
+                tipserv.Descripcion = txtDesc.Text;
+                tipserv.TiempoMedio = int.Parse(txtTiempo.Text);
+
+                if (GestorServicio.ModificacionServicio(tipserv, (BE.Usuario)Session["UsuarioEnSesion"]) == true)
+                {
+                    lblSuccess.Visible = true;
+                    lblSuccess.Text = "Servicio modificado con exito!";
+
+
+                    txtNombre.Text = "";
+                    txtDesc.Text = "";
+                    txtTiempo.Text = "";
+
+                  
+                    btnBaja.Visible = true;
+                    btnGuardar.Visible = true;
+                    btnMod.Visible = false;
+                    listServicio.Enabled = true;
+                    btnModificar.Visible = true;
+                }
+                Session["ListaServicios"] = ListaServicios;
+                listServicio.DataSource = ListaServicios;
+                listServicio.DataBind();
             }
-            Session["ListaServicios"] = ListaServicios;
-            listServicio.DataSource = ListaServicios;
-            listServicio.DataBind();
-        }
+            }
     }
 }

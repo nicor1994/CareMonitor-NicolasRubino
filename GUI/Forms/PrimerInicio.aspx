@@ -21,11 +21,13 @@
                         <label for="dni">Ingrese su contraseña</label>
                        
                         <asp:TextBox runat="server" ID="TextBox1" CssClass="form-control" ></asp:TextBox>
+                         <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Debe completar este campo!" ControlToValidate="TextBox1" CssClass="alert-danger"></asp:RequiredFieldValidator>
                     </div>
                     <div class="form-group">
                         <label for="pass">Reingrese la contraseña</label>
                     
                          <asp:TextBox runat="server" ID="TextBox2"  CssClass="form-control" ></asp:TextBox>
+                         <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Debe completar este campo!" ControlToValidate="TextBox2" CssClass="alert-danger"></asp:RequiredFieldValidator>
                     </div>
                     <div class="form-group form-check">
                         <asp:Label class="alert alert-danger" ID="Label1" runat="server" Text="Las contraseñas ingresadas no coinciden" Visible="False"></asp:Label>

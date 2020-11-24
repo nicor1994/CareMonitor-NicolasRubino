@@ -19,47 +19,71 @@ namespace GUI.Forms
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            if (!IsPostBack)
+            BE.Usuario usu = (BE.Usuario)Session["UsuarioEnSesion"];
+            if (usu.ListaPermisos.Find(x => x.ID == 18) != null)
             {
+                if (!IsPostBack)
+                {
 
-                ListaParametros = GestorParametros.Listar();
-                Session["ListaParametros"] = ListaParametros;
-                listParametros.DataSource = null;
-                listParametros.DataSource = ListaParametros;
-                listParametros.DataBind();
+                    ListaParametros = GestorParametros.Listar();
+                    Session["ListaParametros"] = ListaParametros;
+                    listParametros.DataSource = null;
+                    listParametros.DataSource = ListaParametros;
+                    listParametros.DataBind();
 
 
-                ListaHabitos = GestorHabitos.Listar();
-                Session["ListaHabitos"] = ListaHabitos;
-                listHabitos.DataSource = null;
-                listHabitos.DataSource = ListaHabitos;
-                listHabitos.DataBind();
+                    ListaHabitos = GestorHabitos.Listar();
+                    Session["ListaHabitos"] = ListaHabitos;
+                    listHabitos.DataSource = null;
+                    listHabitos.DataSource = ListaHabitos;
+                    listHabitos.DataBind();
 
+                }
+
+                ListaParametros = (List<BE.TipoMedicion>)Session["ListaParametros"];
+                ListaHabitos = (List<BE.TipoHabito>)Session["ListaHabitos"];
+            }
+            else
+            {
+                Response.Redirect("SinPermisos.aspx");
             }
 
-            ListaParametros = (List<BE.TipoMedicion>)Session["ListaParametros"];
-            ListaHabitos = (List<BE.TipoHabito>)Session["ListaHabitos"];
+            ///////
+
+
+            
 
         }
 
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
-
-            BE.Enfermedad enf = new BE.Enfermedad();
-
-            enf.Nombre = txtNom.Text;
-            enf.Sintomas = (List<BE.Sintoma>)Session["ListaTemporalSintomas"];
-            enf.MalosHabitos = (List<BE.TipoHabito>)Session["ListaTemporalHabitos"];
-            
-           if (GestorEnfermedades.AltaEnfermedad(enf, (BE.Usuario)Session["UsuarioEnSesion"]) == true)
+            if (Page.IsValid)
             {
-                lblSuccess.Visible = true;
-                lblSuccess.Text = "Enfermedad Agregada!";
-                lblSuccess.CssClass = "alert alert-success";
-                Session["ListaTemporalSintomas"] = null;
-                Session["ListaTemporalHabitos"] = null;
-            }
+                List<BE.Sintoma> lista = (List<BE.Sintoma>)Session["ListaTemporalSintomas"];
+                if (lista != null)
+                {
+                    BE.Enfermedad enf = new BE.Enfermedad();
 
+                    enf.Nombre = txtNom.Text;
+                    enf.Sintomas = (List<BE.Sintoma>)Session["ListaTemporalSintomas"];
+                    enf.MalosHabitos = (List<BE.TipoHabito>)Session["ListaTemporalHabitos"];
+
+                    if (GestorEnfermedades.AltaEnfermedad(enf, (BE.Usuario)Session["UsuarioEnSesion"]) == true)
+                    {
+                        lblSuccess.Visible = true;
+                        lblSuccess.Text = "Enfermedad Agregada!";
+                        lblSuccess.CssClass = "alert alert-success";
+                        Session["ListaTemporalSintomas"] = null;
+                        Session["ListaTemporalHabitos"] = null;
+                    }
+                }
+                else
+                {
+                    lblSuccess.Visible = true;
+                    lblSuccess.Text = "Debe seleccionar al menos un parametro!";
+                    lblSuccess.CssClass = "alert alert-warning";
+                }
+            }
         }
 
         protected void btnSelecc_Click(object sender, EventArgs e)

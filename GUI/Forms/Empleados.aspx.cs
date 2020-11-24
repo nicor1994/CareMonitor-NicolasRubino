@@ -13,17 +13,32 @@ namespace GUI.Forms
         List<BE.Usuario> listausu = new List<BE.Usuario>();
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
-            {
 
-                listausu = GestorUsuario.ListarTodosBorrados();
-                Session["ListaUsu"] = listausu;
-                listUsuarios.DataSource = null;
-                listUsuarios.DataSource = listausu;
-                listUsuarios.DataBind();
+            BE.Usuario usu = (BE.Usuario)Session["UsuarioEnSesion"];
+            if (usu.ListaPermisos.Find(x => x.ID == 13) != null)
+            {
+                if (!IsPostBack)
+                {
+
+                    listausu = GestorUsuario.ListarTodosBorrados();
+                    Session["ListaUsu"] = listausu;
+                    listUsuarios.DataSource = null;
+                    listUsuarios.DataSource = listausu;
+                    listUsuarios.DataBind();
+                }
+
+                listausu = (List<BE.Usuario>)Session["ListaUsu"];
+            }
+            else
+            {
+                Response.Redirect("SinPermisos.aspx");
             }
 
-            listausu = (List<BE.Usuario>)Session["ListaUsu"];
+
+            //////////
+
+
+            
         }
     }
 }

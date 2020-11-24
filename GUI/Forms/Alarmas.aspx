@@ -4,78 +4,69 @@
    <section>
      <div class="container"> 
          
-         <h1 class="font-weight-bold mb-0">Alarmas</h1>
+         <h1 class="font-weight-bold mb-0">
+             <asp:Label ID="lblAlarmas" runat="server" Text="Alarmas"></asp:Label></h1>
          <br />
 
         
              <div class="col-md-12 border shadow rounded">
                  <br />
-             <h4 class="font-weight-bold mb-0">Alarmas Activas</h4>
+                 <div class=row>
+                     <div class="col-sm">
+             <h4 class="font-weight-bold mb-0">
+                 <asp:Label ID="lblAlarmasActivas" runat="server" Text="Alarmas Activas"></asp:Label></h4>
                  <br />
+                 
+                  <asp:Listbox ID="listAlarmas" AutoPostBack="true" CssClass="¨list-group" runat="server" OnSelectedIndexChanged="listAlarmas_SelectedIndexChanged"></asp:Listbox>
+                 <br />                          
                  <br />
-                  <asp:Listbox ID="listAlarmas" CssClass="¨list-group" runat="server"></asp:Listbox>
+             <h4 class="font-weight-bold mb-0">
+                 <asp:Label ID="lblMedicionesObservadas" runat="server" Text="Mediciones observadas"></asp:Label></h4>
+
                  <br />
-            <div class="input-group flex-nowrap">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text" id="addon-wrapping">Nombre</span>
-                  </div>
-                   <asp:TextBox ID="txtNombre" CssClass="form-control" runat="server"></asp:TextBox>
+                 <asp:Listbox ID="listMediciones" AutoPostBack="true" CssClass="¨list-group" runat="server" OnSelectedIndexChanged="listMediciones_SelectedIndexChanged"></asp:Listbox>
+                 <br />
                 </div>
+                     <div class="col-sm">
+                 <br />
+                 <ul class="list-group">
+                     <li class="list-group-item">Nombre: <asp:Label ID="lblNombre" runat="server" Text="" Font-Bold="true"></asp:Label></li>
+                     <li class="list-group-item">Descripcion: <asp:Label ID="lblDescripcion" runat="server" Text="" Font-Bold="true"></asp:Label></li>
+                     <li class="list-group-item">Descripcion Máxima: <asp:Label ID="lblDescripcionMax" runat="server" Text="" Font-Bold="true"></asp:Label></li>
+                      <li class="list-group-item">Valor Máximo:  <asp:Label ID="lblValMaxMasc" runat="server" Text="" Font-Bold="true"></asp:Label></li>
+                     <li class="list-group-item">Descripcion Mínima:  <asp:Label ID="lblDescMin" runat="server" Text="" Font-Bold="true"></asp:Label></li>
+                     <li class="list-group-item">Valor Mínimo: <asp:Label ID="lblValMinMasc" runat="server" Text="" Font-Bold="true"></asp:Label></li>
+                 </ul>
+                         </div>
+                 </div>
+                 
                 
-                 <br />
-            <div class="input-group flex-nowrap">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text" id="addon-wrapping2">Efecto Positivo</span>
-                  </div>
-                  <asp:TextBox ID="txtEfePos" CssClass="form-control" runat="server"></asp:TextBox>
-                </div>
-                <br />
-                 <div class="input-group flex-nowrap">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text" id="addon-wrappinga">Veces por semana Positivo</span>
-                  </div>
-                    <asp:TextBox ID="txtVecesPos" CssClass="form-control" runat="server"></asp:TextBox>
-                </div>
-                   <br />
-            <div class="input-group flex-nowrap">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text" id="addon-wrappinga">Efecto Negativo</span>
-                  </div>
-                    <asp:TextBox ID="txtEfeNeg" CssClass="form-control" runat="server"></asp:TextBox>
-                </div>
-
-                   <br />
-        <div class="input-group flex-nowrap">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text" id="addon-wrappinga">Veces por semana Negativo</span>
-                  </div>
-                    <asp:TextBox ID="txtVecesNeg" CssClass="form-control" runat="server"></asp:TextBox>
-                </div>
-
-                 <br />
-                 <asp:Label ID="lblSuccess" runat="server" CssClass="alert alert-success" Text="Parametro agregado!" Visible="false"></asp:Label>
-                 <asp:Button ID="btnGuardar" runat="server" Text="Aceptar" CssClass="btn btn-info" />
-                 <asp:Button ID="btnGuardarModif" runat="server" Text="Modificar" CssClass="btn btn-info"  Visible="false" />
                  <br />
                  <br />
                   <div class="col-md-12 border shadow rounded">
                  <br />
                
-             <h4 class="font-weight-bold mb-0">Gestion de Habitos</h4>
+             <h4 class="font-weight-bold mb-0">
+                 <asp:Label ID="lblGestionHabitos" runat="server" Text="Gestion de Habitos"></asp:Label></h4>
                  <br />
                       
                  <br />
                  <div class="input-group flex-nowrap">
                   <div class="input-group-prepend">
-                    <span class="input-group-text" id="addon-wrapping4">Servicio</span>
+                    <span class="input-group-text" id="addon-wrapping4">
+                        <asp:Label ID="lblEvolucion" runat="server" Text="Evolucion"></asp:Label></span>
                   </div>                 
-                     <asp:ListBox ID="listServicio" runat="server" ></asp:ListBox>
-
-                       <asp:Button ID="btnModificar" runat="server" Text="Modificar" CssClass="btn btn-warning" style="margin-left:10px" />
-                      <asp:Button ID="btnBaja" runat="server" Text="Dar de Baja" CssClass="btn btn-danger" style="margin-left:10px"  />
+                     <asp:TextBox ID="txtEvolucion" runat="server" TextMode ="MultiLine" CssClass="w-100"></asp:TextBox>
+                     <br />
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Debe completar este campo!" ControlToValidate="txtEvolucion" CssClass="alert alert-danger"></asp:RequiredFieldValidator>
                      
-                      <asp:Label ID="lblmod" runat="server" CssClass="alert alert-success" Text="Usuario agregado!" Visible="false"></asp:Label>
+                      
             </div>
+                      <br />
+                      <asp:Button ID="btnEvolucionar" runat="server" Text="Evolucionar" CssClass="btn btn-success" style="margin-left:10px" OnClick="btnEvolucionar_Click"/>
+                     
+                     <asp:Label ID="lblSuccess" runat="server" CssClass="alert alert-success" Text="Parametro agregado!" Visible="false"></asp:Label>
+                     
                  <br />
                 
         

@@ -13,10 +13,23 @@ namespace GUI.Forms
         BLL.Usuario GestorUsuario = new BLL.Usuario();
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
+
+            BE.Usuario usu = (BE.Usuario)Session["UsuarioEnSesion"];
+            if (usu.ListaPermisos.Find(x => x.ID == 11) != null)
             {
-                Enlazar();
+                if (!IsPostBack)
+                {
+                    Enlazar();
+                }
             }
+            else
+            {
+                Response.Redirect("SinPermisos.aspx");
+            }
+
+            ///
+
+         
         }
 
         public void Enlazar()
@@ -149,23 +162,23 @@ namespace GUI.Forms
                     //listRoles2.DataSource = (List<BE.Permiso>)Application["ListaRoles"];
                     //listRoles2.DataTextField = "Nombre";
                     //listRoles2.DataBind();
-                    Label2.Text = "Se guardo el Rol!";
-                    Label2.Visible = true;
-                    Label2.CssClass = "alert alert-success";
+                    lblCompleteNombre.Text = "Se guardo el Rol!";
+                    lblCompleteNombre.Visible = true;
+                    lblCompleteNombre.CssClass = "alert alert-success";
 
                 }
                 else
                 {
-                    Label2.Text = "Complete el nombre!";
-                    Label2.Visible = true;
-                    Label2.CssClass = "alert alert-warning";
+                    lblCompleteNombre.Text = "Complete el nombre!";
+                    lblCompleteNombre.Visible = true;
+                    lblCompleteNombre.CssClass = "alert alert-warning";
                 }
             }
             else
             {
-                Label2.Text = "Debe seleccionar al menos un permiso!";
-                Label2.Visible = true;
-                Label2.CssClass = "alert alert-warning";
+                lblCompleteNombre.Text = "Debe seleccionar al menos un permiso!";
+                lblCompleteNombre.Visible = true;
+                lblCompleteNombre.CssClass = "alert alert-warning";
             }
         }
 

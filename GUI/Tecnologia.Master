@@ -11,7 +11,7 @@
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>
-
+   
     <webopt:BundleReference runat="server" Path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
@@ -23,25 +23,25 @@
     <form runat="server">
         <div id="content-wrapper" class="d-flex border">
             <div id="sidebar-container" class="bg-gris border-right">
-                <div class="logo">
-                    <h4 class="font-weight-bold mb-0">CareMonitor</h4>
-                </div>
-                <div class="menu list-group-flush">
-                    <a href="Forms/Bitacora.aspx" class="list-group-item list-group-item-action bg-gris p-3 border-0" id="Bitacora" runat="server" visible="false"><i class="icon ion-md-time lead mr-3"></i>Bitacora</a>
-                    <a href="Forms/BackupRestore.aspx" class="list-group-item list-group-item-action bg-gris p-3 border-0" id="Backup" runat="server" visible="false"><i class="icon ion-md-save lead mr-3"></i>Backup/Restore</a>
-                    <a href="Forms/Usuarios.aspx" class="list-group-item list-group-item-action bg-gris p-3 border-0" id="Usuarios" runat="server" visible="false"><i class="icon ion-md-people lead mr-3"></i>Usuarios</a>                  
-                    <a href="Forms/Permisos.aspx" class="list-group-item list-group-item-action bg-gris p-3 border-0" id="Roles" runat="server" visible="false"><i class="icon ion-ios-finger-print lead mr-3"></i>Roles</a>
-                    <a href="Forms/Roles.aspx" class="list-group-item list-group-item-action bg-gris p-3 border-0" id="Permisos" runat="server" visible="false"><i class="icon ion-ios-finger-print lead mr-3"></i>Permisos</a>                    
-                    <a href="Forms/DigitoVerificador.aspx" class="list-group-item list-group-item-action bg-gris p-3 border-0" id="Digito" runat="server" visible="false"><i class="icon ion-ios-calculator lead mr-3"></i>Digito Verificador</a>
-                    <a href="Forms/Mediciones.aspx" class="list-group-item list-group-item-action bg-gris p-3 border-0" id="Mediciones" runat="server" visible="false"><i class="icon ion-md-pulse lead mr-3"></i>Mediciones</a>
-                    <a href="Forms/Habitos.aspx" class="list-group-item list-group-item-action bg-gris p-3 border-0" id="Habitos" runat="server" visible="false"><i class="icon ion-md-nutrition lead mr-3"></i>Habitos</a>
-                    <a href="" class="list-group-item list-group-item-action bg-gris p-3 border-0" id="Servicios" runat="server" visible="false"><i class="icon ion-md-medical lead mr-3"></i>Servicios</a>
-                    <a href="" class="list-group-item list-group-item-action bg-gris p-3 border-0" id="Eventos" runat="server" visible="false"><i class="icon ion-md-calendar lead mr-3"></i>Eventos</a>
-                    <a href="Forms/GestionHabitos.aspx" class="list-group-item list-group-item-action bg-gris p-3 border-0" id="GestionHabitos" runat="server" visible="false"><i class="icon ion-md-pizza lead mr-3"></i>Gestion de Habitos</a>
-                    <a href="Forms/GestionParametros.aspx" class="list-group-item list-group-item-action bg-gris p-3 border-0" id="GestionParametros" runat="server" visible="false"><i class="icon ion-md-medkit lead mr-3"></i>Gestion de Parametros</a>
-                    <a href="Forms/GestionServicios.aspx" class="list-group-item list-group-item-action bg-gris p-3 border-0" id="GestionServicios" runat="server" visible="false"><i class="icon ion-md-medical lead mr-3"></i>Gestion de Servicios</a>
-                    <a href="Forms/GestionEnfermedades.aspx" class="list-group-item list-group-item-action bg-gris p-3 border-0" id="GestionEnfermedades" runat="server" visible="false"><i class="icon ion-md-sad lead mr-3"></i>Gestion de Enfermedades</a>
-                    <a href="Forms/Alarmas.aspx" class="list-group-item list-group-item-action bg-gris p-3 border-0" id="Alarmas" runat="server" visible="false"><i class="icon ion-md-warning lead mr-3"></i>Alarmas</a>
+                 
+               
+                <div class="menu list-group-flush sidebar" id="lista">
+                   <a href="javascript:void(0)" class="closebtn list-group-item list-group-item-action bg-gris p-3 border-0" onclick="closeNav()" id="cerrar">&times; <h4 class="font-weight-bold mb-0">CareMonitor</h4></a>
+                    <a href="Forms/Bitacora.aspx" class="list-group-item list-group-item-action bg-gris p-3 border-0" id="Bitacora" runat="server" visible="false"><i class="icon ion-md-time lead mr-3"></i>  <asp:Label ID="lblBitacora" runat="server" Text="Bitacora"> </asp:Label></a>
+                    <a href="Forms/BackupRestore.aspx" class="list-group-item list-group-item-action bg-gris p-3 border-0" id="Backup" runat="server" visible="false"><i class="icon ion-md-save lead mr-3"></i>  <asp:Label ID="lblBackup" runat="server" Text="Backup/Restore"> </asp:Label></a>
+                    <a href="Forms/Usuarios.aspx" class="list-group-item list-group-item-action bg-gris p-3 border-0" id="Usuarios" runat="server" visible="false"><i class="icon ion-md-people lead mr-3"></i><asp:Label ID="lblUsuarios" runat="server" Text="Usuarios"></asp:Label></a>                  
+                    <a href="Forms/Permisos.aspx" class="list-group-item list-group-item-action bg-gris p-3 border-0" id="Roles" runat="server" visible="false"><i class="icon ion-ios-walk lead mr-3"></i><asp:Label ID="lblRoles" runat="server" Text="Roles"></asp:Label></a>
+                    <a href="Forms/Roles.aspx" class="list-group-item list-group-item-action bg-gris p-3 border-0" id="Permisos" runat="server" visible="false"><i class="icon ion-ios-finger-print lead mr-3"></i><asp:Label ID="lblPermisos" runat="server" Text="Permisos"></asp:Label></a>                    
+                    <a href="Forms/DigitoVerificador.aspx" class="list-group-item list-group-item-action bg-gris p-3 border-0" id="Digito" runat="server" visible="false"><i class="icon ion-ios-calculator lead mr-3"></i><asp:Label ID="lblDigito" runat="server" Text="Digito Verificador"></asp:Label></a>
+                    <a href="Forms/Mediciones.aspx" class="list-group-item list-group-item-action bg-gris p-3 border-0" id="Mediciones" runat="server" visible="false"><i class="icon ion-md-pulse lead mr-3"></i>  <asp:Label ID="lblMedicion" runat="server" Text="Mediciones"> </asp:Label></a>
+                    <a href="Forms/Habitos.aspx" class="list-group-item list-group-item-action bg-gris p-3 border-0" id="Habitos" runat="server" visible="false"><i class="icon ion-md-nutrition lead mr-3"></i><asp:Label ID="lblHabitos" runat="server" Text="Habitos"></asp:Label></a>
+                    <a href="Forms/SolicitarServicio.aspx" class="list-group-item list-group-item-action bg-gris p-3 border-0" id="Servicios" runat="server" visible="false"><i class="icon ion-md-medical lead mr-3"></i><asp:Label ID="lblServicios" runat="server" Text="Servicios"></asp:Label></a>
+                    <a href="" class="list-group-item list-group-item-action bg-gris p-3 border-0" id="Eventos" runat="server" visible="false"><i class="icon ion-md-calendar lead mr-3"></i><asp:Label ID="lblEventos" runat="server" Text="Eventos"></asp:Label></a>
+                    <a href="Forms/GestionHabitos.aspx" class="list-group-item list-group-item-action bg-gris p-3 border-0" id="GestionHabitos" runat="server" visible="false"><i class="icon ion-md-pizza lead mr-3"></i><asp:Label ID="lblGestionHabitos" runat="server" Text="Gestion de Habitos"></asp:Label></a>
+                    <a href="Forms/GestionParametros.aspx" class="list-group-item list-group-item-action bg-gris p-3 border-0" id="GestionParametros" runat="server" visible="false"><i class="icon ion-md-medkit lead mr-3"></i><asp:Label ID="lblGestionParametro" runat="server" Text="Gestion de Parametros"></asp:Label></a>
+                    <a href="Forms/GestionServicios.aspx" class="list-group-item list-group-item-action bg-gris p-3 border-0" id="GestionServicios" runat="server" visible="false"><i class="icon ion-md-medical lead mr-3"></i><asp:Label ID="lblGestionServicios" runat="server" Text="Gestion de Servicios"></asp:Label></a>
+                    <a href="Forms/GestionEnfermedades.aspx" class="list-group-item list-group-item-action bg-gris p-3 border-0" id="GestionEnfermedades" runat="server" visible="false"><i class="icon ion-md-sad lead mr-3"></i><asp:Label ID="lblGestionEnfermedades" runat="server" Text="Gestion de Enfermedades"></asp:Label></a>
+                    <a href="Forms/Alarmas.aspx" class="list-group-item list-group-item-action bg-gris p-3 border-0" id="Alarmas" runat="server" visible="false"><i class="icon ion-md-warning lead mr-3"></i><asp:Label ID="lblAlarmas" runat="server" Text="Alarmas"></asp:Label></a>                
                 </div>
             </div>
             <div id="pageContainer" class="w-100 bg-light-blue border">
@@ -50,14 +50,16 @@
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                          <button class="openbtn" onclick="openNav()">&#9776;  <img src="../Imagenes/Care Monitor.jpg" width="50" height="50" alt=""> </button>
                         <a class="navbar-brand" href="#">
-                            <img src="../Imagenes/Care Monitor.jpg" width="50" height="50" alt="">
+                          
+                          
                         </a>
                         <ul class="navbar-nav ml-auto">
                             <li class="nav-item dropdown">
-                                <asp:Label ID="Label1" CssClass="nav-link dropdown-toggle" runat="server" Text="Label" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></asp:Label>
+                                <asp:Label ID="lblBienvenido" CssClass="nav-link dropdown-toggle" runat="server" Text="Label" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></asp:Label>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="#">Cambiar idioma</a>
+                                    <a class="dropdown-item" href="GestionIdioma.aspx"><asp:Label ID="lblIdioma" runat="server" Text="Cambiar Idioma"></asp:Label></a>
                                     <div class="dropdown-divider"></div>
                                     <asp:Button CssClass="dropdown-item" ID="btnCerrarSesion" runat="server" OnClick="btnCerrarSesion_Click" Text="Cerrar sesión" />
                                 </div>
@@ -72,6 +74,54 @@
             </div>
         </div>
     </form>
+     <script>
+         function openNav() {
+             document.getElementById("sidebar-container").style.width = "250px";
+             document.getElementById("lista").style.width = "250px";
+             document.getElementById("cerrar").style.marginLeft = "250px";
+             document.getElementById("lblBitacora").style.marginLeft = "250px";
+             document.getElementById("lblBackup").style.marginLeft = "250px";
+             document.getElementById("Usuarios").style.marginLeft = "250px";
+             document.getElementById("Roles").style.marginLeft = "250px";
+             document.getElementById("Permisos").style.marginLeft = "250px";
+             document.getElementById("Digito").style.marginLeft = "250px";
+             document.getElementById("Mediciones").style.marginLeft = "250px";
+             document.getElementById("Habitos").style.marginLeft = "250px";
+             document.getElementById("Servicios").style.marginLeft = "250px";
+             document.getElementById("Eventos").style.marginLeft = "250px";
+             document.getElementById("GestionHabitos").style.marginLeft = "250px";
+             document.getElementById("GestionParametros").style.marginLeft = "250px";
+             document.getElementById("GestionServicios").style.marginLeft = "250px";
+             document.getElementById("GestionEnfermedades").style.marginLeft = "250px";
+             document.getElementById("Alarmas").style.marginLeft = "250px";
+             
+
+         }
+
+         /* Set the width of the sidebar to 0 and the left margin of the page content to 0 */
+         function closeNav() {
+             document.getElementById("sidebar-container").style.width = "0";
+             document.getElementById("lista").style.width = "0px";
+             document.getElementById("main").style.marginLeft = "0";
+             document.getElementById("cerrar").style.marginLeft = "0";
+             document.getElementById("lblBitacora").style.marginLeft = "0";
+             document.getElementById("lblBackup").style.marginLeft = "0";
+             document.getElementById("Usuarios").style.marginLeft = "0";
+            
+             document.getElementById("Roles").style.marginLeft = "0";
+             document.getElementById("Permisos").style.marginLeft = "0";
+             document.getElementById("Digito").style.marginLeft = "0";
+             document.getElementById("Mediciones").style.marginLeft = "0";
+             document.getElementById("Habitos").style.marginLeft = "0";
+             document.getElementById("Servicios").style.marginLeft = "0";
+             document.getElementById("Eventos").style.marginLeft = "0";
+             document.getElementById("GestionHabitos").style.marginLeft = "0";
+             document.getElementById("GestionParametros").style.marginLeft = "0";
+             document.getElementById("GestionServicios").style.marginLeft = "0";
+             document.getElementById("GestionEnfermedades").style.marginLeft = "0";
+             document.getElementById("Alarmas").style.marginLeft = "0";
+         }
+     </script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>

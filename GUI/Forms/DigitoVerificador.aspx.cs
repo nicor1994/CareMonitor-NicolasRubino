@@ -14,18 +14,33 @@ namespace GUI.Forms
         Seguridad.DigitoVerificador GestorDigito = new Seguridad.DigitoVerificador();
         protected void Page_Load(object sender, EventArgs e)
         {
-            
-            int Registros = GestorUsuario.ComprobarIntegridad();
-            if (Registros != 0)
-            {              
-                fail.Visible = true;
-                btnRecalcular.Visible = true;
+
+            BE.Usuario usu = (BE.Usuario)Session["UsuarioEnSesion"];
+            if (usu.ListaPermisos.Find(x => x.ID == 19) != null)
+            {
+                int Registros = GestorUsuario.ComprobarIntegridad();
+                if (Registros != 0)
+                {
+                    fail.Visible = true;
+                    btnRecalcular.Visible = true;
+                }
+                else
+                {
+                    success.Visible = true;
+                    btnRecalcular.Visible = false;
+                }
             }
             else
             {
-                success.Visible = true;
-                btnRecalcular.Visible = false;
+                Response.Redirect("SinPermisos.aspx");
             }
+
+
+
+            
+
+
+           
 
         }
 

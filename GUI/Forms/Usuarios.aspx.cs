@@ -16,17 +16,27 @@ namespace GUI.Forms
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            if (!IsPostBack)
+            BE.Usuario usu = (BE.Usuario)Session["UsuarioEnSesion"];
+            if (usu.ListaPermisos.Find(x => x.ID == 9) != null)
             {
+                if (!IsPostBack)
+                {
 
-                listausu = GestorUsuario.ListarTodosBorrados();
-                Session["ListaUsu"] = listausu;
-                listUsuarios.DataSource = null;
-                listUsuarios.DataSource = listausu;
-                listUsuarios.DataBind();
+                    listausu = GestorUsuario.ListarTodosBorrados();
+                    Session["ListaUsu"] = listausu;
+                    listUsuarios.DataSource = null;
+                    listUsuarios.DataSource = listausu;
+                    listUsuarios.DataBind();
+                }
+
+                listausu = (List<BE.Usuario>)Session["ListaUsu"];
+            }
+            else
+            {
+                Response.Redirect("SinPermisos.aspx");
             }
 
-            listausu = (List<BE.Usuario>)Session["ListaUsu"];
+           
 
            
 
@@ -34,22 +44,26 @@ namespace GUI.Forms
 
         protected void btnAceptar_Click(object sender, EventArgs e)
         {
-            lblSuccess.Visible = false;
-            BE.Usuario usu = new BE.Usuario();
-            usu.Nombre = txtNombre.Text;
-            usu.Apellido = txtApellido.Text;
-            usu.DNI = int.Parse(txtDni.Text);          
-            usu.Contraseña = Seguridad.Encriptador.Encrypt(usu.DNI.ToString() + usu.Nombre.ToLower());
-            usu.Direccion = txtDireccion.Text;
-            usu.FechaNacimiento = DateTime.Parse(txtFechaNac.Text);
-            if ((GestorUsuario.RegistrarUsuario(usu, (BE.Usuario)Session["UsuarioEnSesion"])) == true){
-                lblSuccess.Visible = true;
+            if (Page.IsValid)
+            {
+                lblSuccess.Visible = false;
+                BE.Usuario usu = new BE.Usuario();
+                usu.Nombre = txtNombre.Text;
+                usu.Apellido = txtApellido.Text;
+                usu.DNI = int.Parse(txtDni.Text);
+                usu.Contraseña = Seguridad.Encriptador.Encrypt(usu.DNI.ToString() + usu.Nombre.ToLower());
+                usu.Direccion = txtDireccion.Text;
+                usu.FechaNacimiento = DateTime.Parse(txtFechaNac.Text);
+                if ((GestorUsuario.RegistrarUsuario(usu, (BE.Usuario)Session["UsuarioEnSesion"])) == true)
+                {
+                    lblSuccess.Visible = true;
 
-                listausu = GestorUsuario.ListarTodosBorrados();
-                Session["ListaUsu"] = listausu;
-                listUsuarios.DataSource = null;
-                listUsuarios.DataSource = listausu;
-                listUsuarios.DataBind();
+                    listausu = GestorUsuario.ListarTodosBorrados();
+                    Session["ListaUsu"] = listausu;
+                    listUsuarios.DataSource = null;
+                    listUsuarios.DataSource = listausu;
+                    listUsuarios.DataBind();
+                }
             }
         }
 
@@ -57,62 +71,66 @@ namespace GUI.Forms
         {
             BE.Usuario usu = listausu[listUsuarios.SelectedIndex];
 
-            txtapemod.Text = usu.Apellido;
-            txtapemod.Visible = true;
-            txtdireccionmod.Text = usu.Direccion;
-            txtdireccionmod.Visible = true;
-            txtdnimod.Text = usu.DNI.ToString();
-            txtdnimod.Visible = true;
-            txtnombremod.Text = usu.Nombre;
-            txtnombremod.Visible = true;
+         
+            txtApellido.Text = usu.Apellido;
+           
+           
+            txtDireccion.Text = usu.Direccion;
+          
+            txtDni.Text = usu.DNI.ToString();
+            
+            
+            txtNombre.Text = usu.Nombre;
+            
             btnMod.Visible = true;
-            txtfechamod.Text = usu.FechaNacimiento.ToString("yyyy-MM-dd");
-            txtfechamod.Visible = true;
+            btnAceptar.Visible = false;
+            txtFechaNac.Text = usu.FechaNacimiento.ToString("yyyy-MM-dd");
+            
         }
 
         protected void btnMod_Click(object sender, EventArgs e)
         {
-            BE.Usuario usu = new BE.Usuario();
-            usu.ID = listausu[listUsuarios.SelectedIndex].ID;
-            usu.Contraseña = listausu[listUsuarios.SelectedIndex].Contraseña;
-            usu.Nombre = txtnombremod.Text;
-            usu.Apellido = txtapemod.Text;
-            usu.DNI = int.Parse(txtdnimod.Text);
-            usu.FechaNacimiento = DateTime.Parse(txtfechamod.Text);
-            usu.Direccion = txtdireccionmod.Text;
-
-           if(GestorUsuario.ModificarUsuario(usu, (BE.Usuario)Session["UsuarioEnSesion"]) == true)
+            if (Page.IsValid)
             {
-                
+                BE.Usuario usu = new BE.Usuario();
+                usu.ID = listausu[listUsuarios.SelectedIndex].ID;
+                usu.Contraseña = listausu[listUsuarios.SelectedIndex].Contraseña;
+                usu.Nombre = txtNombre.Text;
+                usu.Apellido = txtApellido.Text;
+                usu.DNI = int.Parse(txtDni.Text);
+                usu.FechaNacimiento = DateTime.Parse(txtFechaNac.Text);
+                usu.Direccion = txtDireccion.Text;
 
-                lblsuccess2.Text = "Se modifico el usuario!";
-                lblsuccess2.Visible = true;
-                lblsuccess2.CssClass = "alert alert-success";
-                listausu = GestorUsuario.ListarTodosBorrados();
-                Session["ListaUsu"] = listausu;
-                listUsuarios.DataSource = null;
-                listUsuarios.DataSource = listausu;
-                listUsuarios.DataBind();
+                if (GestorUsuario.ModificarUsuario(usu, (BE.Usuario)Session["UsuarioEnSesion"]) == true)
+                {
 
-               
-                txtapemod.Visible = false;
-               
-                txtdireccionmod.Visible = false;
-              
-                txtdnimod.Visible = false;
-                txtfechamod.Visible = false;
-                txtnombremod.Visible = false;
-                btnMod.Visible = false;
-               
 
+                    lblsuccess2.Text = "Se modifico el usuario!";
+                    lblsuccess2.Visible = true;
+                    lblsuccess2.CssClass = "alert alert-success";
+                    listausu = GestorUsuario.ListarTodosBorrados();
+                    Session["ListaUsu"] = listausu;
+                    listUsuarios.DataSource = null;
+                    listUsuarios.DataSource = listausu;
+                    listUsuarios.DataBind();
+
+                    txtApellido.Text = "";
+                    txtDireccion.Text = "";
+                    txtDni.Text = "";
+                    txtFechaNac.Text = "";
+                    txtNombre.Text = "";
+                 
+                    btnMod.Visible = false;
+                    btnAceptar.Visible = true;
+
+                }
+                else
+                {
+                    lblSuccess.Text = "Ocurrio un error!";
+                    lblSuccess.Visible = true;
+                    lblSuccess.CssClass = "alert alert-danger";
+                }
             }
-            else
-            {
-                lblSuccess.Text = "Ocurrio un error!";
-                lblSuccess.Visible = true;
-                lblSuccess.CssClass = "alert alert-danger";
-            }
-
         }
 
         protected void btnBaja_Click(object sender, EventArgs e)

@@ -15,6 +15,24 @@ namespace GUI.Forms
     {
 
         /// <summary>
+        /// Control lblGestionRoles.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblGestionRoles;
+
+        /// <summary>
+        /// Control lblPermisos.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblPermisos;
+
+        /// <summary>
         /// Control listPermisos.
         /// </summary>
         /// <remarks>
@@ -24,13 +42,13 @@ namespace GUI.Forms
         protected global::System.Web.UI.WebControls.ListBox listPermisos;
 
         /// <summary>
-        /// Control btnSelecc.
+        /// Control btnSeleccionarPermiso.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSelecc;
+        protected global::System.Web.UI.WebControls.Button btnSeleccionarPermiso;
 
         /// <summary>
         /// Control lblSuccess.
@@ -42,6 +60,15 @@ namespace GUI.Forms
         protected global::System.Web.UI.WebControls.Label lblSuccess;
 
         /// <summary>
+        /// Control lblCrearRol.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblCrearRol;
+
+        /// <summary>
         /// Control listaTemp.
         /// </summary>
         /// <remarks>
@@ -49,6 +76,15 @@ namespace GUI.Forms
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ListBox listaTemp;
+
+        /// <summary>
+        /// Control lblNombreRol.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblNombreRol;
 
         /// <summary>
         /// Control txtRol.
@@ -60,13 +96,13 @@ namespace GUI.Forms
         protected global::System.Web.UI.WebControls.TextBox txtRol;
 
         /// <summary>
-        /// Control Label2.
+        /// Control lblCompleteNombre.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label2;
+        protected global::System.Web.UI.WebControls.Label lblCompleteNombre;
 
         /// <summary>
         /// Control btnAgregarRol.
@@ -76,6 +112,15 @@ namespace GUI.Forms
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnAgregarRol;
+
+        /// <summary>
+        /// Control lblRoles.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblRoles;
 
         /// <summary>
         /// Control listRoles.

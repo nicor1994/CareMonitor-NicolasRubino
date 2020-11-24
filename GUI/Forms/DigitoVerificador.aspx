@@ -7,14 +7,18 @@
          <br />
          <br />
            <div class="alert alert-success" role="alert" id="success" runat="server" visible="false">
-                             <h4 class="alert-heading">Todo bien!!</h4>
+                             <h4 class="alert-heading">
+                                 <asp:Label ID="lblTodoBien" runat="server" Text="Todo bien!!"></asp:Label></h4>
                <hr />
-                              <p>La base de datos está íntegra!</p>
+                              <p>
+                                  <asp:Label ID="lblTextoDVV" runat="server" Text="La base de datos está íntegra!"></asp:Label></p>
                                                                    </div>
          <div class="alert alert-danger" role="alert" id="fail" runat="server" visible="false">
-                             <h4 class="alert-heading">Algo salió mal!</h4>
+                             <h4 class="alert-heading">
+                                 <asp:Label ID="lblTodoMal" runat="server" Text="Algo salió mal!"></asp:Label></h4>
                <hr />
-                              <p>La base de datos NO está íntegra!</p>
+                              <p>
+                                  <asp:Label ID="lblTextoDVVMal" runat="server" Text="La base de datos NO está íntegra!"></asp:Label></p>
                                                                    </div>
          <br />
          <asp:Button ID="btnRecalcular" CssClass="btn btn-info" runat="server" Text="Recalcular DVH" OnClick="btnRecalcular_Click" />

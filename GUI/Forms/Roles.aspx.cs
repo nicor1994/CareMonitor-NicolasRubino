@@ -13,10 +13,23 @@ namespace GUI.Forms
         BLL.Usuario GestorUsuario = new BLL.Usuario();
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
+
+            BE.Usuario usu = (BE.Usuario)Session["UsuarioEnSesion"];
+            if (usu.ListaPermisos.Find(x => x.ID == 17) != null)
             {
-                Enlazar();
+                if (!IsPostBack)
+                {
+                    Enlazar();
+                }
             }
+            else
+            {
+                Response.Redirect("SinPermisos.aspx");
+            }
+
+            ////
+
+          
         }
 
         public void Enlazar()

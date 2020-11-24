@@ -15,10 +15,26 @@ namespace GUI.Forms
         BLL.Bitacora GestorBitacora = new BLL.Bitacora();
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
+
+
+            BE.Usuario usu = (BE.Usuario)Session["UsuarioEnSesion"];
+            if (usu.ListaPermisos.Find(x => x.ID == 13) != null)
             {
-                Enlazar();
+                if (!IsPostBack)
+                {
+                    Enlazar();
+                }
             }
+            else
+            {
+                Response.Redirect("SinPermisos.aspx");
+            }
+
+
+
+            
+
+            
 
 
             

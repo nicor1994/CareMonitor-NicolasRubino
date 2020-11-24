@@ -4,52 +4,67 @@
    <section>
      <div class="container"> 
          
-         <h1 class="font-weight-bold mb-0">Gestion de Hábitos</h1>
+         <h1 class="font-weight-bold mb-0">
+             <asp:Label ID="lblGestionHabitos" runat="server" Text="Gestion de Hábitos"></asp:Label></h1>
          <br />
 
         
              <div class="col-md-12 border shadow rounded">
                  <br />
-             <h4 class="font-weight-bold mb-0">Alta de Hábitos</h4>
+             <h4 class="font-weight-bold mb-0">
+                 <asp:Label ID="lblAltaHabito" runat="server" Text="Alta de Hábitos"></asp:Label></h4>
                  <br />
                  <br />
             <div class="input-group flex-nowrap">
                   <div class="input-group-prepend">
-                    <span class="input-group-text" id="addon-wrapping">Nombre</span>
-                  </div>
-                   <asp:TextBox ID="txtNombre" CssClass="form-control" runat="server"></asp:TextBox>
+                    <span class="input-group-text" id="addon-wrapping">
+                        <asp:Label ID="lblNombreParametro" runat="server" Text="Nombre"></asp:Label></span>
+                  </div>         
+                <asp:TextBox ID="txtNombre" CssClass="form-control" runat="server"></asp:TextBox>
                 </div>
-                
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Debe completar este campo!" ControlToValidate="txtNombre" CssClass="alert-danger"></asp:RequiredFieldValidator>
                  <br />
+                 <div class="row">
+                     <div class="col-6">
             <div class="input-group flex-nowrap">
                   <div class="input-group-prepend">
-                    <span class="input-group-text" id="addon-wrapping2">Efecto Positivo</span>
+                    <span class="input-group-text" id="addon-wrapping2">
+                        <asp:Label ID="lblEfectoPositivo" runat="server" Text="Efecto Positivo"></asp:Label></span>
                   </div>
                   <asp:TextBox ID="txtEfePos" CssClass="form-control" runat="server"></asp:TextBox>
                 </div>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Debe completar este campo!" ControlToValidate="txtEfePos" CssClass="alert-danger"></asp:RequiredFieldValidator>
                 <br />
                  <div class="input-group flex-nowrap">
                   <div class="input-group-prepend">
-                    <span class="input-group-text" id="addon-wrappinga">Veces por semana Positivo</span>
+                    <span class="input-group-text" id="addon-wrappinga">
+                        <asp:Label ID="lblVecesPositivo" runat="server" Text="Veces por semana Positivo"></asp:Label></span>
                   </div>
-                    <asp:TextBox ID="txtVecesPos" CssClass="form-control" runat="server"></asp:TextBox>
+                    <asp:TextBox TextMode="Number" ID="txtVecesPos" CssClass="form-control" runat="server"></asp:TextBox>
                 </div>
-                   <br />
+                   <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="Debe completar este campo!" ControlToValidate="txtVecesPos" CssClass="alert-danger"></asp:RequiredFieldValidator> 
+                  </div>
+                 <div class="col-6">
             <div class="input-group flex-nowrap">
                   <div class="input-group-prepend">
-                    <span class="input-group-text" id="addon-wrappinga">Efecto Negativo</span>
+                    <span class="input-group-text" id="addon-wrappinga">
+                        <asp:Label ID="lblEfectoNegativo" runat="server" Text="Efecto Negativo"></asp:Label></span>
                   </div>
                     <asp:TextBox ID="txtEfeNeg" CssClass="form-control" runat="server"></asp:TextBox>
                 </div>
-
+                  <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="Debe completar este campo!" ControlToValidate="txtEfeNeg" CssClass="alert-danger"></asp:RequiredFieldValidator>
                    <br />
         <div class="input-group flex-nowrap">
                   <div class="input-group-prepend">
-                    <span class="input-group-text" id="addon-wrappinga">Veces por semana Negativo</span>
+                    <span class="input-group-text" id="addon-wrappinga">
+                        <asp:Label ID="lblVecesNegativo" runat="server" Text="Veces por semana Negativo"></asp:Label></span>
                   </div>
-                    <asp:TextBox ID="txtVecesNeg" CssClass="form-control" runat="server"></asp:TextBox>
+                    <asp:TextBox TextMode="Number" ID="txtVecesNeg" CssClass="form-control" runat="server"></asp:TextBox>
                 </div>
-
+                 <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="Debe completar este campo!" ControlToValidate="txtVecesNeg" CssClass="alert-danger"></asp:RequiredFieldValidator>
+                
+                  </div>
+                     </div>
                  <br />
                  <asp:Label ID="lblSuccess" runat="server" CssClass="alert alert-success" Text="Parametro agregado!" Visible="false"></asp:Label>
                  <asp:Button ID="btnGuardar" runat="server" Text="Aceptar" CssClass="btn btn-info" OnClick="btnGuardar_Click" />
@@ -65,7 +80,8 @@
                  <br />
                  <div class="input-group flex-nowrap">
                   <div class="input-group-prepend">
-                    <span class="input-group-text" id="addon-wrapping4">Servicio</span>
+                    <span class="input-group-text" id="addon-wrapping4">
+                        <asp:Label ID="lblServicios" runat="server" Text="Servicio"></asp:Label></span>
                   </div>                 
                      <asp:ListBox ID="listServicio" runat="server" ></asp:ListBox>
 

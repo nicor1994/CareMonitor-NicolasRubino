@@ -20,23 +20,27 @@ namespace GUI.Forms
 
         protected void btnCambiarContraseña_Click(object sender, EventArgs e)
         {
-            if (TextBox1.Text == TextBox2.Text)
+            if (Page.IsValid)
             {
-
-                BE.Usuario usuensesion = (BE.Usuario)Session["UsuarioEnSesion"];
-
-                usuensesion.Contraseña = Seguridad.Encriptador.Encrypt(TextBox1.Text);
-
-                if (GestorUsuario.CambiarContraseña(usuensesion, usuensesion) == true)
+                if (TextBox1.Text == TextBox2.Text)
                 {
-                    Session["UsuarioEnSesion"] = null;
-                    Response.Redirect("Login.aspx");
+
+                    BE.Usuario usuensesion = (BE.Usuario)Session["UsuarioEnSesion"];
+
+                    usuensesion.Contraseña = Seguridad.Encriptador.Encrypt(TextBox1.Text);
+
+                    if (GestorUsuario.CambiarContraseña(usuensesion, usuensesion) == true)
+                    {
+                        Session["UsuarioEnSesion"] = null;
+                        Response.Redirect("Login.aspx");
+                    }
+
+
+
+
                 }
-
-                
-
-
-            } else { Label1.Visible = true; }
+                else { Label1.Visible = true; }
+            }
         }
     }
 }

@@ -14,16 +14,20 @@
         <section class="row justify-content-center">
             <section class="col-12 col-sm-6 col-md-3">
                 <form class="form-container" runat="server">
-                    <img class="rounded-circle mx-auto d-block" src="../Imagenes/Care Monitor.jpg" width="300" height="300"/>
+                    <img class="rounded-circle mx-auto d-block" src="../Imagenes/Care Monitor.jpg" width="150" height="150"/>
                     <div class="form-group">
                         <label for="dni">DNI</label>
                        
-                        <asp:TextBox runat="server" ID="TextBox1" CssClass="form-control" ></asp:TextBox>
-                    </div>
+                        <asp:TextBox TextMode="Number" runat="server" ID="TextBox1" CssClass="form-control"></asp:TextBox>
+                        <br />
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Debe completar este campo!" ControlToValidate="TextBox1" CssClass="alert alert-danger"></asp:RequiredFieldValidator>                        
+                        </div>
                     <div class="form-group">
                         <label for="pass">Contraseña</label>
                     
                          <asp:TextBox TextMode="Password" runat="server" ID="TextBox2"  CssClass="form-control" ></asp:TextBox>
+                        <br />
+                      <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Debe completar este campo!" ControlToValidate="TextBox2" CssClass="alert alert-danger"></asp:RequiredFieldValidator>
                     </div>
                     <div class="form-group form-check">
                         <asp:Label class="alert alert-danger" ID="Label1" runat="server" Text="Label" Visible="False"></asp:Label>
@@ -40,6 +44,6 @@
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
-    
+    <script src="C:\Users\Nico\Documents\UAI\TFI\CareMonitor\CareMonitor\GUI\js\Local\Validacion.js"></script>
 </body>
 </html>

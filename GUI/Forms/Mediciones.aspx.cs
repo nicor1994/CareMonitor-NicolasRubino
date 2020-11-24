@@ -16,16 +16,31 @@ namespace GUI.Forms
      
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
+
+            BE.Usuario usu = (BE.Usuario)Session["UsuarioEnSesion"];
+            if (usu.ListaPermisos.Find(x => x.ID == 1) != null)
             {
-                ListaParametros = GestorParametros.Listar();
-                Session["ListaParametros"] = ListaParametros;
-                dropdownParametros.DataSource = null;
-                dropdownParametros.DataSource = ListaParametros;
-                dropdownParametros.DataBind();
-                lblDesc.Text = ListaParametros[dropdownParametros.SelectedIndex].Descripcion;
+               
+                if (!IsPostBack)
+                {
+                    Session["ListaParametrosUsu"] = null;
+                    ListaParametros = GestorParametros.Listar();
+                    Session["ListaParametros"] = ListaParametros;
+                    dropdownParametros.DataSource = null;
+                    dropdownParametros.DataSource = ListaParametros;
+                    dropdownParametros.DataBind();
+                    lblDesc.Text = ListaParametros[dropdownParametros.SelectedIndex].Descripcion;
+                }
+                ListaParametros = (List<BE.TipoMedicion>)Session["ListaParametros"];
             }
-            ListaParametros = (List<BE.TipoMedicion>)Session["ListaParametros"];
+            else
+            {
+                Response.Redirect("SinPermisos.aspx");
+            }
+
+            /////
+
+          
         
         }
 
@@ -36,25 +51,28 @@ namespace GUI.Forms
 
         protected void btnAgregar_Click(object sender, EventArgs e)
         {
-            BE.Medicion MedicionUsuario = new BE.Medicion();
-            MedicionUsuario.Tipo = ListaParametros[dropdownParametros.SelectedIndex];
-            MedicionUsuario.Valor = int.Parse(txtValor.Text);
-            MedicionUsuario.Fecha = DateTime.Now;
-            List<BE.Medicion> ListaParametrosUsu = new List<BE.Medicion>();
-            if (Session["ListaParametrosUsu"] != null)
+            if (Page.IsValid)
             {
-                ListaParametrosUsu = (List<BE.Medicion>)Session["ListaParametrosUsu"];
-            }
+                BE.Medicion MedicionUsuario = new BE.Medicion();
+                MedicionUsuario.Tipo = ListaParametros[dropdownParametros.SelectedIndex];
+                MedicionUsuario.Valor = int.Parse(txtValor.Text);
+                MedicionUsuario.Fecha = DateTime.Now;
+                List<BE.Medicion> ListaParametrosUsu = new List<BE.Medicion>();
+                if (Session["ListaParametrosUsu"] != null)
+                {
+                    ListaParametrosUsu = (List<BE.Medicion>)Session["ListaParametrosUsu"];
+                }
 
-            if (ListaParametrosUsu.Find(x => x.Tipo.ID == ListaParametros[dropdownParametros.SelectedIndex].ID) == null)
-            {
+                if (ListaParametrosUsu.Find(x => x.Tipo.ID == ListaParametros[dropdownParametros.SelectedIndex].ID) == null)
+                {
 
 
-                ListaParametrosUsu.Add(MedicionUsuario);
-                Session["ListaParametrosUsu"] = ListaParametrosUsu;
-                listParametro.DataSource = null;
-                listParametro.DataSource = ListaParametrosUsu;
-                listParametro.DataBind();
+                    ListaParametrosUsu.Add(MedicionUsuario);
+                    Session["ListaParametrosUsu"] = ListaParametrosUsu;
+                    listParametro.DataSource = null;
+                    listParametro.DataSource = ListaParametrosUsu;
+                    listParametro.DataBind();
+                }
             }
         }
 

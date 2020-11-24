@@ -24,6 +24,24 @@ namespace GUI.Forms
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl success;
 
         /// <summary>
+        /// Control lblTodoBien.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTodoBien;
+
+        /// <summary>
+        /// Control lblTextoDVV.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTextoDVV;
+
+        /// <summary>
         /// Control fail.
         /// </summary>
         /// <remarks>
@@ -31,6 +49,24 @@ namespace GUI.Forms
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl fail;
+
+        /// <summary>
+        /// Control lblTodoMal.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTodoMal;
+
+        /// <summary>
+        /// Control lblTextoDVVMal.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTextoDVVMal;
 
         /// <summary>
         /// Control btnRecalcular.

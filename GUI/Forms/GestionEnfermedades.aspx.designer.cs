@@ -15,6 +15,24 @@ namespace GUI.Forms
     {
 
         /// <summary>
+        /// Control lblGestionEnfermedades.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblGestionEnfermedades;
+
+        /// <summary>
+        /// Control lblNombre.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblNombre;
+
+        /// <summary>
         /// Control txtNom.
         /// </summary>
         /// <remarks>
@@ -22,6 +40,15 @@ namespace GUI.Forms
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtNom;
+
+        /// <summary>
+        /// Control lblParametros.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblParametros;
 
         /// <summary>
         /// Control listParametros.
@@ -60,6 +87,15 @@ namespace GUI.Forms
         protected global::System.Web.UI.WebControls.Button btnSelecc;
 
         /// <summary>
+        /// Control lblHabitos.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblHabitos;
+
+        /// <summary>
         /// Control listHabitos.
         /// </summary>
         /// <remarks>
@@ -78,13 +114,13 @@ namespace GUI.Forms
         protected global::System.Web.UI.WebControls.Button btnSeleccHabito;
 
         /// <summary>
-        /// Control btnGuardar.
+        /// Control btnGuardarEnfermedad.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnGuardar;
+        protected global::System.Web.UI.WebControls.Button btnGuardarEnfermedad;
 
         /// <summary>
         /// Control lblSuccess.
@@ -96,6 +132,24 @@ namespace GUI.Forms
         protected global::System.Web.UI.WebControls.Label lblSuccess;
 
         /// <summary>
+        /// Control RequiredFieldValidator1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
+
+        /// <summary>
+        /// Control lblParametrosSeleccionados.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblParametrosSeleccionados;
+
+        /// <summary>
         /// Control listaParamSelect.
         /// </summary>
         /// <remarks>
@@ -103,6 +157,15 @@ namespace GUI.Forms
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ListBox listaParamSelect;
+
+        /// <summary>
+        /// Control lblHabitosSeleccionados.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblHabitosSeleccionados;
 
         /// <summary>
         /// Control listHabitosSelec.

@@ -10,12 +10,14 @@
         
              <div class="col-md-12 border shadow rounded">
                  <br />
-             <h4 class="font-weight-bold mb-0">Parametros</h4>
+             <h4 class="font-weight-bold mb-0">
+                 <asp:Label ID="lblParametros" runat="server" Text="Parametros"></asp:Label></h4>
                  <br />
                  <br />
             <div class="input-group flex-nowrap">
                   <div class="input-group-prepend">
-                    <span class="input-group-text" id="addon-wrapping">Seleccione el parametro</span>
+                    <span class="input-group-text" id="addon-wrapping">
+                        <asp:Label ID="lblSeleccioneParametro" runat="server" Text="Seleccione el parametro"></asp:Label></span>
                   </div>                   
                  <asp:DropDownList ID="dropdownParametros" runat="server" CssClass="btn btn-light dropdown-toggle rounded" AutoPostBack="true" OnSelectedIndexChanged="dropdownParametros_SelectedIndexChanged"></asp:DropDownList>
                 </div>                
@@ -25,11 +27,14 @@
                  <br />
             <div class="input-group flex-nowrap">
                   <div class="input-group-prepend">
-                    <span class="input-group-text" id="addon-wrapping2">Valor</span>
+                    <span class="input-group-text" id="addon-wrapping2">
+                        <asp:Label ID="lblValor" runat="server" Text="Valor"></asp:Label></span>
                   </div>
-                  <asp:TextBox ID="txtValor" CssClass="form-control" runat="server"></asp:TextBox>
-                </div>                
-                   <br />                                    
+                  <asp:TextBox TextMode="Number" ID="txtValor" CssClass="form-control" runat="server"></asp:TextBox>
+                </div>
+                 <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Debe completar este campo!" ControlToValidate="txtValor" CssClass="alert-danger"></asp:RequiredFieldValidator>
+                
+                 <br />                                    
                  <asp:Button ID="btnAgregar" runat="server" Text="Agregar" CssClass="btn btn-info" OnClick="btnAgregar_Click"/>
                
                  <br />
@@ -37,7 +42,8 @@
                   <div class="col-md-12 border shadow rounded">
                  <br />
                  <br />
-             <h4 class="font-weight-bold mb-0">Parametros Agregados</h4>
+             <h4 class="font-weight-bold mb-0">
+                 <asp:Label ID="lblParametrosAgregados" runat="server" Text="Parametros Agregados"></asp:Label></h4>
                  <br />
                  <br />
                  <div class="input-group flex-nowrap">
@@ -54,9 +60,12 @@
                      <br />
                  
             </div>
+                   
                           <div class="alert alert-danger" role="alert" id="alerta" runat="server" visible="false">
-                         <h4 class="alert-heading">Cuidado!!</h4>
-                         <p>Los parametros ingresados condicen con la/s siguiente/s enfermedades, se ha emitido una alarma al Departamento Medico</p>
+                         <h4 class="alert-heading">
+                             <asp:Label ID="lblTituloCuidado" runat="server" Text="Cuidado!!"></asp:Label></h4>
+                         <p>
+                             <asp:Label ID="lblCuerpoCuidado" runat="server" Text="Los parametros ingresados condicen con la/s siguiente/s enfermedades, se ha emitido una alarma al Departamento Medico"></asp:Label></p>
                          <hr>
                          <asp:Label ID="lblEnf" runat="server" Text=""></asp:Label>
                          <br />

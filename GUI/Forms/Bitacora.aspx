@@ -11,9 +11,9 @@
              <br />
     <div class="btn-group dropright" width:"200px">
        
-        <asp:Button ID="Button1" runat="server" CssClass="btn btn-success dropdown-toggle shadow  rounded" Text="Filtrar por:" data-toggle="dropdown" />
+        <asp:Button ID="btnFiltrar" runat="server" CssClass="btn btn-success dropdown-toggle shadow  rounded" Text="Filtrar por:" data-toggle="dropdown" />
   <div class="dropdown-menu" aria-labelledby="Button1">
-      <asp:Button ID="Button2" runat="server" CssClass="dropdown-item" Text="Fecha" onClick="Button2_Click"/>
+      <asp:Button ID="btnFecha" runat="server" CssClass="dropdown-item" Text="Fecha" onClick="Button2_Click"/>
        <asp:Button ID="btnUsuario" runat="server" CssClass="dropdown-item" Text="Usuario" OnClick="btnUsuario_Click" />
        <asp:Button ID="btnTipo" runat="server" CssClass="dropdown-item" Text="Tipo" OnClick="btnTipo_Click" />
     
