@@ -49,5 +49,10 @@ namespace BE
             set { _ID = value; }
         }
 
+        public override string ToString()
+        {
+            return Usuario.Apellido + " - " + Fecha.ToString("f");
+        }
+
     }
 }

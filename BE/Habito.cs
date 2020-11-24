@@ -33,6 +33,10 @@ namespace BE
             set { _ID = value; }
         }
 
+        public override string ToString()
+        {
+            return TipoHabito.Nombre + " - " + ValorxSemana + " veces por semana";
+        }
 
     }
 }

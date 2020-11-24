@@ -41,28 +41,36 @@ namespace DAL
             GC.Collect();
             foreach (DataRow linea in Tabla.Rows)
             {
-                if ((int)linea["Borrado"] == 0)
-                {
 
-
-                    hab.ID = (int)linea["ID"];
-                    hab.Nombre = (string)linea["Nombre"];
-                    hab.EfectoNegativo = (string)linea["EfectoNegativo"];
-                    hab.EfectoPositivo = (string)linea["EfectoPositivo"];
-                    hab.ValorPositivo = (int)linea["ValorPositivo"];
-                    hab.ValorNegativo = (int)linea["ValorNegativo"];
-
-
-
-                }
-
-
-
+                ListaMedicion.Add(ListarMedicionID(int.Parse(linea["ID_Medicion"].ToString())));      
+         
             }
-            return hab;
+            return ListaMedicion;
 
         }
 
+        public BE.Medicion ListarMedicionID(int id)
+        {
+          
+            acc.AbrirConexion();
+            SqlParameter[] parametros = new SqlParameter[1];
+            parametros[0] = acc.ArmarParametro("id", id, System.Data.SqlDbType.Int);
+            BE.Medicion med = new BE.Medicion();
+            DataTable Tabla = acc.Leer("Medicion_Listar", parametros);
+            acc.CerrarConexion();
+            GC.Collect();
+            foreach (DataRow linea in Tabla.Rows)
+            {
+                med.ID = id;
+                med.Valor = int.Parse(linea["Valor"].ToString());
+                med.Fecha = DateTime.Parse(linea["Fecha"].ToString());
+
+                DAL.MP_TipoMedicion mapper = new MP_TipoMedicion();
+                med.Tipo = mapper.ListarTipoID(int.Parse(linea["ID_TipoMedicion"].ToString()));
+
+            }
+            return med;
+        }
 
 
     }

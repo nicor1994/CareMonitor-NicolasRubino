@@ -44,6 +44,8 @@
     <Compile Include="Alarma.cs" />
     <Compile Include="BackupRestore.cs" />
     <Compile Include="Enfermedad.cs" />
+    <Compile Include="Evento.cs" />
+    <Compile Include="Habito.cs" />
     <Compile Include="Medicion.cs" />
     <Compile Include="Permiso.cs" />
     <Compile Include="Servicio.cs" />
@@ -52,6 +54,7 @@
     <Compile Include="Tecnologia\Usuario.cs" />
     <Compile Include="TipoHabito.cs" />
     <Compile Include="TipoMedicion.cs" />
+    <Compile Include="Traductor.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BE\BE.csproj">

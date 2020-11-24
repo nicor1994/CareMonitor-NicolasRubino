@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BE
 {
-    class Etiqueta
+    public class Etiqueta
     {
 
         private string _Traduccion;
@@ -18,12 +18,12 @@ namespace BE
             set { _Traduccion = value; }
         }
 
-        private string _texto;
+        private string _NombreControl;
 
-        public string Texto
+        public string NombreControl
         {
-            get { return _texto; }
-            set { _texto = value; }
+            get { return _NombreControl; }
+            set { _NombreControl = value; }
         }
 
         private int _ID;

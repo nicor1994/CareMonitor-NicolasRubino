@@ -89,6 +89,21 @@ namespace DAL
 
         }
 
+        public int SolicitarServicio(BE.Servicio serv)
+        {
+            int fa = 0;
+            acc.AbrirConexion();
+            SqlParameter[] parametros = new SqlParameter[4];
+            parametros[0] = acc.ArmarParametro("idusu", serv.Usuario.ID, System.Data.SqlDbType.Int);
+            parametros[1] = acc.ArmarParametro("fechapedido", serv.FechaPedido, System.Data.SqlDbType.DateTime);
+            parametros[2] = acc.ArmarParametro("fechaserv", serv.FechaServicio, System.Data.SqlDbType.DateTime);
+            parametros[3] = acc.ArmarParametro("idserv", serv.TipoServicio.ID, System.Data.SqlDbType.Int);
+
+            fa = acc.Escribir("Servicio_Solicitar", parametros);
+            acc.CerrarConexion();
+            GC.Collect();
+            return fa;
+        }
 
     }
 }

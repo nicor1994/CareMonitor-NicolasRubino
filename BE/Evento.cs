@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BE
 {
-    class Evento
+    public class Evento
     {
 
         private string _Titulo;

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BE
 {
-    class Lenguaje
+    public class Lenguaje
     {
 
         private string _nombre;
@@ -34,7 +34,10 @@ namespace BE
             set { _ID = value; }
         }
 
-
+        public override string ToString()
+        {
+            return Nombre;
+        }
 
     }
 }

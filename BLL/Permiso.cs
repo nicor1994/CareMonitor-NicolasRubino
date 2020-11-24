@@ -138,33 +138,10 @@ namespace BLL
         public string RedireccionarLogin(BE.Usuario usu)
         {
             if (usu != null){
-                List<BE.Permiso> roles = this.ListarPermisosdeUsuarios(usu);
 
-                foreach (BE.Permiso per in roles)
-                {
+                return "VistaTecnologia.aspx";
 
-                    if (per.ID == 104)
-                    {
-                        return "VistaTecnologia.aspx";
-                    }
-                    else if (per.ID == 100)
-                    {
-                        return "VistaPaciente.aspx";
-                    }
-                    else if (per.ID == 101)
-                    {
-                        return "VistaServicio.aspx";
-                    }
-                    else if (per.ID == 102)
-                    {
-                        return "VistaMedico.aspx";
-                    }
-                    else if (per.ID == 103)
-                    {
-                        return "VistaFamiliar.aspx";
-                    }
-                }
-                return "SinPermisos.aspx";
+             
             }
             return "Login.aspx";
         }

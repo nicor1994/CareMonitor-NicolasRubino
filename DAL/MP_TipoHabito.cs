@@ -109,17 +109,14 @@ namespace DAL
             GC.Collect();
             foreach (DataRow linea in Tabla.Rows)
             {
-                if ((int)linea["Borrado"] == 0)
-                {
+               
                     BE.Habito hab = new BE.Habito();
-
+                    hab.ID = int.Parse(linea["ID"].ToString());
                     hab.ValorxSemana = int.Parse(linea["VecesxSemana"].ToString());
                     hab.TipoHabito = ListarHabito(int.Parse(linea["ID_TipoHabito"].ToString()));
                 
                     ListaHabitos.Add(hab);
-                }
-
-
+                
 
             }
             return ListaHabitos;

@@ -48,8 +48,8 @@ namespace DAL
             acc.AbrirConexion();
             SqlParameter[] parametros = new SqlParameter[1];
 
-            parametros[0] = acc.ArmarParametro("tabla", "Alarma", System.Data.SqlDbType.DateTime);
-            DataTable Tabla = acc.Leer("ListarEntidad", null);
+            parametros[0] = acc.ArmarParametro("tabla", "Alarma", System.Data.SqlDbType.VarChar);
+            DataTable Tabla = acc.Leer("ListarEntidad", parametros);
             acc.CerrarConexion();
             GC.Collect();
             foreach (DataRow linea in Tabla.Rows)
@@ -61,12 +61,31 @@ namespace DAL
 
                 DAL.MP_Usuario Gestor = new MP_Usuario();
                 al.Usuario = Gestor.ObtenerUsuarioID(int.Parse(linea["ID_Usuario"].ToString()));
-                
+                DAL.MP_Medicion GestorMedicion = new MP_Medicion();
+                al.Mediciones = GestorMedicion.ListarMedicionAlarma(al.ID);
 
-
+                ListaAlarma.Add(al);
             }
             return ListaAlarma;
         }
+
+        public int Evolucionar(BE.Alarma alarm)
+        {
+            int fa = 0;
+            acc.AbrirConexion();
+            SqlParameter[] parametros = new SqlParameter[2];
+
+            parametros[0] = acc.ArmarParametro("evolucion", alarm.Evolucion, System.Data.SqlDbType.VarChar);
+            parametros[1] = acc.ArmarParametro("id", alarm.ID, System.Data.SqlDbType.Int);
+
+
+            fa = acc.Escribir("Alarma_Evolucionar", parametros);
+            acc.CerrarConexion();
+            GC.Collect();
+            return fa;
+        }
+
+
 
     }
 }

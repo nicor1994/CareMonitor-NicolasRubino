@@ -102,6 +102,33 @@ namespace DAL
             return fa;
         }
 
+        public BE.TipoMedicion ListarTipoID(int id)
+        {
+
+            BE.TipoMedicion Tipo = new BE.TipoMedicion();
+            acc.AbrirConexion();
+            SqlParameter[] parametros = new SqlParameter[1];
+            parametros[0] = acc.ArmarParametro("id", id, System.Data.SqlDbType.Int);
+
+            DataTable Tabla = acc.Leer("Medicion_ListarTipo", parametros);
+            acc.CerrarConexion();
+            GC.Collect();
+            foreach (DataRow linea in Tabla.Rows)
+            {
+                Tipo.ID = id;
+                Tipo.Nombre = (string)linea["Nombre"];
+                Tipo.Descripcion = (string)linea["Descripcion"];
+                Tipo.DescripcionMaxima = (string)linea["DescripcionMaxima"];
+                Tipo.DescripcionMinima = (string)linea["DescripcionMinima"];
+                Tipo.MaximoMasculino = int.Parse(linea["MaximoMasculino"].ToString());
+                Tipo.MaximoFemenino = int.Parse(linea["MaximoMasculino"].ToString());
+                Tipo.MinimoMasculino = int.Parse(linea["MinimoMasculino"].ToString());
+                Tipo.MinimoFemenino = int.Parse(linea["MinimoFemenino"].ToString());
+
+            }
+            return Tipo;
+
+        }
 
     }
 }

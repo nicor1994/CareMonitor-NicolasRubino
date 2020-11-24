@@ -36,6 +36,12 @@ namespace BLL
             return ListaAlarmas;
         }
 
+        public int Evolucionar(BE.Alarma alarma) { 
+            
+            int fa = MapperAlarma.Evolucionar(alarma);
+            return fa;
+        }
+
 
     }
 }
