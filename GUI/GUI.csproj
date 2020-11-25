@@ -118,6 +118,7 @@
     <Content Include="Forms\Alarmas.aspx" />
     <Content Include="Forms\BackupRestore.aspx" />
     <Content Include="Forms\Bitacora.aspx" />
+    <Content Include="Forms\ColaServicios.aspx" />
     <Content Include="Forms\DigitoVerificador.aspx" />
     <Content Include="Forms\Empleados.aspx" />
     <Content Include="Forms\GestionEnfermedades.aspx" />
@@ -316,6 +317,13 @@
     </Compile>
     <Compile Include="Forms\Bitacora.aspx.designer.cs">
       <DependentUpon>Bitacora.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ColaServicios.aspx.cs">
+      <DependentUpon>ColaServicios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\ColaServicios.aspx.designer.cs">
+      <DependentUpon>ColaServicios.aspx</DependentUpon>
     </Compile>
     <Compile Include="Forms\DigitoVerificador.aspx.cs">
       <DependentUpon>DigitoVerificador.aspx</DependentUpon>

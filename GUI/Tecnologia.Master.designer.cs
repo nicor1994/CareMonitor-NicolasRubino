@@ -159,6 +159,24 @@ namespace GUI
         protected global::System.Web.UI.WebControls.Label lblHabitos;
 
         /// <summary>
+        /// Control ColaServicios.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor ColaServicios;
+
+        /// <summary>
+        /// Control lblColaServicios.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblColaServicios;
+
+        /// <summary>
         /// Control Servicios.
         /// </summary>
         /// <remarks>

@@ -150,6 +150,10 @@ namespace GUI
                 {
                     GestionEnfermedades.Visible = true;
                 }
+                if (per.ID == 20)
+                {
+                    ColaServicios.Visible = true;
+                }
             }
 
 
