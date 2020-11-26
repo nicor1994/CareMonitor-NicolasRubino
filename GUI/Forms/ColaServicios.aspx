@@ -21,10 +21,24 @@
                  <br />                          
                  <br />
              <h4 class="font-weight-bold mb-0">
-                 <asp:Label ID="lblTiempoServicio" runat="server" Text="Mediciones observadas"></asp:Label></h4>
+                 <asp:Label ID="lblCerrarServicio" runat="server" Text="Mediciones observadas"></asp:Label></h4>
 
                  <br />
-                         <asp:TextBox ID="txtTiempo" TextMode="Number" runat="server"></asp:TextBox>
+
+                             <div class="input-group flex-nowrap">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="addon-wrapping">
+                        <asp:Label ID="lblTiempoServicio" runat="server" Text="Seleccione el parametro"></asp:Label></span>
+                  </div>                   
+                <asp:TextBox ID="txtTiempo" TextMode="Number" runat="server"></asp:TextBox>
+                </div>
+                         <br />
+                           <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Debe completar este campo!" ControlToValidate="txtTiempo" CssClass="alert-danger"></asp:RequiredFieldValidator>
+
+                         <br />
+                        <asp:Button ID="btnCerrarServicio" runat="server" Text="Agregar" CssClass="btn btn-success" OnClick="btnCerrarServicio_Click"/>
+
+                         
                  <br />
                 </div>
                      <div class="col-sm">
@@ -40,35 +54,7 @@
                 
                  <br />
                  <br />
-                  <div class="col-md-12 border shadow rounded">
-                 <br />
-               
-             <h4 class="font-weight-bold mb-0">
-                 <asp:Label ID="lblGestionHabitos" runat="server" Text="Gestion de Habitos"></asp:Label></h4>
-                 <br />
-                      
-                 <br />
-                 <div class="input-group flex-nowrap">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text" id="addon-wrapping4">
-                        <asp:Label ID="lblEvolucion" runat="server" Text="Evolucion"></asp:Label></span>
-                  </div>                 
-                     <asp:TextBox ID="txtEvolucion" runat="server" TextMode ="MultiLine" CssClass="w-100"></asp:TextBox>
-                     <br />
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Debe completar este campo!" ControlToValidate="txtEvolucion" CssClass="alert alert-danger"></asp:RequiredFieldValidator>
-                     
-                      
-            </div>
-                      <br />
-                      <asp:Button ID="btnEvolucionar" runat="server" Text="Evolucionar" CssClass="btn btn-success" style="margin-left:10px" OnClick="btnEvolucionar_Click"/>
-                     
-                     <asp:Label ID="lblSuccess" runat="server" CssClass="alert alert-success" Text="Parametro agregado!" Visible="false"></asp:Label>
-                     
-                 <br />
-                
-        
-                 <br />
-          </div>
+              
         </div>
        <br />
              

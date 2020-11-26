@@ -57,5 +57,10 @@ namespace BE
             set { _ID = value; }
         }
 
+        public override string ToString()
+        {
+            return Usuario.Apellido + ", " + Usuario.Nombre + " - " + TipoServicio.Nombre + " - " + FechaServicio;
+        }
+
     }
 }
