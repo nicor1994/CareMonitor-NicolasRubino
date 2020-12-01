@@ -26,6 +26,22 @@ namespace GUI
                 return;
             if (control is GridView)
                 return;
+            if (control is System.Web.UI.DataVisualization.Charting.Chart)
+                return;
+            if (control is System.Web.UI.DataVisualization.Charting.Series)
+                return;
+            if (control is System.Web.UI.DataVisualization.Charting.ChartArea)
+                return;
+            if (control is Microsoft.Reporting.WebForms.ReportViewer)
+                return;
+            if (control is System.Web.UI.ScriptManager)
+                return;
+            if (control is System.Web.UI.WebControls.ImageButton)
+                return;
+            if (control is System.Web.UI.WebControls.HiddenField)
+                return;
+
+            
             string tradu = GestorIdioma.Traducir(control.ID, Idioma);
             if (string.IsNullOrWhiteSpace(tradu))
                 return;
