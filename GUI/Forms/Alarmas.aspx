@@ -1,7 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Alarmas.aspx.cs" MasterPageFile="~/Tecnologia.master" Inherits="GUI.Forms.Alarmas" %>
 
-<%@ Register Assembly="System.Web.DataVisualization, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" Namespace="System.Web.UI.DataVisualization.Charting" TagPrefix="asp" %>
-
 <asp:Content ID="Content2" CssClass="border" ContentPlaceHolderID="MainContent" runat="server">
    <section>
      <div class="container"> 
@@ -44,14 +42,6 @@
                  
                 
                  <br />
-                 <asp:Chart ID="grafico" runat="server" Visible="false" ImageStorageMode="UseImageLocation" >
-                     <Series>
-                         
-                     </Series>
-                     <ChartAreas>
-                         <asp:ChartArea Name="Area"></asp:ChartArea>
-                     </ChartAreas>
-                 </asp:Chart>
                  <br />
                   <div class="col-md-12 border shadow rounded">
                  <br />

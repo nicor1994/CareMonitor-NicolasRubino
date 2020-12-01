@@ -114,15 +114,6 @@ namespace GUI.Forms
         protected global::System.Web.UI.WebControls.Label lblValMinMasc;
 
         /// <summary>
-        /// Control grafico.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.DataVisualization.Charting.Chart grafico;
-
-        /// <summary>
         /// Control lblGestionHabitos.
         /// </summary>
         /// <remarks>

@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Data.SqlClient;
-using System.Data;
+
 namespace BLL
 {
     public class Bitacora
@@ -23,10 +22,6 @@ namespace BLL
             return GestorBitacora.ListarBitacora();
 
 
-        }
-        public DataTable ListarBitacoraReporte()
-        {
-            return GestorBitacora.ListarBitacoraReporte();
         }
 
         public List<string> ListarTipos(List<BE.Bitacora> listabit)
