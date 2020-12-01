@@ -55,5 +55,17 @@ namespace DAL
             }
             return ListaBitacora;
         }
-}
+
+        public DataTable ListarBitacoraReporte()
+        {
+            
+            Acceso.AbrirConexionBitacora();
+            DataTable Tabla = Acceso.Leer("Bitacora_Listar", null);
+            Acceso.CerrarConexion();
+            GC.Collect();
+           
+            return Tabla;
+        }
+
+    }
 }
