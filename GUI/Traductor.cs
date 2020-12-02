@@ -32,8 +32,8 @@ namespace GUI
                 return;
             if (control is System.Web.UI.DataVisualization.Charting.ChartArea)
                 return;
-            if (control is Microsoft.Reporting.WebForms.ReportViewer)
-                return;
+            //if (control is Microsoft.Reporting.WebForms.ReportViewer)
+            //    return;
             if (control is System.Web.UI.ScriptManager)
                 return;
             if (control is System.Web.UI.WebControls.ImageButton)
