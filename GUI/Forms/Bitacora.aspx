@@ -60,6 +60,8 @@
                     </asp:GridView>
                 </div>
             </div>
+            <br />
+            <asp:Button ID="btnGenerarReporte" runat="server" Text="GenerarReporte" CssClass="btn btn-danger shadow mb-5 rounded" OnClick="btnGenerarReporte_Click" />
             
         </div>
         

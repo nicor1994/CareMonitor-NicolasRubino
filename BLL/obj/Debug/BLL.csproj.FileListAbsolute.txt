@@ -14,7 +14,6 @@ C:\Users\Nico\Documents\UAI\TFI\CareMonitor\CareMonitor\BLL\bin\Debug\SqlServerT
 C:\Users\Nico\Documents\UAI\TFI\CareMonitor\CareMonitor\BLL\bin\Debug\SqlServerTypes\x64\SqlServerSpatial140.dll
 C:\Users\Nico\Documents\UAI\TFI\CareMonitor\CareMonitor\BLL\bin\Debug\SqlServerTypes\x86\msvcr120.dll
 C:\Users\Nico\Documents\UAI\TFI\CareMonitor\CareMonitor\BLL\bin\Debug\SqlServerTypes\x86\SqlServerSpatial140.dll
-C:\Users\Nico\Documents\UAI\TFI\CareMonitor\CareMonitor\BLL\bin\Debug\BLL.dll.config
 C:\Users\Nico\Documents\UAI\TFI\CareMonitor\CareMonitor\BLL\bin\Debug\BLL.dll
 C:\Users\Nico\Documents\UAI\TFI\CareMonitor\CareMonitor\BLL\bin\Debug\BLL.pdb
 C:\Users\Nico\Documents\UAI\TFI\CareMonitor\CareMonitor\BLL\bin\Debug\BE.dll

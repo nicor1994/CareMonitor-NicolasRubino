@@ -1,9 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using iText.Kernel;
+using iText.Kernel.Geom;
+using iText.Kernel.Pdf;
+using iText.Layout;
+using iText.Layout.Element;
 
 namespace GUI.Forms
 {
@@ -208,6 +214,30 @@ namespace GUI.Forms
             GridView1.DataBind();
             btnTipo.Enabled = false;
             btnFiltrarTipo.Visible = false;
+        }
+
+        protected void btnGenerarReporte_Click(object sender, EventArgs e)
+        {
+            MemoryStream ms = new MemoryStream();
+
+            PdfWriter pw = new PdfWriter(ms);
+            PdfDocument pdf = new PdfDocument(pw);
+            Document doc = new Document(pdf, PageSize.A4);
+
+            doc.Add(new Paragraph("Probando PDF"));
+
+            doc.Close();
+
+            byte[] bytesStream = ms.ToArray();
+            ms = new MemoryStream();
+            ms.Write(bytesStream, 0, bytesStream.Length);
+            ms.Position = 0;
+
+            Response.AddHeader("content-disposition", "inline;filename=Reporte.pdf");
+            Response.ContentType = "application/octectstream";
+            Response.BinaryWrite(bytesStream);
+            Response.End();
+
         }
     }
 }
