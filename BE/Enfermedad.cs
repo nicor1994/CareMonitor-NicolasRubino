@@ -40,6 +40,9 @@ namespace BE
             set { _MalosHabitos = value; }
         }
 
-
+        public override string ToString()
+        {
+            return Nombre;
+        }
     }
 }

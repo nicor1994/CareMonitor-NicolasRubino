@@ -42,6 +42,24 @@ namespace GUI.Forms
         protected global::System.Web.UI.WebControls.ListBox listServicios;
 
         /// <summary>
+        /// Control btnGenerarReporte.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnGenerarReporte;
+
+        /// <summary>
+        /// Control btnGenerarExcel.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnGenerarExcel;
+
+        /// <summary>
         /// Control lblCerrarServicio.
         /// </summary>
         /// <remarks>

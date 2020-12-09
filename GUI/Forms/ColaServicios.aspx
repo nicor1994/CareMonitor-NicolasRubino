@@ -18,6 +18,10 @@
                  <br />
                  
                   <asp:Listbox ID="listServicios" AutoPostBack="true" CssClass="¨list-group" runat="server" OnSelectedIndexChanged="listServicios_SelectedIndexChanged"></asp:Listbox>
+                         <br />
+                         <asp:Button ID="btnGenerarReporte" runat="server" Text="GenerarReporte" CssClass="btn btn-warning shadow mb-5 rounded" OnClick="btnGenerarReporte_Click" />
+              <asp:Button ID="btnGenerarExcel" runat="server" Text="GenerarReporte" CssClass="btn btn-success shadow mb-5 rounded" style="margin-left:10px" OnClick="btnGenerarExcel_Click" />
+        
                  <br />                          
                  <br />
              <h4 class="font-weight-bold mb-0">

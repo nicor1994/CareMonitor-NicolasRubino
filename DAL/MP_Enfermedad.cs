@@ -80,14 +80,14 @@ namespace DAL
                 return fa;
             }
 
-            public int BajaServicio(BE.TipoServicio serv)
+            public int BajaEnfermedad(BE.Enfermedad enf)
             {
                 int fa = 0;
                 acc.AbrirConexion();
                 SqlParameter[] parametros = new SqlParameter[1];
-                parametros[0] = acc.ArmarParametro("id", serv.ID, System.Data.SqlDbType.VarChar);
+                parametros[0] = acc.ArmarParametro("id", enf.ID, System.Data.SqlDbType.VarChar);
 
-                fa = acc.Escribir("Servicio_Baja", parametros);
+                fa = acc.Escribir("Enfermedad_Baja", parametros);
                 acc.CerrarConexion();
                 GC.Collect();
                 return fa;
@@ -153,6 +153,98 @@ namespace DAL
 
         }
 
+        public List<BE.Enfermedad> Listar()
+        {
+
+            List<BE.Enfermedad> ListaEnfermedad = new List<BE.Enfermedad>();
+            acc.AbrirConexion();
+            SqlParameter[] parametros = new SqlParameter[1];
+            parametros[0] = acc.ArmarParametro("Tabla", "Enfermedad", System.Data.SqlDbType.VarChar);
+
+            DataTable Tabla = acc.Leer("ListarEntidad", parametros);
+            acc.CerrarConexion();
+            GC.Collect();
+            foreach (DataRow linea in Tabla.Rows)
+            {
+                if ((int)linea["Borrado"] == 0)
+                {
+                    BE.Enfermedad enf = new BE.Enfermedad();
+
+                    enf.ID = int.Parse(linea["ID"].ToString());
+                    enf.Nombre = (string)linea["Nombre"];
+
+                    ListaEnfermedad.Add(enf);
+                }
+            }
+            return ListaEnfermedad;
+
+        }
+
+        public List<BE.Sintoma> ListarSintomas(BE.Enfermedad enf)
+        {
+
+            List<BE.Sintoma> ListaSintomas = new List<BE.Sintoma>();
+            acc.AbrirConexion();
+            SqlParameter[] parametros = new SqlParameter[1];
+            parametros[0] = acc.ArmarParametro("idenf", enf.ID, System.Data.SqlDbType.Int);
+
+            DataTable Tabla = acc.Leer("Enfermedad_Listarsintomas", parametros);
+            acc.CerrarConexion();
+            GC.Collect();
+            foreach (DataRow linea in Tabla.Rows)
+            {
+            
+                    BE.Sintoma enfer = new BE.Sintoma();
+
+                    enf.ID = int.Parse(linea["ID"].ToString());
+                MP_TipoMedicion mp = new MP_TipoMedicion();
+                enfer.pSintoma = mp.ListarTipoID(int.Parse(linea["ID_TipoMedicion"].ToString()));
+                if (int.Parse(linea["Maximo"].ToString()) == 1)
+                {
+                    enfer.Maximo = true;
+                }
+                else
+                {
+                    enfer.Maximo = false;
+                }
+
+                    ListaSintomas.Add(enfer);
+                
+            }
+            return ListaSintomas;
+
+        }
+
+        public int ModificarEnfermedad(BE.Enfermedad enf)
+        {
+            int fa = 0;
+            acc.AbrirConexion();
+            SqlParameter[] parametros = new SqlParameter[1];
+            parametros[0] = acc.ArmarParametro("id", enf.ID, System.Data.SqlDbType.VarChar);
+            fa = acc.Escribir("Enfermedad_BajaSintomas", parametros);
+           acc.CerrarConexion();
+            foreach(BE.Sintoma sin in enf.Sintomas)
+            {
+                acc.AbrirConexion();
+                SqlParameter[] parametros2 = new SqlParameter[3];
+                parametros2[0] = acc.ArmarParametro("id", sin.pSintoma.ID, System.Data.SqlDbType.Int);
+                if (sin.Maximo == true)
+                {
+                    parametros2[1] = acc.ArmarParametro("maximo", 1, System.Data.SqlDbType.Int);
+                }
+                else
+                {
+                    parametros2[1] = acc.ArmarParametro("maximo", 0, System.Data.SqlDbType.Int);
+                }
+                parametros2[2] = acc.ArmarParametro("idenf", enf.ID, System.Data.SqlDbType.Int);
+                fa = acc.Escribir("Enfermedad_ModificarSintomas", parametros2);
+                acc.CerrarConexion();
+            }
+
+
+            GC.Collect();
+            return fa;
+        }
 
     }
 }

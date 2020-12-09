@@ -5,11 +5,19 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using iText.IO.Font.Constants;
 using iText.Kernel;
+using iText.Kernel.Colors;
+using iText.Kernel.Events;
+using iText.Kernel.Font;
 using iText.Kernel.Geom;
 using iText.Kernel.Pdf;
 using iText.Layout;
+using iText.Layout.Borders;
 using iText.Layout.Element;
+using iText.Layout.Properties;
+using Image = iText.Layout.Element.Image;
+
 
 namespace GUI.Forms
 {
@@ -223,8 +231,52 @@ namespace GUI.Forms
             PdfWriter pw = new PdfWriter(ms);
             PdfDocument pdf = new PdfDocument(pw);
             Document doc = new Document(pdf, PageSize.A4);
+            doc.SetMargins(75, 35, 70, 35);
+            string pathLogo = Server.MapPath("../Imagenes/Care Monitor.jpg");
+            iText.Layout.Element.Image img = new iText.Layout.Element.Image(iText.IO.Image.ImageDataFactory.Create(pathLogo));
 
-            doc.Add(new Paragraph("Probando PDF"));
+            pdf.AddEventHandler(PdfDocumentEvent.START_PAGE, new HeaderEventHandler(img));
+
+
+            iText.Layout.Element.Table tabla = new iText.Layout.Element.Table(1).UseAllAvailableWidth();
+            Cell cell = new Cell().Add(new Paragraph("Reporte de Bitácora").SetFontSize(14)
+                .SetTextAlignment(iText.Layout.Properties.TextAlignment.CENTER)
+                .SetBorder(Border.NO_BORDER));
+            tabla.AddCell(cell);
+
+            doc.Add(tabla);
+
+            iText.Layout.Style styleCell = new iText.Layout.Style()
+                .SetBackgroundColor(ColorConstants.LIGHT_GRAY)
+                .SetTextAlignment(iText.Layout.Properties.TextAlignment.CENTER);
+
+            iText.Layout.Element.Table _tabla = new iText.Layout.Element.Table(4).UseAllAvailableWidth();
+            Cell _cell = new Cell().Add(new Paragraph("Fecha"));
+            _tabla.AddHeaderCell(_cell.AddStyle(styleCell));
+            _cell = new Cell().Add(new Paragraph("Usuario"));
+            _tabla.AddHeaderCell(_cell.AddStyle(styleCell));
+            _cell = new Cell().Add(new Paragraph("Tipo"));
+            _tabla.AddHeaderCell(_cell.AddStyle(styleCell));
+            _cell = new Cell().Add(new Paragraph("Acción"));
+            _tabla.AddHeaderCell(_cell.AddStyle(styleCell));
+
+            
+
+            List<BE.Bitacora> listaBitacora = (List<BE.Bitacora>)Session["ListaBitacora"];
+
+            foreach (BE.Bitacora bit in listaBitacora)
+            {
+                _cell = new Cell().Add(new Paragraph(bit.Fecha.ToString("g")));
+                _tabla.AddCell(_cell);
+                _cell = new Cell().Add(new Paragraph(bit.Usuario));
+                _tabla.AddCell(_cell);
+                _cell = new Cell().Add(new Paragraph(bit.Tipo));
+                _tabla.AddCell(_cell);
+                _cell = new Cell().Add(new Paragraph(bit.Accion));
+                _tabla.AddCell(_cell);
+            }
+
+            doc.Add(_tabla);
 
             doc.Close();
 
@@ -239,5 +291,108 @@ namespace GUI.Forms
             Response.End();
 
         }
+
+        protected void btnGenerarExcel_Click(object sender, EventArgs e)
+        {
+            ClosedXML.Excel.XLWorkbook wrkbook = new ClosedXML.Excel.XLWorkbook();
+
+            var worksheet = wrkbook.Worksheets.Add("Bitacora");
+            var currentRow = 1;
+            worksheet.Cell(currentRow, 1).Value = "CareMonitor";
+
+            currentRow = 3;
+            worksheet.Cell(currentRow, 1).Value = "Fecha: " + DateTime.Now.ToShortDateString();
+
+            currentRow = 5;
+            worksheet.Cell(currentRow, 1).Value = "Reporte de Bitácora";
+
+            currentRow = 7;
+            worksheet.Cell(currentRow, 1).Value = "Fecha";
+            worksheet.Cell(currentRow, 2).Value = "Usuario";
+            worksheet.Cell(currentRow, 3).Value = "Tipo";
+            worksheet.Cell(currentRow, 4).Value = "Accion";
+
+
+            List<BE.Bitacora> listaBitacora = (List<BE.Bitacora>)Session["ListaBitacora"];
+
+            foreach (BE.Bitacora bit in listaBitacora)
+            {
+                currentRow++;
+                worksheet.Cell(currentRow, 1).Value = bit.Fecha.ToShortDateString();
+                worksheet.Cell(currentRow, 2).Value = bit.Usuario;
+                worksheet.Cell(currentRow, 3).Value = bit.Tipo;
+                worksheet.Cell(currentRow, 4).Value = bit.Accion;
+            }
+
+            MemoryStream stream = new MemoryStream();
+
+            wrkbook.SaveAs(stream);
+            var content = stream.ToArray();
+         
+
+          
+
+            byte[] bytesStream = stream.ToArray();
+            stream = new MemoryStream();
+            stream.Write(bytesStream, 0, bytesStream.Length);
+            stream.Position = 0;
+
+            Response.AddHeader("content-disposition", "inline;filename=Reporte.xlsx");
+            Response.ContentType = "application/octectstream";
+            Response.BinaryWrite(bytesStream);
+            Response.End();
+
+        }
     }
+
+    public class HeaderEventHandler : IEventHandler
+    {
+        iText.Layout.Element.Image Img;
+        public HeaderEventHandler(iText.Layout.Element.Image img)
+        {
+            Img = img;
+        }
+        public void HandleEvent(Event @event)
+        {
+            PdfDocumentEvent docEvent = (PdfDocumentEvent)@event;
+            PdfDocument pdfDoc = docEvent.GetDocument();
+            PdfPage page = docEvent.GetPage();
+
+            Rectangle rootArea = new Rectangle(35, page.GetPageSize().GetTop() - 70, page.GetPageSize().GetRight() - 70, 50);
+            Canvas canvas = new Canvas(page, rootArea);
+            canvas
+                .Add(getTable(docEvent))
+                .Close();
+        }
+
+        public iText.Layout.Element.Table getTable(PdfDocumentEvent docEvent)
+        {
+            float[] cellWidth = { 20f, 80f };
+            iText.Layout.Element.Table tableEvent = new iText.Layout.Element.Table(UnitValue.CreatePercentArray(cellWidth)).UseAllAvailableWidth();
+
+            iText.Layout.Style styleCell = new iText.Layout.Style()
+                .SetBorder(Border.NO_BORDER);
+
+            iText.Layout.Style styleText = new iText.Layout.Style()
+                .SetTextAlignment(TextAlignment.RIGHT).SetFontSize(10f);
+
+            Cell cell = new Cell().Add(Img.SetAutoScale(true));
+
+            tableEvent.AddCell(cell
+                .AddStyle(styleCell)
+                .SetTextAlignment(TextAlignment.LEFT));
+            PdfFont bold = PdfFontFactory.CreateFont(StandardFonts.TIMES_BOLD);
+            cell = new Cell()
+                .Add(new Paragraph("CareMonitor")).SetFont(bold)                
+                .Add(new Paragraph("Fecha de Emisión: " + DateTime.Now.ToShortDateString()))
+                .AddStyle(styleText).AddStyle(styleCell);
+
+            tableEvent.AddCell(cell);
+            return tableEvent;
+        }
+
+    }
+
+   
+
 }

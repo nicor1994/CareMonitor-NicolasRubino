@@ -154,6 +154,10 @@ namespace GUI
                 {
                     ColaServicios.Visible = true;
                 }
+                if (per.ID == 21)
+                {
+                    MedicionesUsu.Visible = true;
+                }
             }
 
 

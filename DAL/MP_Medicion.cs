@@ -72,6 +72,34 @@ namespace DAL
             return med;
         }
 
+        public List<BE.Medicion> Listar(BE.Usuario usu)
+        {
+
+            List<BE.Medicion> ListaMedicion = new List<BE.Medicion>();
+            acc.AbrirConexion();
+            SqlParameter[] parametros = new SqlParameter[1];
+            parametros[0] = acc.ArmarParametro("id", usu.ID, System.Data.SqlDbType.Int);
+
+            DataTable Tabla = acc.Leer("Medicion_ListarUsuario", parametros);
+            acc.CerrarConexion();
+            GC.Collect();
+            foreach (DataRow linea in Tabla.Rows)
+            {
+                BE.Medicion med = new BE.Medicion();
+
+                med.ID = int.Parse(linea["ID"].ToString());
+                DAL.MP_TipoMedicion GestorTipoMed = new MP_TipoMedicion();
+                med.Tipo = GestorTipoMed.ListarTipoID(int.Parse(linea["ID_TipoMedicion"].ToString()));
+                med.Valor = int.Parse(linea["Valor"].ToString());
+                med.Fecha = DateTime.Parse(linea["Fecha"].ToString());
+
+                ListaMedicion.Add(med);
+
+            }
+            return ListaMedicion;
+
+        }
+
 
     }
 }

@@ -39,18 +39,12 @@
                         <br />
                                       
                         <br />
-                        <h4 class="font-weight-bold mb-0">
-                            <asp:Label ID="lblHabitos" runat="server" Text="Habitos"></asp:Label></h4>
-                        <br />
-                       <asp:ListBox ID="listHabitos" CssClass="list-group-item list-group-item-action align-content-stretch" runat="server" Height="200px">                      </asp:ListBox>
-                      <br />
-                        <div class="text-right">
-                        <asp:Button ID="btnSeleccHabito" runat="server" CssClass="btn btn-success" Text="Seleccionar Habito" OnClick="btnSeleccHabito_Click" />
-                           <ion-icon name="arrow-forward-outline" size ="medium"></ion-icon>
-                            </div>
+                      
+                      
                         <br />
                        
                          <asp:Button ID="btnGuardarEnfermedad" runat="server" Text="Guardar Enfermedad" CssClass="btn btn-info" OnClick="btnGuardar_Click"/>
+                         <asp:Button ID="btnGuardarModificacion" runat="server" Text="Guardar Enfermedad" CssClass="btn btn-info" OnClick="btnGuardarModificacion_Click"/>
                         <br />
                         <br />
                          <asp:Label ID="lblSuccess" runat="server" Text="Label" Visible="false"></asp:Label>
@@ -66,11 +60,10 @@
                         <br />
                       <asp:ListBox ID="listaParamSelect" CssClass="list-group-item list-group-item-action align-content-stretch" runat="server" Height="300px"></asp:ListBox>
                         <br />
+                        <asp:Button ID="btnQuitarParametro" runat="server" CssClass="btn btn-danger" Text="Seleccionar Parametro" OnClick="btnQuitarParametro_Click" />
                    
-                        <h4 class="font-weight-bold mb-0">
-                            <asp:Label ID="lblHabitosSeleccionados" runat="server" Text="Habitos Seleccionados"></asp:Label></h4>
-                        <br />
-                       <asp:ListBox ID="listHabitosSelec" CssClass="list-group-item list-group-item-action align-content-stretch" runat="server" Height="300px">                      </asp:ListBox>
+                       
+                       
                       <br />
                
                         <br />
@@ -80,6 +73,17 @@
                     </div>
                 
                 </div>
+
+                 <h4 class="font-weight-bold mb-0">
+                            <asp:Label ID="lblEnfermedadesCargadas" runat="server" Text="Parametros"></asp:Label></h4>
+
+                <asp:ListBox ID="listEnfermedades" CssClass="list-group-item list-group-item-action align-content-stretch" runat="server" Height="300px"></asp:ListBox>
+                <br />
+                 <asp:Button ID="btnModificar" runat="server" Text="Modificar" CssClass="btn btn-warning" OnClick="btnModificar_Click"/>
+                      <asp:Button ID="btnBaja" runat="server" Text="Dar de Baja" CssClass="btn btn-danger" style="margin-left:10px" OnClick="btnBaja_Click"/>
+                <br />
+
+
             </div>
 
 

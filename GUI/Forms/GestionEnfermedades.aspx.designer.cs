@@ -87,33 +87,6 @@ namespace GUI.Forms
         protected global::System.Web.UI.WebControls.Button btnSelecc;
 
         /// <summary>
-        /// Control lblHabitos.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblHabitos;
-
-        /// <summary>
-        /// Control listHabitos.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ListBox listHabitos;
-
-        /// <summary>
-        /// Control btnSeleccHabito.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSeleccHabito;
-
-        /// <summary>
         /// Control btnGuardarEnfermedad.
         /// </summary>
         /// <remarks>
@@ -121,6 +94,15 @@ namespace GUI.Forms
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnGuardarEnfermedad;
+
+        /// <summary>
+        /// Control btnGuardarModificacion.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnGuardarModificacion;
 
         /// <summary>
         /// Control lblSuccess.
@@ -159,21 +141,48 @@ namespace GUI.Forms
         protected global::System.Web.UI.WebControls.ListBox listaParamSelect;
 
         /// <summary>
-        /// Control lblHabitosSeleccionados.
+        /// Control btnQuitarParametro.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblHabitosSeleccionados;
+        protected global::System.Web.UI.WebControls.Button btnQuitarParametro;
 
         /// <summary>
-        /// Control listHabitosSelec.
+        /// Control lblEnfermedadesCargadas.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListBox listHabitosSelec;
+        protected global::System.Web.UI.WebControls.Label lblEnfermedadesCargadas;
+
+        /// <summary>
+        /// Control listEnfermedades.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListBox listEnfermedades;
+
+        /// <summary>
+        /// Control btnModificar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnModificar;
+
+        /// <summary>
+        /// Control btnBaja.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnBaja;
     }
 }

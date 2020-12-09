@@ -16,6 +16,7 @@ namespace GUI.Forms
         List<BE.TipoHabito> ListaHabitos = new List<BE.TipoHabito>();
         List<BE.Sintoma> ListaSintomas = new List<BE.Sintoma>();
         BLL.Enfermedad GestorEnfermedades = new BLL.Enfermedad();
+        List<BE.Enfermedad> ListaEnfermedades = new List<Enfermedad>();
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -31,17 +32,23 @@ namespace GUI.Forms
                     listParametros.DataSource = ListaParametros;
                     listParametros.DataBind();
 
+                    ListaEnfermedades = GestorEnfermedades.Listar();
+                    Session["ListaEnfermedades"] = ListaEnfermedades;
+                    listEnfermedades.DataSource = null;
+                    listEnfermedades.DataSource = ListaEnfermedades;
+                    listEnfermedades.DataBind();
 
                     ListaHabitos = GestorHabitos.Listar();
                     Session["ListaHabitos"] = ListaHabitos;
-                    listHabitos.DataSource = null;
-                    listHabitos.DataSource = ListaHabitos;
-                    listHabitos.DataBind();
+                    //listHabitos.DataSource = null;
+                    //listHabitos.DataSource = ListaHabitos;
+                    //listHabitos.DataBind();
 
                 }
 
                 ListaParametros = (List<BE.TipoMedicion>)Session["ListaParametros"];
                 ListaHabitos = (List<BE.TipoHabito>)Session["ListaHabitos"];
+                ListaEnfermedades = (List<BE.Enfermedad>)Session["ListaEnfermedades"];
             }
             else
             {
@@ -123,26 +130,89 @@ namespace GUI.Forms
         protected void btnSeleccHabito_Click(object sender, EventArgs e)
         {
 
-            List<BE.TipoHabito> ListaTemporalHabitos = new List<BE.TipoHabito>();
+            //List<BE.TipoHabito> ListaTemporalHabitos = new List<BE.TipoHabito>();
 
-            if (Session["ListaTemporalHabitos"] != null)
-            {
-                ListaTemporalHabitos = (List<BE.TipoHabito>)Session["ListaTemporalHabitos"];
-            }
+            //if (Session["ListaTemporalHabitos"] != null)
+            //{
+            //    ListaTemporalHabitos = (List<BE.TipoHabito>)Session["ListaTemporalHabitos"];
+            //}
 
-            if (ListaTemporalHabitos.Find(x => x.ID == ListaHabitos[listHabitos.SelectedIndex].ID) == null)
-            {
+            //if (ListaTemporalHabitos.Find(x => x.ID == ListaHabitos[listHabitos.SelectedIndex].ID) == null)
+            //{
                
-                ListaTemporalHabitos.Add(ListaHabitos[listHabitos.SelectedIndex]);
-                Session["ListaTemporalHabitos"] = ListaTemporalHabitos;
+            //    ListaTemporalHabitos.Add(ListaHabitos[listHabitos.SelectedIndex]);
+            //    Session["ListaTemporalHabitos"] = ListaTemporalHabitos;
+            //}
+
+
+            //listHabitosSelec.DataSource = null;
+            //listHabitosSelec.DataSource = ListaTemporalHabitos;
+            //listHabitosSelec.DataBind();
+
+
+        }
+
+        protected void btnQuitarParametro_Click(object sender, EventArgs e)
+        {
+            List<BE.Sintoma> ListaTemporalSintomas = new List<BE.Sintoma>();
+
+            ListaTemporalSintomas = (List<BE.Sintoma>)Session["ListaTemporalSintomas"];
+
+            if (listaParamSelect.SelectedIndex != -1)
+            {
+
+                ListaTemporalSintomas.RemoveAt(listaParamSelect.SelectedIndex);
+
+                Session["ListaTemporalSintomas"] = ListaTemporalSintomas;
+                listaParamSelect.DataSource = null;
+                listaParamSelect.DataSource = ListaTemporalSintomas;
+                listaParamSelect.DataBind();
             }
 
+        }
 
-            listHabitosSelec.DataSource = null;
-            listHabitosSelec.DataSource = ListaTemporalHabitos;
-            listHabitosSelec.DataBind();
+        protected void btnModificar_Click(object sender, EventArgs e)
+        {
+            if (listEnfermedades.SelectedIndex != -1)
+            {
+                BE.Enfermedad enf = ListaEnfermedades[listEnfermedades.SelectedIndex];
+                enf.Sintomas = GestorEnfermedades.ListarSintomas(enf);
+                Session["ListaTemporalSintomas"] = enf.Sintomas;
+                listaParamSelect.DataSource = null;
+                listaParamSelect.DataSource = enf.Sintomas;
+                listaParamSelect.DataBind();
+                btnGuardarEnfermedad.Visible = false;
+                btnGuardarModificacion.Visible = true;
+            }
+        }
+
+        protected void btnBaja_Click(object sender, EventArgs e)
+        {
+            if (listEnfermedades.SelectedIndex != -1)
+            {
+                GestorEnfermedades.BajaEnfermedad(ListaEnfermedades[listEnfermedades.SelectedIndex], (BE.Usuario)Session["UsuarioEnSesion"]);
+
+                ListaEnfermedades = GestorEnfermedades.Listar();
+                Session["ListaEnfermedades"] = ListaEnfermedades;
+                listEnfermedades.DataSource = null;
+                listEnfermedades.DataSource = ListaEnfermedades;
+                listEnfermedades.DataBind();
+
+            }
+        }
+
+        protected void btnGuardarModificacion_Click(object sender, EventArgs e)
+        {
+
+            BE.Enfermedad enf = ListaEnfermedades[listEnfermedades.SelectedIndex];
+
+            enf.Sintomas = (List<BE.Sintoma>)Session["ListaTemporalSintomas"];
+
+            GestorEnfermedades.ModificacionEnfermedad(enf, (BE.Usuario)Session["UsuarioEnSesion"]);
 
 
+            btnGuardarEnfermedad.Visible = true;
+            btnGuardarModificacion.Visible = false; 
         }
     }
 }

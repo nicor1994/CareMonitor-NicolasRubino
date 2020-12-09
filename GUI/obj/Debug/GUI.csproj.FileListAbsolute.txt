@@ -153,3 +153,10 @@ C:\Users\Nico\Documents\UAI\TFI\CareMonitor\CareMonitor\GUI\bin\itext.pdfa.xml
 C:\Users\Nico\Documents\UAI\TFI\CareMonitor\CareMonitor\GUI\bin\itext.sign.xml
 C:\Users\Nico\Documents\UAI\TFI\CareMonitor\CareMonitor\GUI\bin\itext.styledxmlparser.xml
 C:\Users\Nico\Documents\UAI\TFI\CareMonitor\CareMonitor\GUI\bin\itext.svg.xml
+C:\Users\Nico\Documents\UAI\TFI\CareMonitor\CareMonitor\GUI\bin\ClosedXML.dll
+C:\Users\Nico\Documents\UAI\TFI\CareMonitor\CareMonitor\GUI\bin\DocumentFormat.OpenXml.dll
+C:\Users\Nico\Documents\UAI\TFI\CareMonitor\CareMonitor\GUI\bin\ExcelNumberFormat.dll
+C:\Users\Nico\Documents\UAI\TFI\CareMonitor\CareMonitor\GUI\bin\ClosedXML.pdb
+C:\Users\Nico\Documents\UAI\TFI\CareMonitor\CareMonitor\GUI\bin\ClosedXML.xml
+C:\Users\Nico\Documents\UAI\TFI\CareMonitor\CareMonitor\GUI\bin\DocumentFormat.OpenXml.xml
+C:\Users\Nico\Documents\UAI\TFI\CareMonitor\CareMonitor\GUI\bin\ExcelNumberFormat.xml

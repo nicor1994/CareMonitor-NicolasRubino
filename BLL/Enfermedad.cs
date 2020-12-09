@@ -46,57 +46,63 @@ namespace BLL
             }
         }
 
-    //    public bool ModificacionEnfermedad(BE.Enfermedad enf, BE.Usuario usuEnSesion)
-    //    {
+        public bool ModificacionEnfermedad(BE.Enfermedad enf, BE.Usuario usuEnSesion)
+        {
 
 
-    //        int fa = MapperEnfermedad.ModificarEnfermedad(enf);
-    //        if (fa == -1)
-    //        {
-    //            return false;
-    //        }
-    //        else
-    //        {
-    //            BLL.Bitacora GestorBitacora = new BLL.Bitacora();
+            int fa = MapperEnfermedad.ModificarEnfermedad(enf);
+            if (fa == -1)
+            {
+                return false;
+            }
+            else
+            {
+                BLL.Bitacora GestorBitacora = new BLL.Bitacora();
 
-    //            BE.Bitacora bita = new BE.Bitacora();
-    //            bita.Usuario = usuEnSesion.Nombre + " " + usuEnSesion.Apellido;
-    //            bita.Tipo = "Gestion Enfermedad";
-    //            bita.Accion = "Se modificó la enfermedad " + enf.Nombre;
-    //            bita.Fecha = DateTime.Now;
-    //            GestorBitacora.RegistrarEnBitacora(bita);
-    //            return true;
-    //        }
-    //}
+                BE.Bitacora bita = new BE.Bitacora();
+                bita.Usuario = usuEnSesion.Nombre + " " + usuEnSesion.Apellido;
+                bita.Tipo = "Gestion Enfermedad";
+                bita.Accion = "Se modificó la enfermedad " + enf.Nombre;
+                bita.Fecha = DateTime.Now;
+                GestorBitacora.RegistrarEnBitacora(bita);
+                return true;
+            }
+        }
 
-    //    public bool BajaEnfermedad(BE.Enfermedad enf, BE.Usuario usuEnSesion)
-    //    {
+        public bool BajaEnfermedad(BE.Enfermedad enf, BE.Usuario usuEnSesion)
+        {
 
 
-    //        int fa = MapperEnfermedad.BajaEnfermedad(enf);
-    //        if (fa == -1)
-    //        {
-    //            return false;
-    //        }
-    //        else
-    //        {
-    //            BLL.Bitacora GestorBitacora = new BLL.Bitacora();
+            int fa = MapperEnfermedad.BajaEnfermedad(enf);
+            if (fa == -1)
+            {
+                return false;
+            }
+            else
+            {
+                BLL.Bitacora GestorBitacora = new BLL.Bitacora();
 
-    //            BE.Bitacora bita = new BE.Bitacora();
-    //            bita.Usuario = usuEnSesion.Nombre + " " + usuEnSesion.Apellido;
-    //            bita.Tipo = "Gestion Enfermedad";
-    //            bita.Accion = "Se dio de baja la enfermedad " + enf.Nombre;
-    //            bita.Fecha = DateTime.Now;
-    //            GestorBitacora.RegistrarEnBitacora(bita);
-    //            return true;
-    //        }
-    //    }
+                BE.Bitacora bita = new BE.Bitacora();
+                bita.Usuario = usuEnSesion.Nombre + " " + usuEnSesion.Apellido;
+                bita.Tipo = "Gestión Enfermedad";
+                bita.Accion = "Se dió de baja la enfermedad " + enf.Nombre;
+                bita.Fecha = DateTime.Now;
+                GestorBitacora.RegistrarEnBitacora(bita);
+                return true;
+            }
+        }
 
-    //    public List<BE.Enfermedad> Listar()
-    //    {
-    //        List<BE.Enfermedad> ListaEnfermedad = MapperEnfermedad.Listar();
-    //        return ListaEnfermedad;
-    //    }
+        public List<BE.Enfermedad> Listar()
+        {
+            List<BE.Enfermedad> ListaEnfermedad = MapperEnfermedad.Listar();
+            return ListaEnfermedad;
+        }
+
+        public List<BE.Sintoma> ListarSintomas(BE.Enfermedad enf)
+        {
+            List<BE.Sintoma> ListaSintoma = MapperEnfermedad.ListarSintomas(enf);
+            return ListaSintoma;
+        }
 
         public List<BE.Enfermedad> ListarEnfermedades(List<BE.Medicion> mediciones)
         {
