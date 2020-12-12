@@ -21,7 +21,7 @@
                                   <asp:Label ID="lblTextoDVVMal" runat="server" Text="La base de datos NO está íntegra!"></asp:Label></p>
                                                                    </div>
          <br />
-         <asp:Button ID="btnRecalcular" CssClass="btn btn-info" runat="server" Text="Recalcular DVH" OnClick="btnRecalcular_Click" />
+         <asp:Button ID="btnRecalcular" CssClass="btn btn-info shadow mb-5 rounded" runat="server" Text="Recalcular DVH" OnClick="btnRecalcular_Click" />
        
 
          </div>

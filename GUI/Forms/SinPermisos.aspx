@@ -21,7 +21,7 @@
                                 <h4 class="alert-heading">Error!</h4>
                                 <p>Usted no tiene permisos para ver esta pagina!</p>
                             </div>
-                            <asp:Button ID="btnLogin" runat="server" Text="Redireccionar" CssClass="btn btn-success btn-block" OnClick="btnLogin_Click" />
+                            <asp:Button ID="btnLogin" runat="server" Text="Redireccionar" CssClass="btn btn-success btn-block shadow mb-5 rounded" OnClick="btnLogin_Click" />
                             </div>
                     </form>
                 </section>

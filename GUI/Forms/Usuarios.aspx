@@ -66,8 +66,8 @@
                      </div>
                      </div>
                  <asp:Label ID="lblSuccess" runat="server" CssClass="alert alert-success" Text="Usuario agregado!" Visible="false"></asp:Label>
-                 <asp:Button ID="btnAceptar" runat="server" Text="Aceptar" CssClass="btn btn-info" OnClick="btnAceptar_Click"/>
-                 <asp:Button ID="btnMod" runat="server" Text="Modificar" CssClass="btn btn-info"  Visible="false" OnClick="btnMod_Click"/>
+                 <asp:Button ID="btnAceptar" runat="server" Text="Aceptar" CssClass="btn btn-info shadow mb-5 rounded" OnClick="btnAceptar_Click"/>
+                 <asp:Button ID="btnMod" runat="server" Text="Modificar" CssClass="btn btn-info shadow mb-5 rounded"  Visible="false" OnClick="btnMod_Click"/>
                  <asp:Label ID="lblsuccess2" runat="server" CssClass="alert alert-success" Text="Usuario agregado!" Visible="false"></asp:Label>
                  <br />
                  <br />
@@ -88,9 +88,9 @@
                   </div>                 
                      <asp:ListBox ID="listUsuarios" runat="server" ></asp:ListBox>
 
-                       <asp:Button ID="btnModificar" runat="server" Text="Modificar" CssClass="btn btn-warning" style="margin-left:10px" OnClick="btnModificar_Click"/>
-                      <asp:Button ID="btnBaja" runat="server" Text="Dar de Baja" CssClass="btn btn-danger" style="margin-left:10px" OnClick="btnBaja_Click"/>
-                      <asp:Button ID="btnrestore" runat="server" Text="Restaurar Contraseña" CssClass="btn btn-info" style="margin-left:10px" OnClick="btnrestore_Click"/>
+                       <asp:Button ID="btnModificar" runat="server" Text="Modificar" CssClass="btn btn-warning shadow mb-5 rounded" style="margin-left:10px" OnClick="btnModificar_Click"/>
+                      <asp:Button ID="btnBaja" runat="server" Text="Dar de Baja" CssClass="btn btn-danger shadow mb-5 rounded" style="margin-left:10px" OnClick="btnBaja_Click"/>
+                      <asp:Button ID="btnrestore" runat="server" Text="Restaurar Contraseña" CssClass="btn btn-info shadow mb-5 rounded" style="margin-left:10px" OnClick="btnrestore_Click"/>
                       <asp:Label ID="lblmod" runat="server" CssClass="alert alert-success" Text="Usuario agregado!" Visible="false"></asp:Label>
             </div>
                  <br />

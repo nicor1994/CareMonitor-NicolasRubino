@@ -15,9 +15,9 @@
                         <br />
                         <asp:ListBox ID="listIdioma" CssClass="center" runat="server" Height ="200" Width="200"></asp:ListBox>
                         <br />
-                        <asp:Button ID="btnSeleccionarIdioma" CssClass="btn btn-info" runat="server" Text="Cambiar Idioma" OnClick="btnSeleccionarIdioma_Click"/>
+                        <asp:Button ID="btnSeleccionarIdioma" CssClass="btn btn-info shadow mb-5 rounded" runat="server" Text="Cambiar Idioma" OnClick="btnSeleccionarIdioma_Click"/>
                                                
-                        <asp:Button ID="btnCrearIdioma" CssClass="btn btn-secondary" runat="server" Text="Crear Idioma" OnClick="btnCrearIdioma_Click"/>
+                        <asp:Button ID="btnCrearIdioma" CssClass="btn btn-secondary shadow mb-5 rounded" runat="server" Text="Crear Idioma" OnClick="btnCrearIdioma_Click"/>
                         <br />
                         <br />                          
                            <div class="input-group flex-nowrap">
@@ -30,7 +30,7 @@
                          
                                <br />
                         <br />
-                               <asp:Button ID="btnGuardarModificacion" runat="server" CssClass="btn btn-primary" OnClick="btnGuardarModificacion_Click" Text="Guardar Modificacion" Visible="false"/>
+                               <asp:Button ID="btnGuardarModificacion" runat="server" CssClass="btn btn-primary shadow mb-5 rounded" OnClick="btnGuardarModificacion_Click" Text="Guardar Modificacion" Visible="false"/>
                         <br />
                         <br />
                         <div class="input-group flex-nowrap">
@@ -43,7 +43,7 @@
                         </div>
                              <br />
                               <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Debe completar este campo!" ControlToValidate="txtNombre" CssClass="alert-danger"></asp:RequiredFieldValidator>
-                        <asp:Button ID="btnCrearNuevoidioma" runat="server" CssClass="btn btn-warning" OnClick="btnCrearNuevoidioma_Click" Text="Crear Nuevo Idioma" Visible="false"/>
+                        <asp:Button ID="btnCrearNuevoidioma" runat="server" CssClass="btn btn-warning shadow mb-5 rounded" OnClick="btnCrearNuevoidioma_Click" Text="Crear Nuevo Idioma" Visible="false"/>
                    
                            <div class="table-responsive w-75 mx-auto">
                           <div id="divGrid" style="overflow: auto; height: 200px">     

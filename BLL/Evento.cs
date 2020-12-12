@@ -30,7 +30,15 @@ namespace BLL
                 GestorBitacora.RegistrarEnBitacora(bita);
                 return true;
             }
+
+
         }
+
+        public List<BE.Evento> Listar(BE.Usuario usu)
+        {
+            return MapperEventos.Listar(usu);
+        }
+
 
     }
 }

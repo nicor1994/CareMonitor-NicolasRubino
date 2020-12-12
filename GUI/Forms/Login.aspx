@@ -35,7 +35,7 @@
                     <div class="alert alert-danger" role="alert" hidden="hidden">
                          Usuario y/o Contraseña incorrectos!
                     </div>
-                <asp:Button ID="Button1" Text="Login" runat="server" OnClick="LoginButtonClick" Class="btn btn-primary btn-block" />
+                <asp:Button ID="Button1" Text="Login" runat="server" OnClick="LoginButtonClick" Class="btn btn-primary btn-block shadow mb-5 rounded" />
                 </form>
             </section>
         </section>

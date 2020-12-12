@@ -85,6 +85,7 @@ namespace BLL
             return ListaServicios;
         }
 
+
         public bool SolicitarServicio(BE.Servicio serv)
         {
 
@@ -122,6 +123,11 @@ namespace BLL
             return ListaServicios;
         }
 
+        public List<BE.Servicio_Cerrado> ListarServiciosCerrados()
+        {
+            List<BE.Servicio_Cerrado> ListaServicios = MapperServicio.ListarServiciosCerrados();
+            return ListaServicios;
+        }
 
         public bool CerrarServicio(BE.Servicio serv, int tiempo)
         {

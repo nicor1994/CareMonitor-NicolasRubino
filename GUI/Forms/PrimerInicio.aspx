@@ -33,7 +33,7 @@
                         <asp:Label class="alert alert-danger" ID="Label1" runat="server" Text="Las contraseñas ingresadas no coinciden" Visible="False"></asp:Label>
                     </div>
                    
-                <asp:Button ID="btnCambiarContraseña" Text="Cambiar Contraseña" runat="server" OnClick="btnCambiarContraseña_Click" Class="btn btn-primary btn-block" />
+                <asp:Button ID="btnCambiarContraseña" Text="Cambiar Contraseña" runat="server" OnClick="btnCambiarContraseña_Click" Class="btn btn-primary btn-block shadow mb-5 rounded" />
                 </form>
             </section>
         </section>

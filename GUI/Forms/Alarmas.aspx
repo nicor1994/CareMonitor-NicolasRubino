@@ -30,7 +30,15 @@
                  <br />
                          <asp:Button ID="btnGenerarReporte" runat="server" Text="GenerarReporte" CssClass="btn btn-warning shadow mb-5 rounded" OnClick="btnGenerarReporte_Click" />
                          <asp:Button ID="btnGenerarExcel" runat="server" Text="GenerarReporte" CssClass="btn btn-success shadow mb-5 rounded" Style="margin-left: 10px" OnClick="btnGenerarExcel_Click" />
-
+                         <br />
+                           <asp:Chart ID="grafico" runat="server" Visible="false" ImageStorageMode="UseImageLocation" >
+                     <Series>
+                         
+                     </Series>
+                     <ChartAreas>
+                         <asp:ChartArea Name="Area"></asp:ChartArea>
+                     </ChartAreas>
+                 </asp:Chart>                   
                          <br />
                 </div>
                      <div class="col-sm">
@@ -43,19 +51,16 @@
                      <li class="list-group-item">Descripcion Mínima:  <asp:Label ID="lblDescMin" runat="server" Text="" Font-Bold="true"></asp:Label></li>
                      <li class="list-group-item">Valor Mínimo: <asp:Label ID="lblValMinMasc" runat="server" Text="" Font-Bold="true"></asp:Label></li>
                  </ul>
+                         <br />
+                        <h4> <asp:Label ID="lblHabitos" runat="server" Text="Label"></asp:Label></h4>
+                         <br />
+                         <asp:ListBox ID="listHabitos" runat="server"></asp:ListBox>
                          </div>
                  </div>
                  
                 
                  <br />
-                 <asp:Chart ID="grafico" runat="server" Visible="false" ImageStorageMode="UseImageLocation" >
-                     <Series>
-                         
-                     </Series>
-                     <ChartAreas>
-                         <asp:ChartArea Name="Area"></asp:ChartArea>
-                     </ChartAreas>
-                 </asp:Chart>
+               
                  <br />
                   <div class="col-md-12 border shadow rounded">
                  <br />
@@ -77,7 +82,7 @@
                       
             </div>
                       <br />
-                      <asp:Button ID="btnEvolucionar" runat="server" Text="Evolucionar" CssClass="btn btn-success" style="margin-left:10px" OnClick="btnEvolucionar_Click"/>
+                      <asp:Button ID="btnEvolucionar" runat="server" Text="Evolucionar" CssClass="btn btn-success shadow mb-5 rounded" style="margin-left:10px" OnClick="btnEvolucionar_Click"/>
                      
                      <asp:Label ID="lblSuccess" runat="server" CssClass="alert alert-success" Text="Parametro agregado!" Visible="false"></asp:Label>
                      

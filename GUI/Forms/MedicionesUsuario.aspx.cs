@@ -23,7 +23,9 @@ namespace GUI.Forms
     public partial class MedicionesUsuario : System.Web.UI.Page
     {
         BLL.Medicion GestorMedicion = new BLL.Medicion();
-        List<BE.Medicion> ListaMediciones = new List<BE.Medicion>(); 
+        List<BE.Medicion> ListaMediciones = new List<BE.Medicion>();
+        List<BE.Alarma> ListaAlarmas = new List<BE.Alarma>();
+        BLL.Alarma GestorAlarmas = new BLL.Alarma();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -31,12 +33,19 @@ namespace GUI.Forms
                 ListaMediciones = GestorMedicion.Listar((BE.Usuario)Session["UsuarioEnSesion"]);
                 Session["ListaMediciones"] = ListaMediciones;
 
-               
+                ListaAlarmas = GestorAlarmas.ListarAlarmasID((BE.Usuario)Session["UsuarioEnSesion"]);
+                Session["ListaAlarmas"] = ListaAlarmas;
+
+
+                listAlarmas.DataSource = null;
+                listAlarmas.DataSource = ListaAlarmas;
+                listAlarmas.DataBind();
                 gridMediciones.DataSource = null;
                 gridMediciones.DataSource = ListaMediciones;
                 gridMediciones.DataBind();
             }
             ListaMediciones = (List<BE.Medicion>)Session["ListaMediciones"];
+            ListaAlarmas = (List<BE.Alarma>)Session["ListaAlarmas"];
         }
 
         protected void listMediciones_SelectedIndexChanged(object sender, EventArgs e)

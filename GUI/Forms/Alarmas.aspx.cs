@@ -27,6 +27,8 @@ namespace GUI.Forms
         BLL.Alarma GestorAlarma = new BLL.Alarma();
         List<BE.Alarma> ListaAlarma = new List<BE.Alarma>();
         List<BE.Medicion> ListaMediciones = new List<BE.Medicion>();
+        List<BE.Habito> ListaHabitos = new List<BE.Habito>();
+        BLL.TipoHabito GestorHabitos = new BLL.TipoHabito();
         protected void Page_Load(object sender, EventArgs e)
         {
             BE.Usuario usu = (BE.Usuario)Session["UsuarioEnSesion"];
@@ -42,12 +44,11 @@ namespace GUI.Forms
                     listAlarmas.DataSource = null;
                     listAlarmas.DataSource = ListaAlarma;
                     listAlarmas.DataBind();
+                                                
 
-
-
-
-                }
+            }
                 ListaAlarma = (List<BE.Alarma>)Session["ListaAlarmas"];
+               
             }
             else
             {
@@ -62,6 +63,14 @@ namespace GUI.Forms
             listMediciones.DataSource = null;
             listMediciones.DataSource = ListaMediciones;
             listMediciones.DataBind();
+
+            BE.Usuario usu = ListaAlarma[listAlarmas.SelectedIndex].Usuario;
+
+            ListaHabitos = GestorHabitos.ListarHabitoUsuario(usu);
+            Session["ListaHabitosUsuario"] = ListaHabitos;
+            listHabitos.DataSource = null;
+            listHabitos.DataSource = ListaHabitos;
+            listHabitos.DataBind();
         }
 
         protected void listMediciones_SelectedIndexChanged(object sender, EventArgs e)

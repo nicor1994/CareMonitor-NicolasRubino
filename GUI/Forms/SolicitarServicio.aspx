@@ -68,7 +68,7 @@
                      
                  <br />
                  <asp:Label ID="lblSolicitarServicioOk" runat="server" CssClass="alert alert-success" Text="Parametro agregado!" Visible="false"></asp:Label>
-                 <asp:Button ID="btnGuardar" runat="server" Text="Aceptar" CssClass="btn btn-info" OnClick="btnGuardar_Click" />
+                 <asp:Button ID="btnGuardar" runat="server" Text="Aceptar" CssClass="btn btn-info shadow mb-5 rounded" OnClick="btnGuardar_Click" />
                
                  <br />
                  <br />

@@ -165,6 +165,7 @@
     <Content Include="Forms\Alarmas.aspx" />
     <Content Include="Forms\BackupRestore.aspx" />
     <Content Include="Forms\Bitacora.aspx" />
+    <Content Include="Forms\Calendario.aspx" />
     <Content Include="Forms\ColaServicios.aspx" />
     <Content Include="Forms\DigitoVerificador.aspx" />
     <Content Include="Forms\Empleados.aspx" />
@@ -365,6 +366,13 @@
     </Compile>
     <Compile Include="Forms\Bitacora.aspx.designer.cs">
       <DependentUpon>Bitacora.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Calendario.aspx.cs">
+      <DependentUpon>Calendario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Calendario.aspx.designer.cs">
+      <DependentUpon>Calendario.aspx</DependentUpon>
     </Compile>
     <Compile Include="Forms\ColaServicios.aspx.cs">
       <DependentUpon>ColaServicios.aspx</DependentUpon>

@@ -122,3 +122,29 @@ input::-webkit-inner-spin-button {
     margin: 0 !important;
 }
 
+
+.isOtherMonth {
+    background-color: transparent !important;
+}
+
+    .isOtherMonth table td span {
+        display: none;
+    }
+
+table tr td {
+    vertical-align: top;
+    display: table-cell !important;
+}
+
+    table tr td a {
+        float: right;
+        padding: 10px;
+        font-size: 18px;
+    }
+
+    table tr td span {
+    }
+
+.table-bordered {
+    border: 1px solid #080000;
+}

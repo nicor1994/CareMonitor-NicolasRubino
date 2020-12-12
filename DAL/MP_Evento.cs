@@ -28,5 +28,29 @@ namespace DAL
             return fa;
         }
 
+        public List<BE.Evento> Listar(BE.Usuario usu)
+        {
+            List<BE.Evento> ListaEventos = new List<BE.Evento>();
+            acc.AbrirConexion();
+            SqlParameter[] parametros = new SqlParameter[1];
+            parametros[0] = acc.ArmarParametro("idusu", usu.ID, System.Data.SqlDbType.Int);
+            DataTable Tabla = acc.Leer("Evento_Listar", parametros);
+            acc.CerrarConexion();
+            GC.Collect();
+            foreach (DataRow linea in Tabla.Rows)
+            {
+                BE.Evento eve = new BE.Evento();
+
+                eve.Descripcion = (string)linea["Descripcion"];
+                eve.Fecha = DateTime.Parse(linea["Fecha"].ToString());
+                eve.ID = int.Parse(linea["ID"].ToString());
+                eve.Titulo = (string)linea["Titulo"];
+                ListaEventos.Add(eve);
+            }
+            return ListaEventos;
+        }
+
+
+
     }
 }

@@ -151,7 +151,9 @@ namespace DAL
             GC.Collect();
             foreach (DataRow linea in Tabla.Rows)
             {
-
+                bool x = VerificarServicioCerrado((int)linea["ID"]);
+                
+                if (x == false) { 
                 BE.Servicio serv = new BE.Servicio();
 
                 serv.ID = (int)linea["ID"];
@@ -161,14 +163,77 @@ namespace DAL
                 serv.TipoServicio = ListarTipo((int)linea["ID_TipoServicio"]);
                 serv.Usuario = MapperUsuario.ObtenerUsuarioID((int)linea["ID_Usuario"]);
                 ListaServicios.Add(serv);
-               
 
-
+                }
 
             }
             return ListaServicios;
 
         }
+
+
+        public List<BE.Servicio_Cerrado> ListarServiciosCerrados()
+        {
+
+            List<BE.Servicio_Cerrado> ListaServicios = new List<BE.Servicio_Cerrado>();
+            acc.AbrirConexion();
+         
+
+            DataTable Tabla = acc.Leer("Servicios_ListarCerrados");
+            acc.CerrarConexion();
+
+            GC.Collect();
+            foreach (DataRow linea in Tabla.Rows)
+            {
+               
+                
+                    BE.Servicio_Cerrado serv = new BE.Servicio_Cerrado();
+
+                    serv.ID = (int)linea["ID"];
+                    serv.FechaPedido = (DateTime)linea["FechaPedido"];
+                    serv.FechaServicio = (DateTime)linea["FechaServicio"];
+                    serv.TipoServicio = new BE.TipoServicio();
+                    serv.TipoServicio = ListarTipo((int)linea["ID_TipoServicio"]);
+                    serv.Usuario = MapperUsuario.ObtenerUsuarioID((int)linea["ID_Usuario"]);
+                    serv.FechaCierre = (DateTime)linea["FechaCierre"];
+                    serv.TiempoServicio = (int)linea["TiempoServicio"];
+                    ListaServicios.Add(serv);
+
+                
+
+            }
+            return ListaServicios;
+
+        }
+
+
+        public Boolean VerificarServicioCerrado(int id)
+        {
+
+            List<BE.Servicio> ListaServicios = new List<BE.Servicio>();
+            acc.AbrirConexion();
+            SqlParameter[] parametros = new SqlParameter[1];
+            parametros[0] = acc.ArmarParametro("id", id, System.Data.SqlDbType.VarChar);
+
+            DataTable Tabla = acc.Leer("Servicio_VerificarCerrado", parametros);
+            acc.CerrarConexion();
+
+            GC.Collect();
+            foreach (DataRow linea in Tabla.Rows)
+            {
+
+                if (int.Parse(linea[0].ToString()) == 0)
+                {
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
 
         public int CerrarServicio(BE.Servicio serv, int tiempo)
         {

@@ -35,7 +35,7 @@
                  <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Debe completar este campo!" ControlToValidate="txtValor" CssClass="alert-danger"></asp:RequiredFieldValidator>
                 
                  <br />                                    
-                 <asp:Button ID="btnAgregar" runat="server" Text="Agregar" CssClass="btn btn-info" OnClick="btnAgregar_Click"/>
+                 <asp:Button ID="btnAgregar" runat="server" Text="Agregar" CssClass="btn btn-info shadow mb-5 rounded" OnClick="btnAgregar_Click"/>
                
                  <br />
                  <br />
@@ -52,7 +52,7 @@
                   </div>                 
                      <asp:ListBox ID="listParametro" runat="server" ></asp:ListBox>
                      <br />
-                       <asp:Button ID="btnGuardar" runat="server" Text="Guardar" CssClass="btn btn-success" style="margin-left:10px" OnClick="btnGuardar_Click" />
+                       <asp:Button ID="btnGuardar" runat="server" Text="Guardar" CssClass="btn btn-success shadow mb-5 rounded" style="margin-left:10px" OnClick="btnGuardar_Click" />
                  
                      
                       <asp:Label ID="lblmod" runat="server" CssClass="alert alert-success" Text="Usuario agregado!" Visible="false"></asp:Label>
@@ -69,7 +69,7 @@
                          <hr>
                          <asp:Label ID="lblEnf" runat="server" Text=""></asp:Label>
                          <br />
-                         <asp:Button ID="btnAlarma" CssClass="btn btn-warning" runat="server" Text="Aceptar" OnClick="btnAlarma_Click" />
+                         <asp:Button ID="btnAlarma" CssClass="btn btn-warning shadow mb-5 rounded" runat="server" Text="Aceptar" OnClick="btnAlarma_Click" />
                      </div>
                  <br />
                    <br />

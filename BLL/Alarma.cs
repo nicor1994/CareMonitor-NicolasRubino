@@ -36,6 +36,12 @@ namespace BLL
             return ListaAlarmas;
         }
 
+        public List<BE.Alarma> ListarAlarmasID(BE.Usuario usu)
+        {
+            List<BE.Alarma> ListaAlarmas = MapperAlarma.ListarAlarmasID(usu.ID);
+            return ListaAlarmas;
+        }
+
         public int Evolucionar(BE.Alarma alarma) { 
             
             int fa = MapperAlarma.Evolucionar(alarma);

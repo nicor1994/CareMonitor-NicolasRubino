@@ -97,8 +97,8 @@
                      </div>
                  <br />
                  <asp:Label ID="lblSuccess" runat="server" CssClass="alert alert-success" Text="Parametro agregado!" Visible="false"></asp:Label>
-                 <asp:Button ID="btnGuardar" runat="server" Text="Aceptar" CssClass="btn btn-info" OnClick="btnGuardar_Click" />
-                 <asp:Button ID="btnGuardarModificacion" runat="server" Text="Guardar Modificacion" CssClass="btn btn-info" OnClick="btnGuardarModificacion_Click" Visible ="false" />
+                 <asp:Button ID="btnGuardar" runat="server" Text="Aceptar" CssClass="btn btn-info shadow mb-5 rounded" OnClick="btnGuardar_Click" />
+                 <asp:Button ID="btnGuardarModificacion" runat="server" Text="Guardar Modificacion" CssClass="btn btn-info shadow mb-5 rounded" OnClick="btnGuardarModificacion_Click" Visible ="false" />
                  <br />
                  <br />
                   <div class="col-md-12 border shadow rounded">
@@ -115,8 +115,8 @@
                   </div>                 
                      <asp:ListBox ID="listParametro" runat="server" ></asp:ListBox>
 
-                       <asp:Button ID="btnModificar" runat="server" Text="Modificar" CssClass="btn btn-warning" style="margin-left:10px" OnClick="btnModificar_Click"/>
-                      <asp:Button ID="btnBaja" runat="server" Text="Dar de Baja" CssClass="btn btn-danger" style="margin-left:10px" OnClick="btnBaja_Click"/>
+                       <asp:Button ID="btnModificar" runat="server" Text="Modificar" CssClass="btn btn-warning shadow mb-5 rounded" style="margin-left:10px" OnClick="btnModificar_Click"/>
+                      <asp:Button ID="btnBaja" runat="server" Text="Dar de Baja" CssClass="btn btn-danger shadow mb-5 rounded" style="margin-left:10px" OnClick="btnBaja_Click"/>
                      
                       <asp:Label ID="lblmod" runat="server" CssClass="alert alert-success" Text="Usuario agregado!" Visible="false"></asp:Label>
             </div>

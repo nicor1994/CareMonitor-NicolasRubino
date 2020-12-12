@@ -38,8 +38,8 @@
                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Debe completar este campo!" ControlToValidate="txtValor" CssClass="alert-danger"></asp:RequiredFieldValidator>
                
                    <br />                                    
-                 <asp:Button ID="btnAgregar" runat="server" Text="Agregar" CssClass="btn btn-info" OnClick="btnAgregar_Click"/>
-                 <asp:Button ID="btnGuardar" CssClass ="btn btn-warning" runat="server" Text="Button" OnClick="btnGuardar_Click" />
+                 <asp:Button ID="btnAgregar" runat="server" Text="Agregar" CssClass="btn btn-info shadow mb-5 rounded" OnClick="btnAgregar_Click"/>
+                 <asp:Button ID="btnGuardar" CssClass ="btn btn-warning shadow mb-5 rounded" runat="server" Text="Button" OnClick="btnGuardar_Click" />
                  <asp:Label ID="lblExisteHabito" CssClass="alert alert-warning" Visible="false" runat="server" Text="Label"></asp:Label>
                  <br />
                  <br />
@@ -57,7 +57,7 @@
                   </div>                 
                      <asp:ListBox ID="listHabitos" runat="server" ></asp:ListBox>
                      <br />
-                       <asp:Button ID="btnModificar" runat="server" Text="Guardar" CssClass="btn btn-success" OnClick="btnModificar_Click" style="margin-left:10px" />
+                       <asp:Button ID="btnModificar" runat="server" Text="Guardar" CssClass="btn btn-success shadow mb-5 rounded" OnClick="btnModificar_Click" style="margin-left:10px" />
                  
                      
                       <asp:Label ID="lblmod" runat="server" CssClass="alert alert-success" Text="Usuario agregado!" Visible="false"></asp:Label>

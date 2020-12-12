@@ -16,7 +16,7 @@
                         <br />
                         <br />
                         <br />
-                        <asp:Button ID="btnBackup" runat="server" CssClass="btn btn-info align-items-md-center"  Text="Generar Backup" OnClick="btnBackup_Click" />
+                        <asp:Button ID="btnBackup" runat="server" CssClass="btn btn-info align-items-md-center shadow mb-5 rounded"  Text="Generar Backup" OnClick="btnBackup_Click" />
                     </div>
                    
                 </div>
@@ -40,7 +40,7 @@
                               <p>
                                   <asp:Label ID="lblAtencionCuerpo" runat="server" Text="Al restaurar la base de datos se cerrará su sesión y será enviado al Login"></asp:Label></p>
                                                                    </div>
-                        <asp:Button ID="btnRestore" runat="server" CssClass="btn btn-warning align-items-md-center"  Text="Generar Restore" OnClick="btnRestore_Click" />
+                        <asp:Button ID="btnRestore" runat="server" CssClass="btn btn-warning align-items-md-center shadow mb-5 rounded"  Text="Generar Restore" OnClick="btnRestore_Click" />
                     </div>
                    
                 </div>

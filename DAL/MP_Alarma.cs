@@ -69,6 +69,40 @@ namespace DAL
             return ListaAlarma;
         }
 
+        public List<BE.Alarma> ListarAlarmasID(int id)
+        {
+            List<BE.Alarma> ListaAlarma = new List<BE.Alarma>();
+            acc.AbrirConexion();
+            SqlParameter[] parametros = new SqlParameter[1];
+
+            parametros[0] = acc.ArmarParametro("id", id, System.Data.SqlDbType.VarChar);
+            DataTable Tabla = acc.Leer("Alarmas_ListarID", parametros);
+            acc.CerrarConexion();
+            GC.Collect();
+            foreach (DataRow linea in Tabla.Rows)
+            {
+                if (linea["Evolucion"].GetType().ToString() != "System.DBNull")
+                {
+                    BE.Alarma al = new BE.Alarma();
+
+                    al.Fecha = DateTime.Parse(linea["Fecha"].ToString());
+                    al.ID = int.Parse(linea["ID"].ToString());
+
+                    DAL.MP_Usuario Gestor = new MP_Usuario();
+                    al.Usuario = Gestor.ObtenerUsuarioID(int.Parse(linea["ID_Usuario"].ToString()));
+                    DAL.MP_Medicion GestorMedicion = new MP_Medicion();
+                    al.Mediciones = GestorMedicion.ListarMedicionAlarma(al.ID);
+                    al.Evolucion = (string)linea["Evolucion"];
+                    ListaAlarma.Add(al);
+
+                }
+                
+                
+            }
+            return ListaAlarma;
+        }
+
+
         public int Evolucionar(BE.Alarma alarm)
         {
             int fa = 0;

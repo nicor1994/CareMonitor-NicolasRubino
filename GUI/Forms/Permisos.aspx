@@ -18,7 +18,7 @@
                        <asp:ListBox ID="listPermisos" CssClass="list-group-item list-group-item-action align-content-stretch" runat="server" Height="200px">                      </asp:ListBox>
                       <br />
                         <div class="text-right">
-                        <asp:Button ID="btnSeleccionarPermiso" runat="server" CssClass="btn btn-success" Text="Seleccionar Permiso" OnClick="btnSelecc_Click" />
+                        <asp:Button ID="btnSeleccionarPermiso" runat="server" CssClass="btn btn-success shadow mb-5 rounded" Text="Seleccionar Permiso" OnClick="btnSelecc_Click" />
                            <ion-icon name="arrow-forward-outline" size ="medium"></ion-icon>
                             </div>
                         <br />
@@ -54,7 +54,7 @@
                         <asp:Label ID="lblCompleteNombre" runat="server" Text="Label" Visible="false"></asp:Label>
                         <br />
                         <br />
-                        <asp:Button ID="btnAgregarRol" runat="server" CssClass="btn btn-outline-info" Text="Crear Rol" OnClick="btnAgregarRol_Click"  style="margin-left:10px" />      
+                        <asp:Button ID="btnAgregarRol" runat="server" CssClass="btn btn-outline-info shadow mb-5 rounded" Text="Crear Rol" OnClick="btnAgregarRol_Click"  style="margin-left:10px" />      
                        
                    <br />
                         <br />
