@@ -61,33 +61,41 @@ namespace GUI.Forms
 
         protected void btnModificar_Click(object sender, EventArgs e)
         {
-            BE.TipoServicio serv = ListaServicios[listServicio.SelectedIndex];
-            lblSuccess.Visible = false;
-           
-            txtDesc.Text = serv.Descripcion;
-           
-            
-            txtNombre.Text = serv.Nombre;
-          
-           
-            txtTiempo.Text = serv.TiempoMedio.ToString();
-          
-            btnBaja.Visible = false;
-            btnGuardar.Visible = false;
-            btnMod.Visible = true;
-            listServicio.Enabled = false;
-            btnModificar.Visible = false;
+            if (listServicio.SelectedIndex != -1)
+            {
+                BE.TipoServicio serv = ListaServicios[listServicio.SelectedIndex];
+                lblSuccess.Visible = false;
+
+                txtDesc.Text = serv.Descripcion;
+
+
+                txtNombre.Text = serv.Nombre;
+
+
+                txtTiempo.Text = serv.TiempoMedio.ToString();
+                listServicio.Enabled = false;
+                btnBaja.Visible = false;
+                btnGuardar.Visible = false;
+                btnMod.Visible = true;
+                listServicio.Enabled = false;
+                btnModificar.Visible = false;
+            }
         }
 
         protected void btnBaja_Click(object sender, EventArgs e)
         {
-            BE.TipoServicio tipserv = ListaServicios[listServicio.SelectedIndex];
-            if (GestorServicio.BajaServicio(tipserv, (BE.Usuario)Session["UsuarioEnSesion"]) == true)
+            if (listServicio.SelectedIndex != -1)
             {
-                ListaServicios = GestorServicio.Listar();
-                Session["ListaServicios"] = ListaServicios;
-                listServicio.DataSource = ListaServicios;
-                listServicio.DataBind();
+                BE.TipoServicio tipserv = ListaServicios[listServicio.SelectedIndex];
+                if (GestorServicio.BajaServicio(tipserv, (BE.Usuario)Session["UsuarioEnSesion"]) == true)
+                {
+                    
+                    ListaServicios = GestorServicio.Listar();
+                    Session["ListaServicios"] = ListaServicios;
+                    listServicio.DataSource = ListaServicios;
+                    listServicio.DataBind();
+                    listServicio.Enabled = true;
+                }
             }
         }
 
@@ -95,32 +103,35 @@ namespace GUI.Forms
         {
             if (Page.IsValid)
             {
-                BE.TipoServicio tipserv = ListaServicios[listServicio.SelectedIndex];
-
-                tipserv.Nombre = txtNombre.Text;
-                tipserv.Descripcion = txtDesc.Text;
-                tipserv.TiempoMedio = int.Parse(txtTiempo.Text);
-
-                if (GestorServicio.ModificacionServicio(tipserv, (BE.Usuario)Session["UsuarioEnSesion"]) == true)
+                if (listServicio.SelectedIndex != -1)
                 {
-                    lblSuccess.Visible = true;
-                    lblSuccess.Text = "Servicio modificado con exito!";
+                    BE.TipoServicio tipserv = ListaServicios[listServicio.SelectedIndex];
+
+                    tipserv.Nombre = txtNombre.Text;
+                    tipserv.Descripcion = txtDesc.Text;
+                    tipserv.TiempoMedio = int.Parse(txtTiempo.Text);
+
+                    if (GestorServicio.ModificacionServicio(tipserv, (BE.Usuario)Session["UsuarioEnSesion"]) == true)
+                    {
+                        lblSuccess.Visible = true;
+                        lblSuccess.Text = "Servicio modificado con exito!";
 
 
-                    txtNombre.Text = "";
-                    txtDesc.Text = "";
-                    txtTiempo.Text = "";
+                        txtNombre.Text = "";
+                        txtDesc.Text = "";
+                        txtTiempo.Text = "";
 
-                  
-                    btnBaja.Visible = true;
-                    btnGuardar.Visible = true;
-                    btnMod.Visible = false;
-                    listServicio.Enabled = true;
-                    btnModificar.Visible = true;
+
+                        btnBaja.Visible = true;
+                        btnGuardar.Visible = true;
+                        btnMod.Visible = false;
+                        listServicio.Enabled = true;
+                        btnModificar.Visible = true;
+                    }
+                    Session["ListaServicios"] = ListaServicios;
+                    listServicio.DataSource = ListaServicios;
+                    listServicio.DataBind();
                 }
-                Session["ListaServicios"] = ListaServicios;
-                listServicio.DataSource = ListaServicios;
-                listServicio.DataBind();
             }
             }
     }

@@ -137,161 +137,179 @@ namespace GUI.Forms
         {
             if (Page.IsValid)
             {
-                BE.Alarma alarma = ListaAlarma[listAlarmas.SelectedIndex];
-
-                alarma.Evolucion = txtEvolucion.Text;
-                if (GestorAlarma.Evolucionar(alarma) != -1)
+                if (listAlarmas.SelectedIndex != -1)
                 {
-                    lblSuccess.Text = "Alarma Evolucionada!";
-                    lblSuccess.Visible = true;
-                    lblSuccess.CssClass = "alert alert-success";
-                }
-                else
-                {
-                    lblSuccess.Text = "Ocurrio un error al evolucionar!";
-                    lblSuccess.Visible = true;
-                    lblSuccess.CssClass = "alert alert-danger";
-                }
+                    BE.Alarma alarma = ListaAlarma[listAlarmas.SelectedIndex];
 
+                    alarma.Evolucion = txtEvolucion.Text;
+                    if (GestorAlarma.Evolucionar(alarma) != -1)
+                    {
+                        lblSuccess.Text = "Alarma Evolucionada!";
+                        lblSuccess.Visible = true;
+                        lblSuccess.CssClass = "alert alert-success";
+
+                        ListaAlarma = GestorAlarma.ListarAlarmas();
+                        Session["ListaAlarmas"] = ListaAlarma;
+                        listAlarmas.DataSource = null;
+                        listAlarmas.DataSource = ListaAlarma;
+                        listAlarmas.DataBind();
+                        txtEvolucion.Text = "";
+
+                    }
+                    else
+                    {
+                        lblSuccess.Text = "Ocurrio un error al evolucionar!";
+                        lblSuccess.Visible = true;
+                        lblSuccess.CssClass = "alert alert-danger";
+                    }
+                }
             }
         }
 
         protected void btnGenerarExcel_Click(object sender, EventArgs e)
         {
-
-            BE.Alarma alarma = ListaAlarma[listAlarmas.SelectedIndex];
-
-            ClosedXML.Excel.XLWorkbook wrkbook = new ClosedXML.Excel.XLWorkbook();
-
-            var worksheet = wrkbook.Worksheets.Add("Reporte");
-            var currentRow = 1;
-            worksheet.Cell(currentRow, 1).Value = "CareMonitor";
-
-            currentRow = 3;
-            worksheet.Cell(currentRow, 1).Value = "Fecha: " + DateTime.Now.ToShortDateString();
-
-            currentRow = 5;
-            worksheet.Cell(currentRow, 1).Value = "Medición de " + alarma.Usuario.Nombre + " " + alarma.Usuario.Apellido + " del " + alarma.Fecha;
-
-            currentRow = 7;
-            worksheet.Cell(currentRow, 1).Value = "Medición";
-            worksheet.Cell(currentRow, 2).Value = "Valor";
-            worksheet.Cell(currentRow, 3).Value = "Máximo";
-            worksheet.Cell(currentRow, 4).Value = "Mínimo";
-
-
-            List<BE.Medicion> ListaMediciones = ListaAlarma[listAlarmas.SelectedIndex].Mediciones;
-
-            foreach (BE.Medicion bit in ListaMediciones)
+            if (listAlarmas.SelectedIndex != -1)
             {
-                currentRow++;
-                worksheet.Cell(currentRow, 1).Value = bit.Tipo.Nombre;
-                worksheet.Cell(currentRow, 2).Value = bit.Valor;
-                worksheet.Cell(currentRow, 3).Value = bit.Tipo.MaximoMasculino;               
-                worksheet.Cell(currentRow, 4).Value = bit.Tipo.MinimoMasculino;
+                BE.Alarma alarma = ListaAlarma[listAlarmas.SelectedIndex];
+
+                ClosedXML.Excel.XLWorkbook wrkbook = new ClosedXML.Excel.XLWorkbook();
+
+                var worksheet = wrkbook.Worksheets.Add("Reporte");
+                var currentRow = 1;
+                worksheet.Cell(currentRow, 1).Value = "CareMonitor";
+
+                currentRow = 3;
+                worksheet.Cell(currentRow, 1).Value = "Fecha: " + DateTime.Now.ToShortDateString();
+
+                currentRow = 5;
+                worksheet.Cell(currentRow, 1).Value = "Medición de " + alarma.Usuario.Nombre + " " + alarma.Usuario.Apellido + " del " + alarma.Fecha;
+
+                currentRow = 7;
+                worksheet.Cell(currentRow, 1).Value = "Medición";
+                worksheet.Cell(currentRow, 2).Value = "Valor";
+                worksheet.Cell(currentRow, 3).Value = "Máximo";
+                worksheet.Cell(currentRow, 4).Value = "Mínimo";
+
+
+                List<BE.Medicion> ListaMediciones = ListaAlarma[listAlarmas.SelectedIndex].Mediciones;
+
+                foreach (BE.Medicion bit in ListaMediciones)
+                {
+                    currentRow++;
+                    worksheet.Cell(currentRow, 1).Value = bit.Tipo.Nombre;
+                    worksheet.Cell(currentRow, 2).Value = bit.Valor;
+                    if (bit.Valor < bit.Tipo.MinimoMasculino || bit.Valor > bit.Tipo.MaximoMasculino)
+                    {
+                        worksheet.Cell(currentRow, 2).Style.Fill.BackgroundColor = ClosedXML.Excel.XLColor.Red;
+                    }
+                        worksheet.Cell(currentRow, 3).Value = bit.Tipo.MaximoMasculino;
+                    worksheet.Cell(currentRow, 4).Value = bit.Tipo.MinimoMasculino;
+                }
+
+                MemoryStream stream = new MemoryStream();
+
+                wrkbook.SaveAs(stream);
+                var content = stream.ToArray();
+
+
+
+
+                byte[] bytesStream = stream.ToArray();
+                stream = new MemoryStream();
+                stream.Write(bytesStream, 0, bytesStream.Length);
+                stream.Position = 0;
+
+                Response.AddHeader("content-disposition", "inline;filename=Reporte.xlsx");
+                Response.ContentType = "application/octectstream";
+                Response.BinaryWrite(bytesStream);
+                Response.End();
             }
-
-            MemoryStream stream = new MemoryStream();
-
-            wrkbook.SaveAs(stream);
-            var content = stream.ToArray();
-
-
-
-
-            byte[] bytesStream = stream.ToArray();
-            stream = new MemoryStream();
-            stream.Write(bytesStream, 0, bytesStream.Length);
-            stream.Position = 0;
-
-            Response.AddHeader("content-disposition", "inline;filename=Reporte.xlsx");
-            Response.ContentType = "application/octectstream";
-            Response.BinaryWrite(bytesStream);
-            Response.End();
-
         }
 
         protected void btnGenerarReporte_Click(object sender, EventArgs e)
         {
-            BE.Alarma alarma = ListaAlarma[listAlarmas.SelectedIndex];
-         
-
-            MemoryStream ms = new MemoryStream();
-            PdfWriter pw = new PdfWriter(ms);
-            PdfDocument pdf = new PdfDocument(pw);
-            Document doc = new Document(pdf, PageSize.A4);
-            doc.SetMargins(75, 35, 70, 35);
-            string pathLogo = Server.MapPath("../Imagenes/Care Monitor.jpg");
-            iText.Layout.Element.Image img = new iText.Layout.Element.Image(iText.IO.Image.ImageDataFactory.Create(pathLogo));
-
-            pdf.AddEventHandler(PdfDocumentEvent.START_PAGE, new HeaderEventHandler(img));
-
-
-            iText.Layout.Element.Table tabla = new iText.Layout.Element.Table(1).UseAllAvailableWidth();
-            Cell cell = new Cell().Add(new Paragraph("Medición de " + alarma.Usuario.Nombre + " "+ alarma.Usuario.Apellido + " del " + alarma.Fecha).SetFontSize(14)
-                .SetTextAlignment(iText.Layout.Properties.TextAlignment.CENTER)
-                .SetBorder(Border.NO_BORDER));
-            tabla.AddCell(cell);
-
-            doc.Add(tabla);
-
-            iText.Layout.Style styleCell = new iText.Layout.Style()
-                .SetBackgroundColor(ColorConstants.LIGHT_GRAY)
-                .SetTextAlignment(iText.Layout.Properties.TextAlignment.CENTER);
-
-            iText.Layout.Element.Table _tabla = new iText.Layout.Element.Table(4).UseAllAvailableWidth();
-            Cell _cell = new Cell().Add(new Paragraph("Medición"));
-            _tabla.AddHeaderCell(_cell.AddStyle(styleCell));
-          
-            _cell = new Cell().Add(new Paragraph("Valor"));
-            _tabla.AddHeaderCell(_cell.AddStyle(styleCell));
-            _cell = new Cell().Add(new Paragraph("Máximo"));
-            _tabla.AddHeaderCell(_cell.AddStyle(styleCell));
-            _cell = new Cell().Add(new Paragraph("Mínimo"));
-            _tabla.AddHeaderCell(_cell.AddStyle(styleCell));
-
-
-
-            
-            List<BE.Medicion> ListaMediciones = ListaAlarma[listAlarmas.SelectedIndex].Mediciones;
-
-            foreach (BE.Medicion med in ListaMediciones)
+            if (listAlarmas.SelectedIndex != -1)
             {
-                _cell = new Cell().Add(new Paragraph(med.Tipo.Nombre));
-                _tabla.AddCell(_cell); 
-                
-                if(med.Valor < med.Tipo.MinimoMasculino || med.Valor > med.Tipo.MaximoMasculino)
-                {
-                    _cell = new Cell().Add(new Paragraph(med.Valor.ToString()));
-                    _tabla.AddCell(_cell.SetBackgroundColor(ColorConstants.RED));
-                }
-                else
-                {
-                _cell = new Cell().Add(new Paragraph(med.Valor.ToString()));
-                _tabla.AddCell(_cell);
-                }
-            
 
-                _cell = new Cell().Add(new Paragraph(med.Tipo.MaximoMasculino.ToString()));
-                _tabla.AddCell(_cell);
-                _cell = new Cell().Add(new Paragraph(med.Tipo.MinimoMasculino.ToString()));
-                _tabla.AddCell(_cell);
+                BE.Alarma alarma = ListaAlarma[listAlarmas.SelectedIndex];
+
+
+                MemoryStream ms = new MemoryStream();
+                PdfWriter pw = new PdfWriter(ms);
+                PdfDocument pdf = new PdfDocument(pw);
+                Document doc = new Document(pdf, PageSize.A4);
+                doc.SetMargins(75, 35, 70, 35);
+                string pathLogo = Server.MapPath("../Imagenes/Care Monitor.jpg");
+                iText.Layout.Element.Image img = new iText.Layout.Element.Image(iText.IO.Image.ImageDataFactory.Create(pathLogo));
+
+                pdf.AddEventHandler(PdfDocumentEvent.START_PAGE, new HeaderEventHandler(img));
+
+
+                iText.Layout.Element.Table tabla = new iText.Layout.Element.Table(1).UseAllAvailableWidth();
+                Cell cell = new Cell().Add(new Paragraph("Medición de " + alarma.Usuario.Nombre + " " + alarma.Usuario.Apellido + " del " + alarma.Fecha).SetFontSize(14)
+                    .SetTextAlignment(iText.Layout.Properties.TextAlignment.CENTER)
+                    .SetBorder(Border.NO_BORDER));
+                tabla.AddCell(cell);
+
+                doc.Add(tabla);
+
+                iText.Layout.Style styleCell = new iText.Layout.Style()
+                    .SetBackgroundColor(ColorConstants.LIGHT_GRAY)
+                    .SetTextAlignment(iText.Layout.Properties.TextAlignment.CENTER);
+
+                iText.Layout.Element.Table _tabla = new iText.Layout.Element.Table(4).UseAllAvailableWidth();
+                Cell _cell = new Cell().Add(new Paragraph("Medición"));
+                _tabla.AddHeaderCell(_cell.AddStyle(styleCell));
+
+                _cell = new Cell().Add(new Paragraph("Valor"));
+                _tabla.AddHeaderCell(_cell.AddStyle(styleCell));
+                _cell = new Cell().Add(new Paragraph("Máximo"));
+                _tabla.AddHeaderCell(_cell.AddStyle(styleCell));
+                _cell = new Cell().Add(new Paragraph("Mínimo"));
+                _tabla.AddHeaderCell(_cell.AddStyle(styleCell));
+
+
+
+
+                List<BE.Medicion> ListaMediciones = ListaAlarma[listAlarmas.SelectedIndex].Mediciones;
+
+                foreach (BE.Medicion med in ListaMediciones)
+                {
+                    _cell = new Cell().Add(new Paragraph(med.Tipo.Nombre));
+                    _tabla.AddCell(_cell);
+
+                    if (med.Valor < med.Tipo.MinimoMasculino || med.Valor > med.Tipo.MaximoMasculino)
+                    {
+                        _cell = new Cell().Add(new Paragraph(med.Valor.ToString()));
+                        _tabla.AddCell(_cell.SetBackgroundColor(ColorConstants.RED));
+                    }
+                    else
+                    {
+                        _cell = new Cell().Add(new Paragraph(med.Valor.ToString()));
+                        _tabla.AddCell(_cell);
+                    }
+
+
+                    _cell = new Cell().Add(new Paragraph(med.Tipo.MaximoMasculino.ToString()));
+                    _tabla.AddCell(_cell);
+                    _cell = new Cell().Add(new Paragraph(med.Tipo.MinimoMasculino.ToString()));
+                    _tabla.AddCell(_cell);
+                }
+
+                doc.Add(_tabla);
+
+                doc.Close();
+
+                byte[] bytesStream = ms.ToArray();
+                ms = new MemoryStream();
+                ms.Write(bytesStream, 0, bytesStream.Length);
+                ms.Position = 0;
+
+                Response.AddHeader("content-disposition", "inline;filename=Reporte.pdf");
+                Response.ContentType = "application/octectstream";
+                Response.BinaryWrite(bytesStream);
+                Response.End();
             }
-
-            doc.Add(_tabla);
-
-            doc.Close();
-
-            byte[] bytesStream = ms.ToArray();
-            ms = new MemoryStream();
-            ms.Write(bytesStream, 0, bytesStream.Length);
-            ms.Position = 0;
-
-            Response.AddHeader("content-disposition", "inline;filename=Reporte.pdf");
-            Response.ContentType = "application/octectstream";
-            Response.BinaryWrite(bytesStream);
-            Response.End();
-
         }
     }
 }

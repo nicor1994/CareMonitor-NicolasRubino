@@ -29,7 +29,9 @@
                         <asp:Label ID="lblSeleccioneMes" runat="server" Text="Seleccione el parametro"></asp:Label></span>
                   </div>                   
                 <asp:TextBox ID="txtFecha" TextMode="Month" CssClass="form-control" runat="server" AutoPostBack="true" OnTextChanged="txtFecha_TextChanged"></asp:TextBox>
-                </div>
+                <br />
+
+                 </div>
                 <br />
                      <div>
                    
@@ -68,6 +70,8 @@
                 <asp:TextBox ID="txtTitulo" CssClass="form-control" Visible="false" runat="server" ></asp:TextBox>
                 </div>
                  <br />
+                 <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Debe completar este campo!" ControlToValidate="txtTitulo" CssClass="alert-danger"></asp:RequiredFieldValidator>
+                 <br />
                  <div class="input-group flex-nowrap">
                   <div class="input-group-prepend">
                     <span class="input-group-text" id="addon-wrapping">
@@ -76,6 +80,8 @@
                 <asp:TextBox ID="txtDescripcion" Visible="false" CssClass="form-control" runat="server" ></asp:TextBox>
                 </div>
                  <br />
+                 <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Debe completar este campo!" ControlToValidate="txtDescripcion" CssClass="alert-danger"></asp:RequiredFieldValidator>
+                 <br />
                    <div class="input-group flex-nowrap">
                   <div class="input-group-prepend">
                     <span class="input-group-text" id="addon-wrapping">
@@ -83,6 +89,7 @@
                   </div>                   
                 <asp:TextBox ID="txtHora" TextMode="Time" Visible="false" CssClass="form-control" runat="server" ></asp:TextBox>
                 </div>
+                 <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="Debe completar este campo!" ControlToValidate="txtHora" CssClass="alert-danger"></asp:RequiredFieldValidator>
                  <br />
                  <asp:Button ID="btnGuardarEvento" runat="server" Visible="false" CssClass="btn btn-warning shadow mb-5 rounded" Text="Seleccionar Parametro" OnClick="btnGuardarEvento_Click" />
                  

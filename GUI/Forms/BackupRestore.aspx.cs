@@ -77,24 +77,25 @@ namespace GUI.Forms
 
         protected void btnRestore_Click(object sender, EventArgs e)
         {
-            UsuEnSesion = (BE.Usuario)Session["UsuarioEnSesion"];
-            List<string> ListaBkp = (List<string>)Session["ListaBkp"];
-            int fa = GestorBackupRestore.GenerarRestore(ListaBkp[ListBox1.SelectedIndex], UsuEnSesion);
+            if (ListBox1.SelectedIndex != -1)
+            {
+                UsuEnSesion = (BE.Usuario)Session["UsuarioEnSesion"];
+                List<string> ListaBkp = (List<string>)Session["ListaBkp"];
+                int fa = GestorBackupRestore.GenerarRestore(ListaBkp[ListBox1.SelectedIndex], UsuEnSesion);
 
-            BE.Bitacora bita = new BE.Bitacora();
-            bita.Usuario = UsuEnSesion.Nombre + " " + UsuEnSesion.Apellido;
-            bita.Tipo = "Cierre de Sesion";
-            bita.Accion = "Se cerro la sesion por el Restore";
-            bita.Fecha = DateTime.Now;
-            GestorBitacora.RegistrarEnBitacora(bita);
+                BE.Bitacora bita = new BE.Bitacora();
+                bita.Usuario = UsuEnSesion.Nombre + " " + UsuEnSesion.Apellido;
+                bita.Tipo = "Cierre de Sesion";
+                bita.Accion = "Se cerro la sesion por el Restore";
+                bita.Fecha = DateTime.Now;
+                GestorBitacora.RegistrarEnBitacora(bita);
 
-            List<int> ListaId = (List<int>)Application["UsuariosEnSesion"];
 
-            ListaId.Remove(UsuEnSesion.ID);
-            Application["UsuariosEnSesion"] = ListaId;
-            Session["UsuarioEnSesion"] = null;
-            Response.Redirect("Login.aspx");
 
+
+
+                Response.Redirect("Login.aspx");
+            }
         }
     }
 }

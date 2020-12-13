@@ -36,7 +36,8 @@ namespace BLL
         {
            
             usu.DVH = GestorDigito.GenerarDVH(usu.Nombre + usu.Apellido + usu.DNI + usu.Contraseña + usu.Borrado + usu.Direccion + usu.FechaNacimiento.ToShortDateString());
-           int fa = MapperUsu.AgregarUsuario(usu);
+           
+            int fa = MapperUsu.AgregarUsuario(usu);
             if (fa == -1)
             {
                 return false;
@@ -110,6 +111,11 @@ namespace BLL
             {
                 return false;
             }
+        }
+
+        public bool ComprobarDNI(int dni)
+        {
+            return MapperUsu.ComprobarDNI(dni);
         }
 
         public List<string> ListarNombresUsuario()
@@ -191,6 +197,7 @@ namespace BLL
 
             return fa;
         }
+
 
         public bool ReestablecerContraseña(BE.Usuario usu, BE.Usuario usuEnSesion)
         {

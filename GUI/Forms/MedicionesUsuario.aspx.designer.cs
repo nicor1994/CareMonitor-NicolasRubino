@@ -60,6 +60,24 @@ namespace GUI.Forms
         protected global::System.Web.UI.WebControls.GridView listAlarmas;
 
         /// <summary>
+        /// Control btnGenerarReporte2.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnGenerarReporte2;
+
+        /// <summary>
+        /// Control btnGenerarExcel2.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnGenerarExcel2;
+
+        /// <summary>
         /// Control lblNombre.
         /// </summary>
         /// <remarks>

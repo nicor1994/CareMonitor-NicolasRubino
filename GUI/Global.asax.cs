@@ -38,8 +38,7 @@ namespace GUI
                 Application["ListaPermisos"] = ListaPermisos;
                 Application["ListaRoles"] = ListaRoles;
             }
-            List<int> IdsUsuariosEnSesion = new List<int>();
-            Application["UsuariosEnSesion"] = IdsUsuariosEnSesion;
+           
 
         }
     }

@@ -54,16 +54,13 @@ namespace GUI.Forms
                         }
                         else
                         {
-                            List<int> UsuariosEnSesion = new List<int>();
-                            UsuariosEnSesion = (List<int>)Application["UsuariosEnSesion"];
+                           
                             if (ususesion.PrimerInicio != true)
                             {
-                                if (GestorUsuario.ComprobarUsuarioEnSesion(UsuariosEnSesion, ususesion) == false)
-                                {
+                               
                                     //Guardo en Bitacora
 
-                                    UsuariosEnSesion.Add(ususesion.ID);
-                                    Application["UsuariosEnSesion"] = UsuariosEnSesion;
+                                  
 
                                     BE.Bitacora bita = new BE.Bitacora();
                                     bita.Usuario = ususesion.Nombre + " " + ususesion.Apellido;
@@ -77,12 +74,8 @@ namespace GUI.Forms
                                     Session["Idioma"] = GestorTraductor.ListarDefault();
                                     //Response.Redirect(GestorPermiso.RedireccionarLogin(ususesion));
                                     Response.Redirect("VistaTecnologia.aspx");
-                                }
-                                else
-                                {
-                                    Label1.Text = "El usuario ya tiene una sesion iniciada!";
-                                    Label1.Visible = true;
-                                }
+                                
+                               
                             }
 
                             else

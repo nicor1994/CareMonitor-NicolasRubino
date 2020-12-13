@@ -198,6 +198,29 @@ namespace DAL
 
         }
 
+        public bool ComprobarDNI(int dni)
+        {
+
+           
+            acc.AbrirConexion();
+            SqlParameter[] parametros = new SqlParameter[1];
+            parametros[0] = acc.ArmarParametro("dni", dni, System.Data.SqlDbType.VarChar);
+
+            DataTable Tabla = acc.Leer("ComprobarDni", parametros);
+            acc.CerrarConexion();
+            GC.Collect();
+           
+            if (Tabla.Rows.Count == 0)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+
+        }
+
         public int ModificarUsuario(BE.Usuario usu)
         {
             int fa = 0;

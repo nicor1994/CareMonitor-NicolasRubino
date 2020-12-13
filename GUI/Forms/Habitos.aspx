@@ -39,7 +39,7 @@
                
                    <br />                                    
                  <asp:Button ID="btnAgregar" runat="server" Text="Agregar" CssClass="btn btn-info shadow mb-5 rounded" OnClick="btnAgregar_Click"/>
-                 <asp:Button ID="btnGuardar" CssClass ="btn btn-warning shadow mb-5 rounded" runat="server" Text="Button" OnClick="btnGuardar_Click" />
+                 <asp:Button ID="btnGuardar" CssClass ="btn btn-warning shadow mb-5 rounded" Visible="false" runat="server" Text="Button" OnClick="btnGuardar_Click" />
                  <asp:Label ID="lblExisteHabito" CssClass="alert alert-warning" Visible="false" runat="server" Text="Label"></asp:Label>
                  <br />
                  <br />

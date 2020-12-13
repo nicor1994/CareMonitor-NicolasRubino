@@ -50,7 +50,7 @@ namespace GUI.Forms
 
         public void Graficar()
         {
-          
+            graficoBarras.Series.Clear();
             graficoBarras.Series.Add("EnTiempo");
           
                    
@@ -103,24 +103,27 @@ namespace GUI.Forms
         {
             if (Page.IsValid)
             {
-                GestorServicio.CerrarServicio(ListaServicios[listServicios.SelectedIndex], int.Parse(txtTiempo.Text));
+                if (listServicios.SelectedIndex != -1)
+                {
+                    GestorServicio.CerrarServicio(ListaServicios[listServicios.SelectedIndex], int.Parse(txtTiempo.Text));
 
-                ListaServicios = GestorServicio.ListarServicios();
-                Session["ListaServicios"] = ListaServicios;
-                ListaServiciosCerrados = GestorServicio.ListarServiciosCerrados();
-                Session["ListaServiciosCerrados"] = ListaServiciosCerrados;
+                    ListaServicios = GestorServicio.ListarServicios();
+                    Session["ListaServicios"] = ListaServicios;
+                    ListaServiciosCerrados = GestorServicio.ListarServiciosCerrados();
+                    Session["ListaServiciosCerrados"] = ListaServiciosCerrados;
 
-                gridServicios.DataSource = null;
-                gridServicios.DataSource = ListaServiciosCerrados;
-                gridServicios.DataBind();
-                listServicios.DataSource = null;
-                listServicios.DataSource = ListaServicios;
-                listServicios.DataBind();
+                    gridServicios.DataSource = null;
+                    gridServicios.DataSource = ListaServiciosCerrados;
+                    gridServicios.DataBind();
+                    listServicios.DataSource = null;
+                    listServicios.DataSource = ListaServicios;
+                    listServicios.DataBind();
 
-                ListaServicios = (List<BE.Servicio>)Session["ListaServicios"];
-                ListaServiciosCerrados = (List<BE.Servicio_Cerrado>)Session["ListaServiciosCerrados"];
-               
-                Graficar();
+                    ListaServicios = (List<BE.Servicio>)Session["ListaServicios"];
+                    ListaServiciosCerrados = (List<BE.Servicio_Cerrado>)Session["ListaServiciosCerrados"];
+
+                    Graficar();
+                }
             }
 
         }
@@ -373,7 +376,11 @@ namespace GUI.Forms
                 worksheet.Cell(currentRow, 5).Value = bit.Usuario.Direccion;
                 worksheet.Cell(currentRow, 6).Value = bit.TipoServicio.TiempoMedio;
                 worksheet.Cell(currentRow, 7).Value = bit.TiempoServicio;
-               
+                if (bit.TiempoServicio > bit.TipoServicio.TiempoMedio)
+                {
+                    worksheet.Cell(currentRow, 7).Style.Fill.BackgroundColor = ClosedXML.Excel.XLColor.Red;
+
+                }
             }
 
             MemoryStream stream = new MemoryStream();

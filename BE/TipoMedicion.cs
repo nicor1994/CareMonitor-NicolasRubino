@@ -25,13 +25,9 @@ namespace BE
                 set { _MinMasc = value; }
             }
 
-            private float _MinFem;
+         
 
-            public float MinimoFemenino
-            {
-                get { return _MinFem; }
-                set { _MinFem = value; }
-            }
+            
 
 
             private float _MaxMasc;
@@ -42,13 +38,7 @@ namespace BE
                 set { _MaxMasc = value; }
             }
 
-            private float _MaxFem;
-
-            public float MaximoFemenino
-            {
-                get { return _MaxFem; }
-                set { _MaxFem = value; }
-            }
+       
 
             private string Descmin;
 

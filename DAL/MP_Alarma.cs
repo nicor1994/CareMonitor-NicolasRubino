@@ -54,17 +54,20 @@ namespace DAL
             GC.Collect();
             foreach (DataRow linea in Tabla.Rows)
             {
-                BE.Alarma al = new BE.Alarma();
+                if (linea["Evolucion"].GetType().ToString() == "System.DBNull")
+                {
+                    BE.Alarma al = new BE.Alarma();
 
-                al.Fecha = DateTime.Parse(linea["Fecha"].ToString());
-                al.ID = int.Parse(linea["ID"].ToString());
+                    al.Fecha = DateTime.Parse(linea["Fecha"].ToString());
+                    al.ID = int.Parse(linea["ID"].ToString());
 
-                DAL.MP_Usuario Gestor = new MP_Usuario();
-                al.Usuario = Gestor.ObtenerUsuarioID(int.Parse(linea["ID_Usuario"].ToString()));
-                DAL.MP_Medicion GestorMedicion = new MP_Medicion();
-                al.Mediciones = GestorMedicion.ListarMedicionAlarma(al.ID);
+                    DAL.MP_Usuario Gestor = new MP_Usuario();
+                    al.Usuario = Gestor.ObtenerUsuarioID(int.Parse(linea["ID_Usuario"].ToString()));
+                    DAL.MP_Medicion GestorMedicion = new MP_Medicion();
+                    al.Mediciones = GestorMedicion.ListarMedicionAlarma(al.ID);
 
-                ListaAlarma.Add(al);
+                    ListaAlarma.Add(al);
+                }
             }
             return ListaAlarma;
         }

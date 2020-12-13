@@ -54,8 +54,8 @@ namespace GUI.Forms
                 if (e.Day.Date == eve.Fecha.Date)
                 {
                     
-                        e.Cell.Controls.Add(new LiteralControl("<table style='height:10px;width:100%;'><tr><td style='vertical-align:bottom;padding:5px;border:none'><span class='badge badge-success'>" + eve.Titulo +"</span></td></tr></table>"));
-                        e.Cell.BackColor = System.Drawing.Color.DarkSlateBlue;
+                        e.Cell.Controls.Add(new LiteralControl("<table style='height:10px;width:100%;'><tr><td style='vertical-align:bottom;padding:5px;border:none'><span class='badge badge-secondary'>" + eve.Titulo +"</span></td></tr></table>"));
+                        e.Cell.BackColor = System.Drawing.Color.FromArgb(21,166,126);
                         e.Cell.ForeColor = System.Drawing.Color.White;
                     
                 }
@@ -114,19 +114,22 @@ namespace GUI.Forms
 
         protected void btnGuardarEvento_Click(object sender, EventArgs e)
         {
-            BE.Evento eve = new BE.Evento();
-            eve.Titulo = txtTitulo.Text;
-            eve.Descripcion = txtDescripcion.Text;
-            DateTime hora = DateTime.Parse(txtHora.Text);
-            DateTime fecha = new DateTime(Calendar1.SelectedDate.Year, Calendar1.SelectedDate.Month, Calendar1.SelectedDate.Day, hora.Hour, hora.Minute, hora.Second);
-            eve.Fecha = fecha;
-            GestorEventos.AltaEventos(eve, (BE.Usuario)Session["UsuarioEnSesion"]);
+            if (Page.IsValid)
+            {
+                BE.Evento eve = new BE.Evento();
+                eve.Titulo = txtTitulo.Text;
+                eve.Descripcion = txtDescripcion.Text;
+                DateTime hora = DateTime.Parse(txtHora.Text);
+                DateTime fecha = new DateTime(Calendar1.SelectedDate.Year, Calendar1.SelectedDate.Month, Calendar1.SelectedDate.Day, hora.Hour, hora.Minute, hora.Second);
+                eve.Fecha = fecha;
+                GestorEventos.AltaEventos(eve, (BE.Usuario)Session["UsuarioEnSesion"]);
 
-            ListaEventos = GestorEventos.Listar((BE.Usuario)Session["UsuarioEnSesion"]);
-            Session["ListaEventos"] = ListaEventos;
-            DateTime selecc = DateTime.Parse(txtFecha.Text);
-            Calendar1.TodaysDate = selecc;
-            btnGuardarEvento.Visible = false;
+                ListaEventos = GestorEventos.Listar((BE.Usuario)Session["UsuarioEnSesion"]);
+                Session["ListaEventos"] = ListaEventos;
+                DateTime selecc = DateTime.Parse(txtFecha.Text);
+                Calendar1.TodaysDate = selecc;
+                btnGuardarEvento.Visible = false;
+            }
         }
     }
 }

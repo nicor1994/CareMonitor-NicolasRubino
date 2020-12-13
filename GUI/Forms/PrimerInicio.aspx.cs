@@ -31,6 +31,7 @@ namespace GUI.Forms
 
                     if (GestorUsuario.CambiarContraseña(usuensesion, usuensesion) == true)
                     {
+                        GestorUsuario.RecalcularDVV((BE.Usuario)Session["UsuarioEnSesion"]);
                         Session["UsuarioEnSesion"] = null;
                         Response.Redirect("Login.aspx");
                     }

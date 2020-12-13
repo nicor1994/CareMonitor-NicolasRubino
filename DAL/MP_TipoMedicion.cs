@@ -15,15 +15,15 @@ namespace DAL
         {
             int fa = 0;
             acc.AbrirConexion();
-            SqlParameter[] parametros = new SqlParameter[8];
+            SqlParameter[] parametros = new SqlParameter[6];
             parametros[0] = acc.ArmarParametro("nombre", param.Nombre, System.Data.SqlDbType.VarChar);
             parametros[1] = acc.ArmarParametro("desc", param.Descripcion, System.Data.SqlDbType.VarChar);
             parametros[2] = acc.ArmarParametro("descmax", param.DescripcionMaxima, System.Data.SqlDbType.VarChar);
             parametros[3] = acc.ArmarParametro("descmin", param.DescripcionMinima, System.Data.SqlDbType.VarChar);
             parametros[4] = acc.ArmarParametro("maxmasc", param.MaximoMasculino, System.Data.SqlDbType.Int);
-            parametros[5] = acc.ArmarParametro("maxfem", param.MaximoFemenino, System.Data.SqlDbType.Int);
-            parametros[6] = acc.ArmarParametro("minmasc", param.MinimoMasculino, System.Data.SqlDbType.Int);
-            parametros[7] = acc.ArmarParametro("minfem", param.MinimoFemenino, System.Data.SqlDbType.Int);
+            
+            parametros[5] = acc.ArmarParametro("minmasc", param.MinimoMasculino, System.Data.SqlDbType.Int);
+            
 
             fa = acc.Escribir("Parametro_Agregar", parametros);
             acc.CerrarConexion();
@@ -53,9 +53,9 @@ namespace DAL
                     param.Descripcion = (string)linea["Descripcion"];
                     param.DescripcionMaxima = (string)linea["DescripcionMaxima"];
                     param.DescripcionMinima = (string)linea["DescripcionMinima"];
-                    param.MaximoFemenino = int.Parse(linea["MaximoFemenino"].ToString());
+                    
                     param.MaximoMasculino = int.Parse(linea["MaximoMasculino"].ToString());
-                    param.MinimoFemenino = int.Parse(linea["MinimoFemenino"].ToString());
+                   
                     param.MinimoMasculino = int.Parse(linea["MinimoMasculino"].ToString());
 
 
@@ -73,16 +73,16 @@ namespace DAL
         {
             int fa = 0;
             acc.AbrirConexion();
-            SqlParameter[] parametros = new SqlParameter[9];
+            SqlParameter[] parametros = new SqlParameter[7];
             parametros[0] = acc.ArmarParametro("nombre", param.Nombre, System.Data.SqlDbType.VarChar);
             parametros[1] = acc.ArmarParametro("desc", param.Descripcion, System.Data.SqlDbType.VarChar);
             parametros[2] = acc.ArmarParametro("descmax", param.DescripcionMaxima, System.Data.SqlDbType.VarChar);
             parametros[3] = acc.ArmarParametro("descmin", param.DescripcionMinima, System.Data.SqlDbType.VarChar);
             parametros[4] = acc.ArmarParametro("maxmasc", param.MaximoMasculino, System.Data.SqlDbType.Int);
-            parametros[5] = acc.ArmarParametro("maxfem", param.MaximoFemenino, System.Data.SqlDbType.Int);
-            parametros[6] = acc.ArmarParametro("minmasc", param.MinimoMasculino, System.Data.SqlDbType.Int);
-            parametros[7] = acc.ArmarParametro("minfem", param.MinimoFemenino, System.Data.SqlDbType.Int);
-            parametros[8] = acc.ArmarParametro("id", param.ID, System.Data.SqlDbType.Int);
+            
+            parametros[5] = acc.ArmarParametro("minmasc", param.MinimoMasculino, System.Data.SqlDbType.Int);
+           
+            parametros[6] = acc.ArmarParametro("id", param.ID, System.Data.SqlDbType.Int);
             fa = acc.Escribir("Parametro_Modificar", parametros);
             acc.CerrarConexion();
             GC.Collect();
@@ -121,9 +121,9 @@ namespace DAL
                 Tipo.DescripcionMaxima = (string)linea["DescripcionMaxima"];
                 Tipo.DescripcionMinima = (string)linea["DescripcionMinima"];
                 Tipo.MaximoMasculino = int.Parse(linea["MaximoMasculino"].ToString());
-                Tipo.MaximoFemenino = int.Parse(linea["MaximoMasculino"].ToString());
+                
                 Tipo.MinimoMasculino = int.Parse(linea["MinimoMasculino"].ToString());
-                Tipo.MinimoFemenino = int.Parse(linea["MinimoFemenino"].ToString());
+               
 
             }
             return Tipo;

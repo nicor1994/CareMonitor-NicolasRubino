@@ -71,69 +71,75 @@ namespace GUI.Forms
         {
             if (Page.IsValid)
             {
-                BE.TipoHabito habito = ListaHabitos[listServicio.SelectedIndex];
-
-                habito.Nombre = txtNombre.Text;
-                habito.EfectoNegativo = txtEfeNeg.Text;
-                habito.EfectoPositivo = txtEfePos.Text;
-                habito.ValorNegativo = int.Parse(txtVecesNeg.Text.ToString());
-                habito.ValorPositivo = int.Parse(txtVecesPos.Text.ToString());
-
-
-                if (GestorHabitos.ModificarHabito(habito, (BE.Usuario)Session["UsuarioEnSesion"]) == true)
+                if (listServicio.SelectedIndex != -1)
                 {
-                    lblSuccess.Visible = true;
-                    lblSuccess.Text = "Habito modificado!";
+                    BE.TipoHabito habito = ListaHabitos[listServicio.SelectedIndex];
 
-                    btnBaja.Visible = true;
-                    btnGuardarModif.Visible = false;
-                    btnGuardar.Visible = true;
-                    btnModificar.Visible = true;
+                    habito.Nombre = txtNombre.Text;
+                    habito.EfectoNegativo = txtEfeNeg.Text;
+                    habito.EfectoPositivo = txtEfePos.Text;
+                    habito.ValorNegativo = int.Parse(txtVecesNeg.Text.ToString());
+                    habito.ValorPositivo = int.Parse(txtVecesPos.Text.ToString());
 
-                    txtNombre.Text = "";
-                    txtEfePos.Text = "";
-                    txtEfeNeg.Text = "";
-                    txtVecesPos.Text = "";
-                    txtVecesNeg.Text = "";
+
+                    if (GestorHabitos.ModificarHabito(habito, (BE.Usuario)Session["UsuarioEnSesion"]) == true)
+                    {
+                        lblSuccess.Visible = true;
+                        lblSuccess.Text = "Habito modificado!";
+
+                        btnBaja.Visible = true;
+                        btnGuardarModif.Visible = false;
+                        btnGuardar.Visible = true;
+                        btnModificar.Visible = true;
+                        listServicio.Enabled = true;
+                        txtNombre.Text = "";
+                        txtEfePos.Text = "";
+                        txtEfeNeg.Text = "";
+                        txtVecesPos.Text = "";
+                        txtVecesNeg.Text = "";
+                    }
+
+                    Session["ListaHabitos"] = ListaHabitos;
+                    listServicio.DataSource = ListaHabitos;
+                    listServicio.DataBind();
                 }
-
-                Session["ListaHabitos"] = ListaHabitos;
-                listServicio.DataSource = ListaHabitos;
-                listServicio.DataBind();
-
             }
 
         }
 
         protected void btnBaja_Click(object sender, EventArgs e)
         {
-            BE.TipoHabito hab = ListaHabitos[listServicio.SelectedIndex];
-            if (GestorHabitos.BajaHabito(hab, (BE.Usuario)Session["UsuarioEnSesion"]) == true)
+            if (listServicio.SelectedIndex != -1)
             {
-                ListaHabitos = GestorHabitos.Listar();
-                Session["ListaHabitos"] = ListaHabitos;
-                listServicio.DataSource = ListaHabitos;
-                listServicio.DataBind();
+                BE.TipoHabito hab = ListaHabitos[listServicio.SelectedIndex];
+                if (GestorHabitos.BajaHabito(hab, (BE.Usuario)Session["UsuarioEnSesion"]) == true)
+                {
+                    ListaHabitos = GestorHabitos.Listar();
+                    Session["ListaHabitos"] = ListaHabitos;
+                    listServicio.DataSource = ListaHabitos;
+                    listServicio.DataBind();
+                }
             }
         }
 
         protected void btnModificar_Click(object sender, EventArgs e)
         {
+            if (listServicio.SelectedIndex != -1)
+            {
+                BE.TipoHabito habito = ListaHabitos[listServicio.SelectedIndex];
 
-            BE.TipoHabito habito = ListaHabitos[listServicio.SelectedIndex];
+                txtNombre.Text = habito.Nombre;
+                txtEfeNeg.Text = habito.EfectoNegativo;
+                txtEfePos.Text = habito.EfectoPositivo;
+                txtVecesNeg.Text = habito.ValorNegativo.ToString();
+                txtVecesPos.Text = habito.ValorPositivo.ToString();
+                listServicio.Enabled = false;
 
-            txtNombre.Text = habito.Nombre;
-            txtEfeNeg.Text = habito.EfectoNegativo;
-            txtEfePos.Text = habito.EfectoPositivo;
-            txtVecesNeg.Text = habito.ValorNegativo.ToString();
-            txtVecesPos.Text = habito.ValorPositivo.ToString();
-           
-
-            btnBaja.Visible = false;
-            btnGuardarModif.Visible = true;
-            btnGuardar.Visible = false;
-            btnModificar.Visible = false;
-
+                btnBaja.Visible = false;
+                btnGuardarModif.Visible = true;
+                btnGuardar.Visible = false;
+                btnModificar.Visible = false;
+            }
         }
     }
 }

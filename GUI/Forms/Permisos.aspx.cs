@@ -83,60 +83,66 @@ namespace GUI.Forms
 
         protected void btnSelecc_Click(object sender, EventArgs e)
         {
-
-
-            List<BE.Permiso> ListaTemporal = new List<BE.Permiso>();
-
-
-            if (Session["ListaTemporal"] != null)
-            {
-                ListaTemporal = (List<BE.Permiso>)Session["ListaTemporal"];
-            }
-            List<BE.Permiso> ListaPermisos = (List<BE.Permiso>)Application["ListaPermisos"];
-
-            if (ListaTemporal.Find(x => x.ID == ListaPermisos[listPermisos.SelectedIndex].ID) == null)
+            if (listPermisos.SelectedIndex != -1)
             {
 
+                List<BE.Permiso> ListaTemporal = new List<BE.Permiso>();
 
 
-                ListaTemporal.Add(ListaPermisos[listPermisos.SelectedIndex]);
-                Session["ListaTemporal"] = ListaTemporal;
-                listaTemp.DataSource = ListaTemporal;
-                listaTemp.DataTextField = "Nombre";
-                listaTemp.DataBind();
+                if (Session["ListaTemporal"] != null)
+                {
+                    ListaTemporal = (List<BE.Permiso>)Session["ListaTemporal"];
+                }
+                List<BE.Permiso> ListaPermisos = (List<BE.Permiso>)Application["ListaPermisos"];
+
+                if (ListaTemporal.Find(x => x.ID == ListaPermisos[listPermisos.SelectedIndex].ID) == null)
+                {
+
+
+
+                    ListaTemporal.Add(ListaPermisos[listPermisos.SelectedIndex]);
+                    Session["ListaTemporal"] = ListaTemporal;
+                    listaTemp.DataSource = ListaTemporal;
+                    listaTemp.DataTextField = "Nombre";
+                    listaTemp.DataBind();
+                }
             }
         }
 
         protected void btnSelectRol_Click(object sender, EventArgs e)
         {
-            List<BE.Permiso> ListaTemporal = new List<BE.Permiso>();
-
-
-            if (Session["ListaTemporal"] != null)
-            {
-                ListaTemporal = (List<BE.Permiso>)Session["ListaTemporal"];
-            }
-
-            List<BE.Permiso> ListaRoles = (List<BE.Permiso>)Application["ListaRoles"];
-            List<BE.Permiso> ListaPermisosRol = GestorPermiso.ListarPermisosRol(ListaRoles[listRoles.SelectedIndex]);
-
-            foreach (BE.Permiso per in ListaPermisosRol)
+            if (listRoles.SelectedIndex != -1)
             {
 
-                if (ListaTemporal.Find(x => x.ID == per.ID) == null)
+                List<BE.Permiso> ListaTemporal = new List<BE.Permiso>();
+
+
+                if (Session["ListaTemporal"] != null)
+                {
+                    ListaTemporal = (List<BE.Permiso>)Session["ListaTemporal"];
+                }
+
+                List<BE.Permiso> ListaRoles = (List<BE.Permiso>)Application["ListaRoles"];
+                List<BE.Permiso> ListaPermisosRol = GestorPermiso.ListarPermisosRol(ListaRoles[listRoles.SelectedIndex]);
+
+                foreach (BE.Permiso per in ListaPermisosRol)
                 {
 
+                    if (ListaTemporal.Find(x => x.ID == per.ID) == null)
+                    {
 
-                    ListaTemporal.Add(per);
+
+                        ListaTemporal.Add(per);
 
 
+                    }
                 }
-            }
 
-            Session["ListaTemporal"] = ListaTemporal;
-            listaTemp.DataSource = ListaTemporal;
-            listaTemp.DataTextField = "Nombre";
-            listaTemp.DataBind();
+                Session["ListaTemporal"] = ListaTemporal;
+                listaTemp.DataSource = ListaTemporal;
+                listaTemp.DataTextField = "Nombre";
+                listaTemp.DataBind();
+            }
         }
 
         protected void btnAgregarRol_Click(object sender, EventArgs e)
@@ -154,8 +160,9 @@ namespace GUI.Forms
                     listPermisos.DataBind();
                     listRoles.DataTextField = "Nombre";
                     listRoles.DataBind();
-                    List<BE.Usuario> lista = new List<BE.Usuario>();
-                    Session["ListaTemporal"] = lista;
+                    List<BE.Permiso> lista = new List<BE.Permiso>();
+                    Session["ListaTemporal"] = null;
+
                     listaTemp.DataSource = null;
                     listaTemp.DataSource = lista;
                     listaTemp.DataBind();

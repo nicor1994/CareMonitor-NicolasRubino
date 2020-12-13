@@ -31,24 +31,29 @@ namespace GUI.Forms
 
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
-            BE.Servicio serv = new BE.Servicio();
-            serv.TipoServicio = ListaServicios[dropdownServicios.SelectedIndex];
-            serv.Usuario = (BE.Usuario)Session["UsuarioEnSesion"];
-            DateTime dia = DateTime.Parse(txtFecha.Text);
-            DateTime hora = DateTime.Parse(txtHora.Text);
-            DateTime fecha = new DateTime(dia.Year, dia.Month, dia.Day, hora.Hour, hora.Minute, hora.Second);
-            serv.FechaPedido = DateTime.Now.Date;
-            serv.FechaServicio = fecha;
-
-           if (GestorServicio.SolicitarServicio(serv) == true)
+            if (Page.IsValid)
             {
-                lblSolicitarServicioOk.Visible = true;
+                if (dropdownServicios.SelectedIndex != -1)
+                {
+                    BE.Servicio serv = new BE.Servicio();
+                    serv.TipoServicio = ListaServicios[dropdownServicios.SelectedIndex];
+                    serv.Usuario = (BE.Usuario)Session["UsuarioEnSesion"];
+                    DateTime dia = DateTime.Parse(txtFecha.Text);
+                    DateTime hora = DateTime.Parse(txtHora.Text);
+                    DateTime fecha = new DateTime(dia.Year, dia.Month, dia.Day, hora.Hour, hora.Minute, hora.Second);
+                    serv.FechaPedido = DateTime.Now.Date;
+                    serv.FechaServicio = fecha;
 
-                
+                    if (GestorServicio.SolicitarServicio(serv) == true)
+                    {
+                        lblSolicitarServicioOk.Visible = true;
 
 
+
+
+                    }
+                }
             }
-
         }
 
         protected void dropdownServicios_SelectedIndexChanged(object sender, EventArgs e)

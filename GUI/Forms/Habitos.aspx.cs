@@ -80,30 +80,40 @@ namespace GUI.Forms
 
         protected void btnModificar_Click(object sender, EventArgs e)
         {
-            BE.Habito HabSelec = ListaHabitosUsuario[listHabitos.SelectedIndex];
-            txtValor.Text = HabSelec.ValorxSemana.ToString();
-            btnAgregar.Visible = false;
-            dropdownHabitos.Visible = false;
-            btnGuardar.Visible = true;
-            listHabitos.Enabled = false;
+            if (listHabitos.SelectedIndex != -1)
+            {
+                BE.Habito HabSelec = ListaHabitosUsuario[listHabitos.SelectedIndex];
+                txtValor.Text = HabSelec.ValorxSemana.ToString();
+                btnAgregar.Visible = false;
+                dropdownHabitos.Visible = false;
+                btnGuardar.Visible = true;
+                listHabitos.Enabled = false;
+            }
         }
 
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
+            if (listHabitos.SelectedIndex != -1)
+            {
+                if (Page.IsValid)
+                {
+                    BE.Habito habmod = new BE.Habito();
 
-            BE.Habito habmod = new BE.Habito();
+                    BE.Habito hab = ListaHabitosUsuario[listHabitos.SelectedIndex];
+                    habmod = hab;
+                    habmod.ValorxSemana = int.Parse(txtValor.Text);
 
-            BE.Habito hab = ListaHabitosUsuario[listHabitos.SelectedIndex];
-            habmod = hab;           
-            habmod.ValorxSemana = int.Parse(txtValor.Text);
-
-            GestorHabitosUsuario.ModificarHabitos(habmod, (BE.Usuario)Session["UsuarioEnSesion"]);
-            Session["ListaHabitosUsuario"] = ListaHabitosUsuario;
-            listHabitos.DataSource = null;
-            listHabitos.DataSource = ListaHabitosUsuario;
-            listHabitos.DataBind();
-
-
+                    GestorHabitosUsuario.ModificarHabitos(habmod, (BE.Usuario)Session["UsuarioEnSesion"]);
+                    Session["ListaHabitosUsuario"] = ListaHabitosUsuario;
+                    listHabitos.DataSource = null;
+                    listHabitos.DataSource = ListaHabitosUsuario;
+                    listHabitos.DataBind();
+                    btnGuardar.Visible = false;
+                    btnAgregar.Visible = true;
+                    dropdownHabitos.Visible = true;
+                    listHabitos.Enabled = true;
+                }
+            }
         }
     }
 }

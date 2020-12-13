@@ -51,9 +51,9 @@ namespace GUI.Forms
                 Param.Descripcion = txtDesc.Text;
                 Param.DescripcionMaxima = txtDescMax.Text;
                 Param.DescripcionMinima = txtDescMin.Text;
-                Param.MinimoFemenino = int.Parse(txtValMinFem.Text);
+                
                 Param.MinimoMasculino = int.Parse(txtValMinMasc.Text);
-                Param.MaximoFemenino = int.Parse(txtValFemMax.Text);
+                
                 Param.MaximoMasculino = int.Parse(txtValMaxMasc.Text);
 
                 if (GestorParametros.AltaParametro(Param, (BE.Usuario)Session["UsuarioEnSesion"]) == true)
@@ -68,75 +68,83 @@ namespace GUI.Forms
 
         protected void btnModificar_Click(object sender, EventArgs e)
         {
-            BE.TipoMedicion param = ListaParametros[listParametro.SelectedIndex];
+            if (listParametro.SelectedIndex != -1)
+            {
+                BE.TipoMedicion param = ListaParametros[listParametro.SelectedIndex];
 
-            txtNombre.Text = param.Nombre;
-            txtDesc.Text = param.Descripcion;
-            txtDescMax.Text = param.DescripcionMaxima;
-            txtDescMin.Text = param.DescripcionMinima;
-            txtValFemMax.Text = param.MaximoFemenino.ToString();
-            txtValMaxMasc.Text = param.MaximoMasculino.ToString();
-            txtValMinFem.Text = param.MinimoFemenino.ToString();
-            txtValMinMasc.Text = param.MinimoMasculino.ToString();
+                txtNombre.Text = param.Nombre;
+                txtDesc.Text = param.Descripcion;
+                txtDescMax.Text = param.DescripcionMaxima;
+                txtDescMin.Text = param.DescripcionMinima;
+                listParametro.Enabled = false;
+                txtValMaxMasc.Text = param.MaximoMasculino.ToString();
 
-            btnBaja.Visible = false;
-            btnGuardarModificacion.Visible = true;
-            btnGuardar.Visible = false;
-            btnModificar.Visible = false;
+                txtValMinMasc.Text = param.MinimoMasculino.ToString();
 
+                btnBaja.Visible = false;
+                btnGuardarModificacion.Visible = true;
+                btnGuardar.Visible = false;
+                btnModificar.Visible = false;
+            }
         }
 
         protected void btnGuardarModificacion_Click(object sender, EventArgs e)
         {
             if (Page.IsValid)
             {
-                BE.TipoMedicion param = ListaParametros[listParametro.SelectedIndex];
-
-                param.Nombre = txtNombre.Text;
-                param.Descripcion = txtDesc.Text;
-                param.DescripcionMaxima = txtDescMax.Text;
-                param.DescripcionMinima = txtDescMin.Text;
-                param.MaximoFemenino = int.Parse(txtValFemMax.Text);
-                param.MaximoMasculino = int.Parse(txtValMaxMasc.Text);
-                param.MinimoFemenino = int.Parse(txtValMinFem.Text);
-                param.MinimoMasculino = int.Parse(txtValMinMasc.Text);
-
-                if (GestorParametros.ModificarParametro(param, (BE.Usuario)Session["UsuarioEnSesion"]) == true)
+                if (listParametro.SelectedIndex != -1)
                 {
-                    lblSuccess.Visible = true;
-                    lblSuccess.Text = "Parametro modificado!";
+                    BE.TipoMedicion param = ListaParametros[listParametro.SelectedIndex];
 
-                    btnBaja.Visible = true;
-                    btnGuardarModificacion.Visible = false;
-                    btnGuardar.Visible = true;
-                    btnModificar.Visible = true;
+                    param.Nombre = txtNombre.Text;
+                    param.Descripcion = txtDesc.Text;
+                    param.DescripcionMaxima = txtDescMax.Text;
+                    param.DescripcionMinima = txtDescMin.Text;
 
-                    txtNombre.Text = "";
-                    txtDesc.Text = "";
-                    txtDescMax.Text = "";
-                    txtDescMin.Text = "";
-                    txtValFemMax.Text = "";
-                    txtValMaxMasc.Text = "";
-                    txtValMinFem.Text = "";
-                    txtValMinMasc.Text = "";
+                    param.MaximoMasculino = int.Parse(txtValMaxMasc.Text);
 
+                    param.MinimoMasculino = int.Parse(txtValMinMasc.Text);
+
+                    if (GestorParametros.ModificarParametro(param, (BE.Usuario)Session["UsuarioEnSesion"]) == true)
+                    {
+                        lblSuccess.Visible = true;
+                        lblSuccess.Text = "Parametro modificado!";
+
+                        btnBaja.Visible = true;
+                        btnGuardarModificacion.Visible = false;
+                        btnGuardar.Visible = true;
+                        btnModificar.Visible = true;
+                        listParametro.Enabled = true;
+                        txtNombre.Text = "";
+                        txtDesc.Text = "";
+                        txtDescMax.Text = "";
+                        txtDescMin.Text = "";
+
+                        txtValMaxMasc.Text = "";
+
+                        txtValMinMasc.Text = "";
+
+                    }
+
+                    Session["ListaParametros"] = ListaParametros;
+                    listParametro.DataSource = ListaParametros;
+                    listParametro.DataBind();
                 }
-
-                Session["ListaParametros"] = ListaParametros;
-                listParametro.DataSource = ListaParametros;
-                listParametro.DataBind();
             }
         }
 
         protected void btnBaja_Click(object sender, EventArgs e)
         {
-            BE.TipoMedicion param = ListaParametros[listParametro.SelectedIndex];
-            if (GestorParametros.BajaParametro(param, (BE.Usuario)Session["UsuarioEnSesion"]) == true)
+            if (listParametro.SelectedIndex != -1)
             {
-                ListaParametros = GestorParametros.Listar();
-                Session["ListaParametros"] = ListaParametros;
-                listParametro.DataSource = ListaParametros;
-                listParametro.DataBind();
+                BE.TipoMedicion param = ListaParametros[listParametro.SelectedIndex];
+                if (GestorParametros.BajaParametro(param, (BE.Usuario)Session["UsuarioEnSesion"]) == true)
+                {
+                    ListaParametros = GestorParametros.Listar();
+                    Session["ListaParametros"] = ListaParametros;
+                    listParametro.DataSource = ListaParametros;
+                    listParametro.DataBind();
+                }
             }
         }
     }

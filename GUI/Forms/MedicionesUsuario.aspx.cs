@@ -93,8 +93,8 @@ namespace GUI.Forms
             _tabla.AddHeaderCell(_cell.AddStyle(styleCell));
 
 
+           
 
-            
 
             foreach (BE.Medicion bit in ListaMediciones)
             {
@@ -102,8 +102,17 @@ namespace GUI.Forms
                 _tabla.AddCell(_cell);
                 _cell = new Cell().Add(new Paragraph(bit.Tipo.Nombre));
                 _tabla.AddCell(_cell);
-                _cell = new Cell().Add(new Paragraph(bit.Valor.ToString()));
-                _tabla.AddCell(_cell);
+                if (bit.Valor < bit.Tipo.MinimoMasculino || bit.Valor > bit.Tipo.MaximoMasculino)
+                {
+                    _cell = new Cell().Add(new Paragraph(bit.Valor.ToString()));
+                    _tabla.AddCell(_cell.SetBackgroundColor(ColorConstants.RED));
+                }
+                else
+                {
+                    _cell = new Cell().Add(new Paragraph(bit.Valor.ToString()));
+                    _tabla.AddCell(_cell);
+                }
+               
                 _cell = new Cell().Add(new Paragraph(bit.Tipo.MaximoMasculino.ToString()));
                 _tabla.AddCell(_cell);
                 _cell = new Cell().Add(new Paragraph(bit.Tipo.MinimoMasculino.ToString()));
@@ -158,7 +167,11 @@ namespace GUI.Forms
                 worksheet.Cell(currentRow, 1).Value = bit.Fecha.ToShortDateString();
                 worksheet.Cell(currentRow, 2).Value = bit.Tipo.Nombre;
                 worksheet.Cell(currentRow, 3).Value = bit.Valor;
-                worksheet.Cell(currentRow, 4).Value = bit.Tipo.MaximoMasculino;
+                if (bit.Valor < bit.Tipo.MinimoMasculino || bit.Valor > bit.Tipo.MaximoMasculino)
+                {
+                    worksheet.Cell(currentRow, 3).Style.Fill.BackgroundColor = ClosedXML.Excel.XLColor.Red;
+                }
+                    worksheet.Cell(currentRow, 4).Value = bit.Tipo.MaximoMasculino;
                 worksheet.Cell(currentRow, 5).Value = bit.Tipo.MinimoMasculino;
             }
 
@@ -280,6 +293,123 @@ namespace GUI.Forms
             graficoPromedio.Series["Min"].ChartType = System.Web.UI.DataVisualization.Charting.SeriesChartType.Line;
 
            
+        }
+
+        protected void btnGenerarReporte2_Click(object sender, EventArgs e)
+        {
+            MemoryStream ms = new MemoryStream();
+
+            PdfWriter pw = new PdfWriter(ms);
+            PdfDocument pdf = new PdfDocument(pw);
+            Document doc = new Document(pdf, PageSize.A4);
+            doc.SetMargins(75, 35, 70, 35);
+            string pathLogo = Server.MapPath("../Imagenes/Care Monitor.jpg");
+            iText.Layout.Element.Image img = new iText.Layout.Element.Image(iText.IO.Image.ImageDataFactory.Create(pathLogo));
+
+            pdf.AddEventHandler(PdfDocumentEvent.START_PAGE, new HeaderEventHandler(img));
+
+            BE.Usuario usu = (BE.Usuario)Session["UsuarioEnSesion"];
+
+            iText.Layout.Element.Table tabla = new iText.Layout.Element.Table(1).UseAllAvailableWidth();
+            Cell cell = new Cell().Add(new Paragraph("Alarmas Cerradas de " + usu.Nombre + " " + usu.Apellido).SetFontSize(14)
+                .SetTextAlignment(iText.Layout.Properties.TextAlignment.CENTER)
+                .SetBorder(Border.NO_BORDER));
+            tabla.AddCell(cell);
+
+            doc.Add(tabla);
+
+            iText.Layout.Style styleCell = new iText.Layout.Style()
+                .SetBackgroundColor(ColorConstants.LIGHT_GRAY)
+                .SetTextAlignment(iText.Layout.Properties.TextAlignment.CENTER);
+
+            iText.Layout.Element.Table _tabla = new iText.Layout.Element.Table(2).UseAllAvailableWidth();
+            Cell _cell = new Cell().Add(new Paragraph("Fecha"));
+            _tabla.AddHeaderCell(_cell.AddStyle(styleCell));
+            _cell = new Cell().Add(new Paragraph("Evolucion"));
+            _tabla.AddHeaderCell(_cell.AddStyle(styleCell));
+            
+
+
+
+
+
+            foreach (BE.Alarma bit in ListaAlarmas)
+            {
+                _cell = new Cell().Add(new Paragraph(bit.Fecha.ToString("g")));
+                _tabla.AddCell(_cell);
+                _cell = new Cell().Add(new Paragraph(bit.Evolucion.ToString()));
+                _tabla.AddCell(_cell);
+              
+            }
+
+            doc.Add(_tabla);
+
+            doc.Close();
+
+            byte[] bytesStream = ms.ToArray();
+            ms = new MemoryStream();
+            ms.Write(bytesStream, 0, bytesStream.Length);
+            ms.Position = 0;
+
+            Response.AddHeader("content-disposition", "inline;filename=Reporte.pdf");
+            Response.ContentType = "application/octectstream";
+            Response.BinaryWrite(bytesStream);
+            Response.End();
+        }
+
+        protected void btnGenerarExcel2_Click(object sender, EventArgs e)
+        {
+            ClosedXML.Excel.XLWorkbook wrkbook = new ClosedXML.Excel.XLWorkbook();
+
+            var worksheet = wrkbook.Worksheets.Add("Mediciones");
+            var currentRow = 1;
+            worksheet.Cell(currentRow, 1).Value = "CareMonitor";
+            
+
+            currentRow = 3;
+            worksheet.Cell(currentRow, 1).Value = "Fecha: " + DateTime.Now.ToShortDateString();
+            
+            BE.Usuario usu = (BE.Usuario)Session["UsuarioEnSesion"];
+
+            currentRow = 5;
+            worksheet.Cell(currentRow, 1).Value = "Alarmas Cerradas de " + usu.Nombre + " " + usu.Apellido;
+            
+            currentRow = 7;
+            worksheet.Cell(currentRow, 1).Value = "Fecha";
+            
+            worksheet.Cell(currentRow, 2).Value = "Evolución";
+            
+           
+
+
+
+
+            foreach (BE.Alarma bit in ListaAlarmas)
+            {
+                currentRow++;
+                worksheet.Cell(currentRow, 1).Value = bit.Fecha.ToShortDateString();
+                
+                worksheet.Cell(currentRow, 2).Value = bit.Evolucion;
+                
+            }
+
+            MemoryStream stream = new MemoryStream();
+
+            wrkbook.SaveAs(stream);
+            var content = stream.ToArray();
+
+
+
+
+            byte[] bytesStream = stream.ToArray();
+            stream = new MemoryStream();
+            stream.Write(bytesStream, 0, bytesStream.Length);
+            stream.Position = 0;
+
+            Response.AddHeader("content-disposition", "inline;filename=Reporte.xlsx");
+            Response.ContentType = "application/octectstream";
+            Response.BinaryWrite(bytesStream);
+            Response.End();
         }
     }
 }

@@ -57,10 +57,7 @@ namespace GUI
           
             BE.Usuario usu = (BE.Usuario)Session["UsuarioEnSesion"];
 
-            List<int> ListaId = (List<int>)Application["UsuariosEnSesion"];
-
-            ListaId.Remove(usu.ID);
-            Application["UsuariosEnSesion"] = ListaId;
+            
 
             BE.Bitacora bita = new BE.Bitacora();
             bita.Usuario = usu.Nombre + " " + usu.Apellido;

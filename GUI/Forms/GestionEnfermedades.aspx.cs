@@ -95,36 +95,38 @@ namespace GUI.Forms
 
         protected void btnSelecc_Click(object sender, EventArgs e)
         {
-
-            List<BE.Sintoma> ListaTemporalSintomas = new List<BE.Sintoma>();
-
-            if (Session["ListaTemporalSintomas"]!=null)
+            if (listParametros.SelectedIndex != -1)
             {
-                ListaTemporalSintomas = (List<BE.Sintoma>)Session["ListaTemporalSintomas"];
-            }
 
-            if (ListaTemporalSintomas.Find(x => x.pSintoma.ID == ListaParametros[listParametros.SelectedIndex].ID) == null)
-            {
-                BE.Sintoma sint = new BE.Sintoma();
-                sint.pSintoma = ListaParametros[listParametros.SelectedIndex];
-                if (radiomax.Checked == true)
+                List<BE.Sintoma> ListaTemporalSintomas = new List<BE.Sintoma>();
+
+                if (Session["ListaTemporalSintomas"] != null)
                 {
-                    sint.Maximo = true;
+                    ListaTemporalSintomas = (List<BE.Sintoma>)Session["ListaTemporalSintomas"];
                 }
-                else
+
+                if (ListaTemporalSintomas.Find(x => x.pSintoma.ID == ListaParametros[listParametros.SelectedIndex].ID) == null)
                 {
-                    sint.Maximo = false;
+                    BE.Sintoma sint = new BE.Sintoma();
+                    sint.pSintoma = ListaParametros[listParametros.SelectedIndex];
+                    if (radiomax.Checked == true)
+                    {
+                        sint.Maximo = true;
+                    }
+                    else
+                    {
+                        sint.Maximo = false;
+                    }
+                    ListaTemporalSintomas.Add(sint);
+                    Session["ListaTemporalSintomas"] = ListaTemporalSintomas;
                 }
-                ListaTemporalSintomas.Add(sint);
-                Session["ListaTemporalSintomas"] = ListaTemporalSintomas;
+
+
+                listaParamSelect.DataSource = null;
+                listaParamSelect.DataSource = ListaTemporalSintomas;
+                listaParamSelect.DataBind();
+
             }
-
-          
-            listaParamSelect.DataSource = null;
-            listaParamSelect.DataSource = ListaTemporalSintomas;
-            listaParamSelect.DataBind();
-            
-
         }
 
         protected void btnSeleccHabito_Click(object sender, EventArgs e)
@@ -154,25 +156,28 @@ namespace GUI.Forms
 
         protected void btnQuitarParametro_Click(object sender, EventArgs e)
         {
-            List<BE.Sintoma> ListaTemporalSintomas = new List<BE.Sintoma>();
-
-            ListaTemporalSintomas = (List<BE.Sintoma>)Session["ListaTemporalSintomas"];
-
             if (listaParamSelect.SelectedIndex != -1)
             {
+                List<BE.Sintoma> ListaTemporalSintomas = new List<BE.Sintoma>();
 
-                ListaTemporalSintomas.RemoveAt(listaParamSelect.SelectedIndex);
+                ListaTemporalSintomas = (List<BE.Sintoma>)Session["ListaTemporalSintomas"];
 
-                Session["ListaTemporalSintomas"] = ListaTemporalSintomas;
-                listaParamSelect.DataSource = null;
-                listaParamSelect.DataSource = ListaTemporalSintomas;
-                listaParamSelect.DataBind();
+                if (listaParamSelect.SelectedIndex != -1)
+                {
+
+                    ListaTemporalSintomas.RemoveAt(listaParamSelect.SelectedIndex);
+
+                    Session["ListaTemporalSintomas"] = ListaTemporalSintomas;
+                    listaParamSelect.DataSource = null;
+                    listaParamSelect.DataSource = ListaTemporalSintomas;
+                    listaParamSelect.DataBind();
+                }
             }
-
         }
 
         protected void btnModificar_Click(object sender, EventArgs e)
         {
+
             if (listEnfermedades.SelectedIndex != -1)
             {
                 BE.Enfermedad enf = ListaEnfermedades[listEnfermedades.SelectedIndex];
@@ -183,6 +188,9 @@ namespace GUI.Forms
                 listaParamSelect.DataBind();
                 btnGuardarEnfermedad.Visible = false;
                 btnGuardarModificacion.Visible = true;
+                listEnfermedades.Enabled = false;
+                btnBaja.Visible = false;
+                btnModificar.Visible = false;
             }
         }
 
@@ -203,16 +211,19 @@ namespace GUI.Forms
 
         protected void btnGuardarModificacion_Click(object sender, EventArgs e)
         {
+            if (listEnfermedades.SelectedIndex != -1)
+            {
+                BE.Enfermedad enf = ListaEnfermedades[listEnfermedades.SelectedIndex];
 
-            BE.Enfermedad enf = ListaEnfermedades[listEnfermedades.SelectedIndex];
+                enf.Sintomas = (List<BE.Sintoma>)Session["ListaTemporalSintomas"];
 
-            enf.Sintomas = (List<BE.Sintoma>)Session["ListaTemporalSintomas"];
-
-            GestorEnfermedades.ModificacionEnfermedad(enf, (BE.Usuario)Session["UsuarioEnSesion"]);
-
-
-            btnGuardarEnfermedad.Visible = true;
-            btnGuardarModificacion.Visible = false; 
+                GestorEnfermedades.ModificacionEnfermedad(enf, (BE.Usuario)Session["UsuarioEnSesion"]);
+                listEnfermedades.Enabled = true;
+                btnBaja.Visible = true;
+                btnModificar.Visible = true;
+                btnGuardarEnfermedad.Visible = true;
+                btnGuardarModificacion.Visible = false;
+            }
         }
     }
 }

@@ -80,46 +80,49 @@ namespace GUI.Forms
         {
             List<BE.Medicion> ListaParametrosUsu = new List<BE.Medicion>();
             ListaParametrosUsu = (List<BE.Medicion>)Session["ListaParametrosUsu"];
-            bool fa = new bool();
-            foreach(BE.Medicion med in ListaParametrosUsu)
+            if (ListaParametrosUsu != null)
             {
-              fa=GestorMediciones.AltaMedicion(med, (BE.Usuario)Session["UsuarioEnSesion"]);
-            }
-            if (fa == true)
-            {
-                //Aca deberia desencadenar el metodo
-               List<BE.Enfermedad> ListaEnf = GestorMediciones.VerificarEnfermedades(ListaParametrosUsu, (BE.Usuario)Session["UsuarioEnSesion"]);
-
-                if (ListaEnf.Count() != 0)
+                bool fa = new bool();
+                foreach (BE.Medicion med in ListaParametrosUsu)
                 {
-
-                    //Aca deberia generar la alarma
-
-                    GestorAlarma.DispararAlarma(ListaParametrosUsu, (BE.Usuario)Session["UsuarioEnSesion"]);
-
-                    alerta.Visible = true;
-                    listParametro.Visible = false;
-                    btnGuardar.Visible = false;
-                    btnAlarma.Visible = true;
-                    cosogris.Visible = false;
-                    foreach (BE.Enfermedad enf in ListaEnf)
-                    {
-                        string str = lblEnf.Text;
-                        lblEnf.Text = str + "-" + enf.Nombre + "<br />";
-                    }
-                    lblEnf.Text = lblEnf.Text + "<br />";
+                    fa = GestorMediciones.AltaMedicion(med, (BE.Usuario)Session["UsuarioEnSesion"]);
                 }
+                if (fa == true)
+                {
+                    //Aca deberia desencadenar el metodo
+                    List<BE.Enfermedad> ListaEnf = GestorMediciones.VerificarEnfermedades(ListaParametrosUsu, (BE.Usuario)Session["UsuarioEnSesion"]);
+
+                    if (ListaEnf.Count() != 0)
+                    {
+
+                        //Aca deberia generar la alarma
+
+                        GestorAlarma.DispararAlarma(ListaParametrosUsu, (BE.Usuario)Session["UsuarioEnSesion"]);
+
+                        alerta.Visible = true;
+                        listParametro.Visible = false;
+                        btnGuardar.Visible = false;
+                        btnAlarma.Visible = true;
+                        cosogris.Visible = false;
+                        foreach (BE.Enfermedad enf in ListaEnf)
+                        {
+                            string str = lblEnf.Text;
+                            lblEnf.Text = str + "-" + enf.Nombre + "<br />";
+                        }
+                        lblEnf.Text = lblEnf.Text + "<br />";
+                    }
 
 
-                lblmod.Text = "Medicion Agregada!";
-                lblmod.Visible = true;
-                lblmod.CssClass = "alert alert-success";
-            }
-            else
-            {
-                lblmod.Text = "Ocurrio un error!";
-                lblmod.Visible = true;
-                lblmod.CssClass = "alert alert-danger";
+                    lblmod.Text = "Medicion Agregada!";
+                    lblmod.Visible = true;
+                    lblmod.CssClass = "alert alert-success";
+                }
+                else
+                {
+                    lblmod.Text = "Ocurrio un error!";
+                    lblmod.Visible = true;
+                    lblmod.CssClass = "alert alert-danger";
+                }
             }
         }
 

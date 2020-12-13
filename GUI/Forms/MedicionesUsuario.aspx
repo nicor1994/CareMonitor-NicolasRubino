@@ -54,6 +54,10 @@
                         <SelectedRowStyle CssClass="table-success"/>
                     </asp:GridView>
                 </div>
+                                 <br />
+                                   <asp:Button ID="btnGenerarReporte2" runat="server" Text="GenerarReporte" CssClass="btn btn-warning shadow mb-5 rounded" OnClick="btnGenerarReporte2_Click"/>
+              <asp:Button ID="btnGenerarExcel2" runat="server" Text="GenerarReporte" CssClass="btn btn-success shadow mb-5 rounded" style="margin-left:10px" OnClick="btnGenerarExcel2_Click" />
+                        
                       </div>
 
                          <br />

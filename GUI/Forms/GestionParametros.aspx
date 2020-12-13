@@ -54,14 +54,8 @@
                  <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="Debe completar este campo!" ControlToValidate="txtValMaxMasc" CssClass="alert-danger"></asp:RequiredFieldValidator>
                  
                          <br />
-                   <div class="input-group flex-nowrap">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text" id="addon-wrappinga">
-                        <asp:Label ID="lblValMaxFem" runat="server" Text="Valor máximo Femenino"></asp:Label></span>
-                  </div>
-                    <asp:TextBox TextMode="Number" ID="txtValFemMax" CssClass="form-control" runat="server"></asp:TextBox>
-                </div>
-                  <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="Debe completar este campo!" ControlToValidate="txtValFemMax" CssClass="alert-danger"></asp:RequiredFieldValidator>
+                
+                  
                  
                  <br />
                          </div>
@@ -85,14 +79,8 @@
                   <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ErrorMessage="Debe completar este campo!" ControlToValidate="txtValMinMasc" CssClass="alert-danger"></asp:RequiredFieldValidator>
                  
                  <br />
-                  <div class="input-group flex-nowrap">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text" id="addon-wrappinga">
-                        <asp:Label ID="lblValMinFem" runat="server" Text="Valor mínimo Femenino"></asp:Label></span>
-                  </div>
-                    <asp:TextBox TextMode="Number" ID="txtValMinFem" CssClass="form-control" runat="server"></asp:TextBox>
-                </div>
-                  <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ErrorMessage="Debe completar este campo!" ControlToValidate="txtValMinFem" CssClass="alert-danger"></asp:RequiredFieldValidator>
+                
+                  
                 </div>
                      </div>
                  <br />

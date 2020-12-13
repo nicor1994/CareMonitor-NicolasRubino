@@ -44,7 +44,7 @@
                         <br />
                        
                          <asp:Button ID="btnGuardarEnfermedad" runat="server" Text="Guardar Enfermedad" CssClass="btn btn-info shadow mb-5 rounded" OnClick="btnGuardar_Click"/>
-                         <asp:Button ID="btnGuardarModificacion" runat="server" Text="Guardar Enfermedad" CssClass="btn btn-info shadow mb-5 rounded" OnClick="btnGuardarModificacion_Click"/>
+                         <asp:Button ID="btnGuardarModificacion" runat="server" Visible="false" Text="Guardar Enfermedad" CssClass="btn btn-info shadow mb-5 rounded" OnClick="btnGuardarModificacion_Click"/>
                         <br />
                         <br />
                          <asp:Label ID="lblSuccess" runat="server" Text="Label" Visible="false"></asp:Label>
