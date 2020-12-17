@@ -142,7 +142,7 @@ namespace GUI.Forms
                     BE.Alarma alarma = ListaAlarma[listAlarmas.SelectedIndex];
 
                     alarma.Evolucion = txtEvolucion.Text;
-                    if (GestorAlarma.Evolucionar(alarma) != -1)
+                    if (GestorAlarma.Evolucionar(alarma, (BE.Usuario)Session["UsuarioEnSesion"]) != -1)
                     {
                         lblSuccess.Text = "Alarma Evolucionada!";
                         lblSuccess.Visible = true;

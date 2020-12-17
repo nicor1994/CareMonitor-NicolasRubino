@@ -22,7 +22,24 @@ namespace BLL
                 {
                     fa = MapperAlarma.GuardarMedicion(med, usu);
                 }
-               
+
+                if (fa == -1)
+                {
+                    
+                }
+                else
+                {
+                    BLL.Bitacora GestorBitacora = new BLL.Bitacora();
+
+                    BE.Bitacora bita = new BE.Bitacora();
+                    bita.Usuario = usu.Nombre + " " + usu.Apellido;
+                    bita.Tipo = "Alarma";
+                    bita.Accion = "Se disparo una alarma del usuario " + usu.Nombre + " " + usu.Apellido;
+                    bita.Fecha = DateTime.Now;
+                    GestorBitacora.RegistrarEnBitacora(bita);
+                    
+                }
+
                 return fa;
             }
 
@@ -42,9 +59,27 @@ namespace BLL
             return ListaAlarmas;
         }
 
-        public int Evolucionar(BE.Alarma alarma) { 
+        public int Evolucionar(BE.Alarma alarma, BE.Usuario usuEnSesion) { 
             
             int fa = MapperAlarma.Evolucionar(alarma);
+
+            if (fa == -1)
+            {
+                
+            }
+            else
+            {
+                BLL.Bitacora GestorBitacora = new BLL.Bitacora();
+
+                BE.Bitacora bita = new BE.Bitacora();
+                bita.Usuario = usuEnSesion.Nombre + " " + usuEnSesion.Apellido;
+                bita.Tipo = "Cierre de Alarmas";
+                bita.Accion = "Se cerró una alarma del usuario " + alarma.Usuario.Nombre + " " + alarma.Usuario.Apellido;
+                bita.Fecha = DateTime.Now;
+                GestorBitacora.RegistrarEnBitacora(bita);
+               
+            }
+
             return fa;
         }
 
