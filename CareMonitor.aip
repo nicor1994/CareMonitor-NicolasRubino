@@ -2,8 +2,36 @@
 <DOCUMENT Type="Advanced Installer" CreateVersion="17.7" version="17.7" Modules="enterprise" RootPath="." Language="en" Id="{5D54853C-DDF1-4102-A749-FE019A9C462D}">
   <COMPONENT cid="caphyon.advinst.msicomp.MsiPropsComponent">
     <ROW Property="AI_BITMAP_DISPLAY_MODE" Value="0"/>
+    <ROW Property="AI_CF_FrameBottomLeft" Value="frame_bottom_left.bmp" Type="1"/>
+    <ROW Property="AI_CF_FrameBottomLeftInactive" Value="frame_bottom_left_inactive.bmp" Type="1"/>
+    <ROW Property="AI_CF_FrameBottomMid" Value="frame_bottom_mid.bmp" Type="1"/>
+    <ROW Property="AI_CF_FrameBottomMidInactive" Value="frame_bottom_mid_inactive.bmp" Type="1"/>
+    <ROW Property="AI_CF_FrameBottomRight" Value="frame_bottom_right.bmp" Type="1"/>
+    <ROW Property="AI_CF_FrameBottomRightInactive" Value="frame_bottom_right_inactive.bmp" Type="1"/>
+    <ROW Property="AI_CF_FrameCaption" Value="frame_caption.bmp" Type="1"/>
+    <ROW Property="AI_CF_FrameCaptionInactive" Value="frame_caption_inactive.bmp" Type="1"/>
+    <ROW Property="AI_CF_FrameLeft" Value="frame_left.bmp" Type="1"/>
+    <ROW Property="AI_CF_FrameLeftInactive" Value="frame_left_inactive.bmp" Type="1"/>
+    <ROW Property="AI_CF_FrameRight" Value="frame_right.bmp" Type="1"/>
+    <ROW Property="AI_CF_FrameRightInactive" Value="frame_right_inactive.bmp" Type="1"/>
+    <ROW Property="AI_CF_FrameTopLeft" Value="frame_top_left.bmp" Type="1"/>
+    <ROW Property="AI_CF_FrameTopLeftInactive" Value="frame_top_left_inactive.bmp" Type="1"/>
+    <ROW Property="AI_CF_FrameTopMid" Value="frame_top_mid.bmp" Type="1"/>
+    <ROW Property="AI_CF_FrameTopMidInactive" Value="frame_top_mid_inactive.bmp" Type="1"/>
+    <ROW Property="AI_CF_FrameTopRight" Value="frame_top_right.bmp" Type="1"/>
+    <ROW Property="AI_CF_FrameTopRightInactive" Value="frame_top_right_inactive.bmp" Type="1"/>
+    <ROW Property="AI_CF_SysCloseDown" Value="sys_close_down.bmp" Type="1"/>
+    <ROW Property="AI_CF_SysCloseHot" Value="sys_close_hot.bmp" Type="1"/>
+    <ROW Property="AI_CF_SysCloseInactive" Value="sys_close_inactive.bmp" Type="1"/>
+    <ROW Property="AI_CF_SysCloseNormal" Value="sys_close_normal.bmp" Type="1"/>
+    <ROW Property="AI_CF_SysMinDown" Value="sys_min_down.bmp" Type="1"/>
+    <ROW Property="AI_CF_SysMinHot" Value="sys_min_hot.bmp" Type="1"/>
+    <ROW Property="AI_CF_SysMinInactive" Value="sys_min_inactive.bmp" Type="1"/>
+    <ROW Property="AI_CF_SysMinNormal" Value="sys_min_normal.bmp" Type="1"/>
+    <ROW Property="AI_CF_TYPE" Value="0" MultiBuildValue="DefaultBuild:1" Type="4"/>
     <ROW Property="AI_FINDEXE_TITLE" Value="Select the installation package for [|ProductName]" ValueLocId="AI.Property.FindExeTitle"/>
     <ROW Property="AI_PREDEF_LCONDS_PROPS" Value="AI_DETECTED_INTERNET_CONNECTION"/>
+    <ROW Property="AI_ThemeStyle" Value="aero" MsiKey="AI_ThemeStyle"/>
     <ROW Property="ALLUSERS" Value="1"/>
     <ROW Property="ARPCOMMENTS" Value="This installer database contains the logic and data required to install [|ProductName]." ValueLocId="*"/>
     <ROW Property="ARPNOREPAIR" MultiBuildValue="DefaultBuild:1"/>
@@ -462,6 +490,12 @@
     <ROW Action="AI_WinOptFeaturesRemove" Description="Removing configured Windows features." DescriptionLocId="ActionText.Description.AI_WinOptFeaturesRemove" Template="Removing configured Windows features." TemplateLocId="ActionText.Template.AI_WinOptFeaturesRemove"/>
     <ROW Action="AI_WinOptFeaturesRollback" Description="Rolling back configured Windows features." DescriptionLocId="ActionText.Description.AI_WinOptFeaturesRollback" Template="Rolling back configured Windows features." TemplateLocId="ActionText.Template.AI_WinOptFeaturesRollback"/>
     <ROW Action="AI_WinOptFeaturesUninstall" Description="Generating actions to configure Windows features." DescriptionLocId="ActionText.Description.AI_WinOptFeaturesUninstall" Template="Removing configured Windows features." TemplateLocId="ActionText.Template.AI_WinOptFeaturesUninstall"/>
+    <ROW Action="AI_XmlCommit" Description="Committing XML file configurations." DescriptionLocId="ActionText.Description.AI_XmlCommit" Template="Committing XML file configurations." TemplateLocId="ActionText.Template.AI_XmlCommit"/>
+    <ROW Action="AI_XmlConfig" Description="Executing XML file configurations" DescriptionLocId="ActionText.Description.AI_XmlConfig" Template="Configuring XML file: &quot;[1]&quot;" TemplateLocId="ActionText.Template.AI_XmlConfig"/>
+    <ROW Action="AI_XmlInstall" Description="Generating actions to configure XML files" DescriptionLocId="ActionText.Description.AI_XmlInstall"/>
+    <ROW Action="AI_XmlRemove" Description="Executing XML file configurations" DescriptionLocId="ActionText.Description.AI_XmlRemove" Template="Configuring XML file: &quot;[1]&quot;" TemplateLocId="ActionText.Template.AI_XmlRemove"/>
+    <ROW Action="AI_XmlRollback" Description="Rolling back XML file configurations." DescriptionLocId="ActionText.Description.AI_XmlRollback" Template="Rolling back XML file configurations." TemplateLocId="ActionText.Template.AI_XmlRollback"/>
+    <ROW Action="AI_XmlUninstall" Description="Generating actions to configure XML files" DescriptionLocId="ActionText.Description.AI_XmlUninstall"/>
     <ROW Action="BrowseIIS" Description="ActionText.Description.BrowseIIS" DescriptionLocId="ActionText.Description.BrowseIIS"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiAppSearchComponent">
@@ -473,17 +507,57 @@
     <ROW Name="SoftwareDetector.dll" SourcePath="&lt;AI_CUSTACTS&gt;SoftwareDetector.dll"/>
     <ROW Name="WinOptionalFeatures.dll" SourcePath="&lt;AI_CUSTACTS&gt;WinOptionalFeatures.dll"/>
     <ROW Name="aicustact.dll" SourcePath="&lt;AI_CUSTACTS&gt;aicustact.dll"/>
+    <ROW Name="frame_bottom_left.bmp" SourcePath="&lt;AI_FRAME_COLOR&gt;frame_bottom_left.bmp"/>
+    <ROW Name="frame_bottom_left_inactive.bmp" SourcePath="&lt;AI_FRAME_COLOR&gt;frame_bottom_left_inactive.bmp"/>
+    <ROW Name="frame_bottom_mid.bmp" SourcePath="&lt;AI_FRAME_COLOR&gt;frame_bottom_mid.bmp"/>
+    <ROW Name="frame_bottom_mid_inactive.bmp" SourcePath="&lt;AI_FRAME_COLOR&gt;frame_bottom_mid_inactive.bmp"/>
+    <ROW Name="frame_bottom_right.bmp" SourcePath="&lt;AI_FRAME_COLOR&gt;frame_bottom_right.bmp"/>
+    <ROW Name="frame_bottom_right_inactive.bmp" SourcePath="&lt;AI_FRAME_COLOR&gt;frame_bottom_right_inactive.bmp"/>
+    <ROW Name="frame_caption.bmp" SourcePath="&lt;AI_FRAME_COLOR&gt;frame_caption.bmp"/>
+    <ROW Name="frame_caption_inactive.bmp" SourcePath="&lt;AI_FRAME_COLOR&gt;frame_caption_inactive.bmp"/>
+    <ROW Name="frame_left.bmp" SourcePath="&lt;AI_FRAME_COLOR&gt;frame_left.bmp"/>
+    <ROW Name="frame_left_inactive.bmp" SourcePath="&lt;AI_FRAME_COLOR&gt;frame_left_inactive.bmp"/>
+    <ROW Name="frame_right.bmp" SourcePath="&lt;AI_FRAME_COLOR&gt;frame_right.bmp"/>
+    <ROW Name="frame_right_inactive.bmp" SourcePath="&lt;AI_FRAME_COLOR&gt;frame_right_inactive.bmp"/>
+    <ROW Name="frame_top_left.bmp" SourcePath="&lt;AI_FRAME_COLOR&gt;frame_top_left.bmp"/>
+    <ROW Name="frame_top_left_inactive.bmp" SourcePath="&lt;AI_FRAME_COLOR&gt;frame_top_left_inactive.bmp"/>
+    <ROW Name="frame_top_mid.bmp" SourcePath="&lt;AI_FRAME_COLOR&gt;frame_top_mid.bmp"/>
+    <ROW Name="frame_top_mid_inactive.bmp" SourcePath="&lt;AI_FRAME_COLOR&gt;frame_top_mid_inactive.bmp"/>
+    <ROW Name="frame_top_right.bmp" SourcePath="&lt;AI_FRAME_COLOR&gt;frame_top_right.bmp"/>
+    <ROW Name="frame_top_right_inactive.bmp" SourcePath="&lt;AI_FRAME_COLOR&gt;frame_top_right_inactive.bmp"/>
     <ROW Name="iis.dll" SourcePath="&lt;AI_CUSTACTS&gt;iis.dll"/>
     <ROW Name="lzmaextractor.dll" SourcePath="&lt;AI_CUSTACTS&gt;lzmaextractor.dll"/>
     <ROW Name="sql.dll" SourcePath="&lt;AI_CUSTACTS&gt;sql.dll"/>
+    <ROW Name="sys_close_down.bmp" SourcePath="&lt;AI_FRAME_BTNS&gt;sys_close_down.bmp"/>
+    <ROW Name="sys_close_hot.bmp" SourcePath="&lt;AI_FRAME_BTNS&gt;sys_close_hot.bmp"/>
+    <ROW Name="sys_close_inactive.bmp" SourcePath="&lt;AI_FRAME_BTNS&gt;sys_close_inactive.bmp"/>
+    <ROW Name="sys_close_normal.bmp" SourcePath="&lt;AI_FRAME_BTNS&gt;sys_close_normal.bmp"/>
+    <ROW Name="sys_min_down.bmp" SourcePath="&lt;AI_FRAME_COLOR&gt;sys_min_down.bmp"/>
+    <ROW Name="sys_min_hot.bmp" SourcePath="&lt;AI_FRAME_COLOR&gt;sys_min_hot.bmp"/>
+    <ROW Name="sys_min_inactive.bmp" SourcePath="&lt;AI_FRAME_COLOR&gt;sys_min_inactive.bmp"/>
+    <ROW Name="sys_min_normal.bmp" SourcePath="&lt;AI_FRAME_COLOR&gt;sys_min_normal.bmp"/>
     <ROW Name="viewer.exe" SourcePath="&lt;AI_CUSTACTS&gt;viewer.exe"/>
+    <ROW Name="xmlCfg.dll" SourcePath="&lt;AI_CUSTACTS&gt;xmlCfg.dll"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiControlComponent">
+    <ROW Dialog_="NewDialog" Control="Next" Type="PushButton" X="236" Y="243" Width="56" Height="17" Attributes="3" Text="[ButtonText_Next]" Order="100" Options="1"/>
+    <ROW Dialog_="NewDialog" Control="Cancel" Type="PushButton" X="304" Y="243" Width="56" Height="17" Attributes="3" Text="[ButtonText_Cancel]" Order="200" Options="1"/>
+    <ROW Dialog_="NewDialog" Control="Back" Type="PushButton" X="180" Y="243" Width="56" Height="17" Attributes="3" Text="[ButtonText_Back]" Order="300" Options="1"/>
+    <ROW Dialog_="NewDialog" Control="BannerBitmap" Type="Bitmap" X="0" Y="0" Width="370" Height="44" Attributes="1048577" Text="[BannerBitmap]" Order="400"/>
+    <ROW Dialog_="NewDialog" Control="BannerLine" Type="Line" X="0" Y="44" Width="372" Height="0" Attributes="1" Order="500"/>
+    <ROW Dialog_="NewDialog" Control="BottomLine" Type="Line" X="5" Y="234" Width="368" Height="0" Attributes="1" Order="600"/>
+    <ROW Dialog_="NewDialog" Control="Description" Type="Text" X="25" Y="23" Width="280" Height="15" Attributes="196611" Order="700"/>
+    <ROW Dialog_="NewDialog" Control="Logo" Type="Text" X="4" Y="228" Width="70" Height="12" Attributes="1" Text="Advanced Installer" Order="800"/>
+    <ROW Dialog_="NewDialog" Control="Title" Type="Text" X="15" Y="6" Width="200" Height="15" Attributes="196611" Text="Seleccione Servidor" TextStyle="[DlgTitleFont]" Order="900"/>
+    <ROW Dialog_="NewDialog" Control="ComboBox_1" Type="ComboBox" X="102" Y="72" Width="113" Height="16" Attributes="3" Property="COMBOBOX_1_PROP" Text="{260}" Order="1000"/>
+    <ROW Dialog_="NewDialog" Control="Text_1" Type="Text" X="43" Y="72" Width="75" Height="11" Attributes="65539" Property="TEXT_1_PROP" Text="Servidor:" Order="1100"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiControlEventComponent">
     <ROW Dialog_="WelcomeDlg" Control_="Next" Event="NewDialog" Argument="FolderDlg" Condition="AI_INSTALL" Ordering="1"/>
-    <ROW Dialog_="FolderDlg" Control_="Next" Event="NewDialog" Argument="VerifyReadyDlg" Condition="AI_INSTALL" Ordering="201"/>
+    <ROW Dialog_="FolderDlg" Control_="Next" Event="NewDialog" Argument="NewDialog" Condition="AI_INSTALL" Ordering="201"/>
     <ROW Dialog_="FolderDlg" Control_="Back" Event="NewDialog" Argument="WelcomeDlg" Condition="AI_INSTALL" Ordering="1"/>
     <ROW Dialog_="VerifyReadyDlg" Control_="Install" Event="EndDialog" Argument="Return" Condition="AI_INSTALL" Ordering="197"/>
-    <ROW Dialog_="VerifyReadyDlg" Control_="Back" Event="NewDialog" Argument="FolderDlg" Condition="AI_INSTALL" Ordering="201"/>
+    <ROW Dialog_="VerifyReadyDlg" Control_="Back" Event="NewDialog" Argument="NewDialog" Condition="AI_INSTALL" Ordering="201"/>
     <ROW Dialog_="MaintenanceWelcomeDlg" Control_="Next" Event="NewDialog" Argument="MaintenanceTypeDlg" Condition="AI_MAINT" Ordering="99"/>
     <ROW Dialog_="CustomizeDlg" Control_="Next" Event="NewDialog" Argument="VerifyReadyDlg" Condition="AI_MAINT" Ordering="101"/>
     <ROW Dialog_="CustomizeDlg" Control_="Back" Event="NewDialog" Argument="MaintenanceTypeDlg" Condition="AI_MAINT" Ordering="1"/>
@@ -504,6 +578,13 @@
     <ROW Dialog_="PrerequisitesDlg" Control_="Back" Event="NewDialog" Argument="WelcomePrereqDlg" Condition="AI_BOOTSTRAPPER" Ordering="1"/>
     <ROW Dialog_="VerifyReadyDlg" Control_="Install" Event="EndDialog" Argument="Return" Condition="AI_PATCH" Ordering="199"/>
     <ROW Dialog_="VerifyReadyDlg" Control_="Back" Event="NewDialog" Argument="PatchWelcomeDlg" Condition="AI_PATCH" Ordering="203"/>
+    <ROW Dialog_="NewDialog" Control_="Cancel" Event="SpawnDialog" Argument="CancelDlg" Condition="1" Ordering="100"/>
+    <ROW Dialog_="NewDialog" Control_="Next" Event="NewDialog" Argument="VerifyReadyDlg" Condition="AI_INSTALL" Ordering="1"/>
+    <ROW Dialog_="NewDialog" Control_="Back" Event="NewDialog" Argument="FolderDlg" Condition="AI_INSTALL" Ordering="1"/>
+    <ROW Dialog_="NewDialog" Control_="ComboBox_1" Event="DoAction" Argument="TestODBCConnection" Condition="1" Ordering="1"/>
+    <ROW Dialog_="NewDialog" Control_="ComboBox_1" Event="DoAction" Argument="AI_DATA_SETTER_5" Condition="1" Ordering="0"/>
+    <ROW Dialog_="NewDialog" Control_="ComboBox_1" Event="DoAction" Argument="BrowseSqlServers" Condition="1" Ordering="3"/>
+    <ROW Dialog_="NewDialog" Control_="ComboBox_1" Event="DoAction" Argument="AI_DATA_SETTER_4" Condition="1" Ordering="2"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiCreateFolderComponent">
     <ROW Directory_="APPDIR" Component_="APPDIR" ManualDelete="true"/>
@@ -517,6 +598,10 @@
     <ROW Action="AI_DATA_SETTER_1" Type="51" Source="CustomActionData" Target="[AI_SETUPEXEPATH]"/>
     <ROW Action="AI_DATA_SETTER_2" Type="51" Source="CustomActionData" Target="[~]"/>
     <ROW Action="AI_DATA_SETTER_3" Type="51" Source="CustomActionData" Target="[~]"/>
+    <ROW Action="AI_DATA_SETTER_4" Type="51" Source="CustomActionData" Target="ServerBrowse"/>
+    <ROW Action="AI_DATA_SETTER_5" Type="51" Source="CustomActionData" Target="TestConnection"/>
+    <ROW Action="AI_DATA_SETTER_6" Type="51" Source="CustomActionData" Target="[~]"/>
+    <ROW Action="AI_DATA_SETTER_7" Type="51" Source="CustomActionData" Target="[~]"/>
     <ROW Action="AI_DOWNGRADE" Type="19" Target="4010"/>
     <ROW Action="AI_DeleteCadLzma" Type="51" Source="AI_DeleteLzma" Target="[AI_SETUPEXEPATH]"/>
     <ROW Action="AI_DeleteLzma" Type="1025" Source="lzmaextractor.dll" Target="DeleteLZMAFiles"/>
@@ -553,11 +638,22 @@
     <ROW Action="AI_WinOptFeaturesRemove" Type="11265" Source="WinOptionalFeatures.dll" Target="OnWinOptFeaturesRemove" WithoutSeq="true"/>
     <ROW Action="AI_WinOptFeaturesRollback" Type="11521" Source="WinOptionalFeatures.dll" Target="OnWinOptFeaturesRollback" WithoutSeq="true"/>
     <ROW Action="AI_WinOptFeaturesUninstall" Type="1" Source="WinOptionalFeatures.dll" Target="OnWinOptFeaturesUninstall"/>
+    <ROW Action="AI_XmlCommit" Type="11777" Source="xmlCfg.dll" Target="OnXmlCommit" WithoutSeq="true"/>
+    <ROW Action="AI_XmlConfig" Type="11265" Source="xmlCfg.dll" Target="OnXmlConfig" WithoutSeq="true"/>
+    <ROW Action="AI_XmlInstall" Type="1" Source="xmlCfg.dll" Target="OnXmlInstall" AdditionalSeq="AI_DATA_SETTER_6"/>
+    <ROW Action="AI_XmlRemove" Type="11265" Source="xmlCfg.dll" Target="OnXmlRemove" WithoutSeq="true"/>
+    <ROW Action="AI_XmlRollback" Type="11521" Source="xmlCfg.dll" Target="OnXmlRollback" WithoutSeq="true"/>
+    <ROW Action="AI_XmlUninstall" Type="1" Source="xmlCfg.dll" Target="OnXmlUninstall" AdditionalSeq="AI_DATA_SETTER_7"/>
     <ROW Action="BrowseIIS" Type="1" Source="iis.dll" Target="IIsBrowseServer" AdditionalSeq="AI_DATA_SETTER"/>
+    <ROW Action="BrowseSqlServers" Type="1" Source="sql.dll" Target="BrowseSqlServers" WithoutSeq="true" AdditionalSeq="AI_DATA_SETTER_4"/>
     <ROW Action="OpenUrl" Type="2" Source="viewer.exe" Target="http://localhost" Options="1"/>
     <ROW Action="SET_APPDIR" Type="307" Source="APPDIR" Target="[ProgramFilesFolder][Manufacturer]\[ProductName]"/>
     <ROW Action="SET_SHORTCUTDIR" Type="307" Source="SHORTCUTDIR" Target="[ProgramMenuFolder][ProductName]"/>
     <ROW Action="SET_TARGETDIR_TO_APPDIR" Type="51" Source="TARGETDIR" Target="[APPDIR]"/>
+    <ROW Action="TestODBCConnection" Type="1" Source="sql.dll" Target="TestSqlConnection" WithoutSeq="true" AdditionalSeq="AI_DATA_SETTER_5"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiDialogComponent">
+    <ROW Dialog="NewDialog" HCentering="50" VCentering="50" Width="370" Height="270" Attributes="3" Title="[ProductName] [Setup]" Control_Default="Next" Control_Cancel="Cancel"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiFeatCompsComponent">
     <ROW Feature_="MainFeature" Component_="APPDIR"/>
@@ -668,14 +764,18 @@
     <ROW Action="AI_DATA_SETTER_2" Condition="(VersionNT &gt;= 500) AND (REMOVE &lt;&gt; &quot;ALL&quot;)" Sequence="5501"/>
     <ROW Action="AI_SqlUninstall" Condition="(VersionNT &gt;= 500) AND (REMOVE=&quot;ALL&quot;)" Sequence="1702"/>
     <ROW Action="AI_DATA_SETTER_3" Condition="(VersionNT &gt;= 500) AND (REMOVE=&quot;ALL&quot;)" Sequence="1701"/>
+    <ROW Action="AI_XmlInstall" Condition="(REMOVE &lt;&gt; &quot;ALL&quot;)" Sequence="5102"/>
+    <ROW Action="AI_DATA_SETTER_6" Condition="(REMOVE &lt;&gt; &quot;ALL&quot;)" Sequence="5101"/>
+    <ROW Action="AI_XmlUninstall" Condition="(REMOVE)" Sequence="3102"/>
+    <ROW Action="AI_DATA_SETTER_7" Condition="(REMOVE)" Sequence="3101"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiInstallUISequenceComponent">
     <ROW Action="AI_RESTORE_LOCATION" Condition="APPDIR=&quot;&quot;" Sequence="749"/>
     <ROW Action="AI_ResolveKnownFolders" Sequence="53"/>
     <ROW Action="AI_DpiContentScale" Sequence="52"/>
     <ROW Action="AI_EnableDebugLog" Sequence="51"/>
-    <ROW Action="BrowseIIS" Condition="1" Sequence="1228"/>
-    <ROW Action="AI_DATA_SETTER" Condition="1" Sequence="1227"/>
+    <ROW Action="BrowseIIS" Condition="1" Sequence="1224"/>
+    <ROW Action="AI_DATA_SETTER" Condition="1" Sequence="1223"/>
     <ROW Action="AI_DetectSoftware" Sequence="103"/>
     <ROW Action="AI_BACKUP_AI_SETUPEXEPATH" Sequence="99"/>
     <ROW Action="AI_RESTORE_AI_SETUPEXEPATH" Condition="AI_SETUPEXEPATH_ORIGINAL" Sequence="102"/>
@@ -712,6 +812,9 @@
   <COMPONENT cid="caphyon.advinst.msicomp.PreReqSearchComponent">
     <ROW SearchKey="EDD0228464354F269D1E1FAEB8A9084FRel" Prereq="EDD0228464354F269D1E1FAEB8A9084F" SearchType="9" SearchString="HKLM\SOFTWARE\Microsoft\NET Framework Setup\NDP\v4\Full\Release" RefContent="G378757" Order="1" Property="PreReqSearch_EDD0228464354F269D1E1F"/>
   </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.SqlBrowseComponent">
+    <ROW BrowseName="ServerBrowse" Flags="101483" TimeOut="60" ComboBoxProp="SERVER_PROP"/>
+  </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.SqlConnectionComponent">
     <ROW ConnectionName="Predef" Condition="1" Dbms="0" OdbcResource="SQL Server" Server="(local)" Port="1433" Database="Database" Username="[LogonUser]" Flags="14" Order="0" LoginTimeout="60"/>
   </COMPONENT>
@@ -719,6 +822,9 @@
     <ROW ScriptName="ScriptCareMonitor" ConnectionName="Predef" Condition="1" Separator="GO" ScriptText="ScriptCareMonitor.sql" Flags="18" Order="0"/>
     <ROW ScriptName="ScriptCareMonitorBitacora" ConnectionName="Predef" Condition="1" Separator="GO" ScriptText="ScriptCareMonitorBitacora.sql" Flags="18" Order="1"/>
     <ATTRIBUTE name="ImpersonateUser" value="true"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.SqlTestConnectionComponent">
+    <ROW Name="TestConnection" ConnectionString="Driver=[\{]SQL Server[\}];Server=[SERVER_PROP];Uid=[USERNAME_PROP];Pwd=[PASSWORD_PROP];" Flags="4" TimeOut="60" OutputProp="SqlConnectionOK"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.SynchronizedFolderComponent">
     <ROW Directory_="NewFolder_Dir" SourcePath="..\..\..\..\..\..\..\inetpub\wwwroot" Feature="MainFeature" ExcludePattern="*~|#*#|%*%|._|CVS|.cvsignore|SCCS|vssver.scc|mssccprj.scc|vssver2.scc|.svn|.DS_Store" ExcludeFlags="6" FileAddOptions="4"/>
@@ -729,5 +835,102 @@
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.WinOptionalFeatureBundleComponent">
     <ROW Name="FeatureBundle" FeatureList="IIS-DefaultDocument,NetFx3,IIS-ASPNET45,IIS-ManagementConsole,IIS-ManagementScriptingTools,IIS-ManagementService,NetFx4Extended-ASPNET45,IIS-NetFxExtensibility,IIS-RequestFiltering,IIS-NetFxExtensibility45,IIS-ApplicationInit,IIS-ASP,IIS-ISAPIExtensions,IIS-ASPNET,IIS-ISAPIFilter,IIS-CGI,IIS-WebSockets,IIS-StaticContent,IIS-HttpLogging" OSTargets="256" Condition="1" Flags="0"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.XmlAttributeComponent">
+    <ROW XmlAttribute="assembly" XmlElement="add_1" Name="assembly" Flags="14" Order="0" Value="Microsoft.AspNet.Web.Optimization.WebForms"/>
+    <ROW XmlAttribute="compilerOptions" XmlElement="compiler" Name="compilerOptions" Flags="14" Order="4" Value="/langversion:6 /nowarn:1659;1699;1701"/>
+    <ROW XmlAttribute="compilerOptions_1" XmlElement="compiler_1" Name="compilerOptions" Flags="14" Order="4" Value="/langversion:14 /nowarn:41008 /define:_MYTYPE=\&quot;Web\&quot; /optionInfer+"/>
+    <ROW XmlAttribute="connectionString" XmlElement="add_2" Name="connectionString" Flags="14" Order="0" Value="INITIAL CATALOG = CareMonitor; DATA SOURCE =DESKTOP-UGU0FER; INTEGRATED SECURITY = SSPI"/>
+    <ROW XmlAttribute="connectionString_1" XmlElement="add_3" Name="connectionString" Flags="14" Order="0" Value="INITIAL CATALOG = CareMonitorBitacora; DATA SOURCE =DESKTOP-UGU0FER; INTEGRATED SECURITY = SSPI"/>
+    <ROW XmlAttribute="connectionString_2" XmlElement="add_4" Name="connectionString" Flags="14" Order="0" Value="INITIAL CATALOG = Master; DATA SOURCE =DESKTOP-UGU0FER; INTEGRATED SECURITY = SSPI"/>
+    <ROW XmlAttribute="extension" XmlElement="compiler" Name="extension" Flags="14" Order="1" Value=".cs"/>
+    <ROW XmlAttribute="extension_1" XmlElement="compiler_1" Name="extension" Flags="14" Order="1" Value=".vb"/>
+    <ROW XmlAttribute="key" XmlElement="add_5" Name="key" Flags="15" Order="0" Value="BaseDatos"/>
+    <ROW XmlAttribute="key_1" XmlElement="add_6" Name="key" Flags="15" Order="0" Value="BaseBitacora"/>
+    <ROW XmlAttribute="key_2" XmlElement="add_7" Name="key" Flags="15" Order="0" Value="Master"/>
+    <ROW XmlAttribute="language" XmlElement="compiler" Name="language" Flags="14" Order="0" Value="c#;cs;csharp"/>
+    <ROW XmlAttribute="language_1" XmlElement="compiler_1" Name="language" Flags="14" Order="0" Value="vb;vbs;visualbasic;vbscript"/>
+    <ROW XmlAttribute="name" XmlElement="assemblyIdentity" Name="name" Flags="15" Order="0" Value="Antlr3.Runtime"/>
+    <ROW XmlAttribute="name_1" XmlElement="assemblyIdentity_1" Name="name" Flags="15" Order="0" Value="Newtonsoft.Json"/>
+    <ROW XmlAttribute="name_2" XmlElement="assemblyIdentity_2" Name="name" Flags="15" Order="0" Value="WebGrease"/>
+    <ROW XmlAttribute="name_3" XmlElement="add_2" Name="name" Flags="15" Order="1" Value="BaseDatos"/>
+    <ROW XmlAttribute="name_4" XmlElement="add_3" Name="name" Flags="15" Order="1" Value="BaseBitacora"/>
+    <ROW XmlAttribute="name_5" XmlElement="add_4" Name="name" Flags="15" Order="1" Value="Master"/>
+    <ROW XmlAttribute="namespace" XmlElement="add" Name="namespace" Flags="14" Order="0" Value="System.Web.Optimization"/>
+    <ROW XmlAttribute="namespace_1" XmlElement="add_1" Name="namespace" Flags="14" Order="1" Value="Microsoft.AspNet.Web.Optimization.WebForms"/>
+    <ROW XmlAttribute="newVersion" XmlElement="bindingRedirect" Name="newVersion" Flags="14" Order="1" Value="3.5.0.2"/>
+    <ROW XmlAttribute="newVersion_1" XmlElement="bindingRedirect_1" Name="newVersion" Flags="14" Order="1" Value="12.0.0.0"/>
+    <ROW XmlAttribute="newVersion_2" XmlElement="bindingRedirect_2" Name="newVersion" Flags="14" Order="1" Value="1.6.5135.21930"/>
+    <ROW XmlAttribute="oldVersion" XmlElement="bindingRedirect" Name="oldVersion" Flags="14" Order="0" Value="0.0.0.0-3.5.0.2"/>
+    <ROW XmlAttribute="oldVersion_1" XmlElement="bindingRedirect_1" Name="oldVersion" Flags="14" Order="0" Value="0.0.0.0-12.0.0.0"/>
+    <ROW XmlAttribute="oldVersion_2" XmlElement="bindingRedirect_2" Name="oldVersion" Flags="14" Order="0" Value="0.0.0.0-1.6.5135.21930"/>
+    <ROW XmlAttribute="publicKeyToken" XmlElement="assemblyIdentity" Name="publicKeyToken" Flags="14" Order="1" Value="eb42632606e9261f"/>
+    <ROW XmlAttribute="publicKeyToken_1" XmlElement="assemblyIdentity_1" Name="publicKeyToken" Flags="14" Order="1" Value="30ad4fe6b2a6aeed"/>
+    <ROW XmlAttribute="publicKeyToken_2" XmlElement="assemblyIdentity_2" Name="publicKeyToken" Flags="14" Order="1" Value="31bf3856ad364e35"/>
+    <ROW XmlAttribute="tagPrefix" XmlElement="add_1" Name="tagPrefix" Flags="14" Order="2" Value="webopt"/>
+    <ROW XmlAttribute="targetFramework" XmlElement="compilation" Name="targetFramework" Flags="14" Order="0" Value="4.5.1"/>
+    <ROW XmlAttribute="targetFramework_1" XmlElement="httpRuntime" Name="targetFramework" Flags="14" Order="0" Value="4.5.1"/>
+    <ROW XmlAttribute="type" XmlElement="compiler" Name="type" Flags="14" Order="2" Value="Microsoft.CodeDom.Providers.DotNetCompilerPlatform.CSharpCodeProvider, Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=2.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"/>
+    <ROW XmlAttribute="type_1" XmlElement="compiler_1" Name="type" Flags="14" Order="2" Value="Microsoft.CodeDom.Providers.DotNetCompilerPlatform.VBCodeProvider, Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=2.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"/>
+    <ROW XmlAttribute="value" XmlElement="add_5" Name="value" Flags="14" Order="1" Value="INITIAL CATALOG = CareMonitor; DATA SOURCE =[SERVER_PROP]; INTEGRATED SECURITY = SSPI"/>
+    <ROW XmlAttribute="value_1" XmlElement="add_6" Name="value" Flags="14" Order="1" Value="INITIAL CATALOG = CareMonitorBitacora; DATA SOURCE =[SERVER_PROP]; INTEGRATED SECURITY = SSPI"/>
+    <ROW XmlAttribute="value_2" XmlElement="add_7" Name="value" Flags="14" Order="1" Value="INITIAL CATALOG = master; DATA SOURCE =[SERVER_PROP]; INTEGRATED SECURITY = SSPI"/>
+    <ROW XmlAttribute="value_3" XmlElement="remove" Name="value" Flags="14" Order="0" Value="Default.htm"/>
+    <ROW XmlAttribute="value_4" XmlElement="remove_1" Name="value" Flags="14" Order="0" Value="Default.asp"/>
+    <ROW XmlAttribute="value_5" XmlElement="remove_2" Name="value" Flags="14" Order="0" Value="index.htm"/>
+    <ROW XmlAttribute="value_6" XmlElement="remove_3" Name="value" Flags="14" Order="0" Value="index.html"/>
+    <ROW XmlAttribute="value_7" XmlElement="remove_4" Name="value" Flags="14" Order="0" Value="iisstart.htm"/>
+    <ROW XmlAttribute="value_8" XmlElement="remove_5" Name="value" Flags="14" Order="0" Value="default.aspx"/>
+    <ROW XmlAttribute="value_9" XmlElement="add_8" Name="value" Flags="14" Order="0" Value="Forms/Login.aspx"/>
+    <ROW XmlAttribute="warningLevel" XmlElement="compiler" Name="warningLevel" Flags="14" Order="3" Value="4"/>
+    <ROW XmlAttribute="warningLevel_1" XmlElement="compiler_1" Name="warningLevel" Flags="14" Order="3" Value="4"/>
+    <ROW XmlAttribute="xmlns" XmlElement="assemblyBinding" Name="xmlns" Flags="14" Order="0" Value="urn:schemas-microsoft-com:asm.v1"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.XmlElementComponent">
+    <ROW XmlElement="add" ParentElement="namespaces" Name="add" Condition="1" Order="0" Flags="14" UpdateIndexInParent="0"/>
+    <ROW XmlElement="add_1" ParentElement="controls" Name="add" Condition="1" Order="0" Flags="14" UpdateIndexInParent="0"/>
+    <ROW XmlElement="add_2" ParentElement="connectionStrings" Name="add" Condition="1" Order="0" Flags="14" UpdateIndexInParent="0"/>
+    <ROW XmlElement="add_3" ParentElement="connectionStrings" Name="add" Condition="1" Order="1" Flags="14" UpdateIndexInParent="0"/>
+    <ROW XmlElement="add_4" ParentElement="connectionStrings" Name="add" Condition="1" Order="2" Flags="14" UpdateIndexInParent="0"/>
+    <ROW XmlElement="add_5" ParentElement="appSettings" Name="add" Condition="1" Order="0" Flags="14" UpdateIndexInParent="0"/>
+    <ROW XmlElement="add_6" ParentElement="appSettings" Name="add" Condition="1" Order="1" Flags="14" UpdateIndexInParent="0"/>
+    <ROW XmlElement="add_7" ParentElement="appSettings" Name="add" Condition="1" Order="2" Flags="14" UpdateIndexInParent="0"/>
+    <ROW XmlElement="add_8" ParentElement="files" Name="add" Condition="1" Order="6" Flags="14" UpdateIndexInParent="0"/>
+    <ROW XmlElement="appSettings" ParentElement="configuration" Name="appSettings" Condition="1" Order="4" Flags="14" UpdateIndexInParent="0"/>
+    <ROW XmlElement="assemblyBinding" ParentElement="runtime" Name="assemblyBinding" Condition="1" Order="0" Flags="14" UpdateIndexInParent="0"/>
+    <ROW XmlElement="assemblyIdentity" ParentElement="dependentAssembly" Name="assemblyIdentity" Condition="1" Order="0" Flags="14" UpdateIndexInParent="0"/>
+    <ROW XmlElement="assemblyIdentity_1" ParentElement="dependentAssembly_1" Name="assemblyIdentity" Condition="1" Order="0" Flags="14" UpdateIndexInParent="0"/>
+    <ROW XmlElement="assemblyIdentity_2" ParentElement="dependentAssembly_2" Name="assemblyIdentity" Condition="1" Order="0" Flags="14" UpdateIndexInParent="0"/>
+    <ROW XmlElement="bindingRedirect" ParentElement="dependentAssembly" Name="bindingRedirect" Condition="1" Order="1" Flags="14" UpdateIndexInParent="0"/>
+    <ROW XmlElement="bindingRedirect_1" ParentElement="dependentAssembly_1" Name="bindingRedirect" Condition="1" Order="1" Flags="14" UpdateIndexInParent="0"/>
+    <ROW XmlElement="bindingRedirect_2" ParentElement="dependentAssembly_2" Name="bindingRedirect" Condition="1" Order="1" Flags="14" UpdateIndexInParent="0"/>
+    <ROW XmlElement="compilation" ParentElement="system.web" Name="compilation" Condition="1" Order="0" Flags="14" UpdateIndexInParent="0"/>
+    <ROW XmlElement="compiler" ParentElement="compilers" Name="compiler" Condition="1" Order="0" Flags="14" UpdateIndexInParent="0"/>
+    <ROW XmlElement="compiler_1" ParentElement="compilers" Name="compiler" Condition="1" Order="1" Flags="14" UpdateIndexInParent="0"/>
+    <ROW XmlElement="compilers" ParentElement="system.codedom" Name="compilers" Condition="1" Order="0" Flags="14" UpdateIndexInParent="0"/>
+    <ROW XmlElement="configuration" Name="configuration" Condition="1" Order="0" Flags="30" UpdateIndexInParent="0"/>
+    <ROW XmlElement="connectionStrings" ParentElement="configuration" Name="connectionStrings" Condition="1" Order="3" Flags="14" UpdateIndexInParent="0"/>
+    <ROW XmlElement="controls" ParentElement="pages" Name="controls" Condition="1" Order="1" Flags="14" UpdateIndexInParent="0"/>
+    <ROW XmlElement="defaultDocument" ParentElement="system.webServer" Name="defaultDocument" Condition="1" Order="0" Flags="14" UpdateIndexInParent="0"/>
+    <ROW XmlElement="dependentAssembly" ParentElement="assemblyBinding" Name="dependentAssembly" Condition="1" Order="0" Flags="14" UpdateIndexInParent="0"/>
+    <ROW XmlElement="dependentAssembly_1" ParentElement="assemblyBinding" Name="dependentAssembly" Condition="1" Order="1" Flags="14" UpdateIndexInParent="0"/>
+    <ROW XmlElement="dependentAssembly_2" ParentElement="assemblyBinding" Name="dependentAssembly" Condition="1" Order="2" Flags="14" UpdateIndexInParent="0"/>
+    <ROW XmlElement="files" ParentElement="defaultDocument" Name="files" Condition="1" Order="0" Flags="14" UpdateIndexInParent="0"/>
+    <ROW XmlElement="httpRuntime" ParentElement="system.web" Name="httpRuntime" Condition="1" Order="1" Flags="14" UpdateIndexInParent="0"/>
+    <ROW XmlElement="namespaces" ParentElement="pages" Name="namespaces" Condition="1" Order="0" Flags="14" UpdateIndexInParent="0"/>
+    <ROW XmlElement="pages" ParentElement="system.web" Name="pages" Condition="1" Order="2" Flags="14" UpdateIndexInParent="0"/>
+    <ROW XmlElement="remove" ParentElement="files" Name="remove" Condition="1" Order="0" Flags="14" UpdateIndexInParent="0"/>
+    <ROW XmlElement="remove_1" ParentElement="files" Name="remove" Condition="1" Order="1" Flags="14" UpdateIndexInParent="0"/>
+    <ROW XmlElement="remove_2" ParentElement="files" Name="remove" Condition="1" Order="2" Flags="14" UpdateIndexInParent="0"/>
+    <ROW XmlElement="remove_3" ParentElement="files" Name="remove" Condition="1" Order="3" Flags="14" UpdateIndexInParent="0"/>
+    <ROW XmlElement="remove_4" ParentElement="files" Name="remove" Condition="1" Order="4" Flags="14" UpdateIndexInParent="0"/>
+    <ROW XmlElement="remove_5" ParentElement="files" Name="remove" Condition="1" Order="5" Flags="14" UpdateIndexInParent="0"/>
+    <ROW XmlElement="runtime" ParentElement="configuration" Name="runtime" Condition="1" Order="1" Flags="14" UpdateIndexInParent="0"/>
+    <ROW XmlElement="system.codedom" ParentElement="configuration" Name="system.codedom" Condition="1" Order="2" Flags="14" UpdateIndexInParent="0"/>
+    <ROW XmlElement="system.web" ParentElement="configuration" Name="system.web" Condition="1" Order="0" Flags="14" UpdateIndexInParent="0"/>
+    <ROW XmlElement="system.webServer" ParentElement="configuration" Name="system.webServer" Condition="1" Order="5" Flags="14" UpdateIndexInParent="0"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.XmlFileComponent">
+    <ROW XmlFile="Web.config" FileName="WEB~1.CON|Web.config" DirProperty="NewFolder_Dir" Component="About.aspx" RootElement="configuration" Flags="89" Version="1.0" Encoding="UTF-8" IndentUnits="2"/>
   </COMPONENT>
 </DOCUMENT>

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
 using System.Configuration;
-
+using System.Xml;
 
 namespace DAL
 {
@@ -17,9 +17,10 @@ namespace DAL
 
         SqlConnection Conexion = new SqlConnection();
         private SqlTransaction tx;
-
+        
         
         public void AbrirConexion() {
+            
             //Conexion.ConnectionString = @"Data Source=DESKTOP-UGU0FER;Initial Catalog=CareMonitor;Integrated Security= True"; 
             Conexion.ConnectionString = ConfigurationSettings.AppSettings["BaseDatos"];
             Conexion.Open();
