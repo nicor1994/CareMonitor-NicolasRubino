@@ -581,10 +581,6 @@
     <ROW Dialog_="NewDialog" Control_="Cancel" Event="SpawnDialog" Argument="CancelDlg" Condition="1" Ordering="100"/>
     <ROW Dialog_="NewDialog" Control_="Next" Event="NewDialog" Argument="VerifyReadyDlg" Condition="AI_INSTALL" Ordering="1"/>
     <ROW Dialog_="NewDialog" Control_="Back" Event="NewDialog" Argument="FolderDlg" Condition="AI_INSTALL" Ordering="1"/>
-    <ROW Dialog_="NewDialog" Control_="ComboBox_1" Event="DoAction" Argument="TestODBCConnection" Condition="1" Ordering="1"/>
-    <ROW Dialog_="NewDialog" Control_="ComboBox_1" Event="DoAction" Argument="AI_DATA_SETTER_5" Condition="1" Ordering="0"/>
-    <ROW Dialog_="NewDialog" Control_="ComboBox_1" Event="DoAction" Argument="BrowseSqlServers" Condition="1" Ordering="3"/>
-    <ROW Dialog_="NewDialog" Control_="ComboBox_1" Event="DoAction" Argument="AI_DATA_SETTER_4" Condition="1" Ordering="2"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiCreateFolderComponent">
     <ROW Directory_="APPDIR" Component_="APPDIR" ManualDelete="true"/>
@@ -599,7 +595,6 @@
     <ROW Action="AI_DATA_SETTER_2" Type="51" Source="CustomActionData" Target="[~]"/>
     <ROW Action="AI_DATA_SETTER_3" Type="51" Source="CustomActionData" Target="[~]"/>
     <ROW Action="AI_DATA_SETTER_4" Type="51" Source="CustomActionData" Target="ServerBrowse"/>
-    <ROW Action="AI_DATA_SETTER_5" Type="51" Source="CustomActionData" Target="TestConnection"/>
     <ROW Action="AI_DATA_SETTER_6" Type="51" Source="CustomActionData" Target="[~]"/>
     <ROW Action="AI_DATA_SETTER_7" Type="51" Source="CustomActionData" Target="[~]"/>
     <ROW Action="AI_DOWNGRADE" Type="19" Target="4010"/>
@@ -645,12 +640,11 @@
     <ROW Action="AI_XmlRollback" Type="11521" Source="xmlCfg.dll" Target="OnXmlRollback" WithoutSeq="true"/>
     <ROW Action="AI_XmlUninstall" Type="1" Source="xmlCfg.dll" Target="OnXmlUninstall" AdditionalSeq="AI_DATA_SETTER_7"/>
     <ROW Action="BrowseIIS" Type="1" Source="iis.dll" Target="IIsBrowseServer" AdditionalSeq="AI_DATA_SETTER"/>
-    <ROW Action="BrowseSqlServers" Type="1" Source="sql.dll" Target="BrowseSqlServers" WithoutSeq="true" AdditionalSeq="AI_DATA_SETTER_4"/>
+    <ROW Action="BrowseSqlServers" Type="1" Source="sql.dll" Target="BrowseSqlServers" AdditionalSeq="AI_DATA_SETTER_4"/>
     <ROW Action="OpenUrl" Type="2" Source="viewer.exe" Target="http://localhost" Options="1"/>
     <ROW Action="SET_APPDIR" Type="307" Source="APPDIR" Target="[ProgramFilesFolder][Manufacturer]\[ProductName]"/>
     <ROW Action="SET_SHORTCUTDIR" Type="307" Source="SHORTCUTDIR" Target="[ProgramMenuFolder][ProductName]"/>
     <ROW Action="SET_TARGETDIR_TO_APPDIR" Type="51" Source="TARGETDIR" Target="[APPDIR]"/>
-    <ROW Action="TestODBCConnection" Type="1" Source="sql.dll" Target="TestSqlConnection" WithoutSeq="true" AdditionalSeq="AI_DATA_SETTER_5"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiDialogComponent">
     <ROW Dialog="NewDialog" HCentering="50" VCentering="50" Width="370" Height="270" Attributes="3" Title="[ProductName] [Setup]" Control_Default="Next" Control_Cancel="Cancel"/>
@@ -780,6 +774,8 @@
     <ROW Action="AI_BACKUP_AI_SETUPEXEPATH" Sequence="99"/>
     <ROW Action="AI_RESTORE_AI_SETUPEXEPATH" Condition="AI_SETUPEXEPATH_ORIGINAL" Sequence="102"/>
     <ROW Action="AI_AppSearchEx" Sequence="101"/>
+    <ROW Action="BrowseSqlServers" Condition="1" Sequence="1228"/>
+    <ROW Action="AI_DATA_SETTER_4" Condition="1" Sequence="1227"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.MsiLaunchConditionsComponent">
     <ROW Condition="((VersionNT &lt;&gt; 501) AND (VersionNT &lt;&gt; 502))" Description="[ProductName] cannot be installed on [WindowsTypeNT5XDisplay]." DescriptionLocId="AI.LaunchCondition.NoNT5X" IsPredefined="true" Builds="DefaultBuild"/>
@@ -813,7 +809,7 @@
     <ROW SearchKey="EDD0228464354F269D1E1FAEB8A9084FRel" Prereq="EDD0228464354F269D1E1FAEB8A9084F" SearchType="9" SearchString="HKLM\SOFTWARE\Microsoft\NET Framework Setup\NDP\v4\Full\Release" RefContent="G378757" Order="1" Property="PreReqSearch_EDD0228464354F269D1E1F"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.SqlBrowseComponent">
-    <ROW BrowseName="ServerBrowse" Flags="101483" TimeOut="60" ComboBoxProp="SERVER_PROP"/>
+    <ROW BrowseName="ServerBrowse" Flags="101483" TimeOut="60" ComboBoxProp="COMBOBOX_1_PROP" OutputProp="SERVER_PROP"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.SqlConnectionComponent">
     <ROW ConnectionName="Predef" Condition="1" Dbms="0" OdbcResource="SQL Server" Server="(local)" Port="1433" Database="Database" Username="[LogonUser]" Flags="14" Order="0" LoginTimeout="60"/>
@@ -822,9 +818,6 @@
     <ROW ScriptName="ScriptCareMonitor" ConnectionName="Predef" Condition="1" Separator="GO" ScriptText="ScriptCareMonitor.sql" Flags="18" Order="0"/>
     <ROW ScriptName="ScriptCareMonitorBitacora" ConnectionName="Predef" Condition="1" Separator="GO" ScriptText="ScriptCareMonitorBitacora.sql" Flags="18" Order="1"/>
     <ATTRIBUTE name="ImpersonateUser" value="true"/>
-  </COMPONENT>
-  <COMPONENT cid="caphyon.advinst.msicomp.SqlTestConnectionComponent">
-    <ROW Name="TestConnection" ConnectionString="Driver=[\{]SQL Server[\}];Server=[SERVER_PROP];Uid=[USERNAME_PROP];Pwd=[PASSWORD_PROP];" Flags="4" TimeOut="60" OutputProp="SqlConnectionOK"/>
   </COMPONENT>
   <COMPONENT cid="caphyon.advinst.msicomp.SynchronizedFolderComponent">
     <ROW Directory_="NewFolder_Dir" SourcePath="..\..\..\..\..\..\..\inetpub\wwwroot" Feature="MainFeature" ExcludePattern="*~|#*#|%*%|._|CVS|.cvsignore|SCCS|vssver.scc|mssccprj.scc|vssver2.scc|.svn|.DS_Store" ExcludeFlags="6" FileAddOptions="4"/>
