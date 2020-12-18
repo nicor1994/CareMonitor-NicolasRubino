@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
+using System.Configuration;
+
 
 namespace DAL
 {
@@ -16,20 +18,24 @@ namespace DAL
         SqlConnection Conexion = new SqlConnection();
         private SqlTransaction tx;
 
+        
         public void AbrirConexion() {
-            Conexion.ConnectionString = @"Data Source=DESKTOP-UGU0FER;Initial Catalog=CareMonitor;Integrated Security= True";
+            //Conexion.ConnectionString = @"Data Source=DESKTOP-UGU0FER;Initial Catalog=CareMonitor;Integrated Security= True"; 
+            Conexion.ConnectionString = ConfigurationSettings.AppSettings["BaseDatos"];
             Conexion.Open();
         }
 
         public void AbrirConexionBitacora()
         {
-            Conexion.ConnectionString = @"Data Source=DESKTOP-UGU0FER;Initial Catalog=CareMonitorBitacora;Integrated Security= True";
+            //Conexion.ConnectionString = @"Data Source=DESKTOP-UGU0FER;Initial Catalog=CareMonitorBitacora;Integrated Security= True";
+            Conexion.ConnectionString = ConfigurationSettings.AppSettings["BaseBitacora"];
             Conexion.Open();
         }
 
         public void AbrirConexionMaster()
         {
-            Conexion.ConnectionString = @"Data Source=DESKTOP-UGU0FER;Initial Catalog=master;Integrated Security= True";
+            //Conexion.ConnectionString = @"Data Source=DESKTOP-UGU0FER;Initial Catalog=master;Integrated Security= True";
+            Conexion.ConnectionString = ConfigurationSettings.AppSettings["Master"];
             Conexion.Open();
         }
         public void CerrarConexion()

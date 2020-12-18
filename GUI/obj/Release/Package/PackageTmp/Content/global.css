@@ -1,0 +1,150 @@
+﻿
+    .bg {
+    background: url('../Imagenes/FondoLogin.jpg') no-repeat !important;
+    width: 100% !important;
+    height: 100vh;
+    background-size: 200%;
+}
+
+.bg-verde{
+    background-color: rgb(21, 166, 126);
+}
+
+.bg-gris{
+    background-color: rgb(234,237,242)
+}
+
+
+
+.form-container{
+    position: absolute;
+    top:5vh;
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 0px #000;
+}
+
+#sidebar-container {
+    min-height: 100vh;
+    /*margin-left: -18rem;*/
+    transition: margin .25s ease-in-out;
+}
+
+#sidebar-container .logo{
+    padding: .875rem 1.25rem;
+    font-size: 1.2rem;
+}
+
+#sidebar-container .menu{
+    width: 18rem;
+}
+
+ion-icon {
+    -moz-box-align: center;
+    margin-right: 2px;
+    
+    
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+.dropdown-menu {
+    right: 0 !important;
+    left: auto !important;
+}
+
+.sinpadding {
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
+}
+
+.sidebar {
+    height: 100%; /* 100% Full-height */
+    width: 100%; /* 0 width - change this with JavaScript */
+  /*  position: fixed;*/ /* Stay in place */
+   /* z-index: 1; *//* Stay on top */
+    top: 0;
+    left: 0;
+     /* Black*/
+    overflow-x: hidden; /* Disable horizontal scroll */
+    /*padding-top: 60px; *//* Place content 60px from the top */
+    transition: 0.5s; /* 0.5 second transition effect to slide in the sidebar */
+}
+
+    /* The sidebar links */
+    .sidebar a {
+        padding: 8px 8px 8px 32px;
+        text-decoration: none;
+        font-size: 15px;
+        color: #000;
+        display: block;
+        transition: 0.3s;
+    }
+        /* When you mouse over the navigation links, change their color */
+        .sidebar a:hover {
+            color: rgb(21, 166, 126);
+        }
+
+    /* Position and style the close button (top right corner) */
+    .sidebar .closebtn {
+        /*position: absolute;
+        top: 0;
+        right: 25px;
+        font-size: 36px;
+        margin-left: 50px;
+        background-color : rgb(234,237,242);*/
+    }
+
+/* The button used to open the sidebar */
+.openbtn {
+    font-size: 20px;
+    cursor: pointer;
+    background-color: rgb(115,115,115);
+    color: white;
+    padding: 10px 15px;
+    border: none;
+}
+
+    .openbtn:hover {
+        background-color: #444;
+    }
+
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none !important;
+    margin: 0 !important;
+}
+
+
+.isOtherMonth {
+    background-color: transparent !important;
+}
+
+    .isOtherMonth table td span {
+        display: none;
+    }
+
+table tr td {
+    vertical-align: top;
+    display: table-cell !important;
+}
+
+    table tr td a {
+        float: right;
+        padding: 10px;
+        font-size: 18px;
+    }
+
+    table tr td span {
+    }
+
+.table-bordered {
+    border: 1px solid #080000;
+}

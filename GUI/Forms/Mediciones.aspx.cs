@@ -29,8 +29,11 @@ namespace GUI.Forms
                     dropdownParametros.DataSource = null;
                     dropdownParametros.DataSource = ListaParametros;
                     dropdownParametros.DataBind();
-                    lblDesc.Text = ListaParametros[dropdownParametros.SelectedIndex].Descripcion;
-                }
+                    if (ListaParametros == null)
+                    {
+                        lblDesc.Text = ListaParametros[dropdownParametros.SelectedIndex].Descripcion;
+                    }
+                    }
                 ListaParametros = (List<BE.TipoMedicion>)Session["ListaParametros"];
             }
             else
@@ -46,7 +49,10 @@ namespace GUI.Forms
 
         protected void dropdownParametros_SelectedIndexChanged(object sender, EventArgs e)
         {
-            lblDesc.Text = ListaParametros[dropdownParametros.SelectedIndex].Descripcion;
+            if (ListaParametros == null)
+            {
+                lblDesc.Text = ListaParametros[dropdownParametros.SelectedIndex].Descripcion;
+            }
         }
 
         protected void btnAgregar_Click(object sender, EventArgs e)

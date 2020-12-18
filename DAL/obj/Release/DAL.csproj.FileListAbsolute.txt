@@ -1,0 +1,11 @@
+C:\Users\Nico\Documents\UAI\TFI\CareMonitor\CareMonitor\DAL\bin\Release\DAL.dll
+C:\Users\Nico\Documents\UAI\TFI\CareMonitor\CareMonitor\DAL\bin\Release\DAL.pdb
+C:\Users\Nico\Documents\UAI\TFI\CareMonitor\CareMonitor\DAL\bin\Release\BE.dll
+C:\Users\Nico\Documents\UAI\TFI\CareMonitor\CareMonitor\DAL\bin\Release\Seguridad.dll
+C:\Users\Nico\Documents\UAI\TFI\CareMonitor\CareMonitor\DAL\bin\Release\BE.pdb
+C:\Users\Nico\Documents\UAI\TFI\CareMonitor\CareMonitor\DAL\bin\Release\Seguridad.pdb
+C:\Users\Nico\Documents\UAI\TFI\CareMonitor\CareMonitor\DAL\obj\Release\DAL.csprojAssemblyReference.cache
+C:\Users\Nico\Documents\UAI\TFI\CareMonitor\CareMonitor\DAL\obj\Release\DAL.csproj.CoreCompileInputs.cache
+C:\Users\Nico\Documents\UAI\TFI\CareMonitor\CareMonitor\DAL\obj\Release\DAL.csproj.CopyComplete
+C:\Users\Nico\Documents\UAI\TFI\CareMonitor\CareMonitor\DAL\obj\Release\DAL.dll
+C:\Users\Nico\Documents\UAI\TFI\CareMonitor\CareMonitor\DAL\obj\Release\DAL.pdb

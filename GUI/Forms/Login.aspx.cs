@@ -73,7 +73,7 @@ namespace GUI.Forms
                                     Session["UsuarioEnSesion"] = ususesion;
                                     Session["Idioma"] = GestorTraductor.ListarDefault();
                                     //Response.Redirect(GestorPermiso.RedireccionarLogin(ususesion));
-                                    Response.Redirect("VistaTecnologia.aspx");
+                                    Response.Redirect("Forms/VistaTecnologia.aspx");
                                 
                                
                             }

@@ -143,7 +143,7 @@ namespace GUI
                 {
                     Roles.Visible = true;
                 }
-                if (per.ID == 1)
+                if (per.ID == 18)
                 {
                     GestionEnfermedades.Visible = true;
                 }
