@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-    <base>
-        <BaseDatos>INITIAL CATALOG = CareMonitor; DATA SOURCE =DESKTOP-UGU0FER; INTEGRATED SECURITY = SSPI</BaseDatos>
-        <BaseBitacora>INITIAL CATALOG = CareMonitorBitacora; DATA SOURCE =DESKTOP-UGU0FER; INTEGRATED SECURITY = SSPI</BaseBitacora>
-        <Master">INITIAL CATALOG = master; DATA SOURCE =DESKTOP-UGU0FER; INTEGRATED SECURITY = SSPI</Master>
-    </base>

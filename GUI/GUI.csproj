@@ -188,7 +188,7 @@
     <Content Include="Forms\VistaMedico.aspx" />
     <Content Include="Forms\VistaPaciente.aspx" />
     <Content Include="Forms\VistaServicio.aspx" />
-    <Content Include="Forms\VistaTecnologia.aspx" />
+    <Content Include="VistaTecnologia.aspx" />
     <Content Include="Imagenes\Care Monitor.jpg" />
     <Content Include="Imagenes\FondoLogin.jpg" />
     <Content Include="Imagenes\LoginWallpaper.jpg" />
@@ -528,11 +528,11 @@
     <Compile Include="Forms\VistaServicio.aspx.designer.cs">
       <DependentUpon>VistaServicio.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Forms\VistaTecnologia.aspx.cs">
+    <Compile Include="VistaTecnologia.aspx.cs">
       <DependentUpon>VistaTecnologia.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Forms\VistaTecnologia.aspx.designer.cs">
+    <Compile Include="VistaTecnologia.aspx.designer.cs">
       <DependentUpon>VistaTecnologia.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pruebas\AltaUsuario.aspx.cs">

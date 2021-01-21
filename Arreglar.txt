@@ -1,6 +1,0 @@
--Ahora que borre la base explota todo lo que queda en null
-	-Mediciones
-	-Reportes NO explotan
-	-Revisar Dropdown vacio en Habitos
-	-Revisar Que aparece Gestion de Enfermedades en Permiso Paciente (Se confunde con Servicios???)
-	-Cierre de servicio se agrega aparte del rol, igual no me sirve, borrarlo
